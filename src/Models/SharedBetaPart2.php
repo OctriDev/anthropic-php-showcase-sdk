@@ -56,8 +56,12 @@ class BetaBillingError implements BetaManagedAgentsError, BetaDreamingError, Bet
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "billing_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -104,7 +108,9 @@ class BetaCapabilitySupport implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "supported") || $data->supported === null) { throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null"); }
+        if (!property_exists($data, "supported") || $data->supported === null) {
+            throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null");
+        }
         return new self(
             supported: SdkClient::boolValue($data->supported),
         );
@@ -186,7 +192,9 @@ class BetaCompact20260112 implements BetaContextManagementConfigEditsItem, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "compact_20260112");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -286,12 +294,24 @@ class BetaCompactionIterationUsage implements BetaUsageIterationsItem, \JsonSeri
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation")) { throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'"); }
-        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null"); }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "cache_creation")) {
+            throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'");
+        }
+        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) {
+            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
+            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
+            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
+            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "compaction");
         return new self(
             cacheCreation: ($data->cache_creation === null ? null : SdkClient::hydrateClass($data->cache_creation, BetaCacheCreation::class)),
@@ -315,11 +335,26 @@ final readonly class BetaCostReportTokenType implements SdkOpenEnum
     public const OUTPUT_TOKENS = "output_tokens";
     public const UNCACHED_INPUT_TOKENS = "uncached_input_tokens";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -330,9 +365,24 @@ final readonly class BetaCreatedByTypeEnum implements SdkOpenEnum
     public const SERVICE_ACCOUNT = "service_account";
     public const USER = "user";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

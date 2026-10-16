@@ -65,9 +65,15 @@ class BetaManagedAgentsBillingError implements BetaManagedAgentsSessionErrorEven
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "retry_status") || $data->retry_status === null) { throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "retry_status") || $data->retry_status === null) {
+            throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsBillingErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -132,8 +138,12 @@ class BetaManagedAgentsBranchCheckout implements BetaManagedAgentsRepositoryChec
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsBranchCheckoutTypeEnum::class),
             name: SdkClient::stringValue($data->name),
@@ -197,8 +207,12 @@ class BetaManagedAgentsBudgetLimit implements BetaManagedAgentsBudget, \JsonSeri
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "max_list_cost") || $data->max_list_cost === null) { throw new SdkValidationError("max_list_cost", 'required', "Required property 'max_list_cost' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "max_list_cost") || $data->max_list_cost === null) {
+            throw new SdkValidationError("max_list_cost", 'required', "Required property 'max_list_cost' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsBudgetLimitTypeEnum::class),
             maxListCost: SdkClient::hydrateClass($data->max_list_cost, BetaMonetaryAmount::class),
@@ -321,8 +335,12 @@ class BetaManagedAgentsCommitCheckout implements BetaManagedAgentsRepositoryChec
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "sha") || $data->sha === null) { throw new SdkValidationError("sha", 'required', "Required property 'sha' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "sha") || $data->sha === null) {
+            throw new SdkValidationError("sha", 'required', "Required property 'sha' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCommitCheckoutTypeEnum::class),
             sha: SdkClient::stringValue($data->sha),

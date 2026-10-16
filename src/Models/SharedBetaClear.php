@@ -58,7 +58,9 @@ class BetaClearThinking20251015 implements BetaContextManagementConfigEditsItem,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "clear_thinking_20251015");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -166,7 +168,9 @@ class BetaClearToolUses20250919 implements BetaContextManagementConfigEditsItem,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "clear_tool_uses_20250919");
         return new self(
             type: SdkClient::stringValue($data->type),

@@ -65,9 +65,15 @@ class BetaManagedAgentsBase64DocumentSource implements BetaManagedAgentsDocument
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "media_type") || $data->media_type === null) { throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null"); }
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "media_type") || $data->media_type === null) {
+            throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null");
+        }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsBase64DocumentSourceTypeEnum::class),
             mediaType: SdkClient::stringValue($data->media_type),
@@ -142,9 +148,15 @@ class BetaManagedAgentsBase64ImageSource implements BetaManagedAgentsImageSource
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "media_type") || $data->media_type === null) { throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null"); }
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "media_type") || $data->media_type === null) {
+            throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null");
+        }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsBase64ImageSourceTypeEnum::class),
             mediaType: SdkClient::stringValue($data->media_type),
@@ -223,10 +235,18 @@ class BetaManagedAgentsBashToolConfig implements BetaManagedAgentsAgentToolConfi
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "enabled") || $data->enabled === null) {
+            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
+        }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
+            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "bash");
         Validation::validateConst("name", $data->name, "bash");
         return new self(
@@ -316,7 +336,9 @@ class BetaManagedAgentsBashToolConfigParams implements BetaManagedAgentsAgentToo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         Validation::validateConst("name", $data->name, "bash");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "bash");

@@ -329,9 +329,15 @@ class BetaCreateMessageParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "messages") || $data->messages === null) { throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null"); }
-        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) { throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "messages") || $data->messages === null) {
+            throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null");
+        }
+        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) {
+            throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
             messages: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaInputMessage::class), SdkClient::arrayValue($data->messages))),

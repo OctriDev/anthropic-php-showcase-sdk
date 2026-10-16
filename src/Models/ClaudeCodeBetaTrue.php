@@ -55,8 +55,12 @@ class BetaApprovalMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "accepted") || $data->accepted === null) { throw new SdkValidationError("accepted", 'required', "Required property 'accepted' is missing or null"); }
-        if (!property_exists($data, "rejected") || $data->rejected === null) { throw new SdkValidationError("rejected", 'required', "Required property 'rejected' is missing or null"); }
+        if (!property_exists($data, "accepted") || $data->accepted === null) {
+            throw new SdkValidationError("accepted", 'required', "Required property 'accepted' is missing or null");
+        }
+        if (!property_exists($data, "rejected") || $data->rejected === null) {
+            throw new SdkValidationError("rejected", 'required', "Required property 'rejected' is missing or null");
+        }
         return new self(
             accepted: SdkClient::intValue($data->accepted),
             rejected: SdkClient::intValue($data->rejected),
@@ -113,8 +117,12 @@ class BetaClaudeCodeApiActor implements BetaClaudeCodeUsageReportItemActor, \Jso
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "api_key_name") || $data->api_key_name === null) { throw new SdkValidationError("api_key_name", 'required', "Required property 'api_key_name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "api_key_name") || $data->api_key_name === null) {
+            throw new SdkValidationError("api_key_name", 'required', "Required property 'api_key_name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "api_actor");
         return new self(
             apiKeyName: SdkClient::stringValue($data->api_key_name),
@@ -253,15 +261,33 @@ class BetaClaudeCodeUsageReportItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "actor") || $data->actor === null) { throw new SdkValidationError("actor", 'required', "Required property 'actor' is missing or null"); }
-        if (!property_exists($data, "core_metrics") || $data->core_metrics === null) { throw new SdkValidationError("core_metrics", 'required', "Required property 'core_metrics' is missing or null"); }
-        if (!property_exists($data, "customer_type") || $data->customer_type === null) { throw new SdkValidationError("customer_type", 'required', "Required property 'customer_type' is missing or null"); }
-        if (!property_exists($data, "date") || $data->date === null) { throw new SdkValidationError("date", 'required', "Required property 'date' is missing or null"); }
-        if (!property_exists($data, "is_remote") || $data->is_remote === null) { throw new SdkValidationError("is_remote", 'required', "Required property 'is_remote' is missing or null"); }
-        if (!property_exists($data, "model_breakdown") || $data->model_breakdown === null) { throw new SdkValidationError("model_breakdown", 'required', "Required property 'model_breakdown' is missing or null"); }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
-        if (!property_exists($data, "terminal_type") || $data->terminal_type === null) { throw new SdkValidationError("terminal_type", 'required', "Required property 'terminal_type' is missing or null"); }
-        if (!property_exists($data, "tool_actions") || $data->tool_actions === null) { throw new SdkValidationError("tool_actions", 'required', "Required property 'tool_actions' is missing or null"); }
+        if (!property_exists($data, "actor") || $data->actor === null) {
+            throw new SdkValidationError("actor", 'required', "Required property 'actor' is missing or null");
+        }
+        if (!property_exists($data, "core_metrics") || $data->core_metrics === null) {
+            throw new SdkValidationError("core_metrics", 'required', "Required property 'core_metrics' is missing or null");
+        }
+        if (!property_exists($data, "customer_type") || $data->customer_type === null) {
+            throw new SdkValidationError("customer_type", 'required', "Required property 'customer_type' is missing or null");
+        }
+        if (!property_exists($data, "date") || $data->date === null) {
+            throw new SdkValidationError("date", 'required', "Required property 'date' is missing or null");
+        }
+        if (!property_exists($data, "is_remote") || $data->is_remote === null) {
+            throw new SdkValidationError("is_remote", 'required', "Required property 'is_remote' is missing or null");
+        }
+        if (!property_exists($data, "model_breakdown") || $data->model_breakdown === null) {
+            throw new SdkValidationError("model_breakdown", 'required', "Required property 'model_breakdown' is missing or null");
+        }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
+            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
+        }
+        if (!property_exists($data, "terminal_type") || $data->terminal_type === null) {
+            throw new SdkValidationError("terminal_type", 'required', "Required property 'terminal_type' is missing or null");
+        }
+        if (!property_exists($data, "tool_actions") || $data->tool_actions === null) {
+            throw new SdkValidationError("tool_actions", 'required', "Required property 'tool_actions' is missing or null");
+        }
         return new self(
             actor: SdkClient::hydrateUnionAs($data->actor, BetaClaudeCodeUsageReportItemActor::class, [BetaClaudeCodeUserActor::class, BetaClaudeCodeApiActor::class], "type", ["api_actor" => BetaClaudeCodeApiActor::class, "user_actor" => BetaClaudeCodeUserActor::class], UnknownBetaClaudeCodeUsageReportItemActor::class),
             coreMetrics: SdkClient::hydrateClass($data->core_metrics, BetaCoreMetrics::class),
@@ -326,8 +352,12 @@ class BetaClaudeCodeUserActor implements BetaClaudeCodeUsageReportItemActor, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "email_address") || $data->email_address === null) { throw new SdkValidationError("email_address", 'required', "Required property 'email_address' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "email_address") || $data->email_address === null) {
+            throw new SdkValidationError("email_address", 'required', "Required property 'email_address' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "user_actor");
         return new self(
             emailAddress: SdkClient::stringValue($data->email_address),

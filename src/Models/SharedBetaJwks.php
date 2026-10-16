@@ -70,7 +70,9 @@ class BetaJwksDiscovery implements BetaFederationIssuerJwks, BetaFederationIssue
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "discovery");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -141,8 +143,12 @@ class BetaJwksExplicitUrl implements BetaFederationIssuerJwks, BetaFederationIss
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "explicit_url");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -201,8 +207,12 @@ class BetaJwksInline implements BetaFederationIssuerJwks, BetaFederationIssuerCr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "keys") || $data->keys === null) { throw new SdkValidationError("keys", 'required', "Required property 'keys' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "keys") || $data->keys === null) {
+            throw new SdkValidationError("keys", 'required', "Required property 'keys' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "inline");
         return new self(
             keys: array_values(array_map(static fn($item) => SdkClient::stringMapValue($item), SdkClient::arrayValue($data->keys))),

@@ -86,11 +86,21 @@ class BetaSelfHostedWorkQueueStats implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "depth") || $data->depth === null) { throw new SdkValidationError("depth", 'required', "Required property 'depth' is missing or null"); }
-        if (!property_exists($data, "oldest_queued_at")) { throw new SdkValidationError("oldest_queued_at", 'required', "Missing required property 'oldest_queued_at'"); }
-        if (!property_exists($data, "pending") || $data->pending === null) { throw new SdkValidationError("pending", 'required', "Required property 'pending' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "workers_polling")) { throw new SdkValidationError("workers_polling", 'required', "Missing required property 'workers_polling'"); }
+        if (!property_exists($data, "depth") || $data->depth === null) {
+            throw new SdkValidationError("depth", 'required', "Required property 'depth' is missing or null");
+        }
+        if (!property_exists($data, "oldest_queued_at")) {
+            throw new SdkValidationError("oldest_queued_at", 'required', "Missing required property 'oldest_queued_at'");
+        }
+        if (!property_exists($data, "pending") || $data->pending === null) {
+            throw new SdkValidationError("pending", 'required', "Required property 'pending' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "workers_polling")) {
+            throw new SdkValidationError("workers_polling", 'required', "Missing required property 'workers_polling'");
+        }
         Validation::validateConst("type", $data->type, "work_queue_stats");
         return new self(
             depth: SdkClient::intValue($data->depth),

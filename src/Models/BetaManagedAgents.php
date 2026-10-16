@@ -21,11 +21,26 @@ final readonly class BetaManagedAgentsAgentToolName implements SdkOpenEnum
     public const WEB_FETCH = "web_fetch";
     public const WEB_SEARCH = "web_search";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -170,9 +185,15 @@ class BetaManagedAgentsAgentToolset20260401_EditInput implements \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_path") || $data->file_path === null) { throw new SdkValidationError("file_path", 'required', "Required property 'file_path' is missing or null"); }
-        if (!property_exists($data, "old_string") || $data->old_string === null) { throw new SdkValidationError("old_string", 'required', "Required property 'old_string' is missing or null"); }
-        if (!property_exists($data, "new_string") || $data->new_string === null) { throw new SdkValidationError("new_string", 'required', "Required property 'new_string' is missing or null"); }
+        if (!property_exists($data, "file_path") || $data->file_path === null) {
+            throw new SdkValidationError("file_path", 'required', "Required property 'file_path' is missing or null");
+        }
+        if (!property_exists($data, "old_string") || $data->old_string === null) {
+            throw new SdkValidationError("old_string", 'required', "Required property 'old_string' is missing or null");
+        }
+        if (!property_exists($data, "new_string") || $data->new_string === null) {
+            throw new SdkValidationError("new_string", 'required', "Required property 'new_string' is missing or null");
+        }
         return new self(
             filePath: SdkClient::stringValue($data->file_path),
             oldString: SdkClient::stringValue($data->old_string),
@@ -232,7 +253,9 @@ class BetaManagedAgentsAgentToolset20260401_GlobInput implements \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "pattern") || $data->pattern === null) { throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null"); }
+        if (!property_exists($data, "pattern") || $data->pattern === null) {
+            throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null");
+        }
         return new self(
             pattern: SdkClient::stringValue($data->pattern),
             path: (property_exists($data, "path") ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),
@@ -290,7 +313,9 @@ class BetaManagedAgentsAgentToolset20260401_GrepInput implements \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "pattern") || $data->pattern === null) { throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null"); }
+        if (!property_exists($data, "pattern") || $data->pattern === null) {
+            throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null");
+        }
         return new self(
             pattern: SdkClient::stringValue($data->pattern),
             path: (property_exists($data, "path") ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),

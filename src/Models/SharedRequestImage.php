@@ -80,8 +80,12 @@ class RequestImageBlock implements InputContentBlock, ContentBlockSourceContentI
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) {
+            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "image");
         return new self(
             source: SdkClient::hydrateUnionAs($data->source, RequestImageBlockSource::class, [Base64ImageSource::class, URLImageSource::class, FileImageSource::class], "type", ["base64" => Base64ImageSource::class, "file" => FileImageSource::class, "url" => URLImageSource::class], UnknownRequestImageBlockSource::class),
@@ -100,11 +104,26 @@ final readonly class RequestImageTransformationsOversizedImageEnum implements Sd
     public const DOWNSIZE = "downsize";
     public const ERROR = "error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

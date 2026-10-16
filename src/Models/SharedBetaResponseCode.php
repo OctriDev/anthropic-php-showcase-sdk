@@ -56,8 +56,12 @@ class BetaResponseCodeExecutionOutputBlock implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_id") || $data->file_id === null) { throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "file_id") || $data->file_id === null) {
+            throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "code_execution_output");
         return new self(
             fileId: SdkClient::stringValue($data->file_id),
@@ -145,11 +149,21 @@ class BetaResponseCodeExecutionResultBlock implements BetaResponseCodeExecutionT
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "return_code") || $data->return_code === null) { throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null"); }
-        if (!property_exists($data, "stderr") || $data->stderr === null) { throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null"); }
-        if (!property_exists($data, "stdout") || $data->stdout === null) { throw new SdkValidationError("stdout", 'required', "Required property 'stdout' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "return_code") || $data->return_code === null) {
+            throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null");
+        }
+        if (!property_exists($data, "stderr") || $data->stderr === null) {
+            throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null");
+        }
+        if (!property_exists($data, "stdout") || $data->stdout === null) {
+            throw new SdkValidationError("stdout", 'required', "Required property 'stdout' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "code_execution_result");
         return new self(
             content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaResponseCodeExecutionOutputBlock::class), SdkClient::arrayValue($data->content))),
@@ -220,9 +234,15 @@ class BetaResponseCodeExecutionToolResultBlock implements BetaContentBlock, Beta
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "code_execution_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, BetaResponseCodeExecutionToolResultBlockContent::class, [BetaResponseCodeExecutionToolResultError::class, BetaResponseCodeExecutionResultBlock::class, BetaResponseEncryptedCodeExecutionResultBlock::class], "type", ["code_execution_tool_result_error" => BetaResponseCodeExecutionToolResultError::class, "code_execution_result" => BetaResponseCodeExecutionResultBlock::class, "encrypted_code_execution_result" => BetaResponseEncryptedCodeExecutionResultBlock::class], UnknownBetaResponseCodeExecutionToolResultBlockContent::class),
@@ -281,8 +301,12 @@ class BetaResponseCodeExecutionToolResultError implements BetaResponseCodeExecut
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error_code") || $data->error_code === null) {
+            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "code_execution_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, BetaCodeExecutionToolResultErrorCode::class),

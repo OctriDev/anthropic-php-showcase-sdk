@@ -149,9 +149,15 @@ class BetaBrowserStateChangeDownloadCompleted implements BetaRequestBrowserState
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "download_id") || $data->download_id === null) { throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "download_id") || $data->download_id === null) {
+            throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "download_completed");
         return new self(
             downloadId: SdkClient::stringValue($data->download_id),
@@ -234,9 +240,15 @@ class BetaBrowserStateChangeDownloadFailed implements BetaRequestBrowserStateBlo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "download_id") || $data->download_id === null) { throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "download_id") || $data->download_id === null) {
+            throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "download_failed");
         return new self(
             downloadId: SdkClient::stringValue($data->download_id),
@@ -306,9 +318,15 @@ class BetaBrowserStateChangeDownloadStarted implements BetaRequestBrowserStateBl
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "download_id") || $data->download_id === null) { throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "download_id") || $data->download_id === null) {
+            throw new SdkValidationError("download_id", 'required', "Required property 'download_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "download_started");
         return new self(
             downloadId: SdkClient::stringValue($data->download_id),

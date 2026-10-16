@@ -179,12 +179,24 @@ class BetaManagedAgentsMemoryVersion implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
-        if (!property_exists($data, "memory_id") || $data->memory_id === null) { throw new SdkValidationError("memory_id", 'required', "Required property 'memory_id' is missing or null"); }
-        if (!property_exists($data, "operation") || $data->operation === null) { throw new SdkValidationError("operation", 'required', "Required property 'operation' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
+            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
+        }
+        if (!property_exists($data, "memory_id") || $data->memory_id === null) {
+            throw new SdkValidationError("memory_id", 'required', "Required property 'memory_id' is missing or null");
+        }
+        if (!property_exists($data, "operation") || $data->operation === null) {
+            throw new SdkValidationError("operation", 'required', "Required property 'operation' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsMemoryVersionTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -212,11 +224,26 @@ final readonly class BetaManagedAgentsMemoryVersionOperation implements SdkOpenE
     public const MODIFIED = "modified";
     public const DELETED = "deleted";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -227,11 +254,26 @@ final readonly class BetaManagedAgentsMemoryView implements SdkOpenEnum
     public const BASIC = "basic";
     public const FULL = "full";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -308,7 +350,9 @@ class BetaManagedAgentsModelConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             speed: (property_exists($data, "speed") ? SdkClient::hydrateEnum($data->speed, BetaManagedAgentsSpeed::class) : SdkNotGiven::Value),

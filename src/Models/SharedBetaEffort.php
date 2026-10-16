@@ -95,12 +95,24 @@ class BetaEffortCapability implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "high") || $data->high === null) { throw new SdkValidationError("high", 'required', "Required property 'high' is missing or null"); }
-        if (!property_exists($data, "low") || $data->low === null) { throw new SdkValidationError("low", 'required', "Required property 'low' is missing or null"); }
-        if (!property_exists($data, "max") || $data->max === null) { throw new SdkValidationError("max", 'required', "Required property 'max' is missing or null"); }
-        if (!property_exists($data, "medium") || $data->medium === null) { throw new SdkValidationError("medium", 'required', "Required property 'medium' is missing or null"); }
-        if (!property_exists($data, "supported") || $data->supported === null) { throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null"); }
-        if (!property_exists($data, "xhigh")) { throw new SdkValidationError("xhigh", 'required', "Missing required property 'xhigh'"); }
+        if (!property_exists($data, "high") || $data->high === null) {
+            throw new SdkValidationError("high", 'required', "Required property 'high' is missing or null");
+        }
+        if (!property_exists($data, "low") || $data->low === null) {
+            throw new SdkValidationError("low", 'required', "Required property 'low' is missing or null");
+        }
+        if (!property_exists($data, "max") || $data->max === null) {
+            throw new SdkValidationError("max", 'required', "Required property 'max' is missing or null");
+        }
+        if (!property_exists($data, "medium") || $data->medium === null) {
+            throw new SdkValidationError("medium", 'required', "Required property 'medium' is missing or null");
+        }
+        if (!property_exists($data, "supported") || $data->supported === null) {
+            throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null");
+        }
+        if (!property_exists($data, "xhigh")) {
+            throw new SdkValidationError("xhigh", 'required', "Missing required property 'xhigh'");
+        }
         return new self(
             high: SdkClient::hydrateClass($data->high, BetaCapabilitySupport::class),
             low: SdkClient::hydrateClass($data->low, BetaCapabilitySupport::class),
@@ -123,9 +135,24 @@ final readonly class BetaEffortLevel implements SdkOpenEnum
     public const XHIGH = "xhigh";
     public const MAX = "max";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

@@ -115,8 +115,12 @@ class BetaManagedAgentsMemoryStoreResource implements BetaManagedAgentsGetSessio
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
+            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryStoreResourceTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
@@ -209,8 +213,12 @@ class BetaManagedAgentsMemoryStoreResourceConfig implements BetaManagedAgentsSes
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
+            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryStoreResourceConfigTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
@@ -300,8 +308,12 @@ class BetaManagedAgentsMemoryStoreResourceParam implements BetaManagedAgentsSess
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
+            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryStoreResourceParamTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
@@ -318,9 +330,24 @@ final readonly class BetaManagedAgentsMemoryVersionTypeEnum implements SdkOpenEn
 {
     public const MEMORY_VERSION = "memory_version";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

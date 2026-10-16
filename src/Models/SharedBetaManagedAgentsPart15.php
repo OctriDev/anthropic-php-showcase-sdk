@@ -115,14 +115,30 @@ class BetaManagedAgentsDeploymentRun implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "deployment_id") || $data->deployment_id === null) { throw new SdkValidationError("deployment_id", 'required', "Required property 'deployment_id' is missing or null"); }
-        if (!property_exists($data, "trigger_context") || $data->trigger_context === null) { throw new SdkValidationError("trigger_context", 'required', "Required property 'trigger_context' is missing or null"); }
-        if (!property_exists($data, "session_id")) { throw new SdkValidationError("session_id", 'required', "Missing required property 'session_id'"); }
-        if (!property_exists($data, "error")) { throw new SdkValidationError("error", 'required', "Missing required property 'error'"); }
-        if (!property_exists($data, "agent") || $data->agent === null) { throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "deployment_id") || $data->deployment_id === null) {
+            throw new SdkValidationError("deployment_id", 'required', "Required property 'deployment_id' is missing or null");
+        }
+        if (!property_exists($data, "trigger_context") || $data->trigger_context === null) {
+            throw new SdkValidationError("trigger_context", 'required', "Required property 'trigger_context' is missing or null");
+        }
+        if (!property_exists($data, "session_id")) {
+            throw new SdkValidationError("session_id", 'required', "Missing required property 'session_id'");
+        }
+        if (!property_exists($data, "error")) {
+            throw new SdkValidationError("error", 'required', "Missing required property 'error'");
+        }
+        if (!property_exists($data, "agent") || $data->agent === null) {
+            throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsDeploymentRunTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -144,11 +160,26 @@ final readonly class BetaManagedAgentsDeploymentStatus implements SdkOpenEnum
     public const ACTIVE = "active";
     public const PAUSED = "paused";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -207,8 +238,12 @@ class BetaManagedAgentsDeploymentSystemMessageEvent implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsDeploymentSystemMessageEventTypeEnum::class),
             content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsSystemContentBlock::class), SdkClient::arrayValue($data->content))),
@@ -294,9 +329,15 @@ class BetaManagedAgentsDeploymentUserDefineOutcomeEvent implements BetaManagedAg
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
-        if (!property_exists($data, "rubric") || $data->rubric === null) { throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "description") || $data->description === null) {
+            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
+        }
+        if (!property_exists($data, "rubric") || $data->rubric === null) {
+            throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsDeploymentUserDefineOutcomeEventTypeEnum::class),
             description: SdkClient::stringValue($data->description),
