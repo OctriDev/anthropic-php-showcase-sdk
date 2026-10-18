@@ -45,7 +45,9 @@ class BetaContextManagementResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "original_input_tokens") || $data->original_input_tokens === null) { throw new SdkValidationError("original_input_tokens", 'required', "Required property 'original_input_tokens' is missing or null"); }
+        if (!property_exists($data, "original_input_tokens") || $data->original_input_tokens === null) {
+            throw new SdkValidationError("original_input_tokens", 'required', "Required property 'original_input_tokens' is missing or null");
+        }
         return new self(
             originalInputTokens: SdkClient::intValue($data->original_input_tokens),
         );
@@ -220,8 +222,12 @@ class BetaCountMessageTokensParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "messages") || $data->messages === null) { throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null"); }
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "messages") || $data->messages === null) {
+            throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null");
+        }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
         return new self(
             messages: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaInputMessage::class), SdkClient::arrayValue($data->messages))),
             model: SdkClient::stringValue($data->model),
@@ -287,8 +293,12 @@ class BetaCountMessageTokensResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "context_management")) { throw new SdkValidationError("context_management", 'required', "Missing required property 'context_management'"); }
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
+        if (!property_exists($data, "context_management")) {
+            throw new SdkValidationError("context_management", 'required', "Missing required property 'context_management'");
+        }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
+            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
+        }
         return new self(
             contextManagement: ($data->context_management === null ? null : SdkClient::hydrateClass($data->context_management, BetaContextManagementResponse::class)),
             inputTokens: SdkClient::intValue($data->input_tokens),

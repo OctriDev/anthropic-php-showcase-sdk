@@ -18,11 +18,26 @@ final readonly class BetaClaudeEnterpriseOrganizationRole implements SdkOpenEnum
     public const PRIMARY_OWNER = "primary_owner";
     public const USER = "user";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -84,9 +99,15 @@ class BetaCompactionContentBlockDelta implements BetaContentBlockDeltaEventDelta
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content")) { throw new SdkValidationError("content", 'required', "Missing required property 'content'"); }
-        if (!property_exists($data, "encrypted_content")) { throw new SdkValidationError("encrypted_content", 'required', "Missing required property 'encrypted_content'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content")) {
+            throw new SdkValidationError("content", 'required', "Missing required property 'content'");
+        }
+        if (!property_exists($data, "encrypted_content")) {
+            throw new SdkValidationError("encrypted_content", 'required', "Missing required property 'encrypted_content'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "compaction_delta");
         return new self(
             content: ($data->content === null ? null : SdkClient::stringValue($data->content)),
@@ -111,11 +132,26 @@ final readonly class BetaErrorType implements SdkOpenEnum
     public const API_ERROR = "api_error";
     public const BILLING_ERROR = "billing_error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -167,8 +203,12 @@ class BetaInputJsonContentBlockDelta implements BetaContentBlockDeltaEventDelta,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "partial_json") || $data->partial_json === null) { throw new SdkValidationError("partial_json", 'required', "Required property 'partial_json' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "partial_json") || $data->partial_json === null) {
+            throw new SdkValidationError("partial_json", 'required', "Required property 'partial_json' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "input_json_delta");
         return new self(
             partialJson: SdkClient::stringValue($data->partial_json),
@@ -188,11 +228,26 @@ final readonly class BetaRoleSchema implements SdkOpenEnum
     public const DEVELOPER = "developer";
     public const USER = "user";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -244,8 +299,12 @@ class BetaSignatureContentBlockDelta implements BetaContentBlockDeltaEventDelta,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signature") || $data->signature === null) { throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "signature") || $data->signature === null) {
+            throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "signature_delta");
         return new self(
             signature: SdkClient::stringValue($data->signature),
@@ -303,8 +362,12 @@ class BetaTextContentBlockDelta implements BetaContentBlockDeltaEventDelta, \Jso
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "text") || $data->text === null) { throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "text") || $data->text === null) {
+            throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text_delta");
         return new self(
             text: SdkClient::stringValue($data->text),

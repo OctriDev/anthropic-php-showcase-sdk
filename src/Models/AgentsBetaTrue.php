@@ -139,8 +139,12 @@ class BetaManagedAgentsCreateAgentParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             model: (is_object($data->model) ? SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class) : (is_string($data->model) ? SdkClient::stringValue($data->model) : SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class))),
@@ -205,7 +209,9 @@ class BetaManagedAgentsListAgents implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsAgent::class), SdkClient::arrayValue($data->data))),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),

@@ -56,8 +56,12 @@ class JsonOutputFormat implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "schema") || $data->schema === null) { throw new SdkValidationError("schema", 'required', "Required property 'schema' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "schema") || $data->schema === null) {
+            throw new SdkValidationError("schema", 'required', "Required property 'schema' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "json_schema");
         return new self(
             schema: SdkClient::stringMapValue($data->schema),
@@ -71,12 +75,10 @@ class JsonOutputFormat implements \JsonSerializable
  */
 class JsonValue implements \JsonSerializable
 {
-
     /**
      */
     public function __construct(
-    ) {
-    }
+    ) {}
 
     /** @return array<array-key, mixed> */
     public function toArray(): array

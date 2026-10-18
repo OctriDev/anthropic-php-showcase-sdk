@@ -57,7 +57,9 @@ class BetaManagedAgentsUserInterruptEventParams implements BetaManagedAgentsEven
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserInterruptEventParamsTypeEnum::class),
             sessionThreadId: (property_exists($data, "session_thread_id") ? ($data->session_thread_id === null ? null : SdkClient::stringValue($data->session_thread_id)) : SdkNotGiven::Value),
@@ -143,9 +145,15 @@ class BetaManagedAgentsUserToolConfirmationEventParams implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "result") || $data->result === null) {
+            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserToolConfirmationEventParamsTypeEnum::class),
             toolUseId: SdkClient::stringValue($data->tool_use_id),
@@ -235,8 +243,12 @@ class BetaManagedAgentsUserToolResultEventParams implements BetaManagedAgentsEve
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserToolResultEventParamsTypeEnum::class),
             toolUseId: SdkClient::stringValue($data->tool_use_id),

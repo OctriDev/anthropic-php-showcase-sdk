@@ -76,10 +76,18 @@ class BetaResponseFallbackBlock implements BetaContentBlock, BetaContentBlockSta
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "from") || $data->from === null) { throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null"); }
-        if (!property_exists($data, "to") || $data->to === null) { throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null"); }
-        if (!property_exists($data, "trigger") || $data->trigger === null) { throw new SdkValidationError("trigger", 'required', "Required property 'trigger' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "from") || $data->from === null) {
+            throw new SdkValidationError("from", 'required', "Required property 'from' is missing or null");
+        }
+        if (!property_exists($data, "to") || $data->to === null) {
+            throw new SdkValidationError("to", 'required', "Required property 'to' is missing or null");
+        }
+        if (!property_exists($data, "trigger") || $data->trigger === null) {
+            throw new SdkValidationError("trigger", 'required', "Required property 'trigger' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "fallback");
         return new self(
             from: SdkClient::hydrateClass($data->from, BetaResponseFallbackHopInfo::class),
@@ -128,7 +136,9 @@ class BetaResponseFallbackHopInfo implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
         );

@@ -13,11 +13,26 @@ final readonly class RetrieveBetaOrganizationsAnalyticsUsageReportBucketWidth im
     public const _1H = "1h";
     public const _1M = "1m";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class BetaOrganizationsAnalyticsUsageReport
@@ -84,7 +99,7 @@ class BetaOrganizationsAnalyticsUsageReport
             Validation::validateItems('group_by[]', $groupBy, max: 100);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/usage_report?beta=true", $clientConfig, query: ['starting_at' => new SdkQueryValue($startingAt, "form", true), 'ending_at' => new SdkQueryValue($endingAt, "form", true), 'bucket_width' => new SdkQueryValue($bucketWidth, "form", true), 'products[]' => new SdkQueryValue($products, "form", true), 'models[]' => new SdkQueryValue($models, "form", true), 'context_windows[]' => new SdkQueryValue($contextWindows, "form", true), 'inference_geos[]' => new SdkQueryValue($inferenceGeos, "form", true), 'speeds[]' => new SdkQueryValue($speeds, "form", true), 'slack_channel_ids[]' => new SdkQueryValue($slackChannelIds, "form", true), 'rbac_group_ids[]' => new SdkQueryValue($rbacGroupIds, "form", true), 'user_ids[]' => new SdkQueryValue($userIds, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true)], returnType: BetaAnalyticsUsageBucketedResponse::class, decoder: 'json', operationId: 'retrieveBetaOrganizationsAnalyticsUsageReport', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/usage_report?beta=true", $clientConfig, query: ['starting_at' => new SdkQueryValue($startingAt, "form", true), 'ending_at' => new SdkQueryValue($endingAt, "form", true), 'bucket_width' => new SdkQueryValue($bucketWidth, "form", true), 'products[]' => new SdkQueryValue($products, "form", true), 'models[]' => new SdkQueryValue($models, "form", true), 'context_windows[]' => new SdkQueryValue($contextWindows, "form", true), 'inference_geos[]' => new SdkQueryValue($inferenceGeos, "form", true), 'speeds[]' => new SdkQueryValue($speeds, "form", true), 'slack_channel_ids[]' => new SdkQueryValue($slackChannelIds, "form", true), 'rbac_group_ids[]' => new SdkQueryValue($rbacGroupIds, "form", true), 'user_ids[]' => new SdkQueryValue($userIds, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true)], returnType: BetaAnalyticsUsageBucketedResponse::class, decoder: 'json', operationId: 'retrieveBetaOrganizationsAnalyticsUsageReport', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaAnalyticsUsageBucketedResponse::class));
     }
 

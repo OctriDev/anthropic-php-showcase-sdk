@@ -133,11 +133,21 @@ class BetaAnalyticsArtifactActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "artifact_type") || $data->artifact_type === null) { throw new SdkValidationError("artifact_type", 'required', "Required property 'artifact_type' is missing or null"); }
-        if (!property_exists($data, "artifacts_created_count") || $data->artifacts_created_count === null) { throw new SdkValidationError("artifacts_created_count", 'required', "Required property 'artifacts_created_count' is missing or null"); }
-        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) { throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null"); }
-        if (!property_exists($data, "is_shared") || $data->is_shared === null) { throw new SdkValidationError("is_shared", 'required', "Required property 'is_shared' is missing or null"); }
-        if (!property_exists($data, "published_artifacts_created_count") || $data->published_artifacts_created_count === null) { throw new SdkValidationError("published_artifacts_created_count", 'required', "Required property 'published_artifacts_created_count' is missing or null"); }
+        if (!property_exists($data, "artifact_type") || $data->artifact_type === null) {
+            throw new SdkValidationError("artifact_type", 'required', "Required property 'artifact_type' is missing or null");
+        }
+        if (!property_exists($data, "artifacts_created_count") || $data->artifacts_created_count === null) {
+            throw new SdkValidationError("artifacts_created_count", 'required', "Required property 'artifacts_created_count' is missing or null");
+        }
+        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) {
+            throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null");
+        }
+        if (!property_exists($data, "is_shared") || $data->is_shared === null) {
+            throw new SdkValidationError("is_shared", 'required', "Required property 'is_shared' is missing or null");
+        }
+        if (!property_exists($data, "published_artifacts_created_count") || $data->published_artifacts_created_count === null) {
+            throw new SdkValidationError("published_artifacts_created_count", 'required', "Required property 'published_artifacts_created_count' is missing or null");
+        }
         return new self(
             artifactType: SdkClient::stringValue($data->artifact_type),
             artifactsCreatedCount: SdkClient::intValue($data->artifacts_created_count),
@@ -200,8 +210,12 @@ class BetaAnalyticsArtifactsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsArtifactActivity::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

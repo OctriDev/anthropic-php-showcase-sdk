@@ -66,9 +66,15 @@ class ContentBlockDeltaEvent implements MessageStreamEvent, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "delta") || $data->delta === null) { throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null"); }
-        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "delta") || $data->delta === null) {
+            throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null");
+        }
+        if (!property_exists($data, "index") || $data->index === null) {
+            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "content_block_delta");
         return new self(
             delta: SdkClient::hydrateUnionAs($data->delta, ContentBlockDeltaEventDelta::class, [TextContentBlockDelta::class, InputJsonContentBlockDelta::class, CitationsDelta::class, ThinkingContentBlockDelta::class, SignatureContentBlockDelta::class], "type", ["citations_delta" => CitationsDelta::class, "input_json_delta" => InputJsonContentBlockDelta::class, "signature_delta" => SignatureContentBlockDelta::class, "text_delta" => TextContentBlockDelta::class, "thinking_delta" => ThinkingContentBlockDelta::class], UnknownContentBlockDeltaEventDelta::class),
@@ -137,9 +143,15 @@ class ContentBlockStartEvent implements MessageStreamEvent, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content_block") || $data->content_block === null) { throw new SdkValidationError("content_block", 'required', "Required property 'content_block' is missing or null"); }
-        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content_block") || $data->content_block === null) {
+            throw new SdkValidationError("content_block", 'required', "Required property 'content_block' is missing or null");
+        }
+        if (!property_exists($data, "index") || $data->index === null) {
+            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "content_block_start");
         return new self(
             contentBlock: SdkClient::hydrateUnionAs($data->content_block, ContentBlockStartEventContentBlock::class, [ResponseTextBlock::class, ResponseThinkingBlock::class, ResponseRedactedThinkingBlock::class, ResponseToolUseBlock::class, ResponseServerToolUseBlock::class, ResponseWebSearchToolResultBlock::class, ResponseWebFetchToolResultBlock::class, ResponseCodeExecutionToolResultBlock::class, ResponseBashCodeExecutionToolResultBlock::class, ResponseTextEditorCodeExecutionToolResultBlock::class, ResponseToolSearchToolResultBlock::class, ResponseContainerUploadBlock::class], "type", ["bash_code_execution_tool_result" => ResponseBashCodeExecutionToolResultBlock::class, "code_execution_tool_result" => ResponseCodeExecutionToolResultBlock::class, "container_upload" => ResponseContainerUploadBlock::class, "redacted_thinking" => ResponseRedactedThinkingBlock::class, "server_tool_use" => ResponseServerToolUseBlock::class, "text" => ResponseTextBlock::class, "text_editor_code_execution_tool_result" => ResponseTextEditorCodeExecutionToolResultBlock::class, "thinking" => ResponseThinkingBlock::class, "tool_search_tool_result" => ResponseToolSearchToolResultBlock::class, "tool_use" => ResponseToolUseBlock::class, "web_fetch_tool_result" => ResponseWebFetchToolResultBlock::class, "web_search_tool_result" => ResponseWebSearchToolResultBlock::class], UnknownContentBlockStartEventContentBlock::class),
@@ -198,8 +210,12 @@ class ContentBlockStopEvent implements MessageStreamEvent, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "index") || $data->index === null) {
+            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "content_block_stop");
         return new self(
             index: SdkClient::intValue($data->index),

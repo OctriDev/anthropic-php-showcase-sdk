@@ -55,8 +55,12 @@ class BetaAnalyticsUsersResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsUserActivity::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),
@@ -132,10 +136,18 @@ class BetaListResponse_User_ implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "first_id")) { throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
-        if (!property_exists($data, "last_id")) { throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "first_id")) {
+            throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
+        if (!property_exists($data, "last_id")) {
+            throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaUser::class), SdkClient::arrayValue($data->data))),
             firstId: ($data->first_id === null ? null : SdkClient::stringValue($data->first_id)),

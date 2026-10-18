@@ -16,11 +16,26 @@ final readonly class InputMessageRoleEnum implements SdkOpenEnum
     public const ASSISTANT = "assistant";
     public const SYSTEM = "system";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -71,8 +86,12 @@ class InputMessage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "role") || $data->role === null) { throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "role") || $data->role === null) {
+            throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null");
+        }
         return new self(
             content: (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, InputContentBlock::class, [RequestTextBlock::class, RequestImageBlock::class, RequestDocumentBlock::class, RequestSearchResultBlock::class, RequestThinkingBlock::class, RequestRedactedThinkingBlock::class, RequestToolUseBlock::class, RequestToolResultBlock::class, RequestServerToolUseBlock::class, RequestWebSearchToolResultBlock::class, RequestWebFetchToolResultBlock::class, RequestCodeExecutionToolResultBlock::class, RequestBashCodeExecutionToolResultBlock::class, RequestTextEditorCodeExecutionToolResultBlock::class, RequestToolSearchToolResultBlock::class, RequestContainerUploadBlock::class], "type", ["bash_code_execution_tool_result" => RequestBashCodeExecutionToolResultBlock::class, "code_execution_tool_result" => RequestCodeExecutionToolResultBlock::class, "container_upload" => RequestContainerUploadBlock::class, "document" => RequestDocumentBlock::class, "image" => RequestImageBlock::class, "redacted_thinking" => RequestRedactedThinkingBlock::class, "search_result" => RequestSearchResultBlock::class, "server_tool_use" => RequestServerToolUseBlock::class, "text" => RequestTextBlock::class, "text_editor_code_execution_tool_result" => RequestTextEditorCodeExecutionToolResultBlock::class, "thinking" => RequestThinkingBlock::class, "tool_result" => RequestToolResultBlock::class, "tool_search_tool_result" => RequestToolSearchToolResultBlock::class, "tool_use" => RequestToolUseBlock::class, "web_fetch_tool_result" => RequestWebFetchToolResultBlock::class, "web_search_tool_result" => RequestWebSearchToolResultBlock::class], UnknownInputContentBlock::class), SdkClient::arrayValue($data->content))) : SdkClient::stringValue($data->content)),
             role: SdkClient::hydrateStringEnumOrString($data->role, InputMessageRoleEnum::class),
@@ -149,7 +168,9 @@ class InputSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "object");
         return new self(
             type: SdkClient::stringValue($data->type),
