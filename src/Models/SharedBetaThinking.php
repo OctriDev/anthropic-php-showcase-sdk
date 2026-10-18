@@ -101,8 +101,12 @@ class BetaThinkingCapability implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "supported") || $data->supported === null) { throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null"); }
-        if (!property_exists($data, "types") || $data->types === null) { throw new SdkValidationError("types", 'required', "Required property 'types' is missing or null"); }
+        if (!property_exists($data, "supported") || $data->supported === null) {
+            throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null");
+        }
+        if (!property_exists($data, "types") || $data->types === null) {
+            throw new SdkValidationError("types", 'required', "Required property 'types' is missing or null");
+        }
         return new self(
             supported: SdkClient::boolValue($data->supported),
             types: SdkClient::hydrateClass($data->types, BetaThinkingTypes::class),
@@ -173,7 +177,9 @@ class BetaThinkingConfigAdaptive implements BetaThinkingConfigParam, BetaFallbac
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "adaptive");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -222,7 +228,9 @@ class BetaThinkingConfigDisabled implements BetaThinkingConfigParam, BetaFallbac
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "disabled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -303,8 +311,12 @@ class BetaThinkingConfigEnabled implements BetaThinkingConfigParam, BetaFallback
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "budget_tokens") || $data->budget_tokens === null) { throw new SdkValidationError("budget_tokens", 'required', "Required property 'budget_tokens' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "budget_tokens") || $data->budget_tokens === null) {
+            throw new SdkValidationError("budget_tokens", 'required', "Required property 'budget_tokens' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "enabled");
         return new self(
             budgetTokens: SdkClient::intValue($data->budget_tokens),
@@ -324,11 +336,26 @@ final readonly class BetaThinkingDisplayMode implements SdkOpenEnum
     public const OMITTED = "omitted";
     public const UPDATES = "updates";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -341,9 +368,24 @@ final readonly class BetaThinkingDroppedInputTransformationReasonEnum implements
     public const ORGANIZATION_BINDING_MISMATCH = "organization_binding_mismatch";
     public const END_USER_BINDING_MISMATCH = "end_user_binding_mismatch";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

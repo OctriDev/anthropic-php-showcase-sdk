@@ -55,8 +55,12 @@ class BetaManagedAgentsEnvironmentArchivedRunError implements BetaManagedAgentsR
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentArchivedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -110,7 +114,9 @@ class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError implements
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonErrorTypeEnum::class),
         );
@@ -173,8 +179,12 @@ class BetaManagedAgentsEnvironmentNotFoundRunError implements BetaManagedAgentsR
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentNotFoundRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -258,10 +268,18 @@ class BetaManagedAgentsEnvironmentVariableAuthResponse implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "secret_name") || $data->secret_name === null) { throw new SdkValidationError("secret_name", 'required', "Required property 'secret_name' is missing or null"); }
-        if (!property_exists($data, "networking") || $data->networking === null) { throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null"); }
-        if (!property_exists($data, "injection_location") || $data->injection_location === null) { throw new SdkValidationError("injection_location", 'required', "Required property 'injection_location' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "secret_name") || $data->secret_name === null) {
+            throw new SdkValidationError("secret_name", 'required', "Required property 'secret_name' is missing or null");
+        }
+        if (!property_exists($data, "networking") || $data->networking === null) {
+            throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null");
+        }
+        if (!property_exists($data, "injection_location") || $data->injection_location === null) {
+            throw new SdkValidationError("injection_location", 'required', "Required property 'injection_location' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentVariableAuthResponseTypeEnum::class),
             secretName: SdkClient::stringValue($data->secret_name),
@@ -327,8 +345,12 @@ class BetaManagedAgentsErrorDeploymentPausedReason implements BetaManagedAgentsD
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "error") || $data->error === null) {
+            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsErrorDeploymentPausedReasonTypeEnum::class),
             error: SdkClient::hydrateUnionAs($data->error, BetaManagedAgentsDeploymentPausedReasonError::class, [BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError::class, BetaManagedAgentsAgentArchivedDeploymentPausedReasonError::class, BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError::class, BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError::class, BetaManagedAgentsFileNotFoundDeploymentPausedReasonError::class, BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError::class, BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError::class, BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError::class, BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError::class, BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError::class, BetaManagedAgentsVaultArchivedDeploymentPausedReasonError::class, BetaManagedAgentsUnknownDeploymentPausedReasonError::class, BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError::class, BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonError::class], "type", ["environment_archived_error" => BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError::class, "agent_archived_error" => BetaManagedAgentsAgentArchivedDeploymentPausedReasonError::class, "environment_not_found_error" => BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError::class, "vault_not_found_error" => BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError::class, "file_not_found_error" => BetaManagedAgentsFileNotFoundDeploymentPausedReasonError::class, "session_resource_not_found_error" => BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError::class, "workspace_archived_error" => BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError::class, "organization_disabled_error" => BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError::class, "memory_store_archived_error" => BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError::class, "skill_not_found_error" => BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError::class, "vault_archived_error" => BetaManagedAgentsVaultArchivedDeploymentPausedReasonError::class, "unknown_error" => BetaManagedAgentsUnknownDeploymentPausedReasonError::class, "self_hosted_resources_unsupported_error" => BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError::class, "mcp_egress_blocked_error" => BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonError::class], UnknownBetaManagedAgentsDeploymentPausedReasonError::class),

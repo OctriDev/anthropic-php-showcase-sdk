@@ -68,8 +68,12 @@ class BetaRequestAdvisorRedactedResultBlock implements BetaRequestAdvisorToolRes
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "encrypted_content") || $data->encrypted_content === null) { throw new SdkValidationError("encrypted_content", 'required', "Required property 'encrypted_content' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "encrypted_content") || $data->encrypted_content === null) {
+            throw new SdkValidationError("encrypted_content", 'required', "Required property 'encrypted_content' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "advisor_redacted_result");
         return new self(
             encryptedContent: SdkClient::stringValue($data->encrypted_content),
@@ -140,8 +144,12 @@ class BetaRequestAdvisorResultBlock implements BetaRequestAdvisorToolResultBlock
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "text") || $data->text === null) { throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "text") || $data->text === null) {
+            throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "advisor_result");
         return new self(
             text: SdkClient::stringValue($data->text),
@@ -222,9 +230,15 @@ class BetaRequestAdvisorToolResultBlock implements BetaInputContentBlock, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "advisor_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, BetaRequestAdvisorToolResultBlockContent::class, [BetaRequestAdvisorToolResultError::class, BetaRequestAdvisorResultBlock::class, BetaRequestAdvisorRedactedResultBlock::class], "type", ["advisor_tool_result_error" => BetaRequestAdvisorToolResultError::class, "advisor_result" => BetaRequestAdvisorResultBlock::class, "advisor_redacted_result" => BetaRequestAdvisorRedactedResultBlock::class], UnknownBetaRequestAdvisorToolResultBlockContent::class),
@@ -284,8 +298,12 @@ class BetaRequestAdvisorToolResultError implements BetaRequestAdvisorToolResultB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error_code") || $data->error_code === null) {
+            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "advisor_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, BetaAdvisorToolResultErrorCode::class),

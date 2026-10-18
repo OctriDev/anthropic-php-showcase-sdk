@@ -72,7 +72,9 @@ class BetaExternalKeyCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "provider_config") || $data->provider_config === null) { throw new SdkValidationError("provider_config", 'required', "Required property 'provider_config' is missing or null"); }
+        if (!property_exists($data, "provider_config") || $data->provider_config === null) {
+            throw new SdkValidationError("provider_config", 'required', "Required property 'provider_config' is missing or null");
+        }
         if (property_exists($data, "geo")) {
             Validation::validateConst("geo", $data->geo, "us");
         }
@@ -132,8 +134,12 @@ class BetaExternalKeyListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaExternalKey::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

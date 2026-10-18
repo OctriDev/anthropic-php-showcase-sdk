@@ -80,8 +80,12 @@ class BetaRequestImageBlock implements BetaInputContentBlock, BetaContentBlockSo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) {
+            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "image");
         return new self(
             source: SdkClient::hydrateUnionAs($data->source, BetaRequestImageBlockSource::class, [BetaBase64ImageSource::class, BetaURLImageSource::class, BetaFileImageSource::class], "type", ["base64" => BetaBase64ImageSource::class, "file" => BetaFileImageSource::class, "url" => BetaURLImageSource::class], UnknownBetaRequestImageBlockSource::class),
@@ -100,11 +104,26 @@ final readonly class BetaRequestImageTransformationsOversizedImageEnum implement
     public const DOWNSIZE = "downsize";
     public const ERROR = "error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

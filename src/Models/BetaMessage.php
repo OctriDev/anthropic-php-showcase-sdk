@@ -75,10 +75,18 @@ class BetaMessageDelta implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "container")) { throw new SdkValidationError("container", 'required', "Missing required property 'container'"); }
-        if (!property_exists($data, "stop_details")) { throw new SdkValidationError("stop_details", 'required', "Missing required property 'stop_details'"); }
-        if (!property_exists($data, "stop_reason")) { throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'"); }
-        if (!property_exists($data, "stop_sequence")) { throw new SdkValidationError("stop_sequence", 'required', "Missing required property 'stop_sequence'"); }
+        if (!property_exists($data, "container")) {
+            throw new SdkValidationError("container", 'required', "Missing required property 'container'");
+        }
+        if (!property_exists($data, "stop_details")) {
+            throw new SdkValidationError("stop_details", 'required', "Missing required property 'stop_details'");
+        }
+        if (!property_exists($data, "stop_reason")) {
+            throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'");
+        }
+        if (!property_exists($data, "stop_sequence")) {
+            throw new SdkValidationError("stop_sequence", 'required', "Missing required property 'stop_sequence'");
+        }
         return new self(
             container: ($data->container === null ? null : SdkClient::hydrateClass($data->container, BetaContainer::class)),
             stopDetails: ($data->stop_details === null ? null : SdkClient::hydrateClass($data->stop_details, BetaRefusalStopDetails::class)),
@@ -169,10 +177,18 @@ class BetaMessageDeltaEvent implements BetaMessageStreamEvent, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "context_management")) { throw new SdkValidationError("context_management", 'required', "Missing required property 'context_management'"); }
-        if (!property_exists($data, "delta") || $data->delta === null) { throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "usage") || $data->usage === null) { throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null"); }
+        if (!property_exists($data, "context_management")) {
+            throw new SdkValidationError("context_management", 'required', "Missing required property 'context_management'");
+        }
+        if (!property_exists($data, "delta") || $data->delta === null) {
+            throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "usage") || $data->usage === null) {
+            throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "message_delta");
         return new self(
             contextManagement: ($data->context_management === null ? null : SdkClient::hydrateClass($data->context_management, BetaResponseContextManagement::class)),
@@ -292,14 +308,30 @@ class BetaMessageDeltaUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation_input_tokens")) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Missing required property 'cache_creation_input_tokens'"); }
-        if (!property_exists($data, "cache_read_input_tokens")) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Missing required property 'cache_read_input_tokens'"); }
-        if (!property_exists($data, "fallback_credit")) { throw new SdkValidationError("fallback_credit", 'required', "Missing required property 'fallback_credit'"); }
-        if (!property_exists($data, "input_tokens")) { throw new SdkValidationError("input_tokens", 'required', "Missing required property 'input_tokens'"); }
-        if (!property_exists($data, "iterations")) { throw new SdkValidationError("iterations", 'required', "Missing required property 'iterations'"); }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
-        if (!property_exists($data, "output_tokens_details")) { throw new SdkValidationError("output_tokens_details", 'required', "Missing required property 'output_tokens_details'"); }
-        if (!property_exists($data, "server_tool_use")) { throw new SdkValidationError("server_tool_use", 'required', "Missing required property 'server_tool_use'"); }
+        if (!property_exists($data, "cache_creation_input_tokens")) {
+            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Missing required property 'cache_creation_input_tokens'");
+        }
+        if (!property_exists($data, "cache_read_input_tokens")) {
+            throw new SdkValidationError("cache_read_input_tokens", 'required', "Missing required property 'cache_read_input_tokens'");
+        }
+        if (!property_exists($data, "fallback_credit")) {
+            throw new SdkValidationError("fallback_credit", 'required', "Missing required property 'fallback_credit'");
+        }
+        if (!property_exists($data, "input_tokens")) {
+            throw new SdkValidationError("input_tokens", 'required', "Missing required property 'input_tokens'");
+        }
+        if (!property_exists($data, "iterations")) {
+            throw new SdkValidationError("iterations", 'required', "Missing required property 'iterations'");
+        }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
+            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens_details")) {
+            throw new SdkValidationError("output_tokens_details", 'required', "Missing required property 'output_tokens_details'");
+        }
+        if (!property_exists($data, "server_tool_use")) {
+            throw new SdkValidationError("server_tool_use", 'required', "Missing required property 'server_tool_use'");
+        }
         return new self(
             cacheCreationInputTokens: ($data->cache_creation_input_tokens === null ? null : SdkClient::intValue($data->cache_creation_input_tokens)),
             cacheReadInputTokens: ($data->cache_read_input_tokens === null ? null : SdkClient::intValue($data->cache_read_input_tokens)),

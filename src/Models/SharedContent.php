@@ -56,8 +56,12 @@ class ContentBlockSource implements RequestDocumentBlockSource, \JsonSerializabl
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "content");
         return new self(
             content: (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, ContentBlockSourceContentItem::class, [RequestTextBlock::class, RequestImageBlock::class], "type", ["image" => RequestImageBlock::class, "text" => RequestTextBlock::class], UnknownContentBlockSourceContentItem::class), SdkClient::arrayValue($data->content))) : SdkClient::stringValue($data->content)),

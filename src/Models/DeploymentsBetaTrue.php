@@ -147,10 +147,18 @@ class BetaManagedAgentsCreateDeploymentParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "agent") || $data->agent === null) { throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null"); }
-        if (!property_exists($data, "environment_id") || $data->environment_id === null) { throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null"); }
-        if (!property_exists($data, "initial_events") || $data->initial_events === null) { throw new SdkValidationError("initial_events", 'required', "Required property 'initial_events' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "agent") || $data->agent === null) {
+            throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null");
+        }
+        if (!property_exists($data, "environment_id") || $data->environment_id === null) {
+            throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null");
+        }
+        if (!property_exists($data, "initial_events") || $data->initial_events === null) {
+            throw new SdkValidationError("initial_events", 'required', "Required property 'initial_events' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             agent: (is_object($data->agent) ? SdkClient::hydrateClass($data->agent, BetaManagedAgentsAgentParams::class) : (is_string($data->agent) ? SdkClient::stringValue($data->agent) : SdkClient::hydrateClass($data->agent, BetaManagedAgentsAgentParams::class))),
@@ -216,7 +224,9 @@ class BetaManagedAgentsListDeploymentsData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsDeployment::class), SdkClient::arrayValue($data->data))),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),

@@ -66,9 +66,15 @@ class ErrorResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
-        if (!property_exists($data, "request_id")) { throw new SdkValidationError("request_id", 'required', "Missing required property 'request_id'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error") || $data->error === null) {
+            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
+        }
+        if (!property_exists($data, "request_id")) {
+            throw new SdkValidationError("request_id", 'required', "Missing required property 'request_id'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "error");
         return new self(
             error: SdkClient::hydrateUnionAs($data->error, ErrorResponseError::class, [InvalidRequestError::class, AuthenticationError::class, BillingError::class, PermissionError::class, NotFoundError::class, RateLimitError::class, GatewayTimeoutError::class, APIError::class, OverloadedError::class], "type", ["api_error" => APIError::class, "authentication_error" => AuthenticationError::class, "billing_error" => BillingError::class, "invalid_request_error" => InvalidRequestError::class, "not_found_error" => NotFoundError::class, "overloaded_error" => OverloadedError::class, "permission_error" => PermissionError::class, "rate_limit_error" => RateLimitError::class, "timeout_error" => GatewayTimeoutError::class], UnknownErrorResponseError::class),

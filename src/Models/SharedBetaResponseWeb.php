@@ -76,10 +76,18 @@ class BetaResponseWebFetchResultBlock implements BetaResponseWebFetchToolResultB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "retrieved_at")) { throw new SdkValidationError("retrieved_at", 'required', "Missing required property 'retrieved_at'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "retrieved_at")) {
+            throw new SdkValidationError("retrieved_at", 'required', "Missing required property 'retrieved_at'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_fetch_result");
         return new self(
             content: SdkClient::hydrateClass($data->content, BetaResponseDocumentBlock::class),
@@ -161,9 +169,15 @@ class BetaResponseWebFetchToolResultBlock implements BetaContentBlock, BetaConte
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_fetch_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, BetaResponseWebFetchToolResultBlockContent::class, [BetaResponseWebFetchToolResultError::class, BetaResponseWebFetchResultBlock::class], "type", ["web_fetch_tool_result_error" => BetaResponseWebFetchToolResultError::class, "web_fetch_result" => BetaResponseWebFetchResultBlock::class], UnknownBetaResponseWebFetchToolResultBlockContent::class),
@@ -223,8 +237,12 @@ class BetaResponseWebFetchToolResultError implements BetaResponseWebFetchToolRes
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error_code") || $data->error_code === null) {
+            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_fetch_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, BetaWebFetchToolResultErrorCode::class),
@@ -312,11 +330,21 @@ class BetaResponseWebSearchResultBlock implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "encrypted_content") || $data->encrypted_content === null) { throw new SdkValidationError("encrypted_content", 'required', "Required property 'encrypted_content' is missing or null"); }
-        if (!property_exists($data, "page_age")) { throw new SdkValidationError("page_age", 'required', "Missing required property 'page_age'"); }
-        if (!property_exists($data, "title") || $data->title === null) { throw new SdkValidationError("title", 'required', "Required property 'title' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "encrypted_content") || $data->encrypted_content === null) {
+            throw new SdkValidationError("encrypted_content", 'required', "Required property 'encrypted_content' is missing or null");
+        }
+        if (!property_exists($data, "page_age")) {
+            throw new SdkValidationError("page_age", 'required', "Missing required property 'page_age'");
+        }
+        if (!property_exists($data, "title") || $data->title === null) {
+            throw new SdkValidationError("title", 'required', "Required property 'title' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_search_result");
         return new self(
             encryptedContent: SdkClient::stringValue($data->encrypted_content),

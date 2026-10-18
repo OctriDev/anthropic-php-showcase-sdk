@@ -137,16 +137,36 @@ class Message implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "role") || $data->role === null) { throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null"); }
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "stop_reason")) { throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'"); }
-        if (!property_exists($data, "stop_sequence")) { throw new SdkValidationError("stop_sequence", 'required', "Missing required property 'stop_sequence'"); }
-        if (!property_exists($data, "stop_details")) { throw new SdkValidationError("stop_details", 'required', "Missing required property 'stop_details'"); }
-        if (!property_exists($data, "usage") || $data->usage === null) { throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null"); }
-        if (!property_exists($data, "container")) { throw new SdkValidationError("container", 'required', "Missing required property 'container'"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "role") || $data->role === null) {
+            throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null");
+        }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "stop_reason")) {
+            throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'");
+        }
+        if (!property_exists($data, "stop_sequence")) {
+            throw new SdkValidationError("stop_sequence", 'required', "Missing required property 'stop_sequence'");
+        }
+        if (!property_exists($data, "stop_details")) {
+            throw new SdkValidationError("stop_details", 'required', "Missing required property 'stop_details'");
+        }
+        if (!property_exists($data, "usage") || $data->usage === null) {
+            throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null");
+        }
+        if (!property_exists($data, "container")) {
+            throw new SdkValidationError("container", 'required', "Missing required property 'container'");
+        }
         Validation::validateConst("type", $data->type, "message");
         Validation::validateConst("role", $data->role, "assistant");
         return new self(
@@ -173,11 +193,26 @@ final readonly class MessageBatchProcessingStatusEnum implements SdkOpenEnum
     public const CANCELING = "canceling";
     public const ENDED = "ended";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -309,16 +344,36 @@ class MessageBatch implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
-        if (!property_exists($data, "cancel_initiated_at")) { throw new SdkValidationError("cancel_initiated_at", 'required', "Missing required property 'cancel_initiated_at'"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "ended_at")) { throw new SdkValidationError("ended_at", 'required', "Missing required property 'ended_at'"); }
-        if (!property_exists($data, "expires_at") || $data->expires_at === null) { throw new SdkValidationError("expires_at", 'required', "Required property 'expires_at' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "processing_status") || $data->processing_status === null) { throw new SdkValidationError("processing_status", 'required', "Required property 'processing_status' is missing or null"); }
-        if (!property_exists($data, "request_counts") || $data->request_counts === null) { throw new SdkValidationError("request_counts", 'required', "Required property 'request_counts' is missing or null"); }
-        if (!property_exists($data, "results_url")) { throw new SdkValidationError("results_url", 'required', "Missing required property 'results_url'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "archived_at")) {
+            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
+        }
+        if (!property_exists($data, "cancel_initiated_at")) {
+            throw new SdkValidationError("cancel_initiated_at", 'required', "Missing required property 'cancel_initiated_at'");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "ended_at")) {
+            throw new SdkValidationError("ended_at", 'required', "Missing required property 'ended_at'");
+        }
+        if (!property_exists($data, "expires_at") || $data->expires_at === null) {
+            throw new SdkValidationError("expires_at", 'required', "Required property 'expires_at' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "processing_status") || $data->processing_status === null) {
+            throw new SdkValidationError("processing_status", 'required', "Required property 'processing_status' is missing or null");
+        }
+        if (!property_exists($data, "request_counts") || $data->request_counts === null) {
+            throw new SdkValidationError("request_counts", 'required', "Required property 'request_counts' is missing or null");
+        }
+        if (!property_exists($data, "results_url")) {
+            throw new SdkValidationError("results_url", 'required', "Missing required property 'results_url'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "message_batch");
         return new self(
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),

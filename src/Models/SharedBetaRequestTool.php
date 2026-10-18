@@ -68,8 +68,12 @@ class BetaRequestToolAdditionBlock implements BetaInputContentBlock, \JsonSerial
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool") || $data->tool === null) { throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool") || $data->tool === null) {
+            throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_addition");
         return new self(
             tool: SdkClient::hydrateUnionAs($data->tool, BetaRequestToolAdditionBlockTool::class, [BetaToolChangeToolReference::class, BetaToolChangeMCPToolReference::class, BetaToolChangeMCPToolsetReference::class], "type", ["mcp_tool_reference" => BetaToolChangeMCPToolReference::class, "mcp_toolset_reference" => BetaToolChangeMCPToolsetReference::class, "tool_reference" => BetaToolChangeToolReference::class], UnknownBetaRequestToolAdditionBlockTool::class),
@@ -140,8 +144,12 @@ class BetaRequestToolReferenceBlock implements BetaRequestToolResultBlockContent
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_name") || $data->tool_name === null) { throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool_name") || $data->tool_name === null) {
+            throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_reference");
         return new self(
             toolName: SdkClient::stringValue($data->tool_name),
@@ -212,8 +220,12 @@ class BetaRequestToolRemovalBlock implements BetaInputContentBlock, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool") || $data->tool === null) { throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool") || $data->tool === null) {
+            throw new SdkValidationError("tool", 'required', "Required property 'tool' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_removal");
         return new self(
             tool: SdkClient::hydrateUnionAs($data->tool, BetaRequestToolRemovalBlockTool::class, [BetaToolChangeToolReference::class, BetaToolChangeMCPToolReference::class, BetaToolChangeMCPToolsetReference::class], "type", ["mcp_tool_reference" => BetaToolChangeMCPToolReference::class, "mcp_toolset_reference" => BetaToolChangeMCPToolsetReference::class, "tool_reference" => BetaToolChangeToolReference::class], UnknownBetaRequestToolRemovalBlockTool::class),
@@ -320,8 +332,12 @@ class BetaRequestToolResultBlock implements BetaInputContentBlock, \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_result");
         return new self(
             toolUseId: SdkClient::stringValue($data->tool_use_id),
