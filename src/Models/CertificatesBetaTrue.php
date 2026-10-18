@@ -45,9 +45,7 @@ class BetaCreateTunnelCertificateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ca_certificate_pem") || $data->ca_certificate_pem === null) {
-            throw new SdkValidationError("ca_certificate_pem", 'required', "Required property 'ca_certificate_pem' is missing or null");
-        }
+        if (!property_exists($data, "ca_certificate_pem") || $data->ca_certificate_pem === null) { throw new SdkValidationError("ca_certificate_pem", 'required', "Required property 'ca_certificate_pem' is missing or null"); }
         return new self(
             caCertificatePem: SdkClient::stringValue($data->ca_certificate_pem),
         );
@@ -92,9 +90,7 @@ class BetaCreateTunnelCertificateRequestBody implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ca_certificate_pem") || $data->ca_certificate_pem === null) {
-            throw new SdkValidationError("ca_certificate_pem", 'required', "Required property 'ca_certificate_pem' is missing or null");
-        }
+        if (!property_exists($data, "ca_certificate_pem") || $data->ca_certificate_pem === null) { throw new SdkValidationError("ca_certificate_pem", 'required', "Required property 'ca_certificate_pem' is missing or null"); }
         return new self(
             caCertificatePem: SdkClient::stringValue($data->ca_certificate_pem),
         );
@@ -149,12 +145,8 @@ class BetaListTunnelCertificatesResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaTunnelCertificate::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),
@@ -210,12 +202,8 @@ class BetaTunnelCertificateListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaOrganizationTunnelCertificate::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

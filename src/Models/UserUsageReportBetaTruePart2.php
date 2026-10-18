@@ -85,21 +85,11 @@ class BetaAnalyticsUsageUsersResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "data_refreshed_at")) {
-            throw new SdkValidationError("data_refreshed_at", 'required', "Missing required property 'data_refreshed_at'");
-        }
-        if (!property_exists($data, "has_more") || $data->has_more === null) {
-            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "data_refreshed_at")) { throw new SdkValidationError("data_refreshed_at", 'required', "Missing required property 'data_refreshed_at'"); }
+        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsUsageUsersItem::class), SdkClient::arrayValue($data->data))),
             dataRefreshedAt: ($data->data_refreshed_at === null ? null : SdkClient::stringValue($data->data_refreshed_at)),

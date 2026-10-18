@@ -75,18 +75,10 @@ class BetaManagedAgentsMcpConnectionFailedError implements BetaManagedAgentsSess
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "retry_status") || $data->retry_status === null) {
-            throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "retry_status") || $data->retry_status === null) { throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null"); }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpConnectionFailedErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -142,9 +134,7 @@ class BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonError implements Be
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpEgressBlockedDeploymentPausedReasonErrorTypeEnum::class),
         );
@@ -207,12 +197,8 @@ class BetaManagedAgentsMcpEgressBlockedRunError implements BetaManagedAgentsRunE
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpEgressBlockedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -300,12 +286,8 @@ class BetaManagedAgentsMcpOauthAuthResponse implements BetaManagedAgentsCredenti
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_url") || $data->mcp_server_url === null) {
-            throw new SdkValidationError("mcp_server_url", 'required', "Required property 'mcp_server_url' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "mcp_server_url") || $data->mcp_server_url === null) { throw new SdkValidationError("mcp_server_url", 'required', "Required property 'mcp_server_url' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpOauthAuthResponseTypeEnum::class),
             mcpServerUrl: SdkClient::stringValue($data->mcp_server_url),

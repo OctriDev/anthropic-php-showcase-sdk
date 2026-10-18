@@ -15,26 +15,11 @@ final readonly class BetaServiceAccountOrganizationRoleEnum implements SdkOpenEn
     public const ADMIN = "admin";
     public const DEVELOPER = "developer";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -176,39 +161,17 @@ class BetaServiceAccount implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
-        if (!property_exists($data, "archived_by_actor_id")) {
-            throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "created_by_actor_id")) {
-            throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'");
-        }
-        if (!property_exists($data, "description")) {
-            throw new SdkValidationError("description", 'required', "Missing required property 'description'");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "organization_role") || $data->organization_role === null) {
-            throw new SdkValidationError("organization_role", 'required', "Required property 'organization_role' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_by_actor_id")) {
-            throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'");
-        }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "archived_by_actor_id")) { throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "created_by_actor_id")) { throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'"); }
+        if (!property_exists($data, "description")) { throw new SdkValidationError("description", 'required', "Missing required property 'description'"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "organization_role") || $data->organization_role === null) { throw new SdkValidationError("organization_role", 'required', "Required property 'organization_role' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
+        if (!property_exists($data, "updated_by_actor_id")) { throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'"); }
         Validation::validateConst("type", $data->type, "service_account");
         return new self(
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),
@@ -287,12 +250,8 @@ class BetaServiceAccountTarget implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "service_account");
         return new self(
             serviceAccountId: SdkClient::stringValue($data->service_account_id),

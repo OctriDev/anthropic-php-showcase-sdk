@@ -66,15 +66,9 @@ class BetaRbacRolePermission implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "action") || $data->action === null) {
-            throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null");
-        }
-        if (!property_exists($data, "resource") || $data->resource === null) {
-            throw new SdkValidationError("resource", 'required', "Required property 'resource' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "action") || $data->action === null) { throw new SdkValidationError("action", 'required', "Required property 'action' is missing or null"); }
+        if (!property_exists($data, "resource") || $data->resource === null) { throw new SdkValidationError("resource", 'required', "Required property 'resource' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "rbac_role_permission");
         return new self(
             action: SdkClient::stringValue($data->action),
@@ -142,15 +136,9 @@ class BetaRbacRolePermissionList implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "has_more") || $data->has_more === null) {
-            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRbacRolePermission::class), SdkClient::arrayValue($data->data))),
             hasMore: SdkClient::boolValue($data->has_more),

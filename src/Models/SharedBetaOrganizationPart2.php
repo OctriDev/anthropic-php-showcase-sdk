@@ -66,15 +66,9 @@ class BetaOrganizationTunnelToken implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "tunnel_token") || $data->tunnel_token === null) {
-            throw new SdkValidationError("tunnel_token", 'required', "Required property 'tunnel_token' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "tunnel_token") || $data->tunnel_token === null) { throw new SdkValidationError("tunnel_token", 'required', "Required property 'tunnel_token' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tunnel_token");
         return new self(
             id: SdkClient::stringValue($data->id),

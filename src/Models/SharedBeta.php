@@ -46,9 +46,7 @@ class BetaAllThinkingTurns implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "all");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -105,12 +103,8 @@ class BetaAPIError implements BetaManagedAgentsError, BetaDreamingError, BetaErr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "api_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -158,9 +152,7 @@ class BetaAttachedAttachment implements BetaExternalKeyAttachment, \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "attached");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -217,12 +209,8 @@ class BetaAuthenticationError implements BetaManagedAgentsError, BetaDreamingErr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "authentication_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -304,12 +292,8 @@ class BetaAwsExternalKeyConfig implements BetaExternalKeyProviderConfig, BetaExt
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "kms_arn") || $data->kms_arn === null) {
-            throw new SdkValidationError("kms_arn", 'required', "Required property 'kms_arn' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "kms_arn") || $data->kms_arn === null) { throw new SdkValidationError("kms_arn", 'required', "Required property 'kms_arn' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "aws");
         return new self(
             kmsArn: SdkClient::stringValue($data->kms_arn),

@@ -247,9 +247,7 @@ class ComputerToolset_20260801 implements CountMessageTokensParamsToolsItem, Cre
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "computer_toolset_20260801");
         return new self(
             type: SdkClient::stringValue($data->type),

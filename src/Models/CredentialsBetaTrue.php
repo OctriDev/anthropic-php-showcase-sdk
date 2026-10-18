@@ -69,9 +69,7 @@ class BetaManagedAgentsCreateCredentialRequestBody implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "auth") || $data->auth === null) {
-            throw new SdkValidationError("auth", 'required', "Required property 'auth' is missing or null");
-        }
+        if (!property_exists($data, "auth") || $data->auth === null) { throw new SdkValidationError("auth", 'required', "Required property 'auth' is missing or null"); }
         return new self(
             auth: SdkClient::hydrateUnionAs($data->auth, BetaManagedAgentsCredentialCreateAuth::class, [BetaManagedAgentsMcpOauthCreateParams::class, BetaManagedAgentsStaticBearerCreateParams::class, BetaManagedAgentsEnvironmentVariableCreateParams::class], "type", ["mcp_oauth" => BetaManagedAgentsMcpOauthCreateParams::class, "static_bearer" => BetaManagedAgentsStaticBearerCreateParams::class, "environment_variable" => BetaManagedAgentsEnvironmentVariableCreateParams::class], UnknownBetaManagedAgentsCredentialCreateAuth::class),
             displayName: (property_exists($data, "display_name") ? ($data->display_name === null ? null : SdkClient::stringValue($data->display_name)) : SdkNotGiven::Value),
@@ -168,18 +166,10 @@ class BetaManagedAgentsEnvironmentVariableCreateParams implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "secret_name") || $data->secret_name === null) {
-            throw new SdkValidationError("secret_name", 'required', "Required property 'secret_name' is missing or null");
-        }
-        if (!property_exists($data, "secret_value") || $data->secret_value === null) {
-            throw new SdkValidationError("secret_value", 'required', "Required property 'secret_value' is missing or null");
-        }
-        if (!property_exists($data, "networking") || $data->networking === null) {
-            throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "secret_name") || $data->secret_name === null) { throw new SdkValidationError("secret_name", 'required', "Required property 'secret_name' is missing or null"); }
+        if (!property_exists($data, "secret_value") || $data->secret_value === null) { throw new SdkValidationError("secret_value", 'required', "Required property 'secret_value' is missing or null"); }
+        if (!property_exists($data, "networking") || $data->networking === null) { throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentVariableCreateParamsTypeEnum::class),
             secretName: SdkClient::stringValue($data->secret_name),

@@ -66,15 +66,9 @@ class BetaResponseClearThinking20251015Edit implements BetaResponseContextManage
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cleared_input_tokens") || $data->cleared_input_tokens === null) {
-            throw new SdkValidationError("cleared_input_tokens", 'required', "Required property 'cleared_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "cleared_thinking_turns") || $data->cleared_thinking_turns === null) {
-            throw new SdkValidationError("cleared_thinking_turns", 'required', "Required property 'cleared_thinking_turns' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cleared_input_tokens") || $data->cleared_input_tokens === null) { throw new SdkValidationError("cleared_input_tokens", 'required', "Required property 'cleared_input_tokens' is missing or null"); }
+        if (!property_exists($data, "cleared_thinking_turns") || $data->cleared_thinking_turns === null) { throw new SdkValidationError("cleared_thinking_turns", 'required', "Required property 'cleared_thinking_turns' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "clear_thinking_20251015");
         return new self(
             clearedInputTokens: SdkClient::intValue($data->cleared_input_tokens),
@@ -143,15 +137,9 @@ class BetaResponseClearToolUses20250919Edit implements BetaResponseContextManage
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cleared_input_tokens") || $data->cleared_input_tokens === null) {
-            throw new SdkValidationError("cleared_input_tokens", 'required', "Required property 'cleared_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "cleared_tool_uses") || $data->cleared_tool_uses === null) {
-            throw new SdkValidationError("cleared_tool_uses", 'required', "Required property 'cleared_tool_uses' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cleared_input_tokens") || $data->cleared_input_tokens === null) { throw new SdkValidationError("cleared_input_tokens", 'required', "Required property 'cleared_input_tokens' is missing or null"); }
+        if (!property_exists($data, "cleared_tool_uses") || $data->cleared_tool_uses === null) { throw new SdkValidationError("cleared_tool_uses", 'required', "Required property 'cleared_tool_uses' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "clear_tool_uses_20250919");
         return new self(
             clearedInputTokens: SdkClient::intValue($data->cleared_input_tokens),

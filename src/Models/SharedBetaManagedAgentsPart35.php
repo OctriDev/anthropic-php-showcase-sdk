@@ -85,9 +85,7 @@ class BetaManagedAgentsReadToolConfigParams implements BetaManagedAgentsAgentToo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         Validation::validateConst("name", $data->name, "read");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "read");
@@ -147,9 +145,7 @@ class BetaManagedAgentsRedactedBlock implements BetaManagedAgentsAgentMessageCon
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsRedactedBlockTypeEnum::class),
         );
@@ -202,9 +198,7 @@ class BetaManagedAgentsRetryStatusExhausted implements BetaManagedAgentsRetrySta
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsRetryStatusExhaustedTypeEnum::class),
         );
@@ -257,9 +251,7 @@ class BetaManagedAgentsRetryStatusRetrying implements BetaManagedAgentsRetryStat
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsRetryStatusRetryingTypeEnum::class),
         );
@@ -312,9 +304,7 @@ class BetaManagedAgentsRetryStatusTerminal implements BetaManagedAgentsRetryStat
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsRetryStatusTerminalTypeEnum::class),
         );

@@ -45,9 +45,7 @@ class BetaSelfHostedWorkUpdateRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "metadata") || $data->metadata === null) {
-            throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null");
-        }
+        if (!property_exists($data, "metadata") || $data->metadata === null) { throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null"); }
         return new self(
             metadata: SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item))),
         );

@@ -76,18 +76,10 @@ class BetaWebhookVaultArchivedEventData implements BetaWebhookEventData, \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "vault.archived");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -167,18 +159,10 @@ class BetaWebhookVaultCreatedEventData implements BetaWebhookEventData, \JsonSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "vault.created");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -268,21 +252,11 @@ class BetaWebhookVaultCredentialArchivedEventData implements BetaWebhookEventDat
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
-        if (!property_exists($data, "vault_id") || $data->vault_id === null) {
-            throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "vault_id") || $data->vault_id === null) { throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "vault_credential.archived");
         return new self(
             type: SdkClient::stringValue($data->type),

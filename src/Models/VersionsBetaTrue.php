@@ -45,9 +45,7 @@ class BetaBody_create_skill_version_v1_skills__skill_id__versions_post implement
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "files") || $data->files === null) {
-            throw new SdkValidationError("files", 'required', "Required property 'files' is missing or null");
-        }
+        if (!property_exists($data, "files") || $data->files === null) { throw new SdkValidationError("files", 'required', "Required property 'files' is missing or null"); }
         return new self(
             files: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->files))),
         );
@@ -102,12 +100,8 @@ class BetaListSkillVersionsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaSkillVersion::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),
@@ -165,9 +159,7 @@ class BetaManagedAgentsListAgentVersions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsAgent::class), SdkClient::arrayValue($data->data))),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),

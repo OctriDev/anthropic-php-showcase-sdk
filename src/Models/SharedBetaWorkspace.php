@@ -136,36 +136,16 @@ class BetaWorkspace implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
-        if (!property_exists($data, "compartment_id") || $data->compartment_id === null) {
-            throw new SdkValidationError("compartment_id", 'required', "Required property 'compartment_id' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "data_residency") || $data->data_residency === null) {
-            throw new SdkValidationError("data_residency", 'required', "Required property 'data_residency' is missing or null");
-        }
-        if (!property_exists($data, "display_color") || $data->display_color === null) {
-            throw new SdkValidationError("display_color", 'required', "Required property 'display_color' is missing or null");
-        }
-        if (!property_exists($data, "external_key_id")) {
-            throw new SdkValidationError("external_key_id", 'required', "Missing required property 'external_key_id'");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "tags") || $data->tags === null) {
-            throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "compartment_id") || $data->compartment_id === null) { throw new SdkValidationError("compartment_id", 'required', "Required property 'compartment_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "data_residency") || $data->data_residency === null) { throw new SdkValidationError("data_residency", 'required', "Required property 'data_residency' is missing or null"); }
+        if (!property_exists($data, "display_color") || $data->display_color === null) { throw new SdkValidationError("display_color", 'required', "Required property 'display_color' is missing or null"); }
+        if (!property_exists($data, "external_key_id")) { throw new SdkValidationError("external_key_id", 'required', "Missing required property 'external_key_id'"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "tags") || $data->tags === null) { throw new SdkValidationError("tags", 'required', "Required property 'tags' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "workspace");
         return new self(
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),
@@ -251,18 +231,10 @@ class BetaWorkspaceMemberSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "user_id") || $data->user_id === null) {
-            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
-            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
         Validation::validateConst("type", $data->type, "workspace_member");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -284,24 +256,9 @@ final readonly class BetaWorkspaceRoleSchema implements SdkOpenEnum
     public const WORKSPACE_RESTRICTED_DEVELOPER = "workspace_restricted_developer";
     public const WORKSPACE_USER = "workspace_user";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

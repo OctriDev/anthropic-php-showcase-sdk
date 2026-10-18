@@ -55,12 +55,8 @@ class BetaAnalyticsToolActionCounts implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "accepted_count") || $data->accepted_count === null) {
-            throw new SdkValidationError("accepted_count", 'required', "Required property 'accepted_count' is missing or null");
-        }
-        if (!property_exists($data, "rejected_count") || $data->rejected_count === null) {
-            throw new SdkValidationError("rejected_count", 'required', "Required property 'rejected_count' is missing or null");
-        }
+        if (!property_exists($data, "accepted_count") || $data->accepted_count === null) { throw new SdkValidationError("accepted_count", 'required', "Required property 'accepted_count' is missing or null"); }
+        if (!property_exists($data, "rejected_count") || $data->rejected_count === null) { throw new SdkValidationError("rejected_count", 'required', "Required property 'rejected_count' is missing or null"); }
         return new self(
             acceptedCount: SdkClient::intValue($data->accepted_count),
             rejectedCount: SdkClient::intValue($data->rejected_count),
@@ -136,18 +132,10 @@ class BetaAnalyticsToolActions implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "edit_tool") || $data->edit_tool === null) {
-            throw new SdkValidationError("edit_tool", 'required', "Required property 'edit_tool' is missing or null");
-        }
-        if (!property_exists($data, "multi_edit_tool") || $data->multi_edit_tool === null) {
-            throw new SdkValidationError("multi_edit_tool", 'required', "Required property 'multi_edit_tool' is missing or null");
-        }
-        if (!property_exists($data, "notebook_edit_tool") || $data->notebook_edit_tool === null) {
-            throw new SdkValidationError("notebook_edit_tool", 'required', "Required property 'notebook_edit_tool' is missing or null");
-        }
-        if (!property_exists($data, "write_tool") || $data->write_tool === null) {
-            throw new SdkValidationError("write_tool", 'required', "Required property 'write_tool' is missing or null");
-        }
+        if (!property_exists($data, "edit_tool") || $data->edit_tool === null) { throw new SdkValidationError("edit_tool", 'required', "Required property 'edit_tool' is missing or null"); }
+        if (!property_exists($data, "multi_edit_tool") || $data->multi_edit_tool === null) { throw new SdkValidationError("multi_edit_tool", 'required', "Required property 'multi_edit_tool' is missing or null"); }
+        if (!property_exists($data, "notebook_edit_tool") || $data->notebook_edit_tool === null) { throw new SdkValidationError("notebook_edit_tool", 'required', "Required property 'notebook_edit_tool' is missing or null"); }
+        if (!property_exists($data, "write_tool") || $data->write_tool === null) { throw new SdkValidationError("write_tool", 'required', "Required property 'write_tool' is missing or null"); }
         return new self(
             editTool: SdkClient::hydrateClass($data->edit_tool, BetaAnalyticsToolActionCounts::class),
             multiEditTool: SdkClient::hydrateClass($data->multi_edit_tool, BetaAnalyticsToolActionCounts::class),
@@ -315,27 +303,13 @@ class BetaAnalyticsUserActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) {
-            throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null");
-        }
-        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) {
-            throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null");
-        }
-        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) {
-            throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null");
-        }
-        if (!property_exists($data, "design_metrics") || $data->design_metrics === null) {
-            throw new SdkValidationError("design_metrics", 'required', "Required property 'design_metrics' is missing or null");
-        }
-        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) {
-            throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null");
-        }
-        if (!property_exists($data, "science_metrics") || $data->science_metrics === null) {
-            throw new SdkValidationError("science_metrics", 'required', "Required property 'science_metrics' is missing or null");
-        }
-        if (!property_exists($data, "web_search_count") || $data->web_search_count === null) {
-            throw new SdkValidationError("web_search_count", 'required', "Required property 'web_search_count' is missing or null");
-        }
+        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) { throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null"); }
+        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) { throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null"); }
+        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) { throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null"); }
+        if (!property_exists($data, "design_metrics") || $data->design_metrics === null) { throw new SdkValidationError("design_metrics", 'required', "Required property 'design_metrics' is missing or null"); }
+        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) { throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null"); }
+        if (!property_exists($data, "science_metrics") || $data->science_metrics === null) { throw new SdkValidationError("science_metrics", 'required', "Required property 'science_metrics' is missing or null"); }
+        if (!property_exists($data, "web_search_count") || $data->web_search_count === null) { throw new SdkValidationError("web_search_count", 'required', "Required property 'web_search_count' is missing or null"); }
         return new self(
             chatMetrics: SdkClient::hydrateClass($data->chat_metrics, BetaAnalyticsChatMetrics::class),
             claudeCodeMetrics: SdkClient::hydrateClass($data->claude_code_metrics, BetaAnalyticsClaudeCodeMetrics::class),

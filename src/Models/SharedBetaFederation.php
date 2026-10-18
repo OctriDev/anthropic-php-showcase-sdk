@@ -186,51 +186,21 @@ class BetaFederationIssuer implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
-        if (!property_exists($data, "archived_by_actor_id")) {
-            throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'");
-        }
-        if (!property_exists($data, "check_jti") || $data->check_jti === null) {
-            throw new SdkValidationError("check_jti", 'required', "Required property 'check_jti' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "created_by_actor_id")) {
-            throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "issuer_url") || $data->issuer_url === null) {
-            throw new SdkValidationError("issuer_url", 'required', "Required property 'issuer_url' is missing or null");
-        }
-        if (!property_exists($data, "jwks") || $data->jwks === null) {
-            throw new SdkValidationError("jwks", 'required', "Required property 'jwks' is missing or null");
-        }
-        if (!property_exists($data, "jwks_polling_disabled_at")) {
-            throw new SdkValidationError("jwks_polling_disabled_at", 'required', "Missing required property 'jwks_polling_disabled_at'");
-        }
-        if (!property_exists($data, "max_jwt_lifetime_seconds") || $data->max_jwt_lifetime_seconds === null) {
-            throw new SdkValidationError("max_jwt_lifetime_seconds", 'required', "Required property 'max_jwt_lifetime_seconds' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "poll_status")) {
-            throw new SdkValidationError("poll_status", 'required', "Missing required property 'poll_status'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_by_actor_id")) {
-            throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'");
-        }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "archived_by_actor_id")) { throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'"); }
+        if (!property_exists($data, "check_jti") || $data->check_jti === null) { throw new SdkValidationError("check_jti", 'required', "Required property 'check_jti' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "created_by_actor_id")) { throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "issuer_url") || $data->issuer_url === null) { throw new SdkValidationError("issuer_url", 'required', "Required property 'issuer_url' is missing or null"); }
+        if (!property_exists($data, "jwks") || $data->jwks === null) { throw new SdkValidationError("jwks", 'required', "Required property 'jwks' is missing or null"); }
+        if (!property_exists($data, "jwks_polling_disabled_at")) { throw new SdkValidationError("jwks_polling_disabled_at", 'required', "Missing required property 'jwks_polling_disabled_at'"); }
+        if (!property_exists($data, "max_jwt_lifetime_seconds") || $data->max_jwt_lifetime_seconds === null) { throw new SdkValidationError("max_jwt_lifetime_seconds", 'required', "Required property 'max_jwt_lifetime_seconds' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "poll_status")) { throw new SdkValidationError("poll_status", 'required', "Missing required property 'poll_status'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
+        if (!property_exists($data, "updated_by_actor_id")) { throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'"); }
         Validation::validateConst("type", $data->type, "federation_issuer");
         return new self(
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),

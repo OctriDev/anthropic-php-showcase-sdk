@@ -56,12 +56,8 @@ class BetaInvalidRequestError implements BetaManagedAgentsError, BetaDreamingErr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "invalid_request_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -128,15 +124,9 @@ class BetaIssuerPollStatus implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "consecutive_failures") || $data->consecutive_failures === null) {
-            throw new SdkValidationError("consecutive_failures", 'required', "Required property 'consecutive_failures' is missing or null");
-        }
-        if (!property_exists($data, "last_fetched_at")) {
-            throw new SdkValidationError("last_fetched_at", 'required', "Missing required property 'last_fetched_at'");
-        }
-        if (!property_exists($data, "next_poll_at")) {
-            throw new SdkValidationError("next_poll_at", 'required', "Missing required property 'next_poll_at'");
-        }
+        if (!property_exists($data, "consecutive_failures") || $data->consecutive_failures === null) { throw new SdkValidationError("consecutive_failures", 'required', "Required property 'consecutive_failures' is missing or null"); }
+        if (!property_exists($data, "last_fetched_at")) { throw new SdkValidationError("last_fetched_at", 'required', "Missing required property 'last_fetched_at'"); }
+        if (!property_exists($data, "next_poll_at")) { throw new SdkValidationError("next_poll_at", 'required', "Missing required property 'next_poll_at'"); }
         return new self(
             consecutiveFailures: SdkClient::intValue($data->consecutive_failures),
             lastFetchedAt: ($data->last_fetched_at === null ? null : SdkClient::stringValue($data->last_fetched_at)),
@@ -230,12 +220,8 @@ class BetaMCPToolset implements BetaCountMessageTokensParamsToolsItem, BetaCreat
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "mcp_toolset");
         return new self(
             mcpServerName: SdkClient::stringValue($data->mcp_server_name),

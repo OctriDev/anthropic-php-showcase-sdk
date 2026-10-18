@@ -65,15 +65,9 @@ class BetaAnalyticsCostReportTimeBucket implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ending_at") || $data->ending_at === null) {
-            throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null");
-        }
-        if (!property_exists($data, "results") || $data->results === null) {
-            throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null");
-        }
-        if (!property_exists($data, "starting_at") || $data->starting_at === null) {
-            throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null");
-        }
+        if (!property_exists($data, "ending_at") || $data->ending_at === null) { throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null"); }
+        if (!property_exists($data, "results") || $data->results === null) { throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null"); }
+        if (!property_exists($data, "starting_at") || $data->starting_at === null) { throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null"); }
         return new self(
             endingAt: SdkClient::stringValue($data->ending_at),
             results: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsCostBucketedResult::class), SdkClient::arrayValue($data->results))),
@@ -90,26 +84,11 @@ final readonly class BetaCostReportGroupBy implements SdkOpenEnum
     public const DESCRIPTION = "description";
     public const WORKSPACE_ID = "workspace_id";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -240,36 +219,16 @@ class BetaCostReportItem implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "currency") || $data->currency === null) {
-            throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null");
-        }
-        if (!property_exists($data, "amount") || $data->amount === null) {
-            throw new SdkValidationError("amount", 'required', "Required property 'amount' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id")) {
-            throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'");
-        }
-        if (!property_exists($data, "description")) {
-            throw new SdkValidationError("description", 'required', "Missing required property 'description'");
-        }
-        if (!property_exists($data, "cost_type")) {
-            throw new SdkValidationError("cost_type", 'required', "Missing required property 'cost_type'");
-        }
-        if (!property_exists($data, "context_window")) {
-            throw new SdkValidationError("context_window", 'required', "Missing required property 'context_window'");
-        }
-        if (!property_exists($data, "model")) {
-            throw new SdkValidationError("model", 'required', "Missing required property 'model'");
-        }
-        if (!property_exists($data, "service_tier")) {
-            throw new SdkValidationError("service_tier", 'required', "Missing required property 'service_tier'");
-        }
-        if (!property_exists($data, "token_type")) {
-            throw new SdkValidationError("token_type", 'required', "Missing required property 'token_type'");
-        }
-        if (!property_exists($data, "inference_geo")) {
-            throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'");
-        }
+        if (!property_exists($data, "currency") || $data->currency === null) { throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null"); }
+        if (!property_exists($data, "amount") || $data->amount === null) { throw new SdkValidationError("amount", 'required', "Required property 'amount' is missing or null"); }
+        if (!property_exists($data, "workspace_id")) { throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'"); }
+        if (!property_exists($data, "description")) { throw new SdkValidationError("description", 'required', "Missing required property 'description'"); }
+        if (!property_exists($data, "cost_type")) { throw new SdkValidationError("cost_type", 'required', "Missing required property 'cost_type'"); }
+        if (!property_exists($data, "context_window")) { throw new SdkValidationError("context_window", 'required', "Missing required property 'context_window'"); }
+        if (!property_exists($data, "model")) { throw new SdkValidationError("model", 'required', "Missing required property 'model'"); }
+        if (!property_exists($data, "service_tier")) { throw new SdkValidationError("service_tier", 'required', "Missing required property 'service_tier'"); }
+        if (!property_exists($data, "token_type")) { throw new SdkValidationError("token_type", 'required', "Missing required property 'token_type'"); }
+        if (!property_exists($data, "inference_geo")) { throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'"); }
         return new self(
             currency: SdkClient::stringValue($data->currency),
             amount: SdkClient::stringValue($data->amount),
@@ -293,26 +252,11 @@ final readonly class BetaCostReportServiceTier implements SdkOpenEnum
     public const BATCH = "batch";
     public const STANDARD = "standard";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -373,15 +317,9 @@ class BetaCostReportTimeBucket implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "starting_at") || $data->starting_at === null) {
-            throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null");
-        }
-        if (!property_exists($data, "ending_at") || $data->ending_at === null) {
-            throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null");
-        }
-        if (!property_exists($data, "results") || $data->results === null) {
-            throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null");
-        }
+        if (!property_exists($data, "starting_at") || $data->starting_at === null) { throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null"); }
+        if (!property_exists($data, "ending_at") || $data->ending_at === null) { throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null"); }
+        if (!property_exists($data, "results") || $data->results === null) { throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null"); }
         return new self(
             startingAt: SdkClient::stringValue($data->starting_at),
             endingAt: SdkClient::stringValue($data->ending_at),
@@ -397,24 +335,9 @@ final readonly class BetaCostReportTimeBucketWidth implements SdkOpenEnum
 {
     public const _1D = "1d";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

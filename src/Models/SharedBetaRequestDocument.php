@@ -104,12 +104,8 @@ class BetaRequestDocumentBlock implements BetaInputContentBlock, BetaRequestTool
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "document");
         return new self(
             source: SdkClient::hydrateUnionAs($data->source, BetaRequestDocumentBlockSource::class, [BetaBase64PDFSource::class, BetaPlainTextSource::class, BetaContentBlockSource::class, BetaURLPDFSource::class, BetaFileDocumentSource::class], "type", ["base64" => BetaBase64PDFSource::class, "content" => BetaContentBlockSource::class, "file" => BetaFileDocumentSource::class, "text" => BetaPlainTextSource::class, "url" => BetaURLPDFSource::class], UnknownBetaRequestDocumentBlockSource::class),

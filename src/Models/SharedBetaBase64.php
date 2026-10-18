@@ -17,26 +17,11 @@ final readonly class BetaBase64ImageSourceMediaTypeEnum implements SdkOpenEnum
     public const IMAGE_GIF = "image/gif";
     public const IMAGE_WEBP = "image/webp";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -98,15 +83,9 @@ class BetaBase64ImageSource implements BetaRequestImageBlockSource, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "media_type") || $data->media_type === null) {
-            throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "media_type") || $data->media_type === null) { throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateByte("data", SdkClient::stringValue($data->data));
         Validation::validateConst("type", $data->type, "base64");
         return new self(
@@ -177,15 +156,9 @@ class BetaBase64PDFSource implements BetaResponseDocumentBlockSource, BetaReques
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "media_type") || $data->media_type === null) {
-            throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "media_type") || $data->media_type === null) { throw new SdkValidationError("media_type", 'required', "Required property 'media_type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateByte("data", SdkClient::stringValue($data->data));
         Validation::validateConst("media_type", $data->media_type, "application/pdf");
         Validation::validateConst("type", $data->type, "base64");

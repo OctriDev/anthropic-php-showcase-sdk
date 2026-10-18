@@ -56,12 +56,8 @@ class ServerToolCaller implements ResponseToolUseBlockCaller, ResponseServerTool
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_id") || $data->tool_id === null) {
-            throw new SdkValidationError("tool_id", 'required', "Required property 'tool_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tool_id") || $data->tool_id === null) { throw new SdkValidationError("tool_id", 'required', "Required property 'tool_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "code_execution_20250825");
         return new self(
             toolId: SdkClient::stringValue($data->tool_id),
@@ -119,12 +115,8 @@ class ServerToolCaller_20260120 implements ResponseToolUseBlockCaller, ResponseS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_id") || $data->tool_id === null) {
-            throw new SdkValidationError("tool_id", 'required', "Required property 'tool_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tool_id") || $data->tool_id === null) { throw new SdkValidationError("tool_id", 'required', "Required property 'tool_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "code_execution_20260120");
         return new self(
             toolId: SdkClient::stringValue($data->tool_id),
@@ -181,12 +173,8 @@ class ServerToolUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "web_fetch_requests") || $data->web_fetch_requests === null) {
-            throw new SdkValidationError("web_fetch_requests", 'required', "Required property 'web_fetch_requests' is missing or null");
-        }
-        if (!property_exists($data, "web_search_requests") || $data->web_search_requests === null) {
-            throw new SdkValidationError("web_search_requests", 'required', "Required property 'web_search_requests' is missing or null");
-        }
+        if (!property_exists($data, "web_fetch_requests") || $data->web_fetch_requests === null) { throw new SdkValidationError("web_fetch_requests", 'required', "Required property 'web_fetch_requests' is missing or null"); }
+        if (!property_exists($data, "web_search_requests") || $data->web_search_requests === null) { throw new SdkValidationError("web_search_requests", 'required', "Required property 'web_search_requests' is missing or null"); }
         return new self(
             webFetchRequests: SdkClient::intValue($data->web_fetch_requests),
             webSearchRequests: SdkClient::intValue($data->web_search_requests),

@@ -115,30 +115,14 @@ class BetaSpendSummary implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "actor") || $data->actor === null) {
-            throw new SdkValidationError("actor", 'required', "Required property 'actor' is missing or null");
-        }
-        if (!property_exists($data, "amount")) {
-            throw new SdkValidationError("amount", 'required', "Missing required property 'amount'");
-        }
-        if (!property_exists($data, "currency") || $data->currency === null) {
-            throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null");
-        }
-        if (!property_exists($data, "period") || $data->period === null) {
-            throw new SdkValidationError("period", 'required', "Required property 'period' is missing or null");
-        }
-        if (!property_exists($data, "period_to_date_spend") || $data->period_to_date_spend === null) {
-            throw new SdkValidationError("period_to_date_spend", 'required', "Required property 'period_to_date_spend' is missing or null");
-        }
-        if (!property_exists($data, "scope") || $data->scope === null) {
-            throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null");
-        }
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
-        if (!property_exists($data, "spend_limit_id") || $data->spend_limit_id === null) {
-            throw new SdkValidationError("spend_limit_id", 'required', "Required property 'spend_limit_id' is missing or null");
-        }
+        if (!property_exists($data, "actor") || $data->actor === null) { throw new SdkValidationError("actor", 'required', "Required property 'actor' is missing or null"); }
+        if (!property_exists($data, "amount")) { throw new SdkValidationError("amount", 'required', "Missing required property 'amount'"); }
+        if (!property_exists($data, "currency") || $data->currency === null) { throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null"); }
+        if (!property_exists($data, "period") || $data->period === null) { throw new SdkValidationError("period", 'required', "Required property 'period' is missing or null"); }
+        if (!property_exists($data, "period_to_date_spend") || $data->period_to_date_spend === null) { throw new SdkValidationError("period_to_date_spend", 'required', "Required property 'period_to_date_spend' is missing or null"); }
+        if (!property_exists($data, "scope") || $data->scope === null) { throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "spend_limit_id") || $data->spend_limit_id === null) { throw new SdkValidationError("spend_limit_id", 'required', "Required property 'spend_limit_id' is missing or null"); }
         return new self(
             actor: SdkClient::hydrateClass($data->actor, BetaUserActorSchema::class),
             amount: ($data->amount === null ? null : SdkClient::stringValue($data->amount)),

@@ -125,33 +125,15 @@ class BetaManagedAgentsSpanOutcomeEvaluationEndEvent implements BetaManagedAgent
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "outcome_evaluation_start_id") || $data->outcome_evaluation_start_id === null) {
-            throw new SdkValidationError("outcome_evaluation_start_id", 'required', "Required property 'outcome_evaluation_start_id' is missing or null");
-        }
-        if (!property_exists($data, "iteration") || $data->iteration === null) {
-            throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null");
-        }
-        if (!property_exists($data, "result") || $data->result === null) {
-            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
-        }
-        if (!property_exists($data, "explanation") || $data->explanation === null) {
-            throw new SdkValidationError("explanation", 'required', "Required property 'explanation' is missing or null");
-        }
-        if (!property_exists($data, "usage") || $data->usage === null) {
-            throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null");
-        }
-        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) {
-            throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "outcome_evaluation_start_id") || $data->outcome_evaluation_start_id === null) { throw new SdkValidationError("outcome_evaluation_start_id", 'required', "Required property 'outcome_evaluation_start_id' is missing or null"); }
+        if (!property_exists($data, "iteration") || $data->iteration === null) { throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null"); }
+        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
+        if (!property_exists($data, "explanation") || $data->explanation === null) { throw new SdkValidationError("explanation", 'required', "Required property 'explanation' is missing or null"); }
+        if (!property_exists($data, "usage") || $data->usage === null) { throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null"); }
+        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) { throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSpanOutcomeEvaluationEndEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -252,21 +234,11 @@ class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent implements BetaManagedA
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "iteration") || $data->iteration === null) {
-            throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null");
-        }
-        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) {
-            throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "iteration") || $data->iteration === null) { throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null"); }
+        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) { throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSpanOutcomeEvaluationOngoingEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -363,21 +335,11 @@ class BetaManagedAgentsSpanOutcomeEvaluationStartEvent implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "iteration") || $data->iteration === null) {
-            throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null");
-        }
-        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) {
-            throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "iteration") || $data->iteration === null) { throw new SdkValidationError("iteration", 'required', "Required property 'iteration' is missing or null"); }
+        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) { throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSpanOutcomeEvaluationStartEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),

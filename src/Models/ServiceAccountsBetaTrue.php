@@ -15,26 +15,11 @@ final readonly class BetaServiceAccountCreateParamsOrganizationRoleEnum implemen
     public const ADMIN = "admin";
     public const DEVELOPER = "developer";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -99,9 +84,7 @@ class BetaServiceAccountCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             description: (property_exists($data, "description") ? ($data->description === null ? null : SdkClient::stringValue($data->description)) : SdkNotGiven::Value),
@@ -158,12 +141,8 @@ class BetaServiceAccountListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaServiceAccount::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),
@@ -219,12 +198,8 @@ class BetaServiceAccountWorkspaceMemberCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
-            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
-        }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
         return new self(
             serviceAccountId: SdkClient::stringValue($data->service_account_id),
             workspaceRole: SdkClient::hydrateStringEnumOrString($data->workspace_role, BetaNoBillingWorkspaceRoleSchema::class),

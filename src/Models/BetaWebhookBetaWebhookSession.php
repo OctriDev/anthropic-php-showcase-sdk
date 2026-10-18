@@ -76,18 +76,10 @@ class BetaWebhookSessionArchivedEventData implements BetaWebhookEventData, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "session.archived");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -167,18 +159,10 @@ class BetaWebhookSessionBudgetReachedEventData implements BetaWebhookEventData, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "session.budget_reached");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -258,18 +242,10 @@ class BetaWebhookSessionCreatedEventData implements BetaWebhookEventData, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "session.created");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -349,18 +325,10 @@ class BetaWebhookSessionDeletedEventData implements BetaWebhookEventData, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "session.deleted");
         return new self(
             type: SdkClient::stringValue($data->type),

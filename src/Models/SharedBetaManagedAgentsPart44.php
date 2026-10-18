@@ -85,21 +85,11 @@ class BetaManagedAgentsSessionThreadCreatedEvent implements BetaManagedAgentsSes
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "agent_name") || $data->agent_name === null) {
-            throw new SdkValidationError("agent_name", 'required', "Required property 'agent_name' is missing or null");
-        }
-        if (!property_exists($data, "session_thread_id") || $data->session_thread_id === null) {
-            throw new SdkValidationError("session_thread_id", 'required', "Required property 'session_thread_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "agent_name") || $data->agent_name === null) { throw new SdkValidationError("agent_name", 'required', "Required property 'agent_name' is missing or null"); }
+        if (!property_exists($data, "session_thread_id") || $data->session_thread_id === null) { throw new SdkValidationError("session_thread_id", 'required', "Required property 'session_thread_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionThreadCreatedEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -192,26 +182,11 @@ final readonly class BetaManagedAgentsSessionThreadStatus implements SdkOpenEnum
     public const RESCHEDULING = "rescheduling";
     public const TERMINATED = "terminated";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -310,24 +285,12 @@ class BetaManagedAgentsSessionThreadStatusIdleEvent implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "session_thread_id") || $data->session_thread_id === null) {
-            throw new SdkValidationError("session_thread_id", 'required', "Required property 'session_thread_id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "agent_name") || $data->agent_name === null) {
-            throw new SdkValidationError("agent_name", 'required', "Required property 'agent_name' is missing or null");
-        }
-        if (!property_exists($data, "stop_reason") || $data->stop_reason === null) {
-            throw new SdkValidationError("stop_reason", 'required', "Required property 'stop_reason' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "session_thread_id") || $data->session_thread_id === null) { throw new SdkValidationError("session_thread_id", 'required', "Required property 'session_thread_id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "agent_name") || $data->agent_name === null) { throw new SdkValidationError("agent_name", 'required', "Required property 'agent_name' is missing or null"); }
+        if (!property_exists($data, "stop_reason") || $data->stop_reason === null) { throw new SdkValidationError("stop_reason", 'required', "Required property 'stop_reason' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionThreadStatusIdleEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),

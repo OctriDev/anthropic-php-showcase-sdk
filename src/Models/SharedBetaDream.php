@@ -14,26 +14,11 @@ final readonly class BetaDreamTypeEnum implements SdkOpenEnum
 {
     public const DREAM = "dream";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -204,48 +189,20 @@ class BetaDream implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "inputs") || $data->inputs === null) {
-            throw new SdkValidationError("inputs", 'required', "Required property 'inputs' is missing or null");
-        }
-        if (!property_exists($data, "outputs") || $data->outputs === null) {
-            throw new SdkValidationError("outputs", 'required', "Required property 'outputs' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "ended_at")) {
-            throw new SdkValidationError("ended_at", 'required', "Missing required property 'ended_at'");
-        }
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
-        if (!property_exists($data, "error")) {
-            throw new SdkValidationError("error", 'required', "Missing required property 'error'");
-        }
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "instructions")) {
-            throw new SdkValidationError("instructions", 'required', "Missing required property 'instructions'");
-        }
-        if (!property_exists($data, "session_id")) {
-            throw new SdkValidationError("session_id", 'required', "Missing required property 'session_id'");
-        }
-        if (!property_exists($data, "usage") || $data->usage === null) {
-            throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null");
-        }
-        if (!property_exists($data, "output_behavior") || $data->output_behavior === null) {
-            throw new SdkValidationError("output_behavior", 'required', "Required property 'output_behavior' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "inputs") || $data->inputs === null) { throw new SdkValidationError("inputs", 'required', "Required property 'inputs' is missing or null"); }
+        if (!property_exists($data, "outputs") || $data->outputs === null) { throw new SdkValidationError("outputs", 'required', "Required property 'outputs' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "ended_at")) { throw new SdkValidationError("ended_at", 'required', "Missing required property 'ended_at'"); }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "error")) { throw new SdkValidationError("error", 'required', "Missing required property 'error'"); }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "instructions")) { throw new SdkValidationError("instructions", 'required', "Missing required property 'instructions'"); }
+        if (!property_exists($data, "session_id")) { throw new SdkValidationError("session_id", 'required', "Missing required property 'session_id'"); }
+        if (!property_exists($data, "usage") || $data->usage === null) { throw new SdkValidationError("usage", 'required', "Required property 'usage' is missing or null"); }
+        if (!property_exists($data, "output_behavior") || $data->output_behavior === null) { throw new SdkValidationError("output_behavior", 'required', "Required property 'output_behavior' is missing or null"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaDreamTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -313,12 +270,8 @@ class BetaDreamError implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::stringValue($data->type),
             message: SdkClient::stringValue($data->message),
@@ -382,12 +335,8 @@ class BetaDreamMemoryStoreInput implements BetaDreamInput, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
-            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaDreamMemoryStoreInputTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),

@@ -76,18 +76,10 @@ class ResponseDocumentBlock implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "citations")) {
-            throw new SdkValidationError("citations", 'required', "Missing required property 'citations'");
-        }
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
-        if (!property_exists($data, "title")) {
-            throw new SdkValidationError("title", 'required', "Missing required property 'title'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "citations")) { throw new SdkValidationError("citations", 'required', "Missing required property 'citations'"); }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "title")) { throw new SdkValidationError("title", 'required', "Missing required property 'title'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "document");
         return new self(
             citations: ($data->citations === null ? null : SdkClient::hydrateClass($data->citations, ResponseCitationsConfig::class)),

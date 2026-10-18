@@ -135,12 +135,8 @@ class BetaManagedAgentsAgentWithOverridesParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAgentWithOverridesParamsTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -274,12 +270,8 @@ class BetaManagedAgentsCreateSessionParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "agent") || $data->agent === null) {
-            throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null");
-        }
-        if (!property_exists($data, "environment_id") || $data->environment_id === null) {
-            throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null");
-        }
+        if (!property_exists($data, "agent") || $data->agent === null) { throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null"); }
+        if (!property_exists($data, "environment_id") || $data->environment_id === null) { throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null"); }
         return new self(
             agent: (is_object($data->agent) ? SdkClient::hydrateUnion($data->agent, [BetaManagedAgentsAgentParams::class, BetaManagedAgentsAgentWithOverridesParams::class], null, []) : (is_string($data->agent) ? SdkClient::stringValue($data->agent) : SdkClient::hydrateUnion($data->agent, [BetaManagedAgentsAgentParams::class, BetaManagedAgentsAgentWithOverridesParams::class], null, []))),
             environmentId: SdkClient::stringValue($data->environment_id),

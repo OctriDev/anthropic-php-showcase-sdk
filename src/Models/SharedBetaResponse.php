@@ -106,27 +106,13 @@ class BetaResponseCharLocationCitation implements BetaCitationsDeltaCitation, Be
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cited_text") || $data->cited_text === null) {
-            throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null");
-        }
-        if (!property_exists($data, "document_index") || $data->document_index === null) {
-            throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null");
-        }
-        if (!property_exists($data, "document_title")) {
-            throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'");
-        }
-        if (!property_exists($data, "end_char_index") || $data->end_char_index === null) {
-            throw new SdkValidationError("end_char_index", 'required', "Required property 'end_char_index' is missing or null");
-        }
-        if (!property_exists($data, "file_id")) {
-            throw new SdkValidationError("file_id", 'required', "Missing required property 'file_id'");
-        }
-        if (!property_exists($data, "start_char_index") || $data->start_char_index === null) {
-            throw new SdkValidationError("start_char_index", 'required', "Required property 'start_char_index' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cited_text") || $data->cited_text === null) { throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null"); }
+        if (!property_exists($data, "document_index") || $data->document_index === null) { throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null"); }
+        if (!property_exists($data, "document_title")) { throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'"); }
+        if (!property_exists($data, "end_char_index") || $data->end_char_index === null) { throw new SdkValidationError("end_char_index", 'required', "Required property 'end_char_index' is missing or null"); }
+        if (!property_exists($data, "file_id")) { throw new SdkValidationError("file_id", 'required', "Missing required property 'file_id'"); }
+        if (!property_exists($data, "start_char_index") || $data->start_char_index === null) { throw new SdkValidationError("start_char_index", 'required', "Required property 'start_char_index' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "char_location");
         return new self(
             citedText: SdkClient::stringValue($data->cited_text),
@@ -178,9 +164,7 @@ class BetaResponseCitationsConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
         return new self(
             enabled: SdkClient::boolValue($data->enabled),
         );
@@ -246,15 +230,9 @@ class BetaResponseCompactionBlock implements BetaContentBlock, BetaContentBlockS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content")) {
-            throw new SdkValidationError("content", 'required', "Missing required property 'content'");
-        }
-        if (!property_exists($data, "encrypted_content")) {
-            throw new SdkValidationError("encrypted_content", 'required', "Missing required property 'encrypted_content'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "content")) { throw new SdkValidationError("content", 'required', "Missing required property 'content'"); }
+        if (!property_exists($data, "encrypted_content")) { throw new SdkValidationError("encrypted_content", 'required', "Missing required property 'encrypted_content'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "compaction");
         return new self(
             content: ($data->content === null ? null : SdkClient::stringValue($data->content)),
@@ -313,12 +291,8 @@ class BetaResponseContainerUploadBlock implements BetaContentBlock, BetaContentB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "file_id") || $data->file_id === null) {
-            throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "file_id") || $data->file_id === null) { throw new SdkValidationError("file_id", 'required', "Required property 'file_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "container_upload");
         return new self(
             fileId: SdkClient::stringValue($data->file_id),

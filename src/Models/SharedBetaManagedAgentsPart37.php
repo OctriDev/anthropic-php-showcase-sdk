@@ -55,12 +55,8 @@ class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError implements BetaMan
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -176,12 +172,8 @@ class BetaManagedAgentsServiceAccountActor implements BetaManagedAgentsActor, \J
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "service_account_actor");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -197,24 +189,9 @@ final readonly class BetaManagedAgentsSessionTypeEnum implements SdkOpenEnum
 {
     public const SESSION = "session";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
