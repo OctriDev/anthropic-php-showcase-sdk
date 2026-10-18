@@ -188,16 +188,16 @@ class WebFetchTool_20260309 implements CountMessageTokensParamsToolsItem, Create
         return new self(
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, AllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, AllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             allowedDomains: (property_exists($data, "allowed_domains") ? ($data->allowed_domains === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_domains)))) : SdkNotGiven::Value),
             blockedDomains: (property_exists($data, "blocked_domains") ? ($data->blocked_domains === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->blocked_domains)))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, CacheControlEphemeral::class)) : SdkNotGiven::Value),
             citations: (property_exists($data, "citations") ? ($data->citations === null ? null : SdkClient::hydrateClass($data->citations, RequestCitationsConfig::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
             maxContentTokens: (property_exists($data, "max_content_tokens") ? ($data->max_content_tokens === null ? null : SdkClient::intValue($data->max_content_tokens)) : SdkNotGiven::Value),
             maxUses: (property_exists($data, "max_uses") ? ($data->max_uses === null ? null : SdkClient::intValue($data->max_uses)) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
-            useCache: (property_exists($data, "use_cache") ? SdkClient::boolValue($data->use_cache) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            useCache: (property_exists($data, "use_cache") && $data->use_cache !== null ? SdkClient::boolValue($data->use_cache) : SdkNotGiven::Value),
         );
     }
 }

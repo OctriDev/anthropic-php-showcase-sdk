@@ -284,7 +284,7 @@ class BetaFileMetadataSchema implements \JsonSerializable
             mimeType: SdkClient::stringValue($data->mime_type),
             sizeBytes: SdkClient::intValue($data->size_bytes),
             type: SdkClient::stringValue($data->type),
-            downloadable: (property_exists($data, "downloadable") ? SdkClient::boolValue($data->downloadable) : SdkNotGiven::Value),
+            downloadable: (property_exists($data, "downloadable") && $data->downloadable !== null ? SdkClient::boolValue($data->downloadable) : SdkNotGiven::Value),
             expiresAt: (property_exists($data, "expires_at") ? ($data->expires_at === null ? null : SdkClient::stringValue($data->expires_at)) : SdkNotGiven::Value),
             scope: (property_exists($data, "scope") ? ($data->scope === null ? null : SdkClient::hydrateClass($data->scope, BetaFileScope::class)) : SdkNotGiven::Value),
         );

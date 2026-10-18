@@ -239,7 +239,7 @@ class BetaSkillParams implements \JsonSerializable
         return new self(
             skillId: SdkClient::stringValue($data->skill_id),
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaSkillParamsTypeEnum::class),
-            version: (property_exists($data, "version") ? SdkClient::stringValue($data->version) : SdkNotGiven::Value),
+            version: (property_exists($data, "version") && $data->version !== null ? SdkClient::stringValue($data->version) : SdkNotGiven::Value),
         );
     }
 }

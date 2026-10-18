@@ -273,8 +273,8 @@ class BetaManagedAgentsCacheCreationUsage implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            ephemeral1hInputTokens: (property_exists($data, "ephemeral_1h_input_tokens") ? SdkClient::intValue($data->ephemeral_1h_input_tokens) : SdkNotGiven::Value),
-            ephemeral5mInputTokens: (property_exists($data, "ephemeral_5m_input_tokens") ? SdkClient::intValue($data->ephemeral_5m_input_tokens) : SdkNotGiven::Value),
+            ephemeral1hInputTokens: (property_exists($data, "ephemeral_1h_input_tokens") && $data->ephemeral_1h_input_tokens !== null ? SdkClient::intValue($data->ephemeral_1h_input_tokens) : SdkNotGiven::Value),
+            ephemeral5mInputTokens: (property_exists($data, "ephemeral_5m_input_tokens") && $data->ephemeral_5m_input_tokens !== null ? SdkClient::intValue($data->ephemeral_5m_input_tokens) : SdkNotGiven::Value),
         );
     }
 }

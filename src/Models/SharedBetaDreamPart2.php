@@ -123,7 +123,7 @@ class BetaDreamModelConfig implements \JsonSerializable
         }
         return new self(
             id: SdkClient::stringValue($data->id),
-            speed: (property_exists($data, "speed") ? SdkClient::hydrateEnum($data->speed, BetaSpeed::class) : SdkNotGiven::Value),
+            speed: (property_exists($data, "speed") && $data->speed !== null ? SdkClient::hydrateEnum($data->speed, BetaSpeed::class) : SdkNotGiven::Value),
         );
     }
 }

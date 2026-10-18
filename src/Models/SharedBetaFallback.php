@@ -363,7 +363,7 @@ class BetaFallbackCreditTokenParam implements \JsonSerializable
         }
         return new self(
             token: SdkClient::stringValue($data->token),
-            mode: (property_exists($data, "mode") ? SdkClient::hydrateStringEnumOrString($data->mode, BetaFallbackCreditTokenParamModeEnum::class) : SdkNotGiven::Value),
+            mode: (property_exists($data, "mode") && $data->mode !== null ? SdkClient::hydrateStringEnumOrString($data->mode, BetaFallbackCreditTokenParamModeEnum::class) : SdkNotGiven::Value),
         );
     }
 }

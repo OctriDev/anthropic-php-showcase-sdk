@@ -193,8 +193,8 @@ class BetaManagedAgentsWebFetchToolConfig implements BetaManagedAgentsAgentToolC
             name: SdkClient::stringValue($data->name),
             enabled: SdkClient::boolValue($data->enabled),
             permissionPolicy: SdkClient::hydrateUnionAs($data->permission_policy, BetaManagedAgentsPermissionPolicy::class, [BetaManagedAgentsAlwaysAllowPolicy::class, BetaManagedAgentsAlwaysAskPolicy::class], "type", ["always_allow" => BetaManagedAgentsAlwaysAllowPolicy::class, "always_ask" => BetaManagedAgentsAlwaysAskPolicy::class], UnknownBetaManagedAgentsPermissionPolicy::class),
-            allowedDomains: (property_exists($data, "allowed_domains") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_domains))) : SdkNotGiven::Value),
-            blockedDomains: (property_exists($data, "blocked_domains") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->blocked_domains))) : SdkNotGiven::Value),
+            allowedDomains: (property_exists($data, "allowed_domains") && $data->allowed_domains !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_domains))) : SdkNotGiven::Value),
+            blockedDomains: (property_exists($data, "blocked_domains") && $data->blocked_domains !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->blocked_domains))) : SdkNotGiven::Value),
             maxContentTokens: (property_exists($data, "max_content_tokens") ? ($data->max_content_tokens === null ? null : SdkClient::intValue($data->max_content_tokens)) : SdkNotGiven::Value),
         );
     }
@@ -323,11 +323,11 @@ class BetaManagedAgentsWebFetchToolConfigParams implements BetaManagedAgentsAgen
         }
         return new self(
             name: SdkClient::stringValue($data->name),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
             enabled: (property_exists($data, "enabled") ? ($data->enabled === null ? null : SdkClient::boolValue($data->enabled)) : SdkNotGiven::Value),
             permissionPolicy: (property_exists($data, "permission_policy") ? ($data->permission_policy === null ? null : SdkClient::hydrateUnionAs($data->permission_policy, BetaManagedAgentsPermissionPolicy::class, [BetaManagedAgentsAlwaysAllowPolicy::class, BetaManagedAgentsAlwaysAskPolicy::class], "type", ["always_allow" => BetaManagedAgentsAlwaysAllowPolicy::class, "always_ask" => BetaManagedAgentsAlwaysAskPolicy::class], UnknownBetaManagedAgentsPermissionPolicy::class)) : SdkNotGiven::Value),
-            allowedDomains: (property_exists($data, "allowed_domains") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_domains))) : SdkNotGiven::Value),
-            blockedDomains: (property_exists($data, "blocked_domains") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->blocked_domains))) : SdkNotGiven::Value),
+            allowedDomains: (property_exists($data, "allowed_domains") && $data->allowed_domains !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_domains))) : SdkNotGiven::Value),
+            blockedDomains: (property_exists($data, "blocked_domains") && $data->blocked_domains !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->blocked_domains))) : SdkNotGiven::Value),
             maxContentTokens: (property_exists($data, "max_content_tokens") ? ($data->max_content_tokens === null ? null : SdkClient::intValue($data->max_content_tokens)) : SdkNotGiven::Value),
         );
     }

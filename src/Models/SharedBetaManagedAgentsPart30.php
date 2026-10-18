@@ -126,7 +126,7 @@ class BetaManagedAgentsMemoryStoreResource implements BetaManagedAgentsGetSessio
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
             access: (property_exists($data, "access") ? ($data->access === null ? null : SdkClient::hydrateStringEnumOrString($data->access, BetaManagedAgentsMountMode::class)) : SdkNotGiven::Value),
             name: (property_exists($data, "name") ? ($data->name === null ? null : SdkClient::stringValue($data->name)) : SdkNotGiven::Value),
-            description: (property_exists($data, "description") ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
+            description: (property_exists($data, "description") && $data->description !== null ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
             instructions: (property_exists($data, "instructions") ? ($data->instructions === null ? null : SdkClient::stringValue($data->instructions)) : SdkNotGiven::Value),
             mountPath: (property_exists($data, "mount_path") ? ($data->mount_path === null ? null : SdkClient::stringValue($data->mount_path)) : SdkNotGiven::Value),
         );

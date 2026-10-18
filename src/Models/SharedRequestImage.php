@@ -167,7 +167,7 @@ class RequestImageTransformations implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            oversizedImage: (property_exists($data, "oversized_image") ? SdkClient::hydrateStringEnumOrString($data->oversized_image, RequestImageTransformationsOversizedImageEnum::class) : SdkNotGiven::Value),
+            oversizedImage: (property_exists($data, "oversized_image") && $data->oversized_image !== null ? SdkClient::hydrateStringEnumOrString($data->oversized_image, RequestImageTransformationsOversizedImageEnum::class) : SdkNotGiven::Value),
         );
     }
 }

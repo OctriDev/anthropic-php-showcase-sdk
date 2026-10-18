@@ -233,9 +233,9 @@ class BetaWorkspaceUpdateParams implements \JsonSerializable
     {
         return new self(
             dataResidency: (property_exists($data, "data_residency") ? ($data->data_residency === null ? null : SdkClient::hydrateClass($data->data_residency, BetaDataResidencyUpdateParams::class)) : SdkNotGiven::Value),
-            displayColor: (property_exists($data, "display_color") ? SdkClient::stringValue($data->display_color) : SdkNotGiven::Value),
-            externalKeyId: (property_exists($data, "external_key_id") ? SdkClient::stringValue($data->external_key_id) : SdkNotGiven::Value),
-            name: (property_exists($data, "name") ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
+            displayColor: (property_exists($data, "display_color") && $data->display_color !== null ? SdkClient::stringValue($data->display_color) : SdkNotGiven::Value),
+            externalKeyId: (property_exists($data, "external_key_id") && $data->external_key_id !== null ? SdkClient::stringValue($data->external_key_id) : SdkNotGiven::Value),
+            name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
             tags: (property_exists($data, "tags") ? ($data->tags === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->tags), static fn($item) => ($item === null ? null : SdkClient::stringValue($item)))) : SdkNotGiven::Value),
         );
     }

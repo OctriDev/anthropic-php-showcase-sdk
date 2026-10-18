@@ -306,7 +306,7 @@ class BetaManagedAgentsMCPToolsetParams implements BetaManagedAgentsAgentToolPar
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMCPToolsetParamsTypeEnum::class),
             mcpServerName: SdkClient::stringValue($data->mcp_server_name),
             defaultConfig: (property_exists($data, "default_config") ? ($data->default_config === null ? null : SdkClient::hydrateClass($data->default_config, BetaManagedAgentsMCPToolsetDefaultConfigParams::class)) : SdkNotGiven::Value),
-            configs: (property_exists($data, "configs") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPToolConfigParams::class), SdkClient::arrayValue($data->configs))) : SdkNotGiven::Value),
+            configs: (property_exists($data, "configs") && $data->configs !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPToolConfigParams::class), SdkClient::arrayValue($data->configs))) : SdkNotGiven::Value),
         );
     }
 }

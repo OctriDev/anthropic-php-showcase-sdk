@@ -166,10 +166,10 @@ class BetaFederationRuleCreateParams implements \JsonSerializable
             name: SdkClient::stringValue($data->name),
             oauthScope: SdkClient::stringValue($data->oauth_scope),
             target: SdkClient::hydrateClass($data->target, BetaServiceAccountTarget::class),
-            appliesToAllWorkspaces: (property_exists($data, "applies_to_all_workspaces") ? SdkClient::boolValue($data->applies_to_all_workspaces) : SdkNotGiven::Value),
+            appliesToAllWorkspaces: (property_exists($data, "applies_to_all_workspaces") && $data->applies_to_all_workspaces !== null ? SdkClient::boolValue($data->applies_to_all_workspaces) : SdkNotGiven::Value),
             attributes: (property_exists($data, "attributes") ? ($data->attributes === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->attributes), static fn($item) => SdkClient::stringValue($item))) : SdkNotGiven::Value),
             description: (property_exists($data, "description") ? ($data->description === null ? null : SdkClient::stringValue($data->description)) : SdkNotGiven::Value),
-            tokenLifetimeSeconds: (property_exists($data, "token_lifetime_seconds") ? SdkClient::intValue($data->token_lifetime_seconds) : SdkNotGiven::Value),
+            tokenLifetimeSeconds: (property_exists($data, "token_lifetime_seconds") && $data->token_lifetime_seconds !== null ? SdkClient::intValue($data->token_lifetime_seconds) : SdkNotGiven::Value),
             workspaceId: (property_exists($data, "workspace_id") ? ($data->workspace_id === null ? null : SdkClient::stringValue($data->workspace_id)) : SdkNotGiven::Value),
         );
     }

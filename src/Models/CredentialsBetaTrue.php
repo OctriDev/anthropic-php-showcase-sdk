@@ -75,7 +75,7 @@ class BetaManagedAgentsCreateCredentialRequestBody implements \JsonSerializable
         return new self(
             auth: SdkClient::hydrateUnionAs($data->auth, BetaManagedAgentsCredentialCreateAuth::class, [BetaManagedAgentsMcpOauthCreateParams::class, BetaManagedAgentsStaticBearerCreateParams::class, BetaManagedAgentsEnvironmentVariableCreateParams::class], "type", ["mcp_oauth" => BetaManagedAgentsMcpOauthCreateParams::class, "static_bearer" => BetaManagedAgentsStaticBearerCreateParams::class, "environment_variable" => BetaManagedAgentsEnvironmentVariableCreateParams::class], UnknownBetaManagedAgentsCredentialCreateAuth::class),
             displayName: (property_exists($data, "display_name") ? ($data->display_name === null ? null : SdkClient::stringValue($data->display_name)) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
         );
     }
 }
@@ -185,7 +185,7 @@ class BetaManagedAgentsEnvironmentVariableCreateParams implements BetaManagedAge
             secretName: SdkClient::stringValue($data->secret_name),
             secretValue: SdkClient::stringValue($data->secret_value),
             networking: SdkClient::hydrateUnionAs($data->networking, BetaManagedAgentsCredentialNetworkingParams::class, [BetaManagedAgentsUnrestrictedCredentialNetworkingParams::class, BetaManagedAgentsLimitedCredentialNetworkingParams::class], "type", ["unrestricted" => BetaManagedAgentsUnrestrictedCredentialNetworkingParams::class, "limited" => BetaManagedAgentsLimitedCredentialNetworkingParams::class], UnknownBetaManagedAgentsCredentialNetworkingParams::class),
-            injectionLocation: (property_exists($data, "injection_location") ? SdkClient::hydrateClass($data->injection_location, BetaManagedAgentsInjectionLocationParams::class) : SdkNotGiven::Value),
+            injectionLocation: (property_exists($data, "injection_location") && $data->injection_location !== null ? SdkClient::hydrateClass($data->injection_location, BetaManagedAgentsInjectionLocationParams::class) : SdkNotGiven::Value),
         );
     }
 }
@@ -243,8 +243,8 @@ class BetaManagedAgentsInjectionLocationParams implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            header: (property_exists($data, "header") ? SdkClient::boolValue($data->header) : SdkNotGiven::Value),
-            body: (property_exists($data, "body") ? SdkClient::boolValue($data->body) : SdkNotGiven::Value),
+            header: (property_exists($data, "header") && $data->header !== null ? SdkClient::boolValue($data->header) : SdkNotGiven::Value),
+            body: (property_exists($data, "body") && $data->body !== null ? SdkClient::boolValue($data->body) : SdkNotGiven::Value),
         );
     }
 }
@@ -302,7 +302,7 @@ class BetaManagedAgentsListCredentialsResponse implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            data: (property_exists($data, "data") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsCredential::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
+            data: (property_exists($data, "data") && $data->data !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsCredential::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
         );
     }

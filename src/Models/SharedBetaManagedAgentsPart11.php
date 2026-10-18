@@ -62,7 +62,7 @@ class BetaManagedAgentsConflictError implements BetaManagedAgentsError, \JsonSer
         }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsConflictErrorTypeEnum::class),
-            message: (property_exists($data, "message") ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
+            message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
         );
     }
 }

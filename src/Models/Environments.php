@@ -215,7 +215,7 @@ class BetaPublicEnvironmentUpdateRequest implements \JsonSerializable
         return new self(
             config: (property_exists($data, "config") ? ($data->config === null ? null : SdkClient::hydrateUnionAs($data->config, BetaPublicEnvironmentUpdateRequestConfig::class, [BetaCloudConfigParams::class, BetaSelfHostedConfigParams::class], "type", ["cloud" => BetaCloudConfigParams::class, "self_hosted" => BetaSelfHostedConfigParams::class], UnknownBetaPublicEnvironmentUpdateRequestConfig::class)) : SdkNotGiven::Value),
             description: (property_exists($data, "description") ? ($data->description === null ? null : SdkClient::stringValue($data->description)) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item))) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item))) : SdkNotGiven::Value),
             name: (property_exists($data, "name") ? ($data->name === null ? null : SdkClient::stringValue($data->name)) : SdkNotGiven::Value),
             scope: (property_exists($data, "scope") ? ($data->scope === null ? null : SdkClient::hydrateEnum($data->scope, BetaPublicEnvironmentUpdateRequestScopeEnum::class)) : SdkNotGiven::Value),
         );

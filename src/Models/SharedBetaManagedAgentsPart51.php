@@ -196,7 +196,7 @@ class BetaManagedAgentsSystemMessageEvent implements BetaManagedAgentsInputEvent
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSystemMessageEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
-            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsSystemContentBlock::class), SdkClient::arrayValue($data->content))),
+            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsTextBlock::class), SdkClient::arrayValue($data->content))),
             processedAt: (property_exists($data, "processed_at") ? ($data->processed_at === null ? null : SdkClient::stringValue($data->processed_at)) : SdkNotGiven::Value),
         );
     }
@@ -266,7 +266,7 @@ class BetaManagedAgentsSystemMessageEventParams implements BetaManagedAgentsDepl
         }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSystemMessageEventParamsTypeEnum::class),
-            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsSystemContentBlock::class), SdkClient::arrayValue($data->content))),
+            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsTextBlock::class), SdkClient::arrayValue($data->content))),
         );
     }
 }

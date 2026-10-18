@@ -150,8 +150,8 @@ class BetaManagedAgentsSessionAgentUpdate implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            tools: (property_exists($data, "tools") ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsAgentToolParams::class, [BetaManagedAgentsAgentToolset20260401Params::class, BetaManagedAgentsMCPToolsetParams::class, BetaManagedAgentsCustomToolParams::class], "type", ["agent_toolset_20260401" => BetaManagedAgentsAgentToolset20260401Params::class, "mcp_toolset" => BetaManagedAgentsMCPToolsetParams::class, "custom" => BetaManagedAgentsCustomToolParams::class], UnknownBetaManagedAgentsAgentToolParams::class), SdkClient::arrayValue($data->tools))) : SdkNotGiven::Value),
-            mcpServers: (property_exists($data, "mcp_servers") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServerParams::class), SdkClient::arrayValue($data->mcp_servers))) : SdkNotGiven::Value),
+            tools: (property_exists($data, "tools") && $data->tools !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsAgentToolParams::class, [BetaManagedAgentsAgentToolset20260401Params::class, BetaManagedAgentsMCPToolsetParams::class, BetaManagedAgentsCustomToolParams::class], "type", ["agent_toolset_20260401" => BetaManagedAgentsAgentToolset20260401Params::class, "mcp_toolset" => BetaManagedAgentsMCPToolsetParams::class, "custom" => BetaManagedAgentsCustomToolParams::class], UnknownBetaManagedAgentsAgentToolParams::class), SdkClient::arrayValue($data->tools))) : SdkNotGiven::Value),
+            mcpServers: (property_exists($data, "mcp_servers") && $data->mcp_servers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsURLMCPServerParams::class), SdkClient::arrayValue($data->mcp_servers))) : SdkNotGiven::Value),
         );
     }
 }
@@ -247,9 +247,9 @@ class BetaManagedAgentsUpdateSessionParams implements \JsonSerializable
         return new self(
             title: (property_exists($data, "title") ? ($data->title === null ? null : SdkClient::stringValue($data->title)) : SdkNotGiven::Value),
             metadata: (property_exists($data, "metadata") ? ($data->metadata === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item)))) : SdkNotGiven::Value),
-            vaultIds: (property_exists($data, "vault_ids") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->vault_ids))) : SdkNotGiven::Value),
-            agent: (property_exists($data, "agent") ? SdkClient::hydrateClass($data->agent, BetaManagedAgentsSessionAgentUpdate::class) : SdkNotGiven::Value),
-            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudget::class)) : SdkNotGiven::Value),
+            vaultIds: (property_exists($data, "vault_ids") && $data->vault_ids !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->vault_ids))) : SdkNotGiven::Value),
+            agent: (property_exists($data, "agent") && $data->agent !== null ? SdkClient::hydrateClass($data->agent, BetaManagedAgentsSessionAgentUpdate::class) : SdkNotGiven::Value),
+            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudgetLimit::class)) : SdkNotGiven::Value),
         );
     }
 }

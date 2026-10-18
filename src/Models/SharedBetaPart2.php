@@ -199,7 +199,7 @@ class BetaCompact20260112 implements BetaContextManagementConfigEditsItem, \Json
         return new self(
             type: SdkClient::stringValue($data->type),
             instructions: (property_exists($data, "instructions") ? ($data->instructions === null ? null : SdkClient::stringValue($data->instructions)) : SdkNotGiven::Value),
-            pauseAfterCompaction: (property_exists($data, "pause_after_compaction") ? SdkClient::boolValue($data->pause_after_compaction) : SdkNotGiven::Value),
+            pauseAfterCompaction: (property_exists($data, "pause_after_compaction") && $data->pause_after_compaction !== null ? SdkClient::boolValue($data->pause_after_compaction) : SdkNotGiven::Value),
             trigger: (property_exists($data, "trigger") ? ($data->trigger === null ? null : SdkClient::hydrateClass($data->trigger, BetaInputTokensTrigger::class)) : SdkNotGiven::Value),
         );
     }

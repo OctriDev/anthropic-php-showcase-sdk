@@ -250,7 +250,7 @@ class BetaDream implements \JsonSerializable
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaDreamTypeEnum::class),
             id: SdkClient::stringValue($data->id),
             inputs: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaDreamInput::class, [BetaDreamMemoryStoreInput::class, BetaDreamSessionsInput::class], "type", ["memory_store" => BetaDreamMemoryStoreInput::class, "sessions" => BetaDreamSessionsInput::class], UnknownBetaDreamInput::class), SdkClient::arrayValue($data->inputs))),
-            outputs: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaDreamOutput::class), SdkClient::arrayValue($data->outputs))),
+            outputs: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaDreamMemoryStoreOutput::class), SdkClient::arrayValue($data->outputs))),
             status: SdkClient::hydrateStringEnumOrString($data->status, BetaDreamStatus::class),
             createdAt: SdkClient::stringValue($data->created_at),
             endedAt: ($data->ended_at === null ? null : SdkClient::stringValue($data->ended_at)),

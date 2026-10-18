@@ -195,7 +195,7 @@ class RequestWebFetchToolResultBlock implements InputContentBlock, \JsonSerializ
             toolUseId: SdkClient::stringValue($data->tool_use_id),
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, CacheControlEphemeral::class)) : SdkNotGiven::Value),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, RequestWebFetchToolResultBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestWebFetchToolResultBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, RequestWebFetchToolResultBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestWebFetchToolResultBlockCaller::class) : SdkNotGiven::Value),
         );
     }
 }

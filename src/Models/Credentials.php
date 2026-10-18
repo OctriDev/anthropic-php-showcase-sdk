@@ -186,7 +186,7 @@ class BetaManagedAgentsEnvironmentVariableUpdateParams implements BetaManagedAge
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentVariableUpdateParamsTypeEnum::class),
             secretValue: (property_exists($data, "secret_value") ? ($data->secret_value === null ? null : SdkClient::stringValue($data->secret_value)) : SdkNotGiven::Value),
             networking: (property_exists($data, "networking") ? ($data->networking === null ? null : SdkClient::hydrateUnionAs($data->networking, BetaManagedAgentsCredentialNetworkingParams::class, [BetaManagedAgentsUnrestrictedCredentialNetworkingParams::class, BetaManagedAgentsLimitedCredentialNetworkingParams::class], "type", ["unrestricted" => BetaManagedAgentsUnrestrictedCredentialNetworkingParams::class, "limited" => BetaManagedAgentsLimitedCredentialNetworkingParams::class], UnknownBetaManagedAgentsCredentialNetworkingParams::class)) : SdkNotGiven::Value),
-            injectionLocation: (property_exists($data, "injection_location") ? SdkClient::hydrateClass($data->injection_location, BetaManagedAgentsInjectionLocationUpdateParams::class) : SdkNotGiven::Value),
+            injectionLocation: (property_exists($data, "injection_location") && $data->injection_location !== null ? SdkClient::hydrateClass($data->injection_location, BetaManagedAgentsInjectionLocationUpdateParams::class) : SdkNotGiven::Value),
         );
     }
 }
@@ -244,8 +244,8 @@ class BetaManagedAgentsInjectionLocationUpdateParams implements \JsonSerializabl
     public static function fromObject(object $data): self
     {
         return new self(
-            header: (property_exists($data, "header") ? SdkClient::boolValue($data->header) : SdkNotGiven::Value),
-            body: (property_exists($data, "body") ? SdkClient::boolValue($data->body) : SdkNotGiven::Value),
+            header: (property_exists($data, "header") && $data->header !== null ? SdkClient::boolValue($data->header) : SdkNotGiven::Value),
+            body: (property_exists($data, "body") && $data->body !== null ? SdkClient::boolValue($data->body) : SdkNotGiven::Value),
         );
     }
 }
@@ -317,7 +317,7 @@ class BetaManagedAgentsMcpOauthRefreshUpdateParams implements \JsonSerializable
         return new self(
             refreshToken: (property_exists($data, "refresh_token") ? ($data->refresh_token === null ? null : SdkClient::stringValue($data->refresh_token)) : SdkNotGiven::Value),
             scope: (property_exists($data, "scope") ? ($data->scope === null ? null : SdkClient::stringValue($data->scope)) : SdkNotGiven::Value),
-            tokenEndpointAuth: (property_exists($data, "token_endpoint_auth") ? SdkClient::hydrateUnionAs($data->token_endpoint_auth, BetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth::class, [BetaManagedAgentsTokenEndpointAuthBasicUpdateParam::class, BetaManagedAgentsTokenEndpointAuthPostUpdateParam::class], "type", ["client_secret_basic" => BetaManagedAgentsTokenEndpointAuthBasicUpdateParam::class, "client_secret_post" => BetaManagedAgentsTokenEndpointAuthPostUpdateParam::class], UnknownBetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth::class) : SdkNotGiven::Value),
+            tokenEndpointAuth: (property_exists($data, "token_endpoint_auth") && $data->token_endpoint_auth !== null ? SdkClient::hydrateUnionAs($data->token_endpoint_auth, BetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth::class, [BetaManagedAgentsTokenEndpointAuthBasicUpdateParam::class, BetaManagedAgentsTokenEndpointAuthPostUpdateParam::class], "type", ["client_secret_basic" => BetaManagedAgentsTokenEndpointAuthBasicUpdateParam::class, "client_secret_post" => BetaManagedAgentsTokenEndpointAuthPostUpdateParam::class], UnknownBetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth::class) : SdkNotGiven::Value),
         );
     }
 }

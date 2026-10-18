@@ -48,7 +48,7 @@ class BetaSelfHostedWorkStopRequest implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            force: (property_exists($data, "force") ? SdkClient::boolValue($data->force) : SdkNotGiven::Value),
+            force: (property_exists($data, "force") && $data->force !== null ? SdkClient::boolValue($data->force) : SdkNotGiven::Value),
         );
     }
 }

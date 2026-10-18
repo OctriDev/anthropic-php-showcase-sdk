@@ -206,7 +206,7 @@ class BetaEnvironment implements \JsonSerializable
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
             updatedAt: SdkClient::stringValue($data->updated_at),
-            scope: (property_exists($data, "scope") ? SdkClient::hydrateStringEnumOrString($data->scope, BetaEnvironmentScopeEnum::class) : SdkNotGiven::Value),
+            scope: (property_exists($data, "scope") && $data->scope !== null ? SdkClient::hydrateStringEnumOrString($data->scope, BetaEnvironmentScopeEnum::class) : SdkNotGiven::Value),
         );
     }
 }

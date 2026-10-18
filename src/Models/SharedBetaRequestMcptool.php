@@ -103,8 +103,8 @@ class BetaRequestMCPToolResultBlock implements BetaInputContentBlock, \JsonSeria
             toolUseId: SdkClient::stringValue($data->tool_use_id),
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            content: (property_exists($data, "content") ? (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRequestTextBlock::class), SdkClient::arrayValue($data->content))) : SdkClient::stringValue($data->content)) : SdkNotGiven::Value),
-            isError: (property_exists($data, "is_error") ? SdkClient::boolValue($data->is_error) : SdkNotGiven::Value),
+            content: (property_exists($data, "content") && $data->content !== null ? (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRequestTextBlock::class), SdkClient::arrayValue($data->content))) : SdkClient::stringValue($data->content)) : SdkNotGiven::Value),
+            isError: (property_exists($data, "is_error") && $data->is_error !== null ? SdkClient::boolValue($data->is_error) : SdkNotGiven::Value),
         );
     }
 }

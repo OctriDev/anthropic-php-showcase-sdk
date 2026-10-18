@@ -74,7 +74,7 @@ class BetaManagedAgentsUpdateCredentialRequestBody implements \JsonSerializable
         return new self(
             displayName: (property_exists($data, "display_name") ? ($data->display_name === null ? null : SdkClient::stringValue($data->display_name)) : SdkNotGiven::Value),
             metadata: (property_exists($data, "metadata") ? ($data->metadata === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item)))) : SdkNotGiven::Value),
-            auth: (property_exists($data, "auth") ? SdkClient::hydrateUnionAs($data->auth, BetaManagedAgentsCredentialUpdateAuth::class, [BetaManagedAgentsMcpOauthUpdateParams::class, BetaManagedAgentsStaticBearerUpdateParams::class, BetaManagedAgentsEnvironmentVariableUpdateParams::class], "type", ["mcp_oauth" => BetaManagedAgentsMcpOauthUpdateParams::class, "static_bearer" => BetaManagedAgentsStaticBearerUpdateParams::class, "environment_variable" => BetaManagedAgentsEnvironmentVariableUpdateParams::class], UnknownBetaManagedAgentsCredentialUpdateAuth::class) : SdkNotGiven::Value),
+            auth: (property_exists($data, "auth") && $data->auth !== null ? SdkClient::hydrateUnionAs($data->auth, BetaManagedAgentsCredentialUpdateAuth::class, [BetaManagedAgentsMcpOauthUpdateParams::class, BetaManagedAgentsStaticBearerUpdateParams::class, BetaManagedAgentsEnvironmentVariableUpdateParams::class], "type", ["mcp_oauth" => BetaManagedAgentsMcpOauthUpdateParams::class, "static_bearer" => BetaManagedAgentsStaticBearerUpdateParams::class, "environment_variable" => BetaManagedAgentsEnvironmentVariableUpdateParams::class], UnknownBetaManagedAgentsCredentialUpdateAuth::class) : SdkNotGiven::Value),
         );
     }
 }

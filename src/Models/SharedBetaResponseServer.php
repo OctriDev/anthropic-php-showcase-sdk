@@ -142,7 +142,7 @@ class BetaResponseServerToolUseBlock implements BetaContentBlock, BetaContentBlo
             input: SdkClient::stringMapValue($data->input),
             name: SdkClient::hydrateStringEnumOrString($data->name, BetaResponseServerToolUseBlockNameEnum::class),
             type: SdkClient::stringValue($data->type),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, BetaResponseServerToolUseBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaResponseServerToolUseBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, BetaResponseServerToolUseBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaResponseServerToolUseBlockCaller::class) : SdkNotGiven::Value),
         );
     }
 }

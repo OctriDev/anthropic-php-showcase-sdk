@@ -120,12 +120,12 @@ class BetaManagedAgentsSessionThreadUsage implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            inputTokens: (property_exists($data, "input_tokens") ? SdkClient::intValue($data->input_tokens) : SdkNotGiven::Value),
-            outputTokens: (property_exists($data, "output_tokens") ? SdkClient::intValue($data->output_tokens) : SdkNotGiven::Value),
-            cacheReadInputTokens: (property_exists($data, "cache_read_input_tokens") ? SdkClient::intValue($data->cache_read_input_tokens) : SdkNotGiven::Value),
-            cacheCreation: (property_exists($data, "cache_creation") ? SdkClient::hydrateClass($data->cache_creation, BetaManagedAgentsCacheCreationUsage::class) : SdkNotGiven::Value),
+            inputTokens: (property_exists($data, "input_tokens") && $data->input_tokens !== null ? SdkClient::intValue($data->input_tokens) : SdkNotGiven::Value),
+            outputTokens: (property_exists($data, "output_tokens") && $data->output_tokens !== null ? SdkClient::intValue($data->output_tokens) : SdkNotGiven::Value),
+            cacheReadInputTokens: (property_exists($data, "cache_read_input_tokens") && $data->cache_read_input_tokens !== null ? SdkClient::intValue($data->cache_read_input_tokens) : SdkNotGiven::Value),
+            cacheCreation: (property_exists($data, "cache_creation") && $data->cache_creation !== null ? SdkClient::hydrateClass($data->cache_creation, BetaManagedAgentsCacheCreationUsage::class) : SdkNotGiven::Value),
             listCost: (property_exists($data, "list_cost") ? ($data->list_cost === null ? null : SdkClient::hydrateClass($data->list_cost, BetaMonetaryAmount::class)) : SdkNotGiven::Value),
-            activeSeconds: (property_exists($data, "active_seconds") ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
+            activeSeconds: (property_exists($data, "active_seconds") && $data->active_seconds !== null ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
             serverToolUse: (property_exists($data, "server_tool_use") ? ($data->server_tool_use === null ? null : SdkClient::hydrateClass($data->server_tool_use, BetaManagedAgentsServerToolUsage::class)) : SdkNotGiven::Value),
         );
     }
@@ -259,9 +259,9 @@ class BetaManagedAgentsSessionUpdatedEvent implements BetaManagedAgentsSessionEv
             id: SdkClient::stringValue($data->id),
             processedAt: SdkClient::stringValue($data->processed_at),
             title: (property_exists($data, "title") ? ($data->title === null ? null : SdkClient::stringValue($data->title)) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
             agent: (property_exists($data, "agent") ? ($data->agent === null ? null : SdkClient::hydrateClass($data->agent, BetaManagedAgentsSessionAgent::class)) : SdkNotGiven::Value),
-            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudget::class)) : SdkNotGiven::Value),
+            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudgetLimit::class)) : SdkNotGiven::Value),
         );
     }
 }

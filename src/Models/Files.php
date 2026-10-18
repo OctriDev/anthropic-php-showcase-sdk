@@ -68,7 +68,7 @@ class BetaFileDeleteResponse implements \JsonSerializable
         }
         return new self(
             id: SdkClient::stringValue($data->id),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
         );
     }
 }
@@ -134,7 +134,7 @@ class FileDeleteResponse implements \JsonSerializable
         }
         return new self(
             id: SdkClient::stringValue($data->id),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
         );
     }
 }
@@ -338,7 +338,7 @@ class FileMetadataSchema implements \JsonSerializable
             mimeType: SdkClient::stringValue($data->mime_type),
             sizeBytes: SdkClient::intValue($data->size_bytes),
             type: SdkClient::stringValue($data->type),
-            downloadable: (property_exists($data, "downloadable") ? SdkClient::boolValue($data->downloadable) : SdkNotGiven::Value),
+            downloadable: (property_exists($data, "downloadable") && $data->downloadable !== null ? SdkClient::boolValue($data->downloadable) : SdkNotGiven::Value),
             expiresAt: (property_exists($data, "expires_at") ? ($data->expires_at === null ? null : SdkClient::stringValue($data->expires_at)) : SdkNotGiven::Value),
         );
     }

@@ -120,13 +120,13 @@ class BetaManagedAgentsSessionUsageSnapshot implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            inputTokens: (property_exists($data, "input_tokens") ? SdkClient::intValue($data->input_tokens) : SdkNotGiven::Value),
-            outputTokens: (property_exists($data, "output_tokens") ? SdkClient::intValue($data->output_tokens) : SdkNotGiven::Value),
-            cacheReadInputTokens: (property_exists($data, "cache_read_input_tokens") ? SdkClient::intValue($data->cache_read_input_tokens) : SdkNotGiven::Value),
-            cacheCreation: (property_exists($data, "cache_creation") ? SdkClient::hydrateClass($data->cache_creation, BetaManagedAgentsCacheCreationUsage::class) : SdkNotGiven::Value),
-            listCost: (property_exists($data, "list_cost") ? SdkClient::hydrateClass($data->list_cost, BetaMonetaryAmount::class) : SdkNotGiven::Value),
-            serverToolUse: (property_exists($data, "server_tool_use") ? SdkClient::hydrateClass($data->server_tool_use, BetaManagedAgentsServerToolUsage::class) : SdkNotGiven::Value),
-            activeSeconds: (property_exists($data, "active_seconds") ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
+            inputTokens: (property_exists($data, "input_tokens") && $data->input_tokens !== null ? SdkClient::intValue($data->input_tokens) : SdkNotGiven::Value),
+            outputTokens: (property_exists($data, "output_tokens") && $data->output_tokens !== null ? SdkClient::intValue($data->output_tokens) : SdkNotGiven::Value),
+            cacheReadInputTokens: (property_exists($data, "cache_read_input_tokens") && $data->cache_read_input_tokens !== null ? SdkClient::intValue($data->cache_read_input_tokens) : SdkNotGiven::Value),
+            cacheCreation: (property_exists($data, "cache_creation") && $data->cache_creation !== null ? SdkClient::hydrateClass($data->cache_creation, BetaManagedAgentsCacheCreationUsage::class) : SdkNotGiven::Value),
+            listCost: (property_exists($data, "list_cost") && $data->list_cost !== null ? SdkClient::hydrateClass($data->list_cost, BetaMonetaryAmount::class) : SdkNotGiven::Value),
+            serverToolUse: (property_exists($data, "server_tool_use") && $data->server_tool_use !== null ? SdkClient::hydrateClass($data->server_tool_use, BetaManagedAgentsServerToolUsage::class) : SdkNotGiven::Value),
+            activeSeconds: (property_exists($data, "active_seconds") && $data->active_seconds !== null ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
         );
     }
 }

@@ -39,7 +39,7 @@ class BetaManagedAgentsAgentMcpToolUseEvent implements BetaManagedAgentsSessionE
     /**
      * Input parameters for the tool call.
      *
-     * @var array<array-key,mixed>
+     * @var array<string,mixed>
      */
     public readonly array $input;
     /**
@@ -66,7 +66,7 @@ class BetaManagedAgentsAgentMcpToolUseEvent implements BetaManagedAgentsSessionE
      * @param string $id
      * @param string $name
      * @param string $mcpServerName
-     * @param array<array-key,mixed> $input
+     * @param array<string,mixed> $input
      * @param string $processedAt
      * @param BetaManagedAgentsAgentEvaluatedPermission|SdkNotGiven $evaluatedPermission
      * @param string|null|SdkNotGiven $sessionThreadId
@@ -144,7 +144,7 @@ class BetaManagedAgentsAgentMcpToolUseEvent implements BetaManagedAgentsSessionE
             mcpServerName: SdkClient::stringValue($data->mcp_server_name),
             input: SdkClient::stringMapValue($data->input),
             processedAt: SdkClient::stringValue($data->processed_at),
-            evaluatedPermission: (property_exists($data, "evaluated_permission") ? SdkClient::hydrateEnum($data->evaluated_permission, BetaManagedAgentsAgentEvaluatedPermission::class) : SdkNotGiven::Value),
+            evaluatedPermission: (property_exists($data, "evaluated_permission") && $data->evaluated_permission !== null ? SdkClient::hydrateEnum($data->evaluated_permission, BetaManagedAgentsAgentEvaluatedPermission::class) : SdkNotGiven::Value),
             sessionThreadId: (property_exists($data, "session_thread_id") ? ($data->session_thread_id === null ? null : SdkClient::stringValue($data->session_thread_id)) : SdkNotGiven::Value),
         );
     }
@@ -324,7 +324,7 @@ class BetaManagedAgentsAgentParams implements \JsonSerializable
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAgentParamsTypeEnum::class),
             id: SdkClient::stringValue($data->id),
-            version: (property_exists($data, "version") ? SdkClient::intValue($data->version) : SdkNotGiven::Value),
+            version: (property_exists($data, "version") && $data->version !== null ? SdkClient::intValue($data->version) : SdkNotGiven::Value),
         );
     }
 }

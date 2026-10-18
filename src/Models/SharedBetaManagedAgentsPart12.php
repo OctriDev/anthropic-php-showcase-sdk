@@ -103,7 +103,7 @@ class BetaManagedAgentsCronSchedule implements BetaManagedAgentsSchedule, \JsonS
             expression: SdkClient::stringValue($data->expression),
             timezone: SdkClient::stringValue($data->timezone),
             lastRunAt: (property_exists($data, "last_run_at") ? ($data->last_run_at === null ? null : SdkClient::stringValue($data->last_run_at)) : SdkNotGiven::Value),
-            upcomingRunsAt: (property_exists($data, "upcoming_runs_at") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->upcoming_runs_at))) : SdkNotGiven::Value),
+            upcomingRunsAt: (property_exists($data, "upcoming_runs_at") && $data->upcoming_runs_at !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->upcoming_runs_at))) : SdkNotGiven::Value),
         );
     }
 }

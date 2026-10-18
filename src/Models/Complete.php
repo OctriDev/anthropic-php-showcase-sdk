@@ -150,12 +150,12 @@ class CompletionRequest implements \JsonSerializable
             model: SdkClient::stringValue($data->model),
             prompt: SdkClient::stringValue($data->prompt),
             maxTokensToSample: SdkClient::intValue($data->max_tokens_to_sample),
-            stopSequences: (property_exists($data, "stop_sequences") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->stop_sequences))) : SdkNotGiven::Value),
-            temperature: (property_exists($data, "temperature") ? SdkClient::floatValue($data->temperature) : SdkNotGiven::Value),
-            topP: (property_exists($data, "top_p") ? SdkClient::floatValue($data->top_p) : SdkNotGiven::Value),
-            topK: (property_exists($data, "top_k") ? SdkClient::intValue($data->top_k) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::hydrateClass($data->metadata, Metadata::class) : SdkNotGiven::Value),
-            stream: (property_exists($data, "stream") ? SdkClient::boolValue($data->stream) : SdkNotGiven::Value),
+            stopSequences: (property_exists($data, "stop_sequences") && $data->stop_sequences !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->stop_sequences))) : SdkNotGiven::Value),
+            temperature: (property_exists($data, "temperature") && $data->temperature !== null ? SdkClient::floatValue($data->temperature) : SdkNotGiven::Value),
+            topP: (property_exists($data, "top_p") && $data->top_p !== null ? SdkClient::floatValue($data->top_p) : SdkNotGiven::Value),
+            topK: (property_exists($data, "top_k") && $data->top_k !== null ? SdkClient::intValue($data->top_k) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::hydrateClass($data->metadata, Metadata::class) : SdkNotGiven::Value),
+            stream: (property_exists($data, "stream") && $data->stream !== null ? SdkClient::boolValue($data->stream) : SdkNotGiven::Value),
         );
     }
 }

@@ -299,13 +299,13 @@ class BetaAdvisorTool_20260301 implements BetaCountMessageTokensParamsToolsItem,
             model: SdkClient::stringValue($data->model),
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
             caching: (property_exists($data, "caching") ? ($data->caching === null ? null : SdkClient::hydrateClass($data->caching, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
             maxTokens: (property_exists($data, "max_tokens") ? ($data->max_tokens === null ? null : SdkClient::intValue($data->max_tokens)) : SdkNotGiven::Value),
             maxUses: (property_exists($data, "max_uses") ? ($data->max_uses === null ? null : SdkClient::intValue($data->max_uses)) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
         );
     }
 }

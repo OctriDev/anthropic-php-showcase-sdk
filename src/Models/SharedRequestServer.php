@@ -154,7 +154,7 @@ class RequestServerToolUseBlock implements InputContentBlock, \JsonSerializable
             name: SdkClient::hydrateStringEnumOrString($data->name, RequestServerToolUseBlockNameEnum::class),
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, CacheControlEphemeral::class)) : SdkNotGiven::Value),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, RequestServerToolUseBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestServerToolUseBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, RequestServerToolUseBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestServerToolUseBlockCaller::class) : SdkNotGiven::Value),
         );
     }
 }

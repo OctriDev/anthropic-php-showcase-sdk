@@ -242,7 +242,7 @@ class BetaMCPToolset implements BetaCountMessageTokensParamsToolsItem, BetaCreat
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
             configs: (property_exists($data, "configs") ? ($data->configs === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->configs), static fn($item) => SdkClient::hydrateClass($item, BetaMCPToolConfig::class))) : SdkNotGiven::Value),
-            defaultConfig: (property_exists($data, "default_config") ? SdkClient::hydrateClass($data->default_config, BetaMCPToolDefaultConfig::class) : SdkNotGiven::Value),
+            defaultConfig: (property_exists($data, "default_config") && $data->default_config !== null ? SdkClient::hydrateClass($data->default_config, BetaMCPToolDefaultConfig::class) : SdkNotGiven::Value),
         );
     }
 }

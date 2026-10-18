@@ -266,9 +266,9 @@ class BetaManagedAgentsMemoryPathConflictError implements BetaManagedAgentsError
         }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryPathConflictErrorTypeEnum::class),
-            message: (property_exists($data, "message") ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
-            conflictingPath: (property_exists($data, "conflicting_path") ? SdkClient::stringValue($data->conflicting_path) : SdkNotGiven::Value),
-            conflictingMemoryId: (property_exists($data, "conflicting_memory_id") ? SdkClient::stringValue($data->conflicting_memory_id) : SdkNotGiven::Value),
+            message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
+            conflictingPath: (property_exists($data, "conflicting_path") && $data->conflicting_path !== null ? SdkClient::stringValue($data->conflicting_path) : SdkNotGiven::Value),
+            conflictingMemoryId: (property_exists($data, "conflicting_memory_id") && $data->conflicting_memory_id !== null ? SdkClient::stringValue($data->conflicting_memory_id) : SdkNotGiven::Value),
         );
     }
 }
@@ -336,7 +336,7 @@ class BetaManagedAgentsMemoryPreconditionFailedError implements BetaManagedAgent
         }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryPreconditionFailedErrorTypeEnum::class),
-            message: (property_exists($data, "message") ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
+            message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
         );
     }
 }

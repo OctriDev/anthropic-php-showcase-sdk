@@ -161,13 +161,13 @@ class BetaTool implements BetaCountMessageTokensParamsToolsItem, BetaCreateMessa
             name: SdkClient::stringValue($data->name),
             inputSchema: SdkClient::hydrateClass($data->input_schema, BetaInputSchema::class),
             type: (property_exists($data, "type") ? ($data->type === null ? null : SdkClient::stringValue($data->type)) : SdkNotGiven::Value),
-            description: (property_exists($data, "description") ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
+            description: (property_exists($data, "description") && $data->description !== null ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
             eagerInputStreaming: (property_exists($data, "eager_input_streaming") ? ($data->eager_input_streaming === null ? null : SdkClient::boolValue($data->eager_input_streaming)) : SdkNotGiven::Value),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
-            inputExamples: (property_exists($data, "input_examples") ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item) => SdkClient::hydrateClass($item, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            inputExamples: (property_exists($data, "input_examples") && $data->input_examples !== null ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item2) => SdkClient::hydrateClass($item2, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
         );
     }
 }

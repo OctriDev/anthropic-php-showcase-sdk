@@ -246,7 +246,7 @@ class BetaManagedAgentsDeploymentSystemMessageEvent implements BetaManagedAgents
         }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsDeploymentSystemMessageEventTypeEnum::class),
-            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsSystemContentBlock::class), SdkClient::arrayValue($data->content))),
+            content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsTextBlock::class), SdkClient::arrayValue($data->content))),
         );
     }
 }

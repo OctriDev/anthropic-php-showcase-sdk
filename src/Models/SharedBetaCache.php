@@ -94,7 +94,7 @@ class BetaCacheControlEphemeral implements \JsonSerializable
         Validation::validateConst("type", $data->type, "ephemeral");
         return new self(
             type: SdkClient::stringValue($data->type),
-            ttl: (property_exists($data, "ttl") ? SdkClient::hydrateStringEnumOrString($data->ttl, BetaCacheControlEphemeralTtlEnum::class) : SdkNotGiven::Value),
+            ttl: (property_exists($data, "ttl") && $data->ttl !== null ? SdkClient::hydrateStringEnumOrString($data->ttl, BetaCacheControlEphemeralTtlEnum::class) : SdkNotGiven::Value),
         );
     }
 }

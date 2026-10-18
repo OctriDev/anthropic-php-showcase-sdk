@@ -89,7 +89,7 @@ class BetaCreateDreamRequest implements \JsonSerializable
             inputs: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaDreamInput::class, [BetaDreamMemoryStoreInput::class, BetaDreamSessionsInput::class], "type", ["memory_store" => BetaDreamMemoryStoreInput::class, "sessions" => BetaDreamSessionsInput::class], UnknownBetaDreamInput::class), SdkClient::arrayValue($data->inputs))),
             model: (is_object($data->model) ? SdkClient::hydrateClass($data->model, BetaDreamModelConfigParams::class) : (is_string($data->model) ? SdkClient::stringValue($data->model) : SdkClient::hydrateClass($data->model, BetaDreamModelConfigParams::class))),
             instructions: (property_exists($data, "instructions") ? ($data->instructions === null ? null : SdkClient::stringValue($data->instructions)) : SdkNotGiven::Value),
-            outputBehavior: (property_exists($data, "output_behavior") ? SdkClient::hydrateUnionAs($data->output_behavior, BetaOutputBehavior::class, [BetaOutputBehaviorCreateNew::class, BetaOutputBehaviorUpdateExisting::class], "type", ["create_new" => BetaOutputBehaviorCreateNew::class, "update_existing" => BetaOutputBehaviorUpdateExisting::class], UnknownBetaOutputBehavior::class) : SdkNotGiven::Value),
+            outputBehavior: (property_exists($data, "output_behavior") && $data->output_behavior !== null ? SdkClient::hydrateUnionAs($data->output_behavior, BetaOutputBehavior::class, [BetaOutputBehaviorCreateNew::class, BetaOutputBehaviorUpdateExisting::class], "type", ["create_new" => BetaOutputBehaviorCreateNew::class, "update_existing" => BetaOutputBehaviorUpdateExisting::class], UnknownBetaOutputBehavior::class) : SdkNotGiven::Value),
         );
     }
 }
