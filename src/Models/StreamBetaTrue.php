@@ -79,7 +79,7 @@ class BetaManagedAgentsEventDeltaEvent implements BetaManagedAgentsStreamSession
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEventDeltaEventTypeEnum::class),
             eventId: SdkClient::stringValue($data->event_id),
-            delta: SdkClient::hydrateClass($data->delta, BetaManagedAgentsEventDeltaEvent_Delta::class),
+            delta: SdkClient::hydrateClass($data->delta, BetaManagedAgentsEventDeltaEvent_ContentDelta::class),
         );
     }
 }
@@ -157,7 +157,7 @@ class BetaManagedAgentsEventDeltaEvent_ContentDelta implements BetaManagedAgents
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEventDeltaEvent_ContentDeltaTypeEnum::class),
             content: SdkClient::hydrateClass($data->content, BetaManagedAgentsTextBlock::class),
-            index: (property_exists($data, "index") ? SdkClient::intValue($data->index) : SdkNotGiven::Value),
+            index: (property_exists($data, "index") && $data->index !== null ? SdkClient::intValue($data->index) : SdkNotGiven::Value),
         );
     }
 }

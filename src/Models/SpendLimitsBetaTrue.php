@@ -88,7 +88,7 @@ class BetaSetSpendLimitParams implements \JsonSerializable
         return new self(
             amount: ($data->amount === null ? null : SdkClient::stringValue($data->amount)),
             scope: SdkClient::hydrateClass($data->scope, BetaUserScope::class),
-            period: (property_exists($data, "period") ? SdkClient::hydrateStringEnumOrString($data->period, BetaSetSpendLimitParamsPeriodEnum::class) : SdkNotGiven::Value),
+            period: (property_exists($data, "period") && $data->period !== null ? SdkClient::hydrateStringEnumOrString($data->period, BetaSetSpendLimitParamsPeriodEnum::class) : SdkNotGiven::Value),
         );
     }
 }

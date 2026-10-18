@@ -117,7 +117,7 @@ class BetaDreamModelConfig implements \JsonSerializable
         if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
-            speed: (property_exists($data, "speed") ? SdkClient::hydrateEnum($data->speed, BetaSpeed::class) : SdkNotGiven::Value),
+            speed: (property_exists($data, "speed") && $data->speed !== null ? SdkClient::hydrateEnum($data->speed, BetaSpeed::class) : SdkNotGiven::Value),
         );
     }
 }

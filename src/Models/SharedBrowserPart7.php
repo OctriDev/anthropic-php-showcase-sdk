@@ -143,7 +143,7 @@ class BrowserStateTabEntry implements \JsonSerializable
             tabId: SdkClient::stringValue($data->tab_id),
             title: SdkClient::stringValue($data->title),
             url: SdkClient::stringValue($data->url),
-            active: (property_exists($data, "active") ? SdkClient::boolValue($data->active) : SdkNotGiven::Value),
+            active: (property_exists($data, "active") && $data->active !== null ? SdkClient::boolValue($data->active) : SdkNotGiven::Value),
         );
     }
 }

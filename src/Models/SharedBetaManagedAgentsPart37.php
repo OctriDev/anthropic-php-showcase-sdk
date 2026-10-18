@@ -117,8 +117,8 @@ class BetaManagedAgentsServerToolUsage implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            webSearchRequests: (property_exists($data, "web_search_requests") ? SdkClient::intValue($data->web_search_requests) : SdkNotGiven::Value),
-            webFetchRequests: (property_exists($data, "web_fetch_requests") ? SdkClient::intValue($data->web_fetch_requests) : SdkNotGiven::Value),
+            webSearchRequests: (property_exists($data, "web_search_requests") && $data->web_search_requests !== null ? SdkClient::intValue($data->web_search_requests) : SdkNotGiven::Value),
+            webFetchRequests: (property_exists($data, "web_fetch_requests") && $data->web_fetch_requests !== null ? SdkClient::intValue($data->web_fetch_requests) : SdkNotGiven::Value),
         );
     }
 }

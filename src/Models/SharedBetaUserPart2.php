@@ -158,7 +158,7 @@ class BetaUserProfile implements \JsonSerializable
             updatedAt: SdkClient::stringValue($data->updated_at),
             externalId: (property_exists($data, "external_id") ? ($data->external_id === null ? null : SdkClient::stringValue($data->external_id)) : SdkNotGiven::Value),
             name: (property_exists($data, "name") ? ($data->name === null ? null : SdkClient::stringValue($data->name)) : SdkNotGiven::Value),
-            accessType: (property_exists($data, "access_type") ? SdkClient::hydrateEnum($data->access_type, BetaUserProfileAccessType::class) : SdkNotGiven::Value),
+            accessType: (property_exists($data, "access_type") && $data->access_type !== null ? SdkClient::hydrateEnum($data->access_type, BetaUserProfileAccessType::class) : SdkNotGiven::Value),
             externalUserOnboardedAt: (property_exists($data, "external_user_onboarded_at") ? ($data->external_user_onboarded_at === null ? null : SdkClient::stringValue($data->external_user_onboarded_at)) : SdkNotGiven::Value),
         );
     }

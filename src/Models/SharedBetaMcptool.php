@@ -60,8 +60,8 @@ class BetaMCPToolConfig implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
-            enabled: (property_exists($data, "enabled") ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            enabled: (property_exists($data, "enabled") && $data->enabled !== null ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
         );
     }
 }
@@ -119,8 +119,8 @@ class BetaMCPToolDefaultConfig implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
-            enabled: (property_exists($data, "enabled") ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            enabled: (property_exists($data, "enabled") && $data->enabled !== null ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
         );
     }
 }

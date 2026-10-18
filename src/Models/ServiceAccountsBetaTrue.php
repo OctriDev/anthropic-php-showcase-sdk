@@ -88,7 +88,7 @@ class BetaServiceAccountCreateParams implements \JsonSerializable
         return new self(
             name: SdkClient::stringValue($data->name),
             description: (property_exists($data, "description") ? ($data->description === null ? null : SdkClient::stringValue($data->description)) : SdkNotGiven::Value),
-            organizationRole: (property_exists($data, "organization_role") ? SdkClient::hydrateStringEnumOrString($data->organization_role, BetaServiceAccountCreateParamsOrganizationRoleEnum::class) : SdkNotGiven::Value),
+            organizationRole: (property_exists($data, "organization_role") && $data->organization_role !== null ? SdkClient::hydrateStringEnumOrString($data->organization_role, BetaServiceAccountCreateParamsOrganizationRoleEnum::class) : SdkNotGiven::Value),
         );
     }
 }

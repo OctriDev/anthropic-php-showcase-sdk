@@ -129,7 +129,7 @@ class BetaContextManagementConfig implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            edits: (property_exists($data, "edits") ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaContextManagementConfigEditsItem::class, [BetaClearToolUses20250919::class, BetaClearThinking20251015::class, BetaCompact20260112::class], "type", ["clear_thinking_20251015" => BetaClearThinking20251015::class, "clear_tool_uses_20250919" => BetaClearToolUses20250919::class, "compact_20260112" => BetaCompact20260112::class], UnknownBetaContextManagementConfigEditsItem::class), SdkClient::arrayValue($data->edits))) : SdkNotGiven::Value),
+            edits: (property_exists($data, "edits") && $data->edits !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaContextManagementConfigEditsItem::class, [BetaClearToolUses20250919::class, BetaClearThinking20251015::class, BetaCompact20260112::class], "type", ["clear_thinking_20251015" => BetaClearThinking20251015::class, "clear_tool_uses_20250919" => BetaClearToolUses20250919::class, "compact_20260112" => BetaCompact20260112::class], UnknownBetaContextManagementConfigEditsItem::class), SdkClient::arrayValue($data->edits))) : SdkNotGiven::Value),
         );
     }
 }

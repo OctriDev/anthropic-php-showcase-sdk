@@ -33,7 +33,7 @@ class BetaManagedAgentsAgentCustomToolUseEvent implements BetaManagedAgentsSessi
     /**
      * Input parameters for the tool call.
      *
-     * @var array<array-key,mixed>
+     * @var array<string,mixed>
      */
     public readonly array $input;
     /**
@@ -53,7 +53,7 @@ class BetaManagedAgentsAgentCustomToolUseEvent implements BetaManagedAgentsSessi
      * @param BetaManagedAgentsAgentCustomToolUseEventTypeEnum $type
      * @param string $id
      * @param string $name
-     * @param array<array-key,mixed> $input
+     * @param array<string,mixed> $input
      * @param string $processedAt
      * @param string|null|SdkNotGiven $sessionThreadId
      */
@@ -238,7 +238,7 @@ class BetaManagedAgentsAgentMcpToolResultEvent implements BetaManagedAgentsSessi
             id: SdkClient::stringValue($data->id),
             mcpToolUseId: SdkClient::stringValue($data->mcp_tool_use_id),
             processedAt: SdkClient::stringValue($data->processed_at),
-            content: (property_exists($data, "content") ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsToolResultContentBlock::class, [BetaManagedAgentsTextBlock::class, BetaManagedAgentsImageBlock::class, BetaManagedAgentsDocumentBlock::class, BetaManagedAgentsSearchResultBlock::class], "type", ["text" => BetaManagedAgentsTextBlock::class, "image" => BetaManagedAgentsImageBlock::class, "document" => BetaManagedAgentsDocumentBlock::class, "search_result" => BetaManagedAgentsSearchResultBlock::class], UnknownBetaManagedAgentsToolResultContentBlock::class), SdkClient::arrayValue($data->content))) : SdkNotGiven::Value),
+            content: (property_exists($data, "content") && $data->content !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsToolResultContentBlock::class, [BetaManagedAgentsTextBlock::class, BetaManagedAgentsImageBlock::class, BetaManagedAgentsDocumentBlock::class, BetaManagedAgentsSearchResultBlock::class], "type", ["text" => BetaManagedAgentsTextBlock::class, "image" => BetaManagedAgentsImageBlock::class, "document" => BetaManagedAgentsDocumentBlock::class, "search_result" => BetaManagedAgentsSearchResultBlock::class], UnknownBetaManagedAgentsToolResultContentBlock::class), SdkClient::arrayValue($data->content))) : SdkNotGiven::Value),
             isError: (property_exists($data, "is_error") ? ($data->is_error === null ? null : SdkClient::boolValue($data->is_error)) : SdkNotGiven::Value),
         );
     }

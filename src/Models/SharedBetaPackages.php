@@ -126,7 +126,7 @@ class BetaPackages implements \JsonSerializable
             go: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->go))),
             npm: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->npm))),
             pip: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->pip))),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
         );
     }
 }
@@ -256,7 +256,7 @@ class BetaPackagesParams implements \JsonSerializable
             go: (property_exists($data, "go") ? ($data->go === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->go)))) : SdkNotGiven::Value),
             npm: (property_exists($data, "npm") ? ($data->npm === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->npm)))) : SdkNotGiven::Value),
             pip: (property_exists($data, "pip") ? ($data->pip === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->pip)))) : SdkNotGiven::Value),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
         );
     }
 }

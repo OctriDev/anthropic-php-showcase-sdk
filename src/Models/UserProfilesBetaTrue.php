@@ -98,9 +98,9 @@ class BetaCreateUserProfileRequest implements \JsonSerializable
         return new self(
             externalId: (property_exists($data, "external_id") ? ($data->external_id === null ? null : SdkClient::stringValue($data->external_id)) : SdkNotGiven::Value),
             name: (property_exists($data, "name") ? ($data->name === null ? null : SdkClient::stringValue($data->name)) : SdkNotGiven::Value),
-            accessType: (property_exists($data, "access_type") ? SdkClient::hydrateEnum($data->access_type, BetaUserProfileAccessType::class) : SdkNotGiven::Value),
-            externalUserOnboardedAt: (property_exists($data, "external_user_onboarded_at") ? SdkClient::stringValue($data->external_user_onboarded_at) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            accessType: (property_exists($data, "access_type") && $data->access_type !== null ? SdkClient::hydrateEnum($data->access_type, BetaUserProfileAccessType::class) : SdkNotGiven::Value),
+            externalUserOnboardedAt: (property_exists($data, "external_user_onboarded_at") && $data->external_user_onboarded_at !== null ? SdkClient::stringValue($data->external_user_onboarded_at) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
         );
     }
 }

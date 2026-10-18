@@ -60,7 +60,7 @@ class BetaManagedAgentsCreateVaultRequest implements \JsonSerializable
         if (!property_exists($data, "display_name") || $data->display_name === null) { throw new SdkValidationError("display_name", 'required', "Required property 'display_name' is missing or null"); }
         return new self(
             displayName: SdkClient::stringValue($data->display_name),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
         );
     }
 }
@@ -118,7 +118,7 @@ class BetaManagedAgentsListVaultsResponse implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            data: (property_exists($data, "data") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsVault::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
+            data: (property_exists($data, "data") && $data->data !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsVault::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
         );
     }

@@ -155,7 +155,7 @@ class RequestCitationsConfig implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            enabled: (property_exists($data, "enabled") ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
+            enabled: (property_exists($data, "enabled") && $data->enabled !== null ? SdkClient::boolValue($data->enabled) : SdkNotGiven::Value),
         );
     }
 }

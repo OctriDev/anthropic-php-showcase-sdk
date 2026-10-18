@@ -296,8 +296,8 @@ class BetaManagedAgentsSessionStats implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            durationSeconds: (property_exists($data, "duration_seconds") ? SdkClient::floatValue($data->duration_seconds) : SdkNotGiven::Value),
-            activeSeconds: (property_exists($data, "active_seconds") ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
+            durationSeconds: (property_exists($data, "duration_seconds") && $data->duration_seconds !== null ? SdkClient::floatValue($data->duration_seconds) : SdkNotGiven::Value),
+            activeSeconds: (property_exists($data, "active_seconds") && $data->active_seconds !== null ? SdkClient::floatValue($data->active_seconds) : SdkNotGiven::Value),
         );
     }
 }

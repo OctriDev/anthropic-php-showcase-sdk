@@ -160,12 +160,12 @@ class BetaComputerUseTool_20250124 implements BetaCountMessageTokensParamsToolsI
             displayWidthPx: SdkClient::intValue($data->display_width_px),
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
             displayNumber: (property_exists($data, "display_number") ? ($data->display_number === null ? null : SdkClient::intValue($data->display_number)) : SdkNotGiven::Value),
-            inputExamples: (property_exists($data, "input_examples") ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item) => SdkClient::hydrateClass($item, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            inputExamples: (property_exists($data, "input_examples") && $data->input_examples !== null ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item2) => SdkClient::hydrateClass($item2, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
         );
     }
 }
@@ -335,13 +335,13 @@ class BetaComputerUseTool_20251124 implements BetaCountMessageTokensParamsToolsI
             displayWidthPx: SdkClient::intValue($data->display_width_px),
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
             displayNumber: (property_exists($data, "display_number") ? ($data->display_number === null ? null : SdkClient::intValue($data->display_number)) : SdkNotGiven::Value),
-            enableZoom: (property_exists($data, "enable_zoom") ? SdkClient::boolValue($data->enable_zoom) : SdkNotGiven::Value),
-            inputExamples: (property_exists($data, "input_examples") ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item) => SdkClient::hydrateClass($item, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            enableZoom: (property_exists($data, "enable_zoom") && $data->enable_zoom !== null ? SdkClient::boolValue($data->enable_zoom) : SdkNotGiven::Value),
+            inputExamples: (property_exists($data, "input_examples") && $data->input_examples !== null ? array_values(array_map(static fn($item) => SdkClient::mapValues(SdkClient::stringMapValue($item), static fn($item2) => SdkClient::hydrateClass($item2, BetaJsonValue::class)), SdkClient::arrayValue($data->input_examples))) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
         );
     }
 }

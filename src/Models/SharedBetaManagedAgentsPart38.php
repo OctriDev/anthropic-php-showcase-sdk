@@ -239,7 +239,7 @@ class BetaManagedAgentsSession implements \JsonSerializable
             usage: SdkClient::hydrateClass($data->usage, BetaManagedAgentsSessionUsage::class),
             stats: SdkClient::hydrateClass($data->stats, BetaManagedAgentsSessionStats::class),
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),
-            budget: ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudget::class)),
+            budget: ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudgetLimit::class)),
             deploymentId: (property_exists($data, "deployment_id") ? ($data->deployment_id === null ? null : SdkClient::stringValue($data->deployment_id)) : SdkNotGiven::Value),
         );
     }

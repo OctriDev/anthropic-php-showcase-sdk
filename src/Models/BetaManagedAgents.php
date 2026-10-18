@@ -93,9 +93,9 @@ class BetaManagedAgentsAgentToolset20260401_BashInput implements \JsonSerializab
     public static function fromObject(object $data): self
     {
         return new self(
-            command: (property_exists($data, "command") ? SdkClient::stringValue($data->command) : SdkNotGiven::Value),
-            restart: (property_exists($data, "restart") ? SdkClient::boolValue($data->restart) : SdkNotGiven::Value),
-            timeoutMs: (property_exists($data, "timeout_ms") ? SdkClient::intValue($data->timeout_ms) : SdkNotGiven::Value),
+            command: (property_exists($data, "command") && $data->command !== null ? SdkClient::stringValue($data->command) : SdkNotGiven::Value),
+            restart: (property_exists($data, "restart") && $data->restart !== null ? SdkClient::boolValue($data->restart) : SdkNotGiven::Value),
+            timeoutMs: (property_exists($data, "timeout_ms") && $data->timeout_ms !== null ? SdkClient::intValue($data->timeout_ms) : SdkNotGiven::Value),
         );
     }
 }
@@ -177,7 +177,7 @@ class BetaManagedAgentsAgentToolset20260401_EditInput implements \JsonSerializab
             filePath: SdkClient::stringValue($data->file_path),
             oldString: SdkClient::stringValue($data->old_string),
             newString: SdkClient::stringValue($data->new_string),
-            replaceAll: (property_exists($data, "replace_all") ? SdkClient::boolValue($data->replace_all) : SdkNotGiven::Value),
+            replaceAll: (property_exists($data, "replace_all") && $data->replace_all !== null ? SdkClient::boolValue($data->replace_all) : SdkNotGiven::Value),
         );
     }
 }
@@ -235,7 +235,7 @@ class BetaManagedAgentsAgentToolset20260401_GlobInput implements \JsonSerializab
         if (!property_exists($data, "pattern") || $data->pattern === null) { throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null"); }
         return new self(
             pattern: SdkClient::stringValue($data->pattern),
-            path: (property_exists($data, "path") ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),
+            path: (property_exists($data, "path") && $data->path !== null ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),
         );
     }
 }
@@ -293,7 +293,7 @@ class BetaManagedAgentsAgentToolset20260401_GrepInput implements \JsonSerializab
         if (!property_exists($data, "pattern") || $data->pattern === null) { throw new SdkValidationError("pattern", 'required', "Required property 'pattern' is missing or null"); }
         return new self(
             pattern: SdkClient::stringValue($data->pattern),
-            path: (property_exists($data, "path") ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),
+            path: (property_exists($data, "path") && $data->path !== null ? SdkClient::stringValue($data->path) : SdkNotGiven::Value),
         );
     }
 }

@@ -48,7 +48,7 @@ class BetaDenySpendLimitIncreaseRequestParams implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            suppressNotification: (property_exists($data, "suppress_notification") ? SdkClient::boolValue($data->suppress_notification) : SdkNotGiven::Value),
+            suppressNotification: (property_exists($data, "suppress_notification") && $data->suppress_notification !== null ? SdkClient::boolValue($data->suppress_notification) : SdkNotGiven::Value),
         );
     }
 }

@@ -182,7 +182,7 @@ class RequestToolUseBlock implements InputContentBlock, \JsonSerializable
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, CacheControlEphemeral::class)) : SdkNotGiven::Value),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, RequestToolUseBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestToolUseBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, RequestToolUseBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownRequestToolUseBlockCaller::class) : SdkNotGiven::Value),
             toolsetName: (property_exists($data, "toolset_name") ? ($data->toolset_name === null ? null : SdkClient::stringValue($data->toolset_name)) : SdkNotGiven::Value),
         );
     }

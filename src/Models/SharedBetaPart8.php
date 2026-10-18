@@ -62,7 +62,7 @@ class BetaTargetStoreHeldError implements BetaDreamingError, \JsonSerializable
         Validation::validateConst("type", $data->type, "conflict_error");
         return new self(
             type: SdkClient::stringValue($data->type),
-            message: (property_exists($data, "message") ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
+            message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
         );
     }
 }

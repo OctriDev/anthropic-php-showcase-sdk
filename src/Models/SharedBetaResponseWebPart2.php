@@ -181,7 +181,7 @@ class BetaResponseWebSearchToolResultBlock implements BetaContentBlock, BetaCont
             content: (is_object($data->content) ? SdkClient::hydrateClass($data->content, BetaResponseWebSearchToolResultError::class) : (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaResponseWebSearchResultBlock::class), SdkClient::arrayValue($data->content))) : SdkClient::hydrateClass($data->content, BetaResponseWebSearchToolResultError::class))),
             toolUseId: SdkClient::stringValue($data->tool_use_id),
             type: SdkClient::stringValue($data->type),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, BetaResponseWebSearchToolResultBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaResponseWebSearchToolResultBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, BetaResponseWebSearchToolResultBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaResponseWebSearchToolResultBlockCaller::class) : SdkNotGiven::Value),
         );
     }
 }

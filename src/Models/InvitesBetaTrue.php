@@ -90,7 +90,7 @@ class BetaCreateInviteParams implements \JsonSerializable
         return new self(
             email: SdkClient::stringValue($data->email),
             role: SdkClient::hydrateStringEnumOrString($data->role, BetaCreateInviteParamsRoleEnum::class),
-            rbacGroupIds: (property_exists($data, "rbac_group_ids") ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->rbac_group_ids))) : SdkNotGiven::Value),
+            rbacGroupIds: (property_exists($data, "rbac_group_ids") && $data->rbac_group_ids !== null ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->rbac_group_ids))) : SdkNotGiven::Value),
         );
     }
 }

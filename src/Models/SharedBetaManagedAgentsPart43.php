@@ -327,7 +327,7 @@ class BetaManagedAgentsSessionThreadAgent implements BetaManagedAgentsSessionRos
             model: SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfig::class),
             system: ($data->system === null ? null : SdkClient::stringValue($data->system)),
             tools: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsAgentTool::class, [BetaManagedAgentsAgentToolset20260401::class, BetaManagedAgentsMCPToolset::class, BetaManagedAgentsCustomTool::class], "type", ["agent_toolset_20260401" => BetaManagedAgentsAgentToolset20260401::class, "mcp_toolset" => BetaManagedAgentsMCPToolset::class, "custom" => BetaManagedAgentsCustomTool::class], UnknownBetaManagedAgentsAgentTool::class), SdkClient::arrayValue($data->tools))),
-            mcpServers: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServer::class), SdkClient::arrayValue($data->mcp_servers))),
+            mcpServers: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServerURLDefinition::class), SdkClient::arrayValue($data->mcp_servers))),
             skills: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSkill::class, [BetaManagedAgentsAnthropicSkill::class, BetaManagedAgentsCustomSkill::class], "type", ["anthropic" => BetaManagedAgentsAnthropicSkill::class, "custom" => BetaManagedAgentsCustomSkill::class], UnknownBetaManagedAgentsSkill::class), SdkClient::arrayValue($data->skills))),
         );
     }

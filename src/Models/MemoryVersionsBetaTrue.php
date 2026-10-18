@@ -60,7 +60,7 @@ class BetaManagedAgentsListMemoryVersionsResult implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            data: (property_exists($data, "data") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMemoryVersion::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
+            data: (property_exists($data, "data") && $data->data !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMemoryVersion::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
         );
     }

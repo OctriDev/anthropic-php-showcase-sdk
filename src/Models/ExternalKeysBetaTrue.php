@@ -79,7 +79,7 @@ class BetaExternalKeyCreateParams implements \JsonSerializable
         return new self(
             providerConfig: SdkClient::hydrateUnionAs($data->provider_config, BetaExternalKeyCreateParamsProviderConfig::class, [BetaAwsExternalKeyConfig::class, BetaGcpExternalKeyConfig::class, BetaAzureExternalKeyConfigParams::class], "type", ["aws" => BetaAwsExternalKeyConfig::class, "azure" => BetaAzureExternalKeyConfigParams::class, "gcp" => BetaGcpExternalKeyConfig::class], UnknownBetaExternalKeyCreateParamsProviderConfig::class),
             displayName: (property_exists($data, "display_name") ? ($data->display_name === null ? null : SdkClient::stringValue($data->display_name)) : SdkNotGiven::Value),
-            geo: (property_exists($data, "geo") ? SdkClient::stringValue($data->geo) : SdkNotGiven::Value),
+            geo: (property_exists($data, "geo") && $data->geo !== null ? SdkClient::stringValue($data->geo) : SdkNotGiven::Value),
         );
     }
 }

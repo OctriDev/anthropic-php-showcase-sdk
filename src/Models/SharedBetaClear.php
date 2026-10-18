@@ -62,7 +62,7 @@ class BetaClearThinking20251015 implements BetaContextManagementConfigEditsItem,
         Validation::validateConst("type", $data->type, "clear_thinking_20251015");
         return new self(
             type: SdkClient::stringValue($data->type),
-            keep: (property_exists($data, "keep") ? (is_object($data->keep) ? SdkClient::hydrateUnion($data->keep, [BetaThinkingTurns::class, BetaAllThinkingTurns::class], null, []) : (is_string($data->keep) ? SdkClient::stringValue($data->keep) : SdkClient::hydrateUnion($data->keep, [BetaThinkingTurns::class, BetaAllThinkingTurns::class], null, []))) : SdkNotGiven::Value),
+            keep: (property_exists($data, "keep") && $data->keep !== null ? (is_object($data->keep) ? SdkClient::hydrateUnion($data->keep, [BetaThinkingTurns::class, BetaAllThinkingTurns::class], null, []) : (is_string($data->keep) ? SdkClient::stringValue($data->keep) : SdkClient::hydrateUnion($data->keep, [BetaThinkingTurns::class, BetaAllThinkingTurns::class], null, []))) : SdkNotGiven::Value),
         );
     }
 }
@@ -173,8 +173,8 @@ class BetaClearToolUses20250919 implements BetaContextManagementConfigEditsItem,
             clearAtLeast: (property_exists($data, "clear_at_least") ? ($data->clear_at_least === null ? null : SdkClient::hydrateClass($data->clear_at_least, BetaInputTokensClearAtLeast::class)) : SdkNotGiven::Value),
             clearToolInputs: (property_exists($data, "clear_tool_inputs") ? ($data->clear_tool_inputs === null ? null : (is_array($data->clear_tool_inputs) ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->clear_tool_inputs))) : SdkClient::boolValue($data->clear_tool_inputs))) : SdkNotGiven::Value),
             excludeTools: (property_exists($data, "exclude_tools") ? ($data->exclude_tools === null ? null : array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->exclude_tools)))) : SdkNotGiven::Value),
-            keep: (property_exists($data, "keep") ? SdkClient::hydrateClass($data->keep, BetaToolUsesKeep::class) : SdkNotGiven::Value),
-            trigger: (property_exists($data, "trigger") ? SdkClient::hydrateUnionAs($data->trigger, BetaClearToolUses20250919Trigger::class, [BetaInputTokensTrigger::class, BetaToolUsesTrigger::class], "type", ["input_tokens" => BetaInputTokensTrigger::class, "tool_uses" => BetaToolUsesTrigger::class], UnknownBetaClearToolUses20250919Trigger::class) : SdkNotGiven::Value),
+            keep: (property_exists($data, "keep") && $data->keep !== null ? SdkClient::hydrateClass($data->keep, BetaToolUsesKeep::class) : SdkNotGiven::Value),
+            trigger: (property_exists($data, "trigger") && $data->trigger !== null ? SdkClient::hydrateUnionAs($data->trigger, BetaClearToolUses20250919Trigger::class, [BetaInputTokensTrigger::class, BetaToolUsesTrigger::class], "type", ["input_tokens" => BetaInputTokensTrigger::class, "tool_uses" => BetaToolUsesTrigger::class], UnknownBetaClearToolUses20250919Trigger::class) : SdkNotGiven::Value),
         );
     }
 }

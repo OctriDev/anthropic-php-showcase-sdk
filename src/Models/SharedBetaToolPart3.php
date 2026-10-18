@@ -110,10 +110,10 @@ class BetaToolSearchToolBM25_20251119 implements BetaCountMessageTokensParamsToo
         return new self(
             name: SdkClient::stringValue($data->name),
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaToolSearchToolBM25_20251119TypeEnum::class),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
         );
     }
 }
@@ -236,10 +236,10 @@ class BetaToolSearchToolRegex_20251119 implements BetaCountMessageTokensParamsTo
         return new self(
             name: SdkClient::stringValue($data->name),
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaToolSearchToolRegex_20251119TypeEnum::class),
-            allowedCallers: (property_exists($data, "allowed_callers") ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
+            allowedCallers: (property_exists($data, "allowed_callers") && $data->allowed_callers !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateStringEnumOrString($item, BetaAllowedCaller::class), SdkClient::arrayValue($data->allowed_callers))) : SdkNotGiven::Value),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            deferLoading: (property_exists($data, "defer_loading") ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
-            strict: (property_exists($data, "strict") ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
+            deferLoading: (property_exists($data, "defer_loading") && $data->defer_loading !== null ? SdkClient::boolValue($data->defer_loading) : SdkNotGiven::Value),
+            strict: (property_exists($data, "strict") && $data->strict !== null ? SdkClient::boolValue($data->strict) : SdkNotGiven::Value),
         );
     }
 }

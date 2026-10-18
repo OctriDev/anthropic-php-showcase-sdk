@@ -121,7 +121,7 @@ class BetaToolChoiceAny implements BetaToolChoice, \JsonSerializable
         Validation::validateConst("type", $data->type, "any");
         return new self(
             type: SdkClient::stringValue($data->type),
-            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
+            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") && $data->disable_parallel_tool_use !== null ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
         );
     }
 }
@@ -181,7 +181,7 @@ class BetaToolChoiceAuto implements BetaToolChoice, \JsonSerializable
         Validation::validateConst("type", $data->type, "auto");
         return new self(
             type: SdkClient::stringValue($data->type),
-            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
+            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") && $data->disable_parallel_tool_use !== null ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
         );
     }
 }
@@ -300,7 +300,7 @@ class BetaToolChoiceTool implements BetaToolChoice, \JsonSerializable
         return new self(
             name: SdkClient::stringValue($data->name),
             type: SdkClient::stringValue($data->type),
-            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
+            disableParallelToolUse: (property_exists($data, "disable_parallel_tool_use") && $data->disable_parallel_tool_use !== null ? SdkClient::boolValue($data->disable_parallel_tool_use) : SdkNotGiven::Value),
         );
     }
 }

@@ -234,13 +234,13 @@ class BetaManagedAgentsDeployment implements \JsonSerializable
             initialEvents: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsDeploymentInitialEvent::class, [BetaManagedAgentsDeploymentUserMessageEvent::class, BetaManagedAgentsDeploymentUserDefineOutcomeEvent::class, BetaManagedAgentsDeploymentSystemMessageEvent::class], "type", ["user.message" => BetaManagedAgentsDeploymentUserMessageEvent::class, "user.define_outcome" => BetaManagedAgentsDeploymentUserDefineOutcomeEvent::class, "system.message" => BetaManagedAgentsDeploymentSystemMessageEvent::class], UnknownBetaManagedAgentsDeploymentInitialEvent::class), SdkClient::arrayValue($data->initial_events))),
             resources: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSessionResourceConfig::class, [BetaManagedAgentsGitHubRepositoryResourceConfig::class, BetaManagedAgentsFileResourceConfig::class, BetaManagedAgentsMemoryStoreResourceConfig::class], "type", ["github_repository" => BetaManagedAgentsGitHubRepositoryResourceConfig::class, "file" => BetaManagedAgentsFileResourceConfig::class, "memory_store" => BetaManagedAgentsMemoryStoreResourceConfig::class], UnknownBetaManagedAgentsSessionResourceConfig::class), SdkClient::arrayValue($data->resources))),
             metadata: SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)),
-            schedule: ($data->schedule === null ? null : SdkClient::hydrateClass($data->schedule, BetaManagedAgentsSchedule::class)),
+            schedule: ($data->schedule === null ? null : SdkClient::hydrateClass($data->schedule, BetaManagedAgentsCronSchedule::class)),
             status: SdkClient::hydrateEnum($data->status, BetaManagedAgentsDeploymentStatus::class),
             pausedReason: ($data->paused_reason === null ? null : SdkClient::hydrateUnionAs($data->paused_reason, BetaManagedAgentsDeploymentPausedReason::class, [BetaManagedAgentsManualDeploymentPausedReason::class, BetaManagedAgentsErrorDeploymentPausedReason::class], "type", ["manual" => BetaManagedAgentsManualDeploymentPausedReason::class, "error" => BetaManagedAgentsErrorDeploymentPausedReason::class], UnknownBetaManagedAgentsDeploymentPausedReason::class)),
             createdAt: SdkClient::stringValue($data->created_at),
             updatedAt: SdkClient::stringValue($data->updated_at),
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),
-            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudget::class)) : SdkNotGiven::Value),
+            budget: (property_exists($data, "budget") ? ($data->budget === null ? null : SdkClient::hydrateClass($data->budget, BetaManagedAgentsBudgetLimit::class)) : SdkNotGiven::Value),
         );
     }
 }

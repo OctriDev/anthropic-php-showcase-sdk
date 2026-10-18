@@ -117,7 +117,7 @@ class BetaManagedAgentsListMemoriesResult implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            data: (property_exists($data, "data") ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsMemoryListItem::class, [BetaManagedAgentsMemory::class, BetaManagedAgentsMemoryPrefix::class], "type", ["memory" => BetaManagedAgentsMemory::class, "memory_prefix" => BetaManagedAgentsMemoryPrefix::class], UnknownBetaManagedAgentsMemoryListItem::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
+            data: (property_exists($data, "data") && $data->data !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsMemoryListItem::class, [BetaManagedAgentsMemory::class, BetaManagedAgentsMemoryPrefix::class], "type", ["memory" => BetaManagedAgentsMemory::class, "memory_prefix" => BetaManagedAgentsMemoryPrefix::class], UnknownBetaManagedAgentsMemoryListItem::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
         );
     }

@@ -132,8 +132,8 @@ class BetaManagedAgentsMemoryStore implements BetaManagedAgentsArchiveMemoryStor
             name: SdkClient::stringValue($data->name),
             createdAt: SdkClient::stringValue($data->created_at),
             updatedAt: SdkClient::stringValue($data->updated_at),
-            description: (property_exists($data, "description") ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            description: (property_exists($data, "description") && $data->description !== null ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
             archivedAt: (property_exists($data, "archived_at") ? ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)) : SdkNotGiven::Value),
         );
     }

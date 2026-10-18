@@ -323,7 +323,7 @@ class BetaFallbackCreditTokenParam implements \JsonSerializable
         if (!property_exists($data, "token") || $data->token === null) { throw new SdkValidationError("token", 'required', "Required property 'token' is missing or null"); }
         return new self(
             token: SdkClient::stringValue($data->token),
-            mode: (property_exists($data, "mode") ? SdkClient::hydrateStringEnumOrString($data->mode, BetaFallbackCreditTokenParamModeEnum::class) : SdkNotGiven::Value),
+            mode: (property_exists($data, "mode") && $data->mode !== null ? SdkClient::hydrateStringEnumOrString($data->mode, BetaFallbackCreditTokenParamModeEnum::class) : SdkNotGiven::Value),
         );
     }
 }

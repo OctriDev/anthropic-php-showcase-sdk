@@ -97,7 +97,7 @@ class BetaFederationIssuerCreateParams implements \JsonSerializable
             issuerUrl: SdkClient::stringValue($data->issuer_url),
             name: SdkClient::stringValue($data->name),
             checkJti: (property_exists($data, "check_jti") ? ($data->check_jti === null ? null : SdkClient::boolValue($data->check_jti)) : SdkNotGiven::Value),
-            jwks: (property_exists($data, "jwks") ? SdkClient::hydrateUnionAs($data->jwks, BetaFederationIssuerCreateParamsJwks::class, [BetaJwksDiscovery::class, BetaJwksExplicitUrl::class, BetaJwksInline::class], "type", ["discovery" => BetaJwksDiscovery::class, "explicit_url" => BetaJwksExplicitUrl::class, "inline" => BetaJwksInline::class], UnknownBetaFederationIssuerCreateParamsJwks::class) : SdkNotGiven::Value),
+            jwks: (property_exists($data, "jwks") && $data->jwks !== null ? SdkClient::hydrateUnionAs($data->jwks, BetaFederationIssuerCreateParamsJwks::class, [BetaJwksDiscovery::class, BetaJwksExplicitUrl::class, BetaJwksInline::class], "type", ["discovery" => BetaJwksDiscovery::class, "explicit_url" => BetaJwksExplicitUrl::class, "inline" => BetaJwksInline::class], UnknownBetaFederationIssuerCreateParamsJwks::class) : SdkNotGiven::Value),
             maxJwtLifetimeSeconds: (property_exists($data, "max_jwt_lifetime_seconds") ? ($data->max_jwt_lifetime_seconds === null ? null : SdkClient::intValue($data->max_jwt_lifetime_seconds)) : SdkNotGiven::Value),
         );
     }

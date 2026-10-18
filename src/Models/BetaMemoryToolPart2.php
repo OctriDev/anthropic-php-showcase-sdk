@@ -165,7 +165,7 @@ class BetaMemoryTool_20250818_ViewCommand implements BetaMemoryTool_20250818_Com
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_ViewCommandCommandEnum::class),
             path: SdkClient::stringValue($data->path),
-            viewRange: (property_exists($data, "view_range") ? array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->view_range))) : SdkNotGiven::Value),
+            viewRange: (property_exists($data, "view_range") && $data->view_range !== null ? array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->view_range))) : SdkNotGiven::Value),
         );
     }
 }

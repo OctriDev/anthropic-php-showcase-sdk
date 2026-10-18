@@ -72,8 +72,8 @@ class BetaManagedAgentsCreateMemoryStoreRequest implements \JsonSerializable
         if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
-            description: (property_exists($data, "description") ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
-            metadata: (property_exists($data, "metadata") ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
+            description: (property_exists($data, "description") && $data->description !== null ? SdkClient::stringValue($data->description) : SdkNotGiven::Value),
+            metadata: (property_exists($data, "metadata") && $data->metadata !== null ? SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)) : SdkNotGiven::Value),
         );
     }
 }
@@ -131,7 +131,7 @@ class BetaManagedAgentsListMemoryStoresResponse implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            data: (property_exists($data, "data") ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMemoryStore::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
+            data: (property_exists($data, "data") && $data->data !== null ? array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMemoryStore::class), SdkClient::arrayValue($data->data))) : SdkNotGiven::Value),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
         );
     }

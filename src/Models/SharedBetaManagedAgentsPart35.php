@@ -92,7 +92,7 @@ class BetaManagedAgentsReadToolConfigParams implements BetaManagedAgentsAgentToo
         }
         return new self(
             name: SdkClient::stringValue($data->name),
-            type: (property_exists($data, "type") ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
+            type: (property_exists($data, "type") && $data->type !== null ? SdkClient::stringValue($data->type) : SdkNotGiven::Value),
             enabled: (property_exists($data, "enabled") ? ($data->enabled === null ? null : SdkClient::boolValue($data->enabled)) : SdkNotGiven::Value),
             permissionPolicy: (property_exists($data, "permission_policy") ? ($data->permission_policy === null ? null : SdkClient::hydrateUnionAs($data->permission_policy, BetaManagedAgentsPermissionPolicy::class, [BetaManagedAgentsAlwaysAllowPolicy::class, BetaManagedAgentsAlwaysAskPolicy::class], "type", ["always_allow" => BetaManagedAgentsAlwaysAllowPolicy::class, "always_ask" => BetaManagedAgentsAlwaysAskPolicy::class], UnknownBetaManagedAgentsPermissionPolicy::class)) : SdkNotGiven::Value),
         );

@@ -156,16 +156,16 @@ class BetaManagedAgentsUpdateAgentParams implements \JsonSerializable
     public static function fromObject(object $data): self
     {
         return new self(
-            version: (property_exists($data, "version") ? SdkClient::intValue($data->version) : SdkNotGiven::Value),
-            name: (property_exists($data, "name") ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
+            version: (property_exists($data, "version") && $data->version !== null ? SdkClient::intValue($data->version) : SdkNotGiven::Value),
+            name: (property_exists($data, "name") && $data->name !== null ? SdkClient::stringValue($data->name) : SdkNotGiven::Value),
             description: (property_exists($data, "description") ? ($data->description === null ? null : SdkClient::stringValue($data->description)) : SdkNotGiven::Value),
-            model: (property_exists($data, "model") ? (is_object($data->model) ? SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class) : (is_string($data->model) ? SdkClient::stringValue($data->model) : SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class))) : SdkNotGiven::Value),
+            model: (property_exists($data, "model") && $data->model !== null ? (is_object($data->model) ? SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class) : (is_string($data->model) ? SdkClient::stringValue($data->model) : SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfigParams::class))) : SdkNotGiven::Value),
             system: (property_exists($data, "system") ? ($data->system === null ? null : SdkClient::stringValue($data->system)) : SdkNotGiven::Value),
             tools: (property_exists($data, "tools") ? ($data->tools === null ? null : array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsAgentToolParams::class, [BetaManagedAgentsAgentToolset20260401Params::class, BetaManagedAgentsMCPToolsetParams::class, BetaManagedAgentsCustomToolParams::class], "type", ["agent_toolset_20260401" => BetaManagedAgentsAgentToolset20260401Params::class, "mcp_toolset" => BetaManagedAgentsMCPToolsetParams::class, "custom" => BetaManagedAgentsCustomToolParams::class], UnknownBetaManagedAgentsAgentToolParams::class), SdkClient::arrayValue($data->tools)))) : SdkNotGiven::Value),
-            mcpServers: (property_exists($data, "mcp_servers") ? ($data->mcp_servers === null ? null : array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServerParams::class), SdkClient::arrayValue($data->mcp_servers)))) : SdkNotGiven::Value),
+            mcpServers: (property_exists($data, "mcp_servers") ? ($data->mcp_servers === null ? null : array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsURLMCPServerParams::class), SdkClient::arrayValue($data->mcp_servers)))) : SdkNotGiven::Value),
             skills: (property_exists($data, "skills") ? ($data->skills === null ? null : array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSkillParams::class, [BetaManagedAgentsAnthropicSkillParams::class, BetaManagedAgentsCustomSkillParams::class], "type", ["anthropic" => BetaManagedAgentsAnthropicSkillParams::class, "custom" => BetaManagedAgentsCustomSkillParams::class], UnknownBetaManagedAgentsSkillParams::class), SdkClient::arrayValue($data->skills)))) : SdkNotGiven::Value),
             metadata: (property_exists($data, "metadata") ? ($data->metadata === null ? null : SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => ($item === null ? null : SdkClient::stringValue($item)))) : SdkNotGiven::Value),
-            multiagent: (property_exists($data, "multiagent") ? ($data->multiagent === null ? null : SdkClient::hydrateClass($data->multiagent, BetaManagedAgentsMultiagentParams::class)) : SdkNotGiven::Value),
+            multiagent: (property_exists($data, "multiagent") ? ($data->multiagent === null ? null : SdkClient::hydrateClass($data->multiagent, BetaManagedAgentsMultiagentCoordinatorParams::class)) : SdkNotGiven::Value),
         );
     }
 }

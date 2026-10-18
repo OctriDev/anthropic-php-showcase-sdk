@@ -209,13 +209,13 @@ class BetaManagedAgentsAgent implements \JsonSerializable
             model: SdkClient::hydrateClass($data->model, BetaManagedAgentsModelConfig::class),
             system: ($data->system === null ? null : SdkClient::stringValue($data->system)),
             tools: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsAgentTool::class, [BetaManagedAgentsAgentToolset20260401::class, BetaManagedAgentsMCPToolset::class, BetaManagedAgentsCustomTool::class], "type", ["agent_toolset_20260401" => BetaManagedAgentsAgentToolset20260401::class, "mcp_toolset" => BetaManagedAgentsMCPToolset::class, "custom" => BetaManagedAgentsCustomTool::class], UnknownBetaManagedAgentsAgentTool::class), SdkClient::arrayValue($data->tools))),
-            mcpServers: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServer::class), SdkClient::arrayValue($data->mcp_servers))),
+            mcpServers: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaManagedAgentsMCPServerURLDefinition::class), SdkClient::arrayValue($data->mcp_servers))),
             skills: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSkill::class, [BetaManagedAgentsAnthropicSkill::class, BetaManagedAgentsCustomSkill::class], "type", ["anthropic" => BetaManagedAgentsAnthropicSkill::class, "custom" => BetaManagedAgentsCustomSkill::class], UnknownBetaManagedAgentsSkill::class), SdkClient::arrayValue($data->skills))),
             metadata: SdkClient::mapValues(SdkClient::stringMapValue($data->metadata), static fn($item) => SdkClient::stringValue($item)),
             createdAt: SdkClient::stringValue($data->created_at),
             updatedAt: SdkClient::stringValue($data->updated_at),
             archivedAt: ($data->archived_at === null ? null : SdkClient::stringValue($data->archived_at)),
-            multiagent: ($data->multiagent === null ? null : SdkClient::hydrateClass($data->multiagent, BetaManagedAgentsMultiagent::class)),
+            multiagent: ($data->multiagent === null ? null : SdkClient::hydrateClass($data->multiagent, BetaManagedAgentsMultiagentCoordinator::class)),
         );
     }
 }

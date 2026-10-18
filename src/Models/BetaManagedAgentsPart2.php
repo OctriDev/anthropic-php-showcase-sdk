@@ -60,7 +60,7 @@ class BetaManagedAgentsAgentToolset20260401_ReadInput implements \JsonSerializab
         if (!property_exists($data, "file_path") || $data->file_path === null) { throw new SdkValidationError("file_path", 'required', "Required property 'file_path' is missing or null"); }
         return new self(
             filePath: SdkClient::stringValue($data->file_path),
-            viewRange: (property_exists($data, "view_range") ? array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->view_range))) : SdkNotGiven::Value),
+            viewRange: (property_exists($data, "view_range") && $data->view_range !== null ? array_values(array_map(static fn($item) => SdkClient::intValue($item), SdkClient::arrayValue($data->view_range))) : SdkNotGiven::Value),
         );
     }
 }

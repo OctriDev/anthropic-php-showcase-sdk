@@ -68,7 +68,7 @@ class BetaManagedAgentsContentSha256Precondition implements BetaManagedAgentsPre
         if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsContentSha256PreconditionTypeEnum::class),
-            contentSha256: (property_exists($data, "content_sha256") ? SdkClient::stringValue($data->content_sha256) : SdkNotGiven::Value),
+            contentSha256: (property_exists($data, "content_sha256") && $data->content_sha256 !== null ? SdkClient::stringValue($data->content_sha256) : SdkNotGiven::Value),
         );
     }
 }
@@ -211,7 +211,7 @@ class BetaManagedAgentsUpdateMemoryParams implements \JsonSerializable
         return new self(
             content: (property_exists($data, "content") ? ($data->content === null ? null : SdkClient::stringValue($data->content)) : SdkNotGiven::Value),
             path: (property_exists($data, "path") ? ($data->path === null ? null : SdkClient::stringValue($data->path)) : SdkNotGiven::Value),
-            precondition: (property_exists($data, "precondition") ? SdkClient::hydrateClass($data->precondition, BetaManagedAgentsPrecondition::class) : SdkNotGiven::Value),
+            precondition: (property_exists($data, "precondition") && $data->precondition !== null ? SdkClient::hydrateClass($data->precondition, BetaManagedAgentsContentSha256Precondition::class) : SdkNotGiven::Value),
         );
     }
 }

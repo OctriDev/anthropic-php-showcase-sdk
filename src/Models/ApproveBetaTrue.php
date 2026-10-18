@@ -86,7 +86,7 @@ class BetaApproveSpendLimitIncreaseRequestParams implements \JsonSerializable
         return new self(
             amount: SdkClient::stringValue($data->amount),
             period: (property_exists($data, "period") ? ($data->period === null ? null : SdkClient::hydrateEnum($data->period, BetaApproveSpendLimitIncreaseRequestParamsPeriodEnum::class)) : SdkNotGiven::Value),
-            suppressNotification: (property_exists($data, "suppress_notification") ? SdkClient::boolValue($data->suppress_notification) : SdkNotGiven::Value),
+            suppressNotification: (property_exists($data, "suppress_notification") && $data->suppress_notification !== null ? SdkClient::boolValue($data->suppress_notification) : SdkNotGiven::Value),
         );
     }
 }

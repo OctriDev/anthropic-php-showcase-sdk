@@ -194,7 +194,7 @@ class BetaRequestWebSearchToolResultBlock implements BetaInputContentBlock, \Jso
             toolUseId: SdkClient::stringValue($data->tool_use_id),
             type: SdkClient::stringValue($data->type),
             cacheControl: (property_exists($data, "cache_control") ? ($data->cache_control === null ? null : SdkClient::hydrateClass($data->cache_control, BetaCacheControlEphemeral::class)) : SdkNotGiven::Value),
-            caller: (property_exists($data, "caller") ? SdkClient::hydrateUnionAs($data->caller, BetaRequestWebSearchToolResultBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaRequestWebSearchToolResultBlockCaller::class) : SdkNotGiven::Value),
+            caller: (property_exists($data, "caller") && $data->caller !== null ? SdkClient::hydrateUnionAs($data->caller, BetaRequestWebSearchToolResultBlockCaller::class, [BetaDirectCaller::class, BetaServerToolCaller::class, BetaServerToolCaller_20260120::class], "type", ["code_execution_20250825" => BetaServerToolCaller::class, "code_execution_20260120" => BetaServerToolCaller_20260120::class, "direct" => BetaDirectCaller::class], UnknownBetaRequestWebSearchToolResultBlockCaller::class) : SdkNotGiven::Value),
         );
     }
 }
