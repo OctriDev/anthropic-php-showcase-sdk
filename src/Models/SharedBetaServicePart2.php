@@ -96,24 +96,12 @@ class BetaServiceAccountWorkspaceMember implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_by_actor_id")) {
-            throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'");
-        }
-        if (!property_exists($data, "implicit")) {
-            throw new SdkValidationError("implicit", 'required', "Missing required property 'implicit'");
-        }
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
-            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
-        }
+        if (!property_exists($data, "created_by_actor_id")) { throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'"); }
+        if (!property_exists($data, "implicit")) { throw new SdkValidationError("implicit", 'required', "Missing required property 'implicit'"); }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
         Validation::validateConst("type", $data->type, "service_account_workspace_member");
         return new self(
             createdByActorId: ($data->created_by_actor_id === null ? null : SdkClient::stringValue($data->created_by_actor_id)),
@@ -185,15 +173,9 @@ class BetaServiceAccountWorkspaceMemberDeleteResponse implements \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "service_account_workspace_member_deleted");
         return new self(
             serviceAccountId: SdkClient::stringValue($data->service_account_id),
@@ -251,12 +233,8 @@ class BetaServiceAccountWorkspaceMemberListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaServiceAccountWorkspaceMember::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

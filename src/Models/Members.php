@@ -66,15 +66,9 @@ class BetaDeleteRbacGroupMemberResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "group_id") || $data->group_id === null) {
-            throw new SdkValidationError("group_id", 'required', "Required property 'group_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "user_id") || $data->user_id === null) {
-            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
-        }
+        if (!property_exists($data, "group_id") || $data->group_id === null) { throw new SdkValidationError("group_id", 'required', "Required property 'group_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "rbac_group_member_deleted");
         return new self(
             groupId: SdkClient::stringValue($data->group_id),
@@ -143,15 +137,9 @@ class BetaDeleteWorkspaceMemberResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "user_id") || $data->user_id === null) {
-            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "workspace_member_deleted");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -199,9 +187,7 @@ class BetaUpdateWorkspaceMemberParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
-            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
-        }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
         return new self(
             workspaceRole: SdkClient::hydrateStringEnumOrString($data->workspace_role, BetaWorkspaceRoleSchema::class),
         );

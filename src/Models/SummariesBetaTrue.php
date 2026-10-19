@@ -45,9 +45,7 @@ class BetaAnalyticsActivitySummaryResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "summaries") || $data->summaries === null) {
-            throw new SdkValidationError("summaries", 'required', "Required property 'summaries' is missing or null");
-        }
+        if (!property_exists($data, "summaries") || $data->summaries === null) { throw new SdkValidationError("summaries", 'required', "Required property 'summaries' is missing or null"); }
         return new self(
             summaries: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsSingleDayActivitySummary::class), SdkClient::arrayValue($data->summaries))),
         );

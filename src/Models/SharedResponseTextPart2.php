@@ -66,15 +66,9 @@ class ResponseTextEditorCodeExecutionToolResultError implements ResponseTextEdit
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) {
-            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
-        }
-        if (!property_exists($data, "error_message")) {
-            throw new SdkValidationError("error_message", 'required', "Missing required property 'error_message'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
+        if (!property_exists($data, "error_message")) { throw new SdkValidationError("error_message", 'required', "Missing required property 'error_message'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "text_editor_code_execution_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, TextEditorCodeExecutionToolResultErrorCode::class),
@@ -93,26 +87,11 @@ final readonly class ResponseTextEditorCodeExecutionViewResultBlockFileTypeEnum 
     public const IMAGE = "image";
     public const PDF = "pdf";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -204,24 +183,12 @@ class ResponseTextEditorCodeExecutionViewResultBlock implements ResponseTextEdit
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
-        if (!property_exists($data, "file_type") || $data->file_type === null) {
-            throw new SdkValidationError("file_type", 'required', "Required property 'file_type' is missing or null");
-        }
-        if (!property_exists($data, "num_lines")) {
-            throw new SdkValidationError("num_lines", 'required', "Missing required property 'num_lines'");
-        }
-        if (!property_exists($data, "start_line")) {
-            throw new SdkValidationError("start_line", 'required', "Missing required property 'start_line'");
-        }
-        if (!property_exists($data, "total_lines")) {
-            throw new SdkValidationError("total_lines", 'required', "Missing required property 'total_lines'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "file_type") || $data->file_type === null) { throw new SdkValidationError("file_type", 'required', "Required property 'file_type' is missing or null"); }
+        if (!property_exists($data, "num_lines")) { throw new SdkValidationError("num_lines", 'required', "Missing required property 'num_lines'"); }
+        if (!property_exists($data, "start_line")) { throw new SdkValidationError("start_line", 'required', "Missing required property 'start_line'"); }
+        if (!property_exists($data, "total_lines")) { throw new SdkValidationError("total_lines", 'required', "Missing required property 'total_lines'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "text_editor_code_execution_view_result");
         return new self(
             content: SdkClient::stringValue($data->content),

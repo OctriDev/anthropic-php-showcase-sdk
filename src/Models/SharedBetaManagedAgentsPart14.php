@@ -207,54 +207,22 @@ class BetaManagedAgentsDeployment implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "description")) {
-            throw new SdkValidationError("description", 'required', "Missing required property 'description'");
-        }
-        if (!property_exists($data, "agent") || $data->agent === null) {
-            throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null");
-        }
-        if (!property_exists($data, "environment_id") || $data->environment_id === null) {
-            throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null");
-        }
-        if (!property_exists($data, "vault_ids") || $data->vault_ids === null) {
-            throw new SdkValidationError("vault_ids", 'required', "Required property 'vault_ids' is missing or null");
-        }
-        if (!property_exists($data, "initial_events") || $data->initial_events === null) {
-            throw new SdkValidationError("initial_events", 'required', "Required property 'initial_events' is missing or null");
-        }
-        if (!property_exists($data, "resources") || $data->resources === null) {
-            throw new SdkValidationError("resources", 'required', "Required property 'resources' is missing or null");
-        }
-        if (!property_exists($data, "metadata") || $data->metadata === null) {
-            throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null");
-        }
-        if (!property_exists($data, "schedule")) {
-            throw new SdkValidationError("schedule", 'required', "Missing required property 'schedule'");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "paused_reason")) {
-            throw new SdkValidationError("paused_reason", 'required', "Missing required property 'paused_reason'");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "description")) { throw new SdkValidationError("description", 'required', "Missing required property 'description'"); }
+        if (!property_exists($data, "agent") || $data->agent === null) { throw new SdkValidationError("agent", 'required', "Required property 'agent' is missing or null"); }
+        if (!property_exists($data, "environment_id") || $data->environment_id === null) { throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null"); }
+        if (!property_exists($data, "vault_ids") || $data->vault_ids === null) { throw new SdkValidationError("vault_ids", 'required', "Required property 'vault_ids' is missing or null"); }
+        if (!property_exists($data, "initial_events") || $data->initial_events === null) { throw new SdkValidationError("initial_events", 'required', "Required property 'initial_events' is missing or null"); }
+        if (!property_exists($data, "resources") || $data->resources === null) { throw new SdkValidationError("resources", 'required', "Required property 'resources' is missing or null"); }
+        if (!property_exists($data, "metadata") || $data->metadata === null) { throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null"); }
+        if (!property_exists($data, "schedule")) { throw new SdkValidationError("schedule", 'required', "Missing required property 'schedule'"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "paused_reason")) { throw new SdkValidationError("paused_reason", 'required', "Missing required property 'paused_reason'"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsDeploymentTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -284,24 +252,9 @@ final readonly class BetaManagedAgentsDeploymentRunTypeEnum implements SdkOpenEn
 {
     public const DEPLOYMENT_RUN = "deployment_run";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

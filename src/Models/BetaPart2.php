@@ -66,15 +66,9 @@ class BetaThinkingContentBlockDelta implements BetaContentBlockDeltaEventDelta, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "estimated_tokens")) {
-            throw new SdkValidationError("estimated_tokens", 'required', "Missing required property 'estimated_tokens'");
-        }
-        if (!property_exists($data, "thinking") || $data->thinking === null) {
-            throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "estimated_tokens")) { throw new SdkValidationError("estimated_tokens", 'required', "Missing required property 'estimated_tokens'"); }
+        if (!property_exists($data, "thinking") || $data->thinking === null) { throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "thinking_delta");
         return new self(
             estimatedTokens: ($data->estimated_tokens === null ? null : SdkClient::intValue($data->estimated_tokens)),

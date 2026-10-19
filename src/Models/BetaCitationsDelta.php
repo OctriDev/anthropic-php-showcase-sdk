@@ -56,12 +56,8 @@ class BetaCitationsDelta implements BetaContentBlockDeltaEventDelta, \JsonSerial
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "citation") || $data->citation === null) {
-            throw new SdkValidationError("citation", 'required', "Required property 'citation' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "citation") || $data->citation === null) { throw new SdkValidationError("citation", 'required', "Required property 'citation' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "citations_delta");
         return new self(
             citation: SdkClient::hydrateUnionAs($data->citation, BetaCitationsDeltaCitation::class, [BetaResponseCharLocationCitation::class, BetaResponsePageLocationCitation::class, BetaResponseContentBlockLocationCitation::class, BetaResponseWebSearchResultLocationCitation::class, BetaResponseSearchResultLocationCitation::class], "type", ["char_location" => BetaResponseCharLocationCitation::class, "content_block_location" => BetaResponseContentBlockLocationCitation::class, "page_location" => BetaResponsePageLocationCitation::class, "search_result_location" => BetaResponseSearchResultLocationCitation::class, "web_search_result_location" => BetaResponseWebSearchResultLocationCitation::class], UnknownBetaCitationsDeltaCitation::class),

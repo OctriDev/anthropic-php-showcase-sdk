@@ -60,9 +60,7 @@ class BetaFileDeleteResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "file_deleted");
         }
@@ -126,9 +124,7 @@ class FileDeleteResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "file_deleted");
         }
@@ -189,9 +185,7 @@ class FileListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, FileMetadataSchema::class), SdkClient::arrayValue($data->data))),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),
@@ -312,24 +306,12 @@ class FileMetadataSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "filename") || $data->filename === null) {
-            throw new SdkValidationError("filename", 'required', "Required property 'filename' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "mime_type") || $data->mime_type === null) {
-            throw new SdkValidationError("mime_type", 'required', "Required property 'mime_type' is missing or null");
-        }
-        if (!property_exists($data, "size_bytes") || $data->size_bytes === null) {
-            throw new SdkValidationError("size_bytes", 'required', "Required property 'size_bytes' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "filename") || $data->filename === null) { throw new SdkValidationError("filename", 'required', "Required property 'filename' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "mime_type") || $data->mime_type === null) { throw new SdkValidationError("mime_type", 'required', "Required property 'mime_type' is missing or null"); }
+        if (!property_exists($data, "size_bytes") || $data->size_bytes === null) { throw new SdkValidationError("size_bytes", 'required', "Required property 'size_bytes' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "file");
         return new self(
             createdAt: SdkClient::stringValue($data->created_at),

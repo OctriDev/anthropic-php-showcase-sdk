@@ -17,26 +17,11 @@ final readonly class BetaApiKeyStatusEnum implements SdkOpenEnum
     public const EXPIRED = "expired";
     public const INACTIVE = "inactive";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -178,39 +163,17 @@ class BetaApiKey implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "created_by")) {
-            throw new SdkValidationError("created_by", 'required', "Missing required property 'created_by'");
-        }
-        if (!property_exists($data, "expires_at")) {
-            throw new SdkValidationError("expires_at", 'required', "Missing required property 'expires_at'");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "partial_key_hint")) {
-            throw new SdkValidationError("partial_key_hint", 'required', "Missing required property 'partial_key_hint'");
-        }
-        if (!property_exists($data, "principal")) {
-            throw new SdkValidationError("principal", 'required', "Missing required property 'principal'");
-        }
-        if (!property_exists($data, "scope") || $data->scope === null) {
-            throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null");
-        }
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id")) {
-            throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'");
-        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "created_by")) { throw new SdkValidationError("created_by", 'required', "Missing required property 'created_by'"); }
+        if (!property_exists($data, "expires_at")) { throw new SdkValidationError("expires_at", 'required', "Missing required property 'expires_at'"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "partial_key_hint")) { throw new SdkValidationError("partial_key_hint", 'required', "Missing required property 'partial_key_hint'"); }
+        if (!property_exists($data, "principal")) { throw new SdkValidationError("principal", 'required', "Missing required property 'principal'"); }
+        if (!property_exists($data, "scope") || $data->scope === null) { throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null"); }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "workspace_id")) { throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'"); }
         Validation::validateConst("type", $data->type, "api_key");
         return new self(
             createdAt: SdkClient::stringValue($data->created_at),
@@ -267,9 +230,7 @@ class BetaApiKeyOrganizationScope implements BetaApiKeyScope, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "organization");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -326,12 +287,8 @@ class BetaApiKeyServiceAccountActor implements BetaApiKeyPrincipal, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) {
-            throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "service_account_id") || $data->service_account_id === null) { throw new SdkValidationError("service_account_id", 'required', "Required property 'service_account_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "service_account_actor");
         return new self(
             serviceAccountId: SdkClient::stringValue($data->service_account_id),

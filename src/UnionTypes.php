@@ -197,7 +197,9 @@ interface ToolChoice {}
 /** A tagged union member whose tag names no branch this SDK knows, kept as received. */
 abstract class SdkUnknownMember implements \JsonSerializable
 {
-    final public function __construct(public readonly mixed $raw) {}
+    final public function __construct(public readonly mixed $raw)
+    {
+    }
 
     public function jsonSerialize(): mixed
     {
@@ -206,544 +208,906 @@ abstract class SdkUnknownMember implements \JsonSerializable
 }
 
 /** A `BetaDreamInput` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaDreamInput extends SdkUnknownMember implements BetaDreamInput {}
+final class UnknownBetaDreamInput extends SdkUnknownMember implements BetaDreamInput
+{
+}
 
 /** A `BetaDreamOutput` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaDreamOutput extends SdkUnknownMember implements BetaDreamOutput {}
+final class UnknownBetaDreamOutput extends SdkUnknownMember implements BetaDreamOutput
+{
+}
 
 /** A `BetaManagedAgentsActor` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsActor extends SdkUnknownMember implements BetaManagedAgentsActor {}
+final class UnknownBetaManagedAgentsActor extends SdkUnknownMember implements BetaManagedAgentsActor
+{
+}
 
 /** A `BetaManagedAgentsAddSessionResource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAddSessionResource extends SdkUnknownMember implements BetaManagedAgentsAddSessionResource {}
+final class UnknownBetaManagedAgentsAddSessionResource extends SdkUnknownMember implements BetaManagedAgentsAddSessionResource
+{
+}
 
 /** A `BetaManagedAgentsAddSessionResourceParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAddSessionResourceParams extends SdkUnknownMember implements BetaManagedAgentsAddSessionResourceParams {}
+final class UnknownBetaManagedAgentsAddSessionResourceParams extends SdkUnknownMember implements BetaManagedAgentsAddSessionResourceParams
+{
+}
 
 /** A `BetaManagedAgentsAgentMessageContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAgentMessageContentBlock extends SdkUnknownMember implements BetaManagedAgentsAgentMessageContentBlock {}
+final class UnknownBetaManagedAgentsAgentMessageContentBlock extends SdkUnknownMember implements BetaManagedAgentsAgentMessageContentBlock
+{
+}
 
 /** A `BetaManagedAgentsAgentTool` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAgentTool extends SdkUnknownMember implements BetaManagedAgentsAgentTool {}
+final class UnknownBetaManagedAgentsAgentTool extends SdkUnknownMember implements BetaManagedAgentsAgentTool
+{
+}
 
 /** A `BetaManagedAgentsAgentToolConfigUnion` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAgentToolConfigUnion extends SdkUnknownMember implements BetaManagedAgentsAgentToolConfigUnion {}
+final class UnknownBetaManagedAgentsAgentToolConfigUnion extends SdkUnknownMember implements BetaManagedAgentsAgentToolConfigUnion
+{
+}
 
 /** A `BetaManagedAgentsAgentToolConfigUnionParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAgentToolConfigUnionParams extends SdkUnknownMember implements BetaManagedAgentsAgentToolConfigUnionParams {}
+final class UnknownBetaManagedAgentsAgentToolConfigUnionParams extends SdkUnknownMember implements BetaManagedAgentsAgentToolConfigUnionParams
+{
+}
 
 /** A `BetaManagedAgentsAgentToolParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsAgentToolParams extends SdkUnknownMember implements BetaManagedAgentsAgentToolParams {}
+final class UnknownBetaManagedAgentsAgentToolParams extends SdkUnknownMember implements BetaManagedAgentsAgentToolParams
+{
+}
 
 /** A `BetaManagedAgentsArchiveMemoryStoreResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsArchiveMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsArchiveMemoryStoreResponse {}
+final class UnknownBetaManagedAgentsArchiveMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsArchiveMemoryStoreResponse
+{
+}
 
 /** A `BetaManagedAgentsBudget` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsBudget extends SdkUnknownMember implements BetaManagedAgentsBudget {}
+final class UnknownBetaManagedAgentsBudget extends SdkUnknownMember implements BetaManagedAgentsBudget
+{
+}
 
 /** A `BetaManagedAgentsCreateMemoryStoreResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCreateMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsCreateMemoryStoreResponse {}
+final class UnknownBetaManagedAgentsCreateMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsCreateMemoryStoreResponse
+{
+}
 
 /** A `BetaManagedAgentsCredentialAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCredentialAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialAuth {}
+final class UnknownBetaManagedAgentsCredentialAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialAuth
+{
+}
 
 /** A `BetaManagedAgentsCredentialCreateAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCredentialCreateAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialCreateAuth {}
+final class UnknownBetaManagedAgentsCredentialCreateAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialCreateAuth
+{
+}
 
 /** A `BetaManagedAgentsCredentialNetworkingParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCredentialNetworkingParams extends SdkUnknownMember implements BetaManagedAgentsCredentialNetworkingParams {}
+final class UnknownBetaManagedAgentsCredentialNetworkingParams extends SdkUnknownMember implements BetaManagedAgentsCredentialNetworkingParams
+{
+}
 
 /** A `BetaManagedAgentsCredentialNetworkingResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCredentialNetworkingResponse extends SdkUnknownMember implements BetaManagedAgentsCredentialNetworkingResponse {}
+final class UnknownBetaManagedAgentsCredentialNetworkingResponse extends SdkUnknownMember implements BetaManagedAgentsCredentialNetworkingResponse
+{
+}
 
 /** A `BetaManagedAgentsCredentialUpdateAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsCredentialUpdateAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialUpdateAuth {}
+final class UnknownBetaManagedAgentsCredentialUpdateAuth extends SdkUnknownMember implements BetaManagedAgentsCredentialUpdateAuth
+{
+}
 
 /** A `BetaManagedAgentsDeleteMemoryStoreResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDeleteMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsDeleteMemoryStoreResponse {}
+final class UnknownBetaManagedAgentsDeleteMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsDeleteMemoryStoreResponse
+{
+}
 
 /** A `BetaManagedAgentsDeploymentInitialEvent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDeploymentInitialEvent extends SdkUnknownMember implements BetaManagedAgentsDeploymentInitialEvent {}
+final class UnknownBetaManagedAgentsDeploymentInitialEvent extends SdkUnknownMember implements BetaManagedAgentsDeploymentInitialEvent
+{
+}
 
 /** A `BetaManagedAgentsDeploymentInitialEventParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDeploymentInitialEventParams extends SdkUnknownMember implements BetaManagedAgentsDeploymentInitialEventParams {}
+final class UnknownBetaManagedAgentsDeploymentInitialEventParams extends SdkUnknownMember implements BetaManagedAgentsDeploymentInitialEventParams
+{
+}
 
 /** A `BetaManagedAgentsDeploymentPausedReason` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDeploymentPausedReason extends SdkUnknownMember implements BetaManagedAgentsDeploymentPausedReason {}
+final class UnknownBetaManagedAgentsDeploymentPausedReason extends SdkUnknownMember implements BetaManagedAgentsDeploymentPausedReason
+{
+}
 
 /** A `BetaManagedAgentsDeploymentPausedReasonError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDeploymentPausedReasonError extends SdkUnknownMember implements BetaManagedAgentsDeploymentPausedReasonError {}
+final class UnknownBetaManagedAgentsDeploymentPausedReasonError extends SdkUnknownMember implements BetaManagedAgentsDeploymentPausedReasonError
+{
+}
 
 /** A `BetaManagedAgentsDocumentSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsDocumentSource extends SdkUnknownMember implements BetaManagedAgentsDocumentSource {}
+final class UnknownBetaManagedAgentsDocumentSource extends SdkUnknownMember implements BetaManagedAgentsDocumentSource
+{
+}
 
 /** A `BetaManagedAgentsEffort` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsEffort extends SdkUnknownMember implements BetaManagedAgentsEffort {}
+final class UnknownBetaManagedAgentsEffort extends SdkUnknownMember implements BetaManagedAgentsEffort
+{
+}
 
 /** A `BetaManagedAgentsEventDeltaEvent_Delta` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsEventDeltaEvent_Delta extends SdkUnknownMember implements BetaManagedAgentsEventDeltaEvent_Delta {}
+final class UnknownBetaManagedAgentsEventDeltaEvent_Delta extends SdkUnknownMember implements BetaManagedAgentsEventDeltaEvent_Delta
+{
+}
 
 /** A `BetaManagedAgentsEventParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsEventParams extends SdkUnknownMember implements BetaManagedAgentsEventParams {}
+final class UnknownBetaManagedAgentsEventParams extends SdkUnknownMember implements BetaManagedAgentsEventParams
+{
+}
 
 /** A `BetaManagedAgentsEventStartEvent_Event` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsEventStartEvent_Event extends SdkUnknownMember implements BetaManagedAgentsEventStartEvent_Event {}
+final class UnknownBetaManagedAgentsEventStartEvent_Event extends SdkUnknownMember implements BetaManagedAgentsEventStartEvent_Event
+{
+}
 
 /** A `BetaManagedAgentsGetMemoryStoreResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsGetMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsGetMemoryStoreResponse {}
+final class UnknownBetaManagedAgentsGetMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsGetMemoryStoreResponse
+{
+}
 
 /** A `BetaManagedAgentsGetSessionResource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsGetSessionResource extends SdkUnknownMember implements BetaManagedAgentsGetSessionResource {}
+final class UnknownBetaManagedAgentsGetSessionResource extends SdkUnknownMember implements BetaManagedAgentsGetSessionResource
+{
+}
 
 /** A `BetaManagedAgentsImageSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsImageSource extends SdkUnknownMember implements BetaManagedAgentsImageSource {}
+final class UnknownBetaManagedAgentsImageSource extends SdkUnknownMember implements BetaManagedAgentsImageSource
+{
+}
 
 /** A `BetaManagedAgentsInputEvent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsInputEvent extends SdkUnknownMember implements BetaManagedAgentsInputEvent {}
+final class UnknownBetaManagedAgentsInputEvent extends SdkUnknownMember implements BetaManagedAgentsInputEvent
+{
+}
 
 /** A `BetaManagedAgentsMCPServer` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMCPServer extends SdkUnknownMember implements BetaManagedAgentsMCPServer {}
+final class UnknownBetaManagedAgentsMCPServer extends SdkUnknownMember implements BetaManagedAgentsMCPServer
+{
+}
 
 /** A `BetaManagedAgentsMCPServerParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMCPServerParams extends SdkUnknownMember implements BetaManagedAgentsMCPServerParams {}
+final class UnknownBetaManagedAgentsMCPServerParams extends SdkUnknownMember implements BetaManagedAgentsMCPServerParams
+{
+}
 
 /** A `BetaManagedAgentsMemoryListItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMemoryListItem extends SdkUnknownMember implements BetaManagedAgentsMemoryListItem {}
+final class UnknownBetaManagedAgentsMemoryListItem extends SdkUnknownMember implements BetaManagedAgentsMemoryListItem
+{
+}
 
 /** A `BetaManagedAgentsMultiagent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMultiagent extends SdkUnknownMember implements BetaManagedAgentsMultiagent {}
+final class UnknownBetaManagedAgentsMultiagent extends SdkUnknownMember implements BetaManagedAgentsMultiagent
+{
+}
 
 /** A `BetaManagedAgentsMultiagentParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMultiagentParams extends SdkUnknownMember implements BetaManagedAgentsMultiagentParams {}
+final class UnknownBetaManagedAgentsMultiagentParams extends SdkUnknownMember implements BetaManagedAgentsMultiagentParams
+{
+}
 
 /** A `BetaManagedAgentsMultiagentRosterEntry` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMultiagentRosterEntry extends SdkUnknownMember implements BetaManagedAgentsMultiagentRosterEntry {}
+final class UnknownBetaManagedAgentsMultiagentRosterEntry extends SdkUnknownMember implements BetaManagedAgentsMultiagentRosterEntry
+{
+}
 
 /** A `BetaManagedAgentsPermissionPolicy` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsPermissionPolicy extends SdkUnknownMember implements BetaManagedAgentsPermissionPolicy {}
+final class UnknownBetaManagedAgentsPermissionPolicy extends SdkUnknownMember implements BetaManagedAgentsPermissionPolicy
+{
+}
 
 /** A `BetaManagedAgentsPrecondition` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsPrecondition extends SdkUnknownMember implements BetaManagedAgentsPrecondition {}
+final class UnknownBetaManagedAgentsPrecondition extends SdkUnknownMember implements BetaManagedAgentsPrecondition
+{
+}
 
 /** A `BetaManagedAgentsRepositoryCheckout` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsRepositoryCheckout extends SdkUnknownMember implements BetaManagedAgentsRepositoryCheckout {}
+final class UnknownBetaManagedAgentsRepositoryCheckout extends SdkUnknownMember implements BetaManagedAgentsRepositoryCheckout
+{
+}
 
 /** A `BetaManagedAgentsRetryStatus` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsRetryStatus extends SdkUnknownMember implements BetaManagedAgentsRetryStatus {}
+final class UnknownBetaManagedAgentsRetryStatus extends SdkUnknownMember implements BetaManagedAgentsRetryStatus
+{
+}
 
 /** A `BetaManagedAgentsRubric` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsRubric extends SdkUnknownMember implements BetaManagedAgentsRubric {}
+final class UnknownBetaManagedAgentsRubric extends SdkUnknownMember implements BetaManagedAgentsRubric
+{
+}
 
 /** A `BetaManagedAgentsRubricParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsRubricParams extends SdkUnknownMember implements BetaManagedAgentsRubricParams {}
+final class UnknownBetaManagedAgentsRubricParams extends SdkUnknownMember implements BetaManagedAgentsRubricParams
+{
+}
 
 /** A `BetaManagedAgentsRunError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsRunError extends SdkUnknownMember implements BetaManagedAgentsRunError {}
+final class UnknownBetaManagedAgentsRunError extends SdkUnknownMember implements BetaManagedAgentsRunError
+{
+}
 
 /** A `BetaManagedAgentsSchedule` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSchedule extends SdkUnknownMember implements BetaManagedAgentsSchedule {}
+final class UnknownBetaManagedAgentsSchedule extends SdkUnknownMember implements BetaManagedAgentsSchedule
+{
+}
 
 /** A `BetaManagedAgentsScheduleParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsScheduleParams extends SdkUnknownMember implements BetaManagedAgentsScheduleParams {}
+final class UnknownBetaManagedAgentsScheduleParams extends SdkUnknownMember implements BetaManagedAgentsScheduleParams
+{
+}
 
 /** A `BetaManagedAgentsSessionEvent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionEvent extends SdkUnknownMember implements BetaManagedAgentsSessionEvent {}
+final class UnknownBetaManagedAgentsSessionEvent extends SdkUnknownMember implements BetaManagedAgentsSessionEvent
+{
+}
 
 /** A `BetaManagedAgentsSessionInitialEventParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionInitialEventParams extends SdkUnknownMember implements BetaManagedAgentsSessionInitialEventParams {}
+final class UnknownBetaManagedAgentsSessionInitialEventParams extends SdkUnknownMember implements BetaManagedAgentsSessionInitialEventParams
+{
+}
 
 /** A `BetaManagedAgentsSessionMultiagent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionMultiagent extends SdkUnknownMember implements BetaManagedAgentsSessionMultiagent {}
+final class UnknownBetaManagedAgentsSessionMultiagent extends SdkUnknownMember implements BetaManagedAgentsSessionMultiagent
+{
+}
 
 /** A `BetaManagedAgentsSessionResource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionResource extends SdkUnknownMember implements BetaManagedAgentsSessionResource {}
+final class UnknownBetaManagedAgentsSessionResource extends SdkUnknownMember implements BetaManagedAgentsSessionResource
+{
+}
 
 /** A `BetaManagedAgentsSessionResourceConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionResourceConfig extends SdkUnknownMember implements BetaManagedAgentsSessionResourceConfig {}
+final class UnknownBetaManagedAgentsSessionResourceConfig extends SdkUnknownMember implements BetaManagedAgentsSessionResourceConfig
+{
+}
 
 /** A `BetaManagedAgentsSessionResourceParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionResourceParams extends SdkUnknownMember implements BetaManagedAgentsSessionResourceParams {}
+final class UnknownBetaManagedAgentsSessionResourceParams extends SdkUnknownMember implements BetaManagedAgentsSessionResourceParams
+{
+}
 
 /** A `BetaManagedAgentsSessionRosterEntry` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionRosterEntry extends SdkUnknownMember implements BetaManagedAgentsSessionRosterEntry {}
+final class UnknownBetaManagedAgentsSessionRosterEntry extends SdkUnknownMember implements BetaManagedAgentsSessionRosterEntry
+{
+}
 
 /** A `BetaManagedAgentsSessionThreadAgentEntry` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionThreadAgentEntry extends SdkUnknownMember implements BetaManagedAgentsSessionThreadAgentEntry {}
+final class UnknownBetaManagedAgentsSessionThreadAgentEntry extends SdkUnknownMember implements BetaManagedAgentsSessionThreadAgentEntry
+{
+}
 
 /** A `BetaManagedAgentsSkill` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSkill extends SdkUnknownMember implements BetaManagedAgentsSkill {}
+final class UnknownBetaManagedAgentsSkill extends SdkUnknownMember implements BetaManagedAgentsSkill
+{
+}
 
 /** A `BetaManagedAgentsSkillParams` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSkillParams extends SdkUnknownMember implements BetaManagedAgentsSkillParams {}
+final class UnknownBetaManagedAgentsSkillParams extends SdkUnknownMember implements BetaManagedAgentsSkillParams
+{
+}
 
 /** A `BetaManagedAgentsStreamSessionEvents` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsStreamSessionEvents extends SdkUnknownMember implements BetaManagedAgentsStreamSessionEvents {}
+final class UnknownBetaManagedAgentsStreamSessionEvents extends SdkUnknownMember implements BetaManagedAgentsStreamSessionEvents
+{
+}
 
 /** A `BetaManagedAgentsStreamSessionThreadEvents` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsStreamSessionThreadEvents extends SdkUnknownMember implements BetaManagedAgentsStreamSessionThreadEvents {}
+final class UnknownBetaManagedAgentsStreamSessionThreadEvents extends SdkUnknownMember implements BetaManagedAgentsStreamSessionThreadEvents
+{
+}
 
 /** A `BetaManagedAgentsSystemContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSystemContentBlock extends SdkUnknownMember implements BetaManagedAgentsSystemContentBlock {}
+final class UnknownBetaManagedAgentsSystemContentBlock extends SdkUnknownMember implements BetaManagedAgentsSystemContentBlock
+{
+}
 
 /** A `BetaManagedAgentsToolResultContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsToolResultContentBlock extends SdkUnknownMember implements BetaManagedAgentsToolResultContentBlock {}
+final class UnknownBetaManagedAgentsToolResultContentBlock extends SdkUnknownMember implements BetaManagedAgentsToolResultContentBlock
+{
+}
 
 /** A `BetaManagedAgentsTriggerContext` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsTriggerContext extends SdkUnknownMember implements BetaManagedAgentsTriggerContext {}
+final class UnknownBetaManagedAgentsTriggerContext extends SdkUnknownMember implements BetaManagedAgentsTriggerContext
+{
+}
 
 /** A `BetaManagedAgentsUpdateMemoryStoreResponse` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsUpdateMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsUpdateMemoryStoreResponse {}
+final class UnknownBetaManagedAgentsUpdateMemoryStoreResponse extends SdkUnknownMember implements BetaManagedAgentsUpdateMemoryStoreResponse
+{
+}
 
 /** A `BetaManagedAgentsUpdateSessionResource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsUpdateSessionResource extends SdkUnknownMember implements BetaManagedAgentsUpdateSessionResource {}
+final class UnknownBetaManagedAgentsUpdateSessionResource extends SdkUnknownMember implements BetaManagedAgentsUpdateSessionResource
+{
+}
 
 /** A `BetaManagedAgentsUserContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsUserContentBlock extends SdkUnknownMember implements BetaManagedAgentsUserContentBlock {}
+final class UnknownBetaManagedAgentsUserContentBlock extends SdkUnknownMember implements BetaManagedAgentsUserContentBlock
+{
+}
 
 /** A `BetaMessageStreamEvent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaMessageStreamEvent extends SdkUnknownMember implements BetaMessageStreamEvent {}
+final class UnknownBetaMessageStreamEvent extends SdkUnknownMember implements BetaMessageStreamEvent
+{
+}
 
 /** A `BetaOutputBehavior` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaOutputBehavior extends SdkUnknownMember implements BetaOutputBehavior {}
+final class UnknownBetaOutputBehavior extends SdkUnknownMember implements BetaOutputBehavior
+{
+}
 
 /** A `BetaWebhookEventData` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaWebhookEventData extends SdkUnknownMember implements BetaWebhookEventData {}
+final class UnknownBetaWebhookEventData extends SdkUnknownMember implements BetaWebhookEventData
+{
+}
 
 /** A `MessageStreamEvent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownMessageStreamEvent extends SdkUnknownMember implements MessageStreamEvent {}
+final class UnknownMessageStreamEvent extends SdkUnknownMember implements MessageStreamEvent
+{
+}
 
 /** A `BetaManagedAgentsError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsError extends SdkUnknownMember implements BetaManagedAgentsError {}
+final class UnknownBetaManagedAgentsError extends SdkUnknownMember implements BetaManagedAgentsError
+{
+}
 
 /** A `BetaDreamingError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaDreamingError extends SdkUnknownMember implements BetaDreamingError {}
+final class UnknownBetaDreamingError extends SdkUnknownMember implements BetaDreamingError
+{
+}
 
 /** A `ThinkingConfigParam` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownThinkingConfigParam extends SdkUnknownMember implements ThinkingConfigParam {}
+final class UnknownThinkingConfigParam extends SdkUnknownMember implements ThinkingConfigParam
+{
+}
 
 /** A `BetaThinkingConfigParam` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaThinkingConfigParam extends SdkUnknownMember implements BetaThinkingConfigParam {}
+final class UnknownBetaThinkingConfigParam extends SdkUnknownMember implements BetaThinkingConfigParam
+{
+}
 
 /** A `ToolChoice` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownToolChoice extends SdkUnknownMember implements ToolChoice {}
+final class UnknownToolChoice extends SdkUnknownMember implements ToolChoice
+{
+}
 
 /** A `BetaToolChoice` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaToolChoice extends SdkUnknownMember implements BetaToolChoice {}
+final class UnknownBetaToolChoice extends SdkUnknownMember implements BetaToolChoice
+{
+}
 
 /** A `ContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownContentBlock extends SdkUnknownMember implements ContentBlock {}
+final class UnknownContentBlock extends SdkUnknownMember implements ContentBlock
+{
+}
 
 /** A `InputContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownInputContentBlock extends SdkUnknownMember implements InputContentBlock {}
+final class UnknownInputContentBlock extends SdkUnknownMember implements InputContentBlock
+{
+}
 
 /** A `BetaContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaContentBlock extends SdkUnknownMember implements BetaContentBlock {}
+final class UnknownBetaContentBlock extends SdkUnknownMember implements BetaContentBlock
+{
+}
 
 /** A `BetaInputContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaInputContentBlock extends SdkUnknownMember implements BetaInputContentBlock {}
+final class UnknownBetaInputContentBlock extends SdkUnknownMember implements BetaInputContentBlock
+{
+}
 
 /** A `BetaMemoryTool_20250818_Command` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaMemoryTool_20250818_Command extends SdkUnknownMember implements BetaMemoryTool_20250818_Command {}
+final class UnknownBetaMemoryTool_20250818_Command extends SdkUnknownMember implements BetaMemoryTool_20250818_Command
+{
+}
 
 /** A `BetaCitationsDeltaCitation` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaCitationsDeltaCitation extends SdkUnknownMember implements BetaCitationsDeltaCitation {}
+final class UnknownBetaCitationsDeltaCitation extends SdkUnknownMember implements BetaCitationsDeltaCitation
+{
+}
 
 /** A `BetaClearToolUses20250919Trigger` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaClearToolUses20250919Trigger extends SdkUnknownMember implements BetaClearToolUses20250919Trigger {}
+final class UnknownBetaClearToolUses20250919Trigger extends SdkUnknownMember implements BetaClearToolUses20250919Trigger
+{
+}
 
 /** A `BetaCloudConfigNetworking` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaCloudConfigNetworking extends SdkUnknownMember implements BetaCloudConfigNetworking {}
+final class UnknownBetaCloudConfigNetworking extends SdkUnknownMember implements BetaCloudConfigNetworking
+{
+}
 
 /** A `BetaCloudConfigParamsNetworking` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaCloudConfigParamsNetworking extends SdkUnknownMember implements BetaCloudConfigParamsNetworking {}
+final class UnknownBetaCloudConfigParamsNetworking extends SdkUnknownMember implements BetaCloudConfigParamsNetworking
+{
+}
 
 /** A `BetaContentBlockDeltaEventDelta` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaContentBlockDeltaEventDelta extends SdkUnknownMember implements BetaContentBlockDeltaEventDelta {}
+final class UnknownBetaContentBlockDeltaEventDelta extends SdkUnknownMember implements BetaContentBlockDeltaEventDelta
+{
+}
 
 /** A `BetaContentBlockSourceContentItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaContentBlockSourceContentItem extends SdkUnknownMember implements BetaContentBlockSourceContentItem {}
+final class UnknownBetaContentBlockSourceContentItem extends SdkUnknownMember implements BetaContentBlockSourceContentItem
+{
+}
 
 /** A `BetaRequestTextBlockCitationsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestTextBlockCitationsItem extends SdkUnknownMember implements BetaRequestTextBlockCitationsItem {}
+final class UnknownBetaRequestTextBlockCitationsItem extends SdkUnknownMember implements BetaRequestTextBlockCitationsItem
+{
+}
 
 /** A `BetaRequestImageBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestImageBlockSource extends SdkUnknownMember implements BetaRequestImageBlockSource {}
+final class UnknownBetaRequestImageBlockSource extends SdkUnknownMember implements BetaRequestImageBlockSource
+{
+}
 
 /** A `BetaContentBlockStartEventContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaContentBlockStartEventContentBlock extends SdkUnknownMember implements BetaContentBlockStartEventContentBlock {}
+final class UnknownBetaContentBlockStartEventContentBlock extends SdkUnknownMember implements BetaContentBlockStartEventContentBlock
+{
+}
 
 /** A `BetaResponseTextBlockCitationsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseTextBlockCitationsItem extends SdkUnknownMember implements BetaResponseTextBlockCitationsItem {}
+final class UnknownBetaResponseTextBlockCitationsItem extends SdkUnknownMember implements BetaResponseTextBlockCitationsItem
+{
+}
 
 /** A `BetaResponseToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseToolUseBlockCaller extends SdkUnknownMember implements BetaResponseToolUseBlockCaller {}
+final class UnknownBetaResponseToolUseBlockCaller extends SdkUnknownMember implements BetaResponseToolUseBlockCaller
+{
+}
 
 /** A `BetaResponseServerToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseServerToolUseBlockCaller extends SdkUnknownMember implements BetaResponseServerToolUseBlockCaller {}
+final class UnknownBetaResponseServerToolUseBlockCaller extends SdkUnknownMember implements BetaResponseServerToolUseBlockCaller
+{
+}
 
 /** A `BetaResponseWebSearchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseWebSearchToolResultBlockCaller extends SdkUnknownMember implements BetaResponseWebSearchToolResultBlockCaller {}
+final class UnknownBetaResponseWebSearchToolResultBlockCaller extends SdkUnknownMember implements BetaResponseWebSearchToolResultBlockCaller
+{
+}
 
 /** A `BetaResponseWebFetchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseWebFetchToolResultBlockCaller extends SdkUnknownMember implements BetaResponseWebFetchToolResultBlockCaller {}
+final class UnknownBetaResponseWebFetchToolResultBlockCaller extends SdkUnknownMember implements BetaResponseWebFetchToolResultBlockCaller
+{
+}
 
 /** A `BetaResponseWebFetchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseWebFetchToolResultBlockContent extends SdkUnknownMember implements BetaResponseWebFetchToolResultBlockContent {}
+final class UnknownBetaResponseWebFetchToolResultBlockContent extends SdkUnknownMember implements BetaResponseWebFetchToolResultBlockContent
+{
+}
 
 /** A `BetaResponseDocumentBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseDocumentBlockSource extends SdkUnknownMember implements BetaResponseDocumentBlockSource {}
+final class UnknownBetaResponseDocumentBlockSource extends SdkUnknownMember implements BetaResponseDocumentBlockSource
+{
+}
 
 /** A `BetaResponseAdvisorToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseAdvisorToolResultBlockContent extends SdkUnknownMember implements BetaResponseAdvisorToolResultBlockContent {}
+final class UnknownBetaResponseAdvisorToolResultBlockContent extends SdkUnknownMember implements BetaResponseAdvisorToolResultBlockContent
+{
+}
 
 /** A `BetaResponseCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseCodeExecutionToolResultBlockContent {}
+final class UnknownBetaResponseCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaResponseBashCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseBashCodeExecutionToolResultBlockContent {}
+final class UnknownBetaResponseBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseBashCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaResponseTextEditorCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseTextEditorCodeExecutionToolResultBlockContent {}
+final class UnknownBetaResponseTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaResponseTextEditorCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaResponseToolSearchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseToolSearchToolResultBlockContent extends SdkUnknownMember implements BetaResponseToolSearchToolResultBlockContent {}
+final class UnknownBetaResponseToolSearchToolResultBlockContent extends SdkUnknownMember implements BetaResponseToolSearchToolResultBlockContent
+{
+}
 
 /** A `BetaContextManagementConfigEditsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaContextManagementConfigEditsItem extends SdkUnknownMember implements BetaContextManagementConfigEditsItem {}
+final class UnknownBetaContextManagementConfigEditsItem extends SdkUnknownMember implements BetaContextManagementConfigEditsItem
+{
+}
 
 /** A `BetaRequestDocumentBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestDocumentBlockSource extends SdkUnknownMember implements BetaRequestDocumentBlockSource {}
+final class UnknownBetaRequestDocumentBlockSource extends SdkUnknownMember implements BetaRequestDocumentBlockSource
+{
+}
 
 /** A `BetaRequestToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestToolUseBlockCaller extends SdkUnknownMember implements BetaRequestToolUseBlockCaller {}
+final class UnknownBetaRequestToolUseBlockCaller extends SdkUnknownMember implements BetaRequestToolUseBlockCaller
+{
+}
 
 /** A `BetaRequestToolResultBlockContentItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestToolResultBlockContentItem extends SdkUnknownMember implements BetaRequestToolResultBlockContentItem {}
+final class UnknownBetaRequestToolResultBlockContentItem extends SdkUnknownMember implements BetaRequestToolResultBlockContentItem
+{
+}
 
 /** A `BetaRequestBrowserStateBlockStateChangesItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestBrowserStateBlockStateChangesItem extends SdkUnknownMember implements BetaRequestBrowserStateBlockStateChangesItem {}
+final class UnknownBetaRequestBrowserStateBlockStateChangesItem extends SdkUnknownMember implements BetaRequestBrowserStateBlockStateChangesItem
+{
+}
 
 /** A `BetaRequestServerToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestServerToolUseBlockCaller extends SdkUnknownMember implements BetaRequestServerToolUseBlockCaller {}
+final class UnknownBetaRequestServerToolUseBlockCaller extends SdkUnknownMember implements BetaRequestServerToolUseBlockCaller
+{
+}
 
 /** A `BetaRequestWebSearchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestWebSearchToolResultBlockCaller extends SdkUnknownMember implements BetaRequestWebSearchToolResultBlockCaller {}
+final class UnknownBetaRequestWebSearchToolResultBlockCaller extends SdkUnknownMember implements BetaRequestWebSearchToolResultBlockCaller
+{
+}
 
 /** A `BetaRequestWebFetchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestWebFetchToolResultBlockCaller extends SdkUnknownMember implements BetaRequestWebFetchToolResultBlockCaller {}
+final class UnknownBetaRequestWebFetchToolResultBlockCaller extends SdkUnknownMember implements BetaRequestWebFetchToolResultBlockCaller
+{
+}
 
 /** A `BetaRequestWebFetchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestWebFetchToolResultBlockContent extends SdkUnknownMember implements BetaRequestWebFetchToolResultBlockContent {}
+final class UnknownBetaRequestWebFetchToolResultBlockContent extends SdkUnknownMember implements BetaRequestWebFetchToolResultBlockContent
+{
+}
 
 /** A `BetaRequestAdvisorToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestAdvisorToolResultBlockContent extends SdkUnknownMember implements BetaRequestAdvisorToolResultBlockContent {}
+final class UnknownBetaRequestAdvisorToolResultBlockContent extends SdkUnknownMember implements BetaRequestAdvisorToolResultBlockContent
+{
+}
 
 /** A `BetaRequestCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestCodeExecutionToolResultBlockContent {}
+final class UnknownBetaRequestCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaRequestBashCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestBashCodeExecutionToolResultBlockContent {}
+final class UnknownBetaRequestBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestBashCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaRequestTextEditorCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestTextEditorCodeExecutionToolResultBlockContent {}
+final class UnknownBetaRequestTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements BetaRequestTextEditorCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `BetaRequestToolSearchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestToolSearchToolResultBlockContent extends SdkUnknownMember implements BetaRequestToolSearchToolResultBlockContent {}
+final class UnknownBetaRequestToolSearchToolResultBlockContent extends SdkUnknownMember implements BetaRequestToolSearchToolResultBlockContent
+{
+}
 
 /** A `BetaRequestToolAdditionBlockTool` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestToolAdditionBlockTool extends SdkUnknownMember implements BetaRequestToolAdditionBlockTool {}
+final class UnknownBetaRequestToolAdditionBlockTool extends SdkUnknownMember implements BetaRequestToolAdditionBlockTool
+{
+}
 
 /** A `BetaRequestToolRemovalBlockTool` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRequestToolRemovalBlockTool extends SdkUnknownMember implements BetaRequestToolRemovalBlockTool {}
+final class UnknownBetaRequestToolRemovalBlockTool extends SdkUnknownMember implements BetaRequestToolRemovalBlockTool
+{
+}
 
 /** A `BetaFallbackConfigV2Thinking` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaFallbackConfigV2Thinking extends SdkUnknownMember implements BetaFallbackConfigV2Thinking {}
+final class UnknownBetaFallbackConfigV2Thinking extends SdkUnknownMember implements BetaFallbackConfigV2Thinking
+{
+}
 
 /** A `BetaDiagnosticsCacheMissReason` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaDiagnosticsCacheMissReason extends SdkUnknownMember implements BetaDiagnosticsCacheMissReason {}
+final class UnknownBetaDiagnosticsCacheMissReason extends SdkUnknownMember implements BetaDiagnosticsCacheMissReason
+{
+}
 
 /** A `BetaEnvironmentConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaEnvironmentConfig extends SdkUnknownMember implements BetaEnvironmentConfig {}
+final class UnknownBetaEnvironmentConfig extends SdkUnknownMember implements BetaEnvironmentConfig
+{
+}
 
 /** A `BetaErrorResponseError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaErrorResponseError extends SdkUnknownMember implements BetaErrorResponseError {}
+final class UnknownBetaErrorResponseError extends SdkUnknownMember implements BetaErrorResponseError
+{
+}
 
 /** A `BetaFallbackCreditUsageStatus` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaFallbackCreditUsageStatus extends SdkUnknownMember implements BetaFallbackCreditUsageStatus {}
+final class UnknownBetaFallbackCreditUsageStatus extends SdkUnknownMember implements BetaFallbackCreditUsageStatus
+{
+}
 
 /** A `BetaManagedAgentsMcpOauthRefreshParamsTokenEndpointAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMcpOauthRefreshParamsTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshParamsTokenEndpointAuth {}
+final class UnknownBetaManagedAgentsMcpOauthRefreshParamsTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshParamsTokenEndpointAuth
+{
+}
 
 /** A `BetaManagedAgentsMcpOauthRefreshResponseTokenEndpointAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMcpOauthRefreshResponseTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshResponseTokenEndpointAuth {}
+final class UnknownBetaManagedAgentsMcpOauthRefreshResponseTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshResponseTokenEndpointAuth
+{
+}
 
 /** A `BetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth {}
+final class UnknownBetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth extends SdkUnknownMember implements BetaManagedAgentsMcpOauthRefreshUpdateParamsTokenEndpointAuth
+{
+}
 
 /** A `BetaManagedAgentsSessionErrorEventError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionErrorEventError extends SdkUnknownMember implements BetaManagedAgentsSessionErrorEventError {}
+final class UnknownBetaManagedAgentsSessionErrorEventError extends SdkUnknownMember implements BetaManagedAgentsSessionErrorEventError
+{
+}
 
 /** A `BetaManagedAgentsSessionStatusIdleEventStopReason` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionStatusIdleEventStopReason extends SdkUnknownMember implements BetaManagedAgentsSessionStatusIdleEventStopReason {}
+final class UnknownBetaManagedAgentsSessionStatusIdleEventStopReason extends SdkUnknownMember implements BetaManagedAgentsSessionStatusIdleEventStopReason
+{
+}
 
 /** A `BetaManagedAgentsSessionThreadStatusIdleEventStopReason` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaManagedAgentsSessionThreadStatusIdleEventStopReason extends SdkUnknownMember implements BetaManagedAgentsSessionThreadStatusIdleEventStopReason {}
+final class UnknownBetaManagedAgentsSessionThreadStatusIdleEventStopReason extends SdkUnknownMember implements BetaManagedAgentsSessionThreadStatusIdleEventStopReason
+{
+}
 
 /** A `BetaUsageIterationsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaUsageIterationsItem extends SdkUnknownMember implements BetaUsageIterationsItem {}
+final class UnknownBetaUsageIterationsItem extends SdkUnknownMember implements BetaUsageIterationsItem
+{
+}
 
 /** A `BetaResponseContextManagementAppliedEditsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaResponseContextManagementAppliedEditsItem extends SdkUnknownMember implements BetaResponseContextManagementAppliedEditsItem {}
+final class UnknownBetaResponseContextManagementAppliedEditsItem extends SdkUnknownMember implements BetaResponseContextManagementAppliedEditsItem
+{
+}
 
 /** A `BetaMessageBatchIndividualResponseResult` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaMessageBatchIndividualResponseResult extends SdkUnknownMember implements BetaMessageBatchIndividualResponseResult {}
+final class UnknownBetaMessageBatchIndividualResponseResult extends SdkUnknownMember implements BetaMessageBatchIndividualResponseResult
+{
+}
 
 /** A `BetaPublicEnvironmentCreateRequestConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaPublicEnvironmentCreateRequestConfig extends SdkUnknownMember implements BetaPublicEnvironmentCreateRequestConfig {}
+final class UnknownBetaPublicEnvironmentCreateRequestConfig extends SdkUnknownMember implements BetaPublicEnvironmentCreateRequestConfig
+{
+}
 
 /** A `BetaPublicEnvironmentUpdateRequestConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaPublicEnvironmentUpdateRequestConfig extends SdkUnknownMember implements BetaPublicEnvironmentUpdateRequestConfig {}
+final class UnknownBetaPublicEnvironmentUpdateRequestConfig extends SdkUnknownMember implements BetaPublicEnvironmentUpdateRequestConfig
+{
+}
 
 /** A `CitationsDeltaCitation` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownCitationsDeltaCitation extends SdkUnknownMember implements CitationsDeltaCitation {}
+final class UnknownCitationsDeltaCitation extends SdkUnknownMember implements CitationsDeltaCitation
+{
+}
 
 /** A `ContentBlockDeltaEventDelta` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownContentBlockDeltaEventDelta extends SdkUnknownMember implements ContentBlockDeltaEventDelta {}
+final class UnknownContentBlockDeltaEventDelta extends SdkUnknownMember implements ContentBlockDeltaEventDelta
+{
+}
 
 /** A `ContentBlockSourceContentItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownContentBlockSourceContentItem extends SdkUnknownMember implements ContentBlockSourceContentItem {}
+final class UnknownContentBlockSourceContentItem extends SdkUnknownMember implements ContentBlockSourceContentItem
+{
+}
 
 /** A `RequestTextBlockCitationsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestTextBlockCitationsItem extends SdkUnknownMember implements RequestTextBlockCitationsItem {}
+final class UnknownRequestTextBlockCitationsItem extends SdkUnknownMember implements RequestTextBlockCitationsItem
+{
+}
 
 /** A `RequestImageBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestImageBlockSource extends SdkUnknownMember implements RequestImageBlockSource {}
+final class UnknownRequestImageBlockSource extends SdkUnknownMember implements RequestImageBlockSource
+{
+}
 
 /** A `ContentBlockStartEventContentBlock` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownContentBlockStartEventContentBlock extends SdkUnknownMember implements ContentBlockStartEventContentBlock {}
+final class UnknownContentBlockStartEventContentBlock extends SdkUnknownMember implements ContentBlockStartEventContentBlock
+{
+}
 
 /** A `ResponseTextBlockCitationsItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseTextBlockCitationsItem extends SdkUnknownMember implements ResponseTextBlockCitationsItem {}
+final class UnknownResponseTextBlockCitationsItem extends SdkUnknownMember implements ResponseTextBlockCitationsItem
+{
+}
 
 /** A `ResponseToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseToolUseBlockCaller extends SdkUnknownMember implements ResponseToolUseBlockCaller {}
+final class UnknownResponseToolUseBlockCaller extends SdkUnknownMember implements ResponseToolUseBlockCaller
+{
+}
 
 /** A `ResponseServerToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseServerToolUseBlockCaller extends SdkUnknownMember implements ResponseServerToolUseBlockCaller {}
+final class UnknownResponseServerToolUseBlockCaller extends SdkUnknownMember implements ResponseServerToolUseBlockCaller
+{
+}
 
 /** A `ResponseWebSearchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseWebSearchToolResultBlockCaller extends SdkUnknownMember implements ResponseWebSearchToolResultBlockCaller {}
+final class UnknownResponseWebSearchToolResultBlockCaller extends SdkUnknownMember implements ResponseWebSearchToolResultBlockCaller
+{
+}
 
 /** A `ResponseWebFetchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseWebFetchToolResultBlockCaller extends SdkUnknownMember implements ResponseWebFetchToolResultBlockCaller {}
+final class UnknownResponseWebFetchToolResultBlockCaller extends SdkUnknownMember implements ResponseWebFetchToolResultBlockCaller
+{
+}
 
 /** A `ResponseWebFetchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseWebFetchToolResultBlockContent extends SdkUnknownMember implements ResponseWebFetchToolResultBlockContent {}
+final class UnknownResponseWebFetchToolResultBlockContent extends SdkUnknownMember implements ResponseWebFetchToolResultBlockContent
+{
+}
 
 /** A `ResponseDocumentBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseDocumentBlockSource extends SdkUnknownMember implements ResponseDocumentBlockSource {}
+final class UnknownResponseDocumentBlockSource extends SdkUnknownMember implements ResponseDocumentBlockSource
+{
+}
 
 /** A `ResponseCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseCodeExecutionToolResultBlockContent {}
+final class UnknownResponseCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `ResponseBashCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseBashCodeExecutionToolResultBlockContent {}
+final class UnknownResponseBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseBashCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `ResponseTextEditorCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseTextEditorCodeExecutionToolResultBlockContent {}
+final class UnknownResponseTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements ResponseTextEditorCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `ResponseToolSearchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownResponseToolSearchToolResultBlockContent extends SdkUnknownMember implements ResponseToolSearchToolResultBlockContent {}
+final class UnknownResponseToolSearchToolResultBlockContent extends SdkUnknownMember implements ResponseToolSearchToolResultBlockContent
+{
+}
 
 /** A `RequestDocumentBlockSource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestDocumentBlockSource extends SdkUnknownMember implements RequestDocumentBlockSource {}
+final class UnknownRequestDocumentBlockSource extends SdkUnknownMember implements RequestDocumentBlockSource
+{
+}
 
 /** A `RequestToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestToolUseBlockCaller extends SdkUnknownMember implements RequestToolUseBlockCaller {}
+final class UnknownRequestToolUseBlockCaller extends SdkUnknownMember implements RequestToolUseBlockCaller
+{
+}
 
 /** A `RequestToolResultBlockContentItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestToolResultBlockContentItem extends SdkUnknownMember implements RequestToolResultBlockContentItem {}
+final class UnknownRequestToolResultBlockContentItem extends SdkUnknownMember implements RequestToolResultBlockContentItem
+{
+}
 
 /** A `RequestBrowserStateBlockStateChangesItem` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestBrowserStateBlockStateChangesItem extends SdkUnknownMember implements RequestBrowserStateBlockStateChangesItem {}
+final class UnknownRequestBrowserStateBlockStateChangesItem extends SdkUnknownMember implements RequestBrowserStateBlockStateChangesItem
+{
+}
 
 /** A `RequestServerToolUseBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestServerToolUseBlockCaller extends SdkUnknownMember implements RequestServerToolUseBlockCaller {}
+final class UnknownRequestServerToolUseBlockCaller extends SdkUnknownMember implements RequestServerToolUseBlockCaller
+{
+}
 
 /** A `RequestWebSearchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestWebSearchToolResultBlockCaller extends SdkUnknownMember implements RequestWebSearchToolResultBlockCaller {}
+final class UnknownRequestWebSearchToolResultBlockCaller extends SdkUnknownMember implements RequestWebSearchToolResultBlockCaller
+{
+}
 
 /** A `RequestWebFetchToolResultBlockCaller` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestWebFetchToolResultBlockCaller extends SdkUnknownMember implements RequestWebFetchToolResultBlockCaller {}
+final class UnknownRequestWebFetchToolResultBlockCaller extends SdkUnknownMember implements RequestWebFetchToolResultBlockCaller
+{
+}
 
 /** A `RequestWebFetchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestWebFetchToolResultBlockContent extends SdkUnknownMember implements RequestWebFetchToolResultBlockContent {}
+final class UnknownRequestWebFetchToolResultBlockContent extends SdkUnknownMember implements RequestWebFetchToolResultBlockContent
+{
+}
 
 /** A `RequestCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestCodeExecutionToolResultBlockContent {}
+final class UnknownRequestCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `RequestBashCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestBashCodeExecutionToolResultBlockContent {}
+final class UnknownRequestBashCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestBashCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `RequestTextEditorCodeExecutionToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestTextEditorCodeExecutionToolResultBlockContent {}
+final class UnknownRequestTextEditorCodeExecutionToolResultBlockContent extends SdkUnknownMember implements RequestTextEditorCodeExecutionToolResultBlockContent
+{
+}
 
 /** A `RequestToolSearchToolResultBlockContent` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownRequestToolSearchToolResultBlockContent extends SdkUnknownMember implements RequestToolSearchToolResultBlockContent {}
+final class UnknownRequestToolSearchToolResultBlockContent extends SdkUnknownMember implements RequestToolSearchToolResultBlockContent
+{
+}
 
 /** A `ErrorResponseError` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownErrorResponseError extends SdkUnknownMember implements ErrorResponseError {}
+final class UnknownErrorResponseError extends SdkUnknownMember implements ErrorResponseError
+{
+}
 
 /** A `MessageBatchIndividualResponseResult` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownMessageBatchIndividualResponseResult extends SdkUnknownMember implements MessageBatchIndividualResponseResult {}
+final class UnknownMessageBatchIndividualResponseResult extends SdkUnknownMember implements MessageBatchIndividualResponseResult
+{
+}
 
 /** A `BetaApiKeyPrincipal` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaApiKeyPrincipal extends SdkUnknownMember implements BetaApiKeyPrincipal {}
+final class UnknownBetaApiKeyPrincipal extends SdkUnknownMember implements BetaApiKeyPrincipal
+{
+}
 
 /** A `BetaApiKeyScope` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaApiKeyScope extends SdkUnknownMember implements BetaApiKeyScope {}
+final class UnknownBetaApiKeyScope extends SdkUnknownMember implements BetaApiKeyScope
+{
+}
 
 /** A `BetaApproveSpendLimitIncreaseRequestResponseResolvedBy` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaApproveSpendLimitIncreaseRequestResponseResolvedBy extends SdkUnknownMember implements BetaApproveSpendLimitIncreaseRequestResponseResolvedBy {}
+final class UnknownBetaApproveSpendLimitIncreaseRequestResponseResolvedBy extends SdkUnknownMember implements BetaApproveSpendLimitIncreaseRequestResponseResolvedBy
+{
+}
 
 /** A `BetaSpendLimitScope` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaSpendLimitScope extends SdkUnknownMember implements BetaSpendLimitScope {}
+final class UnknownBetaSpendLimitScope extends SdkUnknownMember implements BetaSpendLimitScope
+{
+}
 
 /** A `BetaSpendSummarySource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaSpendSummarySource extends SdkUnknownMember implements BetaSpendSummarySource {}
+final class UnknownBetaSpendSummarySource extends SdkUnknownMember implements BetaSpendSummarySource
+{
+}
 
 /** A `BetaClaudeCodeUsageReportItemActor` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaClaudeCodeUsageReportItemActor extends SdkUnknownMember implements BetaClaudeCodeUsageReportItemActor {}
+final class UnknownBetaClaudeCodeUsageReportItemActor extends SdkUnknownMember implements BetaClaudeCodeUsageReportItemActor
+{
+}
 
 /** A `BetaComplianceSettingsState` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaComplianceSettingsState extends SdkUnknownMember implements BetaComplianceSettingsState {}
+final class UnknownBetaComplianceSettingsState extends SdkUnknownMember implements BetaComplianceSettingsState
+{
+}
 
 /** A `BetaComplianceSettingsUpdateParamsState` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaComplianceSettingsUpdateParamsState extends SdkUnknownMember implements BetaComplianceSettingsUpdateParamsState {}
+final class UnknownBetaComplianceSettingsUpdateParamsState extends SdkUnknownMember implements BetaComplianceSettingsUpdateParamsState
+{
+}
 
 /** A `BetaExternalKeyAttachment` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaExternalKeyAttachment extends SdkUnknownMember implements BetaExternalKeyAttachment {}
+final class UnknownBetaExternalKeyAttachment extends SdkUnknownMember implements BetaExternalKeyAttachment
+{
+}
 
 /** A `BetaExternalKeyProviderConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaExternalKeyProviderConfig extends SdkUnknownMember implements BetaExternalKeyProviderConfig {}
+final class UnknownBetaExternalKeyProviderConfig extends SdkUnknownMember implements BetaExternalKeyProviderConfig
+{
+}
 
 /** A `BetaExternalKeyCreateParamsProviderConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaExternalKeyCreateParamsProviderConfig extends SdkUnknownMember implements BetaExternalKeyCreateParamsProviderConfig {}
+final class UnknownBetaExternalKeyCreateParamsProviderConfig extends SdkUnknownMember implements BetaExternalKeyCreateParamsProviderConfig
+{
+}
 
 /** A `BetaExternalKeyUpdateParamsProviderConfig` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaExternalKeyUpdateParamsProviderConfig extends SdkUnknownMember implements BetaExternalKeyUpdateParamsProviderConfig {}
+final class UnknownBetaExternalKeyUpdateParamsProviderConfig extends SdkUnknownMember implements BetaExternalKeyUpdateParamsProviderConfig
+{
+}
 
 /** A `BetaFederationIssuerJwks` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaFederationIssuerJwks extends SdkUnknownMember implements BetaFederationIssuerJwks {}
+final class UnknownBetaFederationIssuerJwks extends SdkUnknownMember implements BetaFederationIssuerJwks
+{
+}
 
 /** A `BetaFederationIssuerCreateParamsJwks` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaFederationIssuerCreateParamsJwks extends SdkUnknownMember implements BetaFederationIssuerCreateParamsJwks {}
+final class UnknownBetaFederationIssuerCreateParamsJwks extends SdkUnknownMember implements BetaFederationIssuerCreateParamsJwks
+{
+}
 
 /** A `BetaFederationIssuerUpdateParamsJwks` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaFederationIssuerUpdateParamsJwks extends SdkUnknownMember implements BetaFederationIssuerUpdateParamsJwks {}
+final class UnknownBetaFederationIssuerUpdateParamsJwks extends SdkUnknownMember implements BetaFederationIssuerUpdateParamsJwks
+{
+}
 
 /** A `BetaRbacRolePermissionResource` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaRbacRolePermissionResource extends SdkUnknownMember implements BetaRbacRolePermissionResource {}
+final class UnknownBetaRbacRolePermissionResource extends SdkUnknownMember implements BetaRbacRolePermissionResource
+{
+}
 
 /** A `BetaSpendLimitIncreaseRequestSchemaResolvedBy` whose tag names no branch this SDK knows, kept as received. */
-final class UnknownBetaSpendLimitIncreaseRequestSchemaResolvedBy extends SdkUnknownMember implements BetaSpendLimitIncreaseRequestSchemaResolvedBy {}
+final class UnknownBetaSpendLimitIncreaseRequestSchemaResolvedBy extends SdkUnknownMember implements BetaSpendLimitIncreaseRequestSchemaResolvedBy
+{
+}

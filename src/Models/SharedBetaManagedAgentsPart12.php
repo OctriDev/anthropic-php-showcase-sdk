@@ -89,15 +89,9 @@ class BetaManagedAgentsCronSchedule implements BetaManagedAgentsSchedule, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "expression") || $data->expression === null) {
-            throw new SdkValidationError("expression", 'required', "Required property 'expression' is missing or null");
-        }
-        if (!property_exists($data, "timezone") || $data->timezone === null) {
-            throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "expression") || $data->expression === null) { throw new SdkValidationError("expression", 'required', "Required property 'expression' is missing or null"); }
+        if (!property_exists($data, "timezone") || $data->timezone === null) { throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCronScheduleTypeEnum::class),
             expression: SdkClient::stringValue($data->expression),
@@ -174,15 +168,9 @@ class BetaManagedAgentsCronScheduleParams implements BetaManagedAgentsSchedulePa
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "expression") || $data->expression === null) {
-            throw new SdkValidationError("expression", 'required', "Required property 'expression' is missing or null");
-        }
-        if (!property_exists($data, "timezone") || $data->timezone === null) {
-            throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "expression") || $data->expression === null) { throw new SdkValidationError("expression", 'required', "Required property 'expression' is missing or null"); }
+        if (!property_exists($data, "timezone") || $data->timezone === null) { throw new SdkValidationError("timezone", 'required', "Required property 'timezone' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCronScheduleParamsTypeEnum::class),
             expression: SdkClient::stringValue($data->expression),
@@ -257,15 +245,9 @@ class BetaManagedAgentsCustomSkill implements BetaManagedAgentsSkill, \JsonSeria
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "skill_id") || $data->skill_id === null) {
-            throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null");
-        }
-        if (!property_exists($data, "version") || $data->version === null) {
-            throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "skill_id") || $data->skill_id === null) { throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null"); }
+        if (!property_exists($data, "version") || $data->version === null) { throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCustomSkillTypeEnum::class),
             skillId: SdkClient::stringValue($data->skill_id),
@@ -342,12 +324,8 @@ class BetaManagedAgentsCustomSkillParams implements BetaManagedAgentsSkillParams
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "skill_id") || $data->skill_id === null) {
-            throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "skill_id") || $data->skill_id === null) { throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCustomSkillParamsTypeEnum::class),
             skillId: SdkClient::stringValue($data->skill_id),

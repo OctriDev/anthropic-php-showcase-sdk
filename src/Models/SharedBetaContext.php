@@ -75,18 +75,10 @@ class BetaContextManagementCapability implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "clear_thinking_20251015")) {
-            throw new SdkValidationError("clear_thinking_20251015", 'required', "Missing required property 'clear_thinking_20251015'");
-        }
-        if (!property_exists($data, "clear_tool_uses_20250919")) {
-            throw new SdkValidationError("clear_tool_uses_20250919", 'required', "Missing required property 'clear_tool_uses_20250919'");
-        }
-        if (!property_exists($data, "compact_20260112")) {
-            throw new SdkValidationError("compact_20260112", 'required', "Missing required property 'compact_20260112'");
-        }
-        if (!property_exists($data, "supported") || $data->supported === null) {
-            throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null");
-        }
+        if (!property_exists($data, "clear_thinking_20251015")) { throw new SdkValidationError("clear_thinking_20251015", 'required', "Missing required property 'clear_thinking_20251015'"); }
+        if (!property_exists($data, "clear_tool_uses_20250919")) { throw new SdkValidationError("clear_tool_uses_20250919", 'required', "Missing required property 'clear_tool_uses_20250919'"); }
+        if (!property_exists($data, "compact_20260112")) { throw new SdkValidationError("compact_20260112", 'required', "Missing required property 'compact_20260112'"); }
+        if (!property_exists($data, "supported") || $data->supported === null) { throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null"); }
         return new self(
             clearThinking20251015: ($data->clear_thinking_20251015 === null ? null : SdkClient::hydrateClass($data->clear_thinking_20251015, BetaCapabilitySupport::class)),
             clearToolUses20250919: ($data->clear_tool_uses_20250919 === null ? null : SdkClient::hydrateClass($data->clear_tool_uses_20250919, BetaCapabilitySupport::class)),

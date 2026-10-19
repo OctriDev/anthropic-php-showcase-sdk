@@ -56,12 +56,8 @@ class ResponseToolReferenceBlock implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_name") || $data->tool_name === null) {
-            throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tool_name") || $data->tool_name === null) { throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tool_reference");
         return new self(
             toolName: SdkClient::stringValue($data->tool_name),
@@ -129,15 +125,9 @@ class ResponseToolSearchToolResultBlock implements ContentBlock, ContentBlockSta
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
-            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tool_search_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, ResponseToolSearchToolResultBlockContent::class, [ResponseToolSearchToolResultError::class, ResponseToolSearchToolSearchResultBlock::class], "type", ["tool_search_tool_result_error" => ResponseToolSearchToolResultError::class, "tool_search_tool_search_result" => ResponseToolSearchToolSearchResultBlock::class], UnknownResponseToolSearchToolResultBlockContent::class),
@@ -206,15 +196,9 @@ class ResponseToolSearchToolResultError implements ResponseToolSearchToolResultB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) {
-            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
-        }
-        if (!property_exists($data, "error_message")) {
-            throw new SdkValidationError("error_message", 'required', "Missing required property 'error_message'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
+        if (!property_exists($data, "error_message")) { throw new SdkValidationError("error_message", 'required', "Missing required property 'error_message'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tool_search_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, ToolSearchToolResultErrorCode::class),
@@ -273,12 +257,8 @@ class ResponseToolSearchToolSearchResultBlock implements ResponseToolSearchToolR
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_references") || $data->tool_references === null) {
-            throw new SdkValidationError("tool_references", 'required', "Required property 'tool_references' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tool_references") || $data->tool_references === null) { throw new SdkValidationError("tool_references", 'required', "Required property 'tool_references' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tool_search_tool_search_result");
         return new self(
             toolReferences: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ResponseToolReferenceBlock::class), SdkClient::arrayValue($data->tool_references))),

@@ -116,30 +116,14 @@ class BetaExternalKey implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "attachment") || $data->attachment === null) {
-            throw new SdkValidationError("attachment", 'required', "Required property 'attachment' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "display_name")) {
-            throw new SdkValidationError("display_name", 'required', "Missing required property 'display_name'");
-        }
-        if (!property_exists($data, "geo") || $data->geo === null) {
-            throw new SdkValidationError("geo", 'required', "Required property 'geo' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "provider_config") || $data->provider_config === null) {
-            throw new SdkValidationError("provider_config", 'required', "Required property 'provider_config' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "attachment") || $data->attachment === null) { throw new SdkValidationError("attachment", 'required', "Required property 'attachment' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "display_name")) { throw new SdkValidationError("display_name", 'required', "Missing required property 'display_name'"); }
+        if (!property_exists($data, "geo") || $data->geo === null) { throw new SdkValidationError("geo", 'required', "Required property 'geo' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "provider_config") || $data->provider_config === null) { throw new SdkValidationError("provider_config", 'required', "Required property 'provider_config' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         Validation::validateConst("type", $data->type, "external_key");
         return new self(
             attachment: SdkClient::hydrateUnionAs($data->attachment, BetaExternalKeyAttachment::class, [BetaAttachedAttachment::class, BetaUnattachedAttachment::class], "type", ["attached" => BetaAttachedAttachment::class, "unattached" => BetaUnattachedAttachment::class], UnknownBetaExternalKeyAttachment::class),

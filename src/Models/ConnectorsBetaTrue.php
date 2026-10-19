@@ -215,24 +215,12 @@ class BetaAnalyticsConnectorActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) {
-            throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null");
-        }
-        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) {
-            throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null");
-        }
-        if (!property_exists($data, "connector_name") || $data->connector_name === null) {
-            throw new SdkValidationError("connector_name", 'required', "Required property 'connector_name' is missing or null");
-        }
-        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) {
-            throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null");
-        }
-        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) {
-            throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null");
-        }
-        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) {
-            throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null");
-        }
+        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) { throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null"); }
+        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) { throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null"); }
+        if (!property_exists($data, "connector_name") || $data->connector_name === null) { throw new SdkValidationError("connector_name", 'required', "Required property 'connector_name' is missing or null"); }
+        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) { throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null"); }
+        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) { throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null"); }
+        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) { throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null"); }
         return new self(
             chatMetrics: SdkClient::hydrateClass($data->chat_metrics, BetaAnalyticsConnectorChatMetrics::class),
             claudeCodeMetrics: SdkClient::hydrateClass($data->claude_code_metrics, BetaAnalyticsConnectorClaudeCodeMetrics::class),
@@ -292,9 +280,7 @@ class BetaAnalyticsConnectorChatMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_conversation_connector_used_count")) {
-            throw new SdkValidationError("distinct_conversation_connector_used_count", 'required', "Missing required property 'distinct_conversation_connector_used_count'");
-        }
+        if (!property_exists($data, "distinct_conversation_connector_used_count")) { throw new SdkValidationError("distinct_conversation_connector_used_count", 'required', "Missing required property 'distinct_conversation_connector_used_count'"); }
         return new self(
             distinctConversationConnectorUsedCount: ($data->distinct_conversation_connector_used_count === null ? null : SdkClient::intValue($data->distinct_conversation_connector_used_count)),
         );
@@ -339,9 +325,7 @@ class BetaAnalyticsConnectorClaudeCodeMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_session_connector_used_count")) {
-            throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'");
-        }
+        if (!property_exists($data, "distinct_session_connector_used_count")) { throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'"); }
         return new self(
             distinctSessionConnectorUsedCount: ($data->distinct_session_connector_used_count === null ? null : SdkClient::intValue($data->distinct_session_connector_used_count)),
         );

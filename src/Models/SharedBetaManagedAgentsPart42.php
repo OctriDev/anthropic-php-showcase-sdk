@@ -75,18 +75,10 @@ class BetaManagedAgentsSessionStatusIdleEvent implements BetaManagedAgentsSessio
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "stop_reason") || $data->stop_reason === null) {
-            throw new SdkValidationError("stop_reason", 'required', "Required property 'stop_reason' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "stop_reason") || $data->stop_reason === null) { throw new SdkValidationError("stop_reason", 'required', "Required property 'stop_reason' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionStatusIdleEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -162,15 +154,9 @@ class BetaManagedAgentsSessionStatusRescheduledEvent implements BetaManagedAgent
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionStatusRescheduledEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -245,15 +231,9 @@ class BetaManagedAgentsSessionStatusRunningEvent implements BetaManagedAgentsSes
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionStatusRunningEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -328,15 +308,9 @@ class BetaManagedAgentsSessionStatusTerminatedEvent implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionStatusTerminatedEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -352,24 +326,9 @@ final readonly class BetaManagedAgentsSessionThreadTypeEnum implements SdkOpenEn
 {
     public const SESSION_THREAD = "session_thread";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }

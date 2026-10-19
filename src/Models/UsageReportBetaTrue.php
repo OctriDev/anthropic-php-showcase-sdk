@@ -85,21 +85,11 @@ class BetaAnalyticsUsageBucketedResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "data_refreshed_at")) {
-            throw new SdkValidationError("data_refreshed_at", 'required', "Missing required property 'data_refreshed_at'");
-        }
-        if (!property_exists($data, "has_more") || $data->has_more === null) {
-            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "data_refreshed_at")) { throw new SdkValidationError("data_refreshed_at", 'required', "Missing required property 'data_refreshed_at'"); }
+        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsUsageReportTimeBucket::class), SdkClient::arrayValue($data->data))),
             dataRefreshedAt: ($data->data_refreshed_at === null ? null : SdkClient::stringValue($data->data_refreshed_at)),
@@ -115,26 +105,11 @@ final readonly class BetaAnalyticsUsageBucketedResultSpeedEnum implements SdkOpe
     public const FAST = "fast";
     public const STANDARD = "standard";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -295,45 +270,19 @@ class BetaAnalyticsUsageBucketedResult implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) {
-            throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null");
-        }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
-            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "context_window")) {
-            throw new SdkValidationError("context_window", 'required', "Missing required property 'context_window'");
-        }
-        if (!property_exists($data, "inference_geo")) {
-            throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'");
-        }
-        if (!property_exists($data, "model")) {
-            throw new SdkValidationError("model", 'required', "Missing required property 'model'");
-        }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
-            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
-        }
-        if (!property_exists($data, "product")) {
-            throw new SdkValidationError("product", 'required', "Missing required property 'product'");
-        }
-        if (!property_exists($data, "rbac_group_id")) {
-            throw new SdkValidationError("rbac_group_id", 'required', "Missing required property 'rbac_group_id'");
-        }
-        if (!property_exists($data, "requests")) {
-            throw new SdkValidationError("requests", 'required', "Missing required property 'requests'");
-        }
-        if (!property_exists($data, "server_tool_use") || $data->server_tool_use === null) {
-            throw new SdkValidationError("server_tool_use", 'required', "Required property 'server_tool_use' is missing or null");
-        }
-        if (!property_exists($data, "slack_channel_id")) {
-            throw new SdkValidationError("slack_channel_id", 'required', "Missing required property 'slack_channel_id'");
-        }
-        if (!property_exists($data, "speed")) {
-            throw new SdkValidationError("speed", 'required', "Missing required property 'speed'");
-        }
-        if (!property_exists($data, "uncached_input_tokens") || $data->uncached_input_tokens === null) {
-            throw new SdkValidationError("uncached_input_tokens", 'required', "Required property 'uncached_input_tokens' is missing or null");
-        }
+        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) { throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null"); }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
+        if (!property_exists($data, "context_window")) { throw new SdkValidationError("context_window", 'required', "Missing required property 'context_window'"); }
+        if (!property_exists($data, "inference_geo")) { throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'"); }
+        if (!property_exists($data, "model")) { throw new SdkValidationError("model", 'required', "Missing required property 'model'"); }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
+        if (!property_exists($data, "product")) { throw new SdkValidationError("product", 'required', "Missing required property 'product'"); }
+        if (!property_exists($data, "rbac_group_id")) { throw new SdkValidationError("rbac_group_id", 'required', "Missing required property 'rbac_group_id'"); }
+        if (!property_exists($data, "requests")) { throw new SdkValidationError("requests", 'required', "Missing required property 'requests'"); }
+        if (!property_exists($data, "server_tool_use") || $data->server_tool_use === null) { throw new SdkValidationError("server_tool_use", 'required', "Required property 'server_tool_use' is missing or null"); }
+        if (!property_exists($data, "slack_channel_id")) { throw new SdkValidationError("slack_channel_id", 'required', "Missing required property 'slack_channel_id'"); }
+        if (!property_exists($data, "speed")) { throw new SdkValidationError("speed", 'required', "Missing required property 'speed'"); }
+        if (!property_exists($data, "uncached_input_tokens") || $data->uncached_input_tokens === null) { throw new SdkValidationError("uncached_input_tokens", 'required', "Required property 'uncached_input_tokens' is missing or null"); }
         return new self(
             cacheCreation: SdkClient::hydrateClass($data->cache_creation, BetaCacheCreation::class),
             cacheReadInputTokens: SdkClient::intValue($data->cache_read_input_tokens),

@@ -98,21 +98,11 @@ class ResponseToolUseBlock implements ContentBlock, ContentBlockStartEventConten
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "caller") || $data->caller === null) {
-            throw new SdkValidationError("caller", 'required', "Required property 'caller' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "input") || $data->input === null) {
-            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "caller") || $data->caller === null) { throw new SdkValidationError("caller", 'required', "Required property 'caller' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "tool_use");
         return new self(
             caller: SdkClient::hydrateUnionAs($data->caller, ResponseToolUseBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownResponseToolUseBlockCaller::class),

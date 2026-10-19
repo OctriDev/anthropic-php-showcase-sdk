@@ -65,15 +65,9 @@ class BetaModelBreakdown implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "estimated_cost") || $data->estimated_cost === null) {
-            throw new SdkValidationError("estimated_cost", 'required', "Required property 'estimated_cost' is missing or null");
-        }
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "tokens") || $data->tokens === null) {
-            throw new SdkValidationError("tokens", 'required', "Required property 'tokens' is missing or null");
-        }
+        if (!property_exists($data, "estimated_cost") || $data->estimated_cost === null) { throw new SdkValidationError("estimated_cost", 'required', "Required property 'estimated_cost' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "tokens") || $data->tokens === null) { throw new SdkValidationError("tokens", 'required', "Required property 'tokens' is missing or null"); }
         return new self(
             estimatedCost: SdkClient::hydrateClass($data->estimated_cost, BetaEstimatedCost::class),
             model: SdkClient::stringValue($data->model),
@@ -90,26 +84,11 @@ final readonly class BetaSubscriptionType implements SdkOpenEnum
     public const ENTERPRISE = "enterprise";
     public const TEAM = "team";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -180,18 +159,10 @@ class BetaTokenUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) {
-            throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null");
-        }
-        if (!property_exists($data, "cache_read") || $data->cache_read === null) {
-            throw new SdkValidationError("cache_read", 'required', "Required property 'cache_read' is missing or null");
-        }
-        if (!property_exists($data, "input") || $data->input === null) {
-            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
-        }
-        if (!property_exists($data, "output") || $data->output === null) {
-            throw new SdkValidationError("output", 'required', "Required property 'output' is missing or null");
-        }
+        if (!property_exists($data, "cache_creation") || $data->cache_creation === null) { throw new SdkValidationError("cache_creation", 'required', "Required property 'cache_creation' is missing or null"); }
+        if (!property_exists($data, "cache_read") || $data->cache_read === null) { throw new SdkValidationError("cache_read", 'required', "Required property 'cache_read' is missing or null"); }
+        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
+        if (!property_exists($data, "output") || $data->output === null) { throw new SdkValidationError("output", 'required', "Required property 'output' is missing or null"); }
         return new self(
             cacheCreation: SdkClient::intValue($data->cache_creation),
             cacheRead: SdkClient::intValue($data->cache_read),

@@ -55,12 +55,8 @@ class BetaManagedAgentsWorkspaceArchivedRunError implements BetaManagedAgentsRun
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsWorkspaceArchivedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -138,18 +134,10 @@ class BetaManagedAgentsWriteToolConfig implements BetaManagedAgentsAgentToolConf
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         Validation::validateConst("type", $data->type, "write");
         Validation::validateConst("name", $data->name, "write");
         return new self(
@@ -239,9 +227,7 @@ class BetaManagedAgentsWriteToolConfigParams implements BetaManagedAgentsAgentTo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         Validation::validateConst("name", $data->name, "write");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "write");

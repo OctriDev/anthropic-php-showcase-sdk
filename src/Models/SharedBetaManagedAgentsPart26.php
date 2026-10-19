@@ -89,15 +89,9 @@ class BetaManagedAgentsMcpOauthRefreshResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "token_endpoint") || $data->token_endpoint === null) {
-            throw new SdkValidationError("token_endpoint", 'required', "Required property 'token_endpoint' is missing or null");
-        }
-        if (!property_exists($data, "client_id") || $data->client_id === null) {
-            throw new SdkValidationError("client_id", 'required', "Required property 'client_id' is missing or null");
-        }
-        if (!property_exists($data, "token_endpoint_auth") || $data->token_endpoint_auth === null) {
-            throw new SdkValidationError("token_endpoint_auth", 'required', "Required property 'token_endpoint_auth' is missing or null");
-        }
+        if (!property_exists($data, "token_endpoint") || $data->token_endpoint === null) { throw new SdkValidationError("token_endpoint", 'required', "Required property 'token_endpoint' is missing or null"); }
+        if (!property_exists($data, "client_id") || $data->client_id === null) { throw new SdkValidationError("client_id", 'required', "Required property 'client_id' is missing or null"); }
+        if (!property_exists($data, "token_endpoint_auth") || $data->token_endpoint_auth === null) { throw new SdkValidationError("token_endpoint_auth", 'required', "Required property 'token_endpoint_auth' is missing or null"); }
         return new self(
             tokenEndpoint: SdkClient::stringValue($data->token_endpoint),
             clientId: SdkClient::stringValue($data->client_id),
@@ -174,15 +168,9 @@ class BetaManagedAgentsMCPServerURLDefinition implements BetaManagedAgentsMCPSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMCPServerURLDefinitionTypeEnum::class),
             name: SdkClient::stringValue($data->name),
@@ -249,15 +237,9 @@ class BetaManagedAgentsMCPToolConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             enabled: SdkClient::boolValue($data->enabled),
@@ -328,9 +310,7 @@ class BetaManagedAgentsMCPToolConfigParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             enabled: (property_exists($data, "enabled") ? ($data->enabled === null ? null : SdkClient::boolValue($data->enabled)) : SdkNotGiven::Value),

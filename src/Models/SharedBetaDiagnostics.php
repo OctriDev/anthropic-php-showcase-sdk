@@ -45,9 +45,7 @@ class BetaDiagnostics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_miss_reason")) {
-            throw new SdkValidationError("cache_miss_reason", 'required', "Missing required property 'cache_miss_reason'");
-        }
+        if (!property_exists($data, "cache_miss_reason")) { throw new SdkValidationError("cache_miss_reason", 'required', "Missing required property 'cache_miss_reason'"); }
         return new self(
             cacheMissReason: ($data->cache_miss_reason === null ? null : SdkClient::hydrateUnionAs($data->cache_miss_reason, BetaDiagnosticsCacheMissReason::class, [BetaCacheMissModelChanged::class, BetaCacheMissSystemChanged::class, BetaCacheMissToolsChanged::class, BetaCacheMissMessagesChanged::class, BetaCacheMissPreviousMessageNotFound::class, BetaCacheMissUnavailable::class], "type", ["messages_changed" => BetaCacheMissMessagesChanged::class, "model_changed" => BetaCacheMissModelChanged::class, "previous_message_not_found" => BetaCacheMissPreviousMessageNotFound::class, "system_changed" => BetaCacheMissSystemChanged::class, "tools_changed" => BetaCacheMissToolsChanged::class, "unavailable" => BetaCacheMissUnavailable::class], UnknownBetaDiagnosticsCacheMissReason::class)),
         );

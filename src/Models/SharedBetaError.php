@@ -66,15 +66,9 @@ class BetaErrorResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error") || $data->error === null) {
-            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
-        }
-        if (!property_exists($data, "request_id")) {
-            throw new SdkValidationError("request_id", 'required', "Missing required property 'request_id'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
+        if (!property_exists($data, "request_id")) { throw new SdkValidationError("request_id", 'required', "Missing required property 'request_id'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "error");
         return new self(
             error: SdkClient::hydrateUnionAs($data->error, BetaErrorResponseError::class, [BetaInvalidRequestError::class, BetaAuthenticationError::class, BetaBillingError::class, BetaPermissionError::class, BetaNotFoundError::class, BetaRateLimitError::class, BetaGatewayTimeoutError::class, BetaAPIError::class, BetaOverloadedError::class], "type", ["api_error" => BetaAPIError::class, "authentication_error" => BetaAuthenticationError::class, "billing_error" => BetaBillingError::class, "invalid_request_error" => BetaInvalidRequestError::class, "not_found_error" => BetaNotFoundError::class, "overloaded_error" => BetaOverloadedError::class, "permission_error" => BetaPermissionError::class, "rate_limit_error" => BetaRateLimitError::class, "timeout_error" => BetaGatewayTimeoutError::class], UnknownBetaErrorResponseError::class),

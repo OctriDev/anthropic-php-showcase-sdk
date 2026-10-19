@@ -105,27 +105,13 @@ class BetaManagedAgentsUserDefineOutcomeEvent implements BetaManagedAgentsInputE
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) {
-            throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null");
-        }
-        if (!property_exists($data, "description") || $data->description === null) {
-            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
-        }
-        if (!property_exists($data, "max_iterations")) {
-            throw new SdkValidationError("max_iterations", 'required', "Missing required property 'max_iterations'");
-        }
-        if (!property_exists($data, "rubric") || $data->rubric === null) {
-            throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "outcome_id") || $data->outcome_id === null) { throw new SdkValidationError("outcome_id", 'required', "Required property 'outcome_id' is missing or null"); }
+        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "max_iterations")) { throw new SdkValidationError("max_iterations", 'required', "Missing required property 'max_iterations'"); }
+        if (!property_exists($data, "rubric") || $data->rubric === null) { throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserDefineOutcomeEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -216,15 +202,9 @@ class BetaManagedAgentsUserDefineOutcomeEventParams implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "description") || $data->description === null) {
-            throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null");
-        }
-        if (!property_exists($data, "rubric") || $data->rubric === null) {
-            throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "description") || $data->description === null) { throw new SdkValidationError("description", 'required', "Required property 'description' is missing or null"); }
+        if (!property_exists($data, "rubric") || $data->rubric === null) { throw new SdkValidationError("rubric", 'required', "Required property 'rubric' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserDefineOutcomeEventParamsTypeEnum::class),
             description: SdkClient::stringValue($data->description),
@@ -314,12 +294,8 @@ class BetaManagedAgentsUserInterruptEvent implements BetaManagedAgentsInputEvent
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserInterruptEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),

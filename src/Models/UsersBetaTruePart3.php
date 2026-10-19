@@ -55,12 +55,8 @@ class BetaAnalyticsLinesOfCode implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "added_count") || $data->added_count === null) {
-            throw new SdkValidationError("added_count", 'required', "Required property 'added_count' is missing or null");
-        }
-        if (!property_exists($data, "removed_count") || $data->removed_count === null) {
-            throw new SdkValidationError("removed_count", 'required', "Required property 'removed_count' is missing or null");
-        }
+        if (!property_exists($data, "added_count") || $data->added_count === null) { throw new SdkValidationError("added_count", 'required', "Required property 'added_count' is missing or null"); }
+        if (!property_exists($data, "removed_count") || $data->removed_count === null) { throw new SdkValidationError("removed_count", 'required', "Required property 'removed_count' is missing or null"); }
         return new self(
             addedCount: SdkClient::intValue($data->added_count),
             removedCount: SdkClient::intValue($data->removed_count),
@@ -136,18 +132,10 @@ class BetaAnalyticsOfficeMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "excel") || $data->excel === null) {
-            throw new SdkValidationError("excel", 'required', "Required property 'excel' is missing or null");
-        }
-        if (!property_exists($data, "outlook") || $data->outlook === null) {
-            throw new SdkValidationError("outlook", 'required', "Required property 'outlook' is missing or null");
-        }
-        if (!property_exists($data, "powerpoint") || $data->powerpoint === null) {
-            throw new SdkValidationError("powerpoint", 'required', "Required property 'powerpoint' is missing or null");
-        }
-        if (!property_exists($data, "word") || $data->word === null) {
-            throw new SdkValidationError("word", 'required', "Required property 'word' is missing or null");
-        }
+        if (!property_exists($data, "excel") || $data->excel === null) { throw new SdkValidationError("excel", 'required', "Required property 'excel' is missing or null"); }
+        if (!property_exists($data, "outlook") || $data->outlook === null) { throw new SdkValidationError("outlook", 'required', "Required property 'outlook' is missing or null"); }
+        if (!property_exists($data, "powerpoint") || $data->powerpoint === null) { throw new SdkValidationError("powerpoint", 'required', "Required property 'powerpoint' is missing or null"); }
+        if (!property_exists($data, "word") || $data->word === null) { throw new SdkValidationError("word", 'required', "Required property 'word' is missing or null"); }
         return new self(
             excel: SdkClient::hydrateClass($data->excel, BetaAnalyticsOfficeProductMetrics::class),
             outlook: SdkClient::hydrateClass($data->outlook, BetaAnalyticsOfficeProductMetrics::class),
@@ -245,24 +233,12 @@ class BetaAnalyticsOfficeProductMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "connectors_used_count") || $data->connectors_used_count === null) {
-            throw new SdkValidationError("connectors_used_count", 'required', "Required property 'connectors_used_count' is missing or null");
-        }
-        if (!property_exists($data, "distinct_connectors_used_count")) {
-            throw new SdkValidationError("distinct_connectors_used_count", 'required', "Missing required property 'distinct_connectors_used_count'");
-        }
-        if (!property_exists($data, "distinct_session_count")) {
-            throw new SdkValidationError("distinct_session_count", 'required', "Missing required property 'distinct_session_count'");
-        }
-        if (!property_exists($data, "distinct_skills_used_count")) {
-            throw new SdkValidationError("distinct_skills_used_count", 'required', "Missing required property 'distinct_skills_used_count'");
-        }
-        if (!property_exists($data, "message_count") || $data->message_count === null) {
-            throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null");
-        }
-        if (!property_exists($data, "skills_used_count") || $data->skills_used_count === null) {
-            throw new SdkValidationError("skills_used_count", 'required', "Required property 'skills_used_count' is missing or null");
-        }
+        if (!property_exists($data, "connectors_used_count") || $data->connectors_used_count === null) { throw new SdkValidationError("connectors_used_count", 'required', "Required property 'connectors_used_count' is missing or null"); }
+        if (!property_exists($data, "distinct_connectors_used_count")) { throw new SdkValidationError("distinct_connectors_used_count", 'required', "Missing required property 'distinct_connectors_used_count'"); }
+        if (!property_exists($data, "distinct_session_count")) { throw new SdkValidationError("distinct_session_count", 'required', "Missing required property 'distinct_session_count'"); }
+        if (!property_exists($data, "distinct_skills_used_count")) { throw new SdkValidationError("distinct_skills_used_count", 'required', "Missing required property 'distinct_skills_used_count'"); }
+        if (!property_exists($data, "message_count") || $data->message_count === null) { throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null"); }
+        if (!property_exists($data, "skills_used_count") || $data->skills_used_count === null) { throw new SdkValidationError("skills_used_count", 'required', "Required property 'skills_used_count' is missing or null"); }
         return new self(
             connectorsUsedCount: SdkClient::intValue($data->connectors_used_count),
             distinctConnectorsUsedCount: ($data->distinct_connectors_used_count === null ? null : SdkClient::intValue($data->distinct_connectors_used_count)),
@@ -352,21 +328,11 @@ class BetaAnalyticsScienceMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "delegation_count") || $data->delegation_count === null) {
-            throw new SdkValidationError("delegation_count", 'required', "Required property 'delegation_count' is missing or null");
-        }
-        if (!property_exists($data, "distinct_session_count")) {
-            throw new SdkValidationError("distinct_session_count", 'required', "Missing required property 'distinct_session_count'");
-        }
-        if (!property_exists($data, "message_count") || $data->message_count === null) {
-            throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null");
-        }
-        if (!property_exists($data, "remote_compute_job_count") || $data->remote_compute_job_count === null) {
-            throw new SdkValidationError("remote_compute_job_count", 'required', "Required property 'remote_compute_job_count' is missing or null");
-        }
-        if (!property_exists($data, "skills_used_count") || $data->skills_used_count === null) {
-            throw new SdkValidationError("skills_used_count", 'required', "Required property 'skills_used_count' is missing or null");
-        }
+        if (!property_exists($data, "delegation_count") || $data->delegation_count === null) { throw new SdkValidationError("delegation_count", 'required', "Required property 'delegation_count' is missing or null"); }
+        if (!property_exists($data, "distinct_session_count")) { throw new SdkValidationError("distinct_session_count", 'required', "Missing required property 'distinct_session_count'"); }
+        if (!property_exists($data, "message_count") || $data->message_count === null) { throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null"); }
+        if (!property_exists($data, "remote_compute_job_count") || $data->remote_compute_job_count === null) { throw new SdkValidationError("remote_compute_job_count", 'required', "Required property 'remote_compute_job_count' is missing or null"); }
+        if (!property_exists($data, "skills_used_count") || $data->skills_used_count === null) { throw new SdkValidationError("skills_used_count", 'required', "Required property 'skills_used_count' is missing or null"); }
         return new self(
             delegationCount: SdkClient::intValue($data->delegation_count),
             distinctSessionCount: ($data->distinct_session_count === null ? null : SdkClient::intValue($data->distinct_session_count)),

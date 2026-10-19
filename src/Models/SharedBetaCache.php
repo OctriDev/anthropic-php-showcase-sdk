@@ -15,26 +15,11 @@ final readonly class BetaCacheControlEphemeralTtlEnum implements SdkOpenEnum
     public const _5M = "5m";
     public const _1H = "1h";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -88,9 +73,7 @@ class BetaCacheControlEphemeral implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "ephemeral");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -147,12 +130,8 @@ class BetaCacheCreation implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ephemeral_1h_input_tokens") || $data->ephemeral_1h_input_tokens === null) {
-            throw new SdkValidationError("ephemeral_1h_input_tokens", 'required', "Required property 'ephemeral_1h_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "ephemeral_5m_input_tokens") || $data->ephemeral_5m_input_tokens === null) {
-            throw new SdkValidationError("ephemeral_5m_input_tokens", 'required', "Required property 'ephemeral_5m_input_tokens' is missing or null");
-        }
+        if (!property_exists($data, "ephemeral_1h_input_tokens") || $data->ephemeral_1h_input_tokens === null) { throw new SdkValidationError("ephemeral_1h_input_tokens", 'required', "Required property 'ephemeral_1h_input_tokens' is missing or null"); }
+        if (!property_exists($data, "ephemeral_5m_input_tokens") || $data->ephemeral_5m_input_tokens === null) { throw new SdkValidationError("ephemeral_5m_input_tokens", 'required', "Required property 'ephemeral_5m_input_tokens' is missing or null"); }
         return new self(
             ephemeral1hInputTokens: SdkClient::intValue($data->ephemeral_1h_input_tokens),
             ephemeral5mInputTokens: SdkClient::intValue($data->ephemeral_5m_input_tokens),
@@ -209,12 +188,8 @@ class BetaCacheMissMessagesChanged implements BetaDiagnosticsCacheMissReason, \J
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) {
-            throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) { throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "messages_changed");
         return new self(
             cacheMissedInputTokens: SdkClient::intValue($data->cache_missed_input_tokens),
@@ -272,12 +247,8 @@ class BetaCacheMissModelChanged implements BetaDiagnosticsCacheMissReason, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) {
-            throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) { throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "model_changed");
         return new self(
             cacheMissedInputTokens: SdkClient::intValue($data->cache_missed_input_tokens),
@@ -325,9 +296,7 @@ class BetaCacheMissPreviousMessageNotFound implements BetaDiagnosticsCacheMissRe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "previous_message_not_found");
         return new self(
             type: SdkClient::stringValue($data->type),

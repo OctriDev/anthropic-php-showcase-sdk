@@ -86,21 +86,11 @@ class ResponseEncryptedCodeExecutionResultBlock implements ResponseCodeExecution
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
-        if (!property_exists($data, "encrypted_stdout") || $data->encrypted_stdout === null) {
-            throw new SdkValidationError("encrypted_stdout", 'required', "Required property 'encrypted_stdout' is missing or null");
-        }
-        if (!property_exists($data, "return_code") || $data->return_code === null) {
-            throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null");
-        }
-        if (!property_exists($data, "stderr") || $data->stderr === null) {
-            throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "encrypted_stdout") || $data->encrypted_stdout === null) { throw new SdkValidationError("encrypted_stdout", 'required', "Required property 'encrypted_stdout' is missing or null"); }
+        if (!property_exists($data, "return_code") || $data->return_code === null) { throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null"); }
+        if (!property_exists($data, "stderr") || $data->stderr === null) { throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "encrypted_code_execution_result");
         return new self(
             content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, ResponseCodeExecutionOutputBlock::class), SdkClient::arrayValue($data->content))),
@@ -211,27 +201,13 @@ class ResponsePageLocationCitation implements CitationsDeltaCitation, ResponseTe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cited_text") || $data->cited_text === null) {
-            throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null");
-        }
-        if (!property_exists($data, "document_index") || $data->document_index === null) {
-            throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null");
-        }
-        if (!property_exists($data, "document_title")) {
-            throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'");
-        }
-        if (!property_exists($data, "end_page_number") || $data->end_page_number === null) {
-            throw new SdkValidationError("end_page_number", 'required', "Required property 'end_page_number' is missing or null");
-        }
-        if (!property_exists($data, "file_id")) {
-            throw new SdkValidationError("file_id", 'required', "Missing required property 'file_id'");
-        }
-        if (!property_exists($data, "start_page_number") || $data->start_page_number === null) {
-            throw new SdkValidationError("start_page_number", 'required', "Required property 'start_page_number' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cited_text") || $data->cited_text === null) { throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null"); }
+        if (!property_exists($data, "document_index") || $data->document_index === null) { throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null"); }
+        if (!property_exists($data, "document_title")) { throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'"); }
+        if (!property_exists($data, "end_page_number") || $data->end_page_number === null) { throw new SdkValidationError("end_page_number", 'required', "Required property 'end_page_number' is missing or null"); }
+        if (!property_exists($data, "file_id")) { throw new SdkValidationError("file_id", 'required', "Missing required property 'file_id'"); }
+        if (!property_exists($data, "start_page_number") || $data->start_page_number === null) { throw new SdkValidationError("start_page_number", 'required', "Required property 'start_page_number' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "page_location");
         return new self(
             citedText: SdkClient::stringValue($data->cited_text),
@@ -294,12 +270,8 @@ class ResponseRedactedThinkingBlock implements ContentBlock, ContentBlockStartEv
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "redacted_thinking");
         return new self(
             data: SdkClient::stringValue($data->data),

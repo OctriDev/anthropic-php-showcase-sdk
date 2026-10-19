@@ -12,26 +12,11 @@ final readonly class BetaInputMessageClearAtEnum implements SdkOpenEnum
     public const NEXT_USER_MESSAGE = "next_user_message";
     public const NEVER = "never";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -43,26 +28,11 @@ final readonly class BetaInputMessageRoleEnum implements SdkOpenEnum
     public const ASSISTANT = "assistant";
     public const SYSTEM = "system";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -137,12 +107,8 @@ class BetaInputMessage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
-        if (!property_exists($data, "role") || $data->role === null) {
-            throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null");
-        }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "role") || $data->role === null) { throw new SdkValidationError("role", 'required', "Required property 'role' is missing or null"); }
         return new self(
             content: (is_array($data->content) ? array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaInputContentBlock::class, [BetaRequestTextBlock::class, BetaRequestImageBlock::class, BetaRequestDocumentBlock::class, BetaRequestSearchResultBlock::class, BetaRequestThinkingBlock::class, BetaRequestRedactedThinkingBlock::class, BetaRequestToolUseBlock::class, BetaRequestToolResultBlock::class, BetaRequestServerToolUseBlock::class, BetaRequestWebSearchToolResultBlock::class, BetaRequestWebFetchToolResultBlock::class, BetaRequestAdvisorToolResultBlock::class, BetaRequestCodeExecutionToolResultBlock::class, BetaRequestBashCodeExecutionToolResultBlock::class, BetaRequestTextEditorCodeExecutionToolResultBlock::class, BetaRequestToolSearchToolResultBlock::class, BetaRequestMCPToolUseBlock::class, BetaRequestMCPToolResultBlock::class, BetaRequestContainerUploadBlock::class, BetaRequestCompactionBlock::class, BetaRequestToolAdditionBlock::class, BetaRequestToolRemovalBlock::class, BetaRequestFallbackBlock::class], "type", ["advisor_tool_result" => BetaRequestAdvisorToolResultBlock::class, "bash_code_execution_tool_result" => BetaRequestBashCodeExecutionToolResultBlock::class, "code_execution_tool_result" => BetaRequestCodeExecutionToolResultBlock::class, "compaction" => BetaRequestCompactionBlock::class, "container_upload" => BetaRequestContainerUploadBlock::class, "document" => BetaRequestDocumentBlock::class, "fallback" => BetaRequestFallbackBlock::class, "image" => BetaRequestImageBlock::class, "mcp_tool_result" => BetaRequestMCPToolResultBlock::class, "mcp_tool_use" => BetaRequestMCPToolUseBlock::class, "redacted_thinking" => BetaRequestRedactedThinkingBlock::class, "search_result" => BetaRequestSearchResultBlock::class, "server_tool_use" => BetaRequestServerToolUseBlock::class, "text" => BetaRequestTextBlock::class, "text_editor_code_execution_tool_result" => BetaRequestTextEditorCodeExecutionToolResultBlock::class, "thinking" => BetaRequestThinkingBlock::class, "tool_addition" => BetaRequestToolAdditionBlock::class, "tool_removal" => BetaRequestToolRemovalBlock::class, "tool_result" => BetaRequestToolResultBlock::class, "tool_search_tool_result" => BetaRequestToolSearchToolResultBlock::class, "tool_use" => BetaRequestToolUseBlock::class, "web_fetch_tool_result" => BetaRequestWebFetchToolResultBlock::class, "web_search_tool_result" => BetaRequestWebSearchToolResultBlock::class], UnknownBetaInputContentBlock::class), SdkClient::arrayValue($data->content))) : SdkClient::stringValue($data->content)),
             role: SdkClient::hydrateStringEnumOrString($data->role, BetaInputMessageRoleEnum::class),
@@ -221,9 +187,7 @@ class BetaInputSchema implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "object");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -283,12 +247,8 @@ class BetaInputTokensClearAtLeast implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
         Validation::validateConst("type", $data->type, "input_tokens");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -346,12 +306,8 @@ class BetaInputTokensTrigger implements BetaClearToolUses20250919Trigger, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "value") || $data->value === null) {
-            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
         Validation::validateConst("type", $data->type, "input_tokens");
         return new self(
             type: SdkClient::stringValue($data->type),

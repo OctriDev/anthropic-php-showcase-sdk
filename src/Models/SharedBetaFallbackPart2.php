@@ -45,9 +45,7 @@ class BetaFallbackCreditUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "status") || $data->status === null) {
-            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
-        }
+        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
         return new self(
             status: SdkClient::hydrateUnionAs($data->status, BetaFallbackCreditUsageStatus::class, [BetaFallbackCreditRedeemed::class, BetaFallbackCreditNotApplied::class], "type", ["not_applied" => BetaFallbackCreditNotApplied::class, "redeemed" => BetaFallbackCreditRedeemed::class], UnknownBetaFallbackCreditUsageStatus::class),
         );
@@ -153,27 +151,13 @@ class BetaFallbackMessageIterationUsage implements BetaUsageIterationsItem, \Jso
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation")) {
-            throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'");
-        }
-        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) {
-            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
-            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
-            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
-            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cache_creation")) { throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'"); }
+        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null"); }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "fallback_message");
         return new self(
             cacheCreation: ($data->cache_creation === null ? null : SdkClient::hydrateClass($data->cache_creation, BetaCacheCreation::class)),
@@ -236,12 +220,8 @@ class BetaFallbackRefusalTrigger implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "category")) {
-            throw new SdkValidationError("category", 'required', "Missing required property 'category'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "category")) { throw new SdkValidationError("category", 'required', "Missing required property 'category'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "refusal");
         return new self(
             category: ($data->category === null ? null : SdkClient::hydrateStringEnumOrString($data->category, BetaRefusalCategory::class)),

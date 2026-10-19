@@ -13,26 +13,11 @@ final readonly class UpdateBetaOrganizationsApiKeysStatusEnum implements SdkOpen
     public const ARCHIVED = "archived";
     public const INACTIVE = "inactive";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 final readonly class ListBetaOrganizationsApiKeysStatusEnum implements SdkOpenEnum
@@ -42,26 +27,11 @@ final readonly class ListBetaOrganizationsApiKeysStatusEnum implements SdkOpenEn
     public const EXPIRED = "expired";
     public const INACTIVE = "inactive";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class BetaOrganizationsApiKeys
@@ -78,7 +48,7 @@ class BetaOrganizationsApiKeys
     public static function retrieveBetaOrganizationsApiKeys(ClientConfig $clientConfig, string $apiKeyId, string|SdkNotGiven $anthropicVersion = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaApiKey
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/api_keys/" . SdkClient::encodePathSegment($apiKeyId) . "?beta=true", $clientConfig, returnType: BetaApiKey::class, decoder: 'json', operationId: 'retrieveBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/api_keys/" . SdkClient::encodePathSegment($apiKeyId) . "?beta=true", $clientConfig, returnType: BetaApiKey::class, decoder: 'json', operationId: 'retrieveBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaApiKey::class));
     }
 
@@ -97,7 +67,7 @@ class BetaOrganizationsApiKeys
     public static function updateBetaOrganizationsApiKeys(ClientConfig $clientConfig, string $apiKeyId, string|SdkNotGiven $anthropicVersion = SdkNotGiven::Value, string|null|SdkNotGiven $name = SdkNotGiven::Value, UpdateBetaOrganizationsApiKeysStatusEnum|null|SdkNotGiven $status = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaApiKey
     {
 
-        $sdkResponse = SdkClient::request('POST', "/v1/organizations/api_keys/" . SdkClient::encodePathSegment($apiKeyId) . "?beta=true", $clientConfig, body: ['name' => $name, 'status' => $status], returnType: BetaApiKey::class, decoder: 'json', operationId: 'updateBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('POST', "/v1/organizations/api_keys/" . SdkClient::encodePathSegment($apiKeyId) . "?beta=true", $clientConfig, body: ['name' => $name, 'status' => $status], returnType: BetaApiKey::class, decoder: 'json', operationId: 'updateBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaApiKey::class));
     }
 
@@ -123,7 +93,7 @@ class BetaOrganizationsApiKeys
             Validation::validateRange('limit', $limit, min: 1, max: 1000);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/api_keys?beta=true", $clientConfig, query: ['before_id' => new SdkQueryValue($beforeId, "form", true), 'after_id' => new SdkQueryValue($afterId, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'status' => new SdkQueryValue($status, "form", true), 'workspace_id' => new SdkQueryValue($workspaceId, "form", true), 'created_by_user_id' => new SdkQueryValue($createdByUserId, "form", true)], returnType: BetaListResponse_ApiKey_::class, decoder: 'json', operationId: 'listBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/api_keys?beta=true", $clientConfig, query: ['before_id' => new SdkQueryValue($beforeId, "form", true), 'after_id' => new SdkQueryValue($afterId, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'status' => new SdkQueryValue($status, "form", true), 'workspace_id' => new SdkQueryValue($workspaceId, "form", true), 'created_by_user_id' => new SdkQueryValue($createdByUserId, "form", true)], returnType: BetaListResponse_ApiKey_::class, decoder: 'json', operationId: 'listBetaOrganizationsApiKeys', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaListResponse_ApiKey_::class));
     }
 }

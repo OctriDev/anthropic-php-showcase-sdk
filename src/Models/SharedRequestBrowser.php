@@ -80,12 +80,8 @@ class RequestBrowserStateBlock implements RequestToolResultBlockContentItem, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tabs") || $data->tabs === null) {
-            throw new SdkValidationError("tabs", 'required', "Required property 'tabs' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tabs") || $data->tabs === null) { throw new SdkValidationError("tabs", 'required', "Required property 'tabs' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "browser_state");
         return new self(
             tabs: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BrowserStateTabEntry::class), SdkClient::arrayValue($data->tabs))),

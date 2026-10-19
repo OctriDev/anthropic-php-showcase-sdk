@@ -56,12 +56,8 @@ class BetaComplianceSettings implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "state") || $data->state === null) {
-            throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "state") || $data->state === null) { throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "compliance_settings");
         return new self(
             state: SdkClient::hydrateUnionAs($data->state, BetaComplianceSettingsState::class, [BetaComplianceSettingsStateEnabled::class, BetaComplianceSettingsStateDisabled::class], "type", ["disabled" => BetaComplianceSettingsStateDisabled::class, "enabled" => BetaComplianceSettingsStateEnabled::class], UnknownBetaComplianceSettingsState::class),
@@ -109,9 +105,7 @@ class BetaComplianceSettingsStateDisabled implements BetaComplianceSettingsState
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "disabled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -158,9 +152,7 @@ class BetaComplianceSettingsStateDisabledParams implements BetaComplianceSetting
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "disabled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -207,9 +199,7 @@ class BetaComplianceSettingsStateEnabled implements BetaComplianceSettingsState,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "enabled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -256,9 +246,7 @@ class BetaComplianceSettingsStateEnabledParams implements BetaComplianceSettings
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "enabled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -304,9 +292,7 @@ class BetaComplianceSettingsUpdateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "state") || $data->state === null) {
-            throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null");
-        }
+        if (!property_exists($data, "state") || $data->state === null) { throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null"); }
         return new self(
             state: SdkClient::hydrateUnionAs($data->state, BetaComplianceSettingsUpdateParamsState::class, [BetaComplianceSettingsStateEnabledParams::class, BetaComplianceSettingsStateDisabledParams::class], "type", ["disabled" => BetaComplianceSettingsStateDisabledParams::class, "enabled" => BetaComplianceSettingsStateEnabledParams::class], UnknownBetaComplianceSettingsUpdateParamsState::class),
         );

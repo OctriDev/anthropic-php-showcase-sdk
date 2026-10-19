@@ -13,26 +13,11 @@ final readonly class BetaAnalyticsSkillActivityShareStatusEnum implements SdkOpe
     public const PRIVATE = "private";
     public const PUBLIC = "public";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -255,24 +240,12 @@ class BetaAnalyticsSkillActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) {
-            throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null");
-        }
-        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) {
-            throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null");
-        }
-        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) {
-            throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null");
-        }
-        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) {
-            throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null");
-        }
-        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) {
-            throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null");
-        }
-        if (!property_exists($data, "skill_name") || $data->skill_name === null) {
-            throw new SdkValidationError("skill_name", 'required', "Required property 'skill_name' is missing or null");
-        }
+        if (!property_exists($data, "chat_metrics") || $data->chat_metrics === null) { throw new SdkValidationError("chat_metrics", 'required', "Required property 'chat_metrics' is missing or null"); }
+        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) { throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null"); }
+        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) { throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null"); }
+        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) { throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null"); }
+        if (!property_exists($data, "office_metrics") || $data->office_metrics === null) { throw new SdkValidationError("office_metrics", 'required', "Required property 'office_metrics' is missing or null"); }
+        if (!property_exists($data, "skill_name") || $data->skill_name === null) { throw new SdkValidationError("skill_name", 'required', "Required property 'skill_name' is missing or null"); }
         return new self(
             chatMetrics: SdkClient::hydrateClass($data->chat_metrics, BetaAnalyticsSkillChatMetrics::class),
             claudeCodeMetrics: SdkClient::hydrateClass($data->claude_code_metrics, BetaAnalyticsSkillClaudeCodeMetrics::class),
@@ -333,9 +306,7 @@ class BetaAnalyticsSkillChatMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_conversation_skill_used_count")) {
-            throw new SdkValidationError("distinct_conversation_skill_used_count", 'required', "Missing required property 'distinct_conversation_skill_used_count'");
-        }
+        if (!property_exists($data, "distinct_conversation_skill_used_count")) { throw new SdkValidationError("distinct_conversation_skill_used_count", 'required', "Missing required property 'distinct_conversation_skill_used_count'"); }
         return new self(
             distinctConversationSkillUsedCount: ($data->distinct_conversation_skill_used_count === null ? null : SdkClient::intValue($data->distinct_conversation_skill_used_count)),
         );
