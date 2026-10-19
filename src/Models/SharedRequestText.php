@@ -80,8 +80,12 @@ class RequestTextBlock implements InputContentBlock, ContentBlockSourceContentIt
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "text") || $data->text === null) { throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "text") || $data->text === null) {
+            throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text");
         return new self(
             text: SdkClient::stringValue($data->text),
@@ -141,8 +145,12 @@ class RequestTextEditorCodeExecutionCreateResultBlock implements RequestTextEdit
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "is_file_update") || $data->is_file_update === null) { throw new SdkValidationError("is_file_update", 'required', "Required property 'is_file_update' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "is_file_update") || $data->is_file_update === null) {
+            throw new SdkValidationError("is_file_update", 'required', "Required property 'is_file_update' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text_editor_code_execution_create_result");
         return new self(
             isFileUpdate: SdkClient::boolValue($data->is_file_update),
@@ -250,7 +258,9 @@ class RequestTextEditorCodeExecutionStrReplaceResultBlock implements RequestText
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text_editor_code_execution_str_replace_result");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -334,9 +344,15 @@ class RequestTextEditorCodeExecutionToolResultBlock implements InputContentBlock
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text_editor_code_execution_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, RequestTextEditorCodeExecutionToolResultBlockContent::class, [RequestTextEditorCodeExecutionToolResultError::class, RequestTextEditorCodeExecutionViewResultBlock::class, RequestTextEditorCodeExecutionCreateResultBlock::class, RequestTextEditorCodeExecutionStrReplaceResultBlock::class], "type", ["text_editor_code_execution_tool_result_error" => RequestTextEditorCodeExecutionToolResultError::class, "text_editor_code_execution_view_result" => RequestTextEditorCodeExecutionViewResultBlock::class, "text_editor_code_execution_create_result" => RequestTextEditorCodeExecutionCreateResultBlock::class, "text_editor_code_execution_str_replace_result" => RequestTextEditorCodeExecutionStrReplaceResultBlock::class], UnknownRequestTextEditorCodeExecutionToolResultBlockContent::class),

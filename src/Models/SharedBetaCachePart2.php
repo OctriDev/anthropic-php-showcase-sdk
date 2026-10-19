@@ -56,8 +56,12 @@ class BetaCacheMissSystemChanged implements BetaDiagnosticsCacheMissReason, \Jso
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) { throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) {
+            throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "system_changed");
         return new self(
             cacheMissedInputTokens: SdkClient::intValue($data->cache_missed_input_tokens),
@@ -115,8 +119,12 @@ class BetaCacheMissToolsChanged implements BetaDiagnosticsCacheMissReason, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) { throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "cache_missed_input_tokens") || $data->cache_missed_input_tokens === null) {
+            throw new SdkValidationError("cache_missed_input_tokens", 'required', "Required property 'cache_missed_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tools_changed");
         return new self(
             cacheMissedInputTokens: SdkClient::intValue($data->cache_missed_input_tokens),
@@ -164,7 +172,9 @@ class BetaCacheMissUnavailable implements BetaDiagnosticsCacheMissReason, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "unavailable");
         return new self(
             type: SdkClient::stringValue($data->type),

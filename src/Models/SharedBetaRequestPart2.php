@@ -96,12 +96,24 @@ class BetaRequestContentBlockLocationCitation implements BetaRequestTextBlockCit
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cited_text") || $data->cited_text === null) { throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null"); }
-        if (!property_exists($data, "document_index") || $data->document_index === null) { throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null"); }
-        if (!property_exists($data, "document_title")) { throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'"); }
-        if (!property_exists($data, "end_block_index") || $data->end_block_index === null) { throw new SdkValidationError("end_block_index", 'required', "Required property 'end_block_index' is missing or null"); }
-        if (!property_exists($data, "start_block_index") || $data->start_block_index === null) { throw new SdkValidationError("start_block_index", 'required', "Required property 'start_block_index' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "cited_text") || $data->cited_text === null) {
+            throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null");
+        }
+        if (!property_exists($data, "document_index") || $data->document_index === null) {
+            throw new SdkValidationError("document_index", 'required', "Required property 'document_index' is missing or null");
+        }
+        if (!property_exists($data, "document_title")) {
+            throw new SdkValidationError("document_title", 'required', "Missing required property 'document_title'");
+        }
+        if (!property_exists($data, "end_block_index") || $data->end_block_index === null) {
+            throw new SdkValidationError("end_block_index", 'required', "Required property 'end_block_index' is missing or null");
+        }
+        if (!property_exists($data, "start_block_index") || $data->start_block_index === null) {
+            throw new SdkValidationError("start_block_index", 'required', "Required property 'start_block_index' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "content_block_location");
         return new self(
             citedText: SdkClient::stringValue($data->cited_text),
@@ -192,11 +204,21 @@ class BetaRequestCounts implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "canceled") || $data->canceled === null) { throw new SdkValidationError("canceled", 'required', "Required property 'canceled' is missing or null"); }
-        if (!property_exists($data, "errored") || $data->errored === null) { throw new SdkValidationError("errored", 'required', "Required property 'errored' is missing or null"); }
-        if (!property_exists($data, "expired") || $data->expired === null) { throw new SdkValidationError("expired", 'required', "Required property 'expired' is missing or null"); }
-        if (!property_exists($data, "processing") || $data->processing === null) { throw new SdkValidationError("processing", 'required', "Required property 'processing' is missing or null"); }
-        if (!property_exists($data, "succeeded") || $data->succeeded === null) { throw new SdkValidationError("succeeded", 'required', "Required property 'succeeded' is missing or null"); }
+        if (!property_exists($data, "canceled") || $data->canceled === null) {
+            throw new SdkValidationError("canceled", 'required', "Required property 'canceled' is missing or null");
+        }
+        if (!property_exists($data, "errored") || $data->errored === null) {
+            throw new SdkValidationError("errored", 'required', "Required property 'errored' is missing or null");
+        }
+        if (!property_exists($data, "expired") || $data->expired === null) {
+            throw new SdkValidationError("expired", 'required', "Required property 'expired' is missing or null");
+        }
+        if (!property_exists($data, "processing") || $data->processing === null) {
+            throw new SdkValidationError("processing", 'required', "Required property 'processing' is missing or null");
+        }
+        if (!property_exists($data, "succeeded") || $data->succeeded === null) {
+            throw new SdkValidationError("succeeded", 'required', "Required property 'succeeded' is missing or null");
+        }
         return new self(
             canceled: SdkClient::intValue($data->canceled),
             errored: SdkClient::intValue($data->errored),
@@ -286,11 +308,21 @@ class BetaRequestEncryptedCodeExecutionResultBlock implements BetaRequestCodeExe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "encrypted_stdout") || $data->encrypted_stdout === null) { throw new SdkValidationError("encrypted_stdout", 'required', "Required property 'encrypted_stdout' is missing or null"); }
-        if (!property_exists($data, "return_code") || $data->return_code === null) { throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null"); }
-        if (!property_exists($data, "stderr") || $data->stderr === null) { throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "encrypted_stdout") || $data->encrypted_stdout === null) {
+            throw new SdkValidationError("encrypted_stdout", 'required', "Required property 'encrypted_stdout' is missing or null");
+        }
+        if (!property_exists($data, "return_code") || $data->return_code === null) {
+            throw new SdkValidationError("return_code", 'required', "Required property 'return_code' is missing or null");
+        }
+        if (!property_exists($data, "stderr") || $data->stderr === null) {
+            throw new SdkValidationError("stderr", 'required', "Required property 'stderr' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "encrypted_code_execution_result");
         return new self(
             content: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRequestCodeExecutionOutputBlock::class), SdkClient::arrayValue($data->content))),

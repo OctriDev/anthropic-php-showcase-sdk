@@ -55,8 +55,12 @@ class BetaManagedAgentsRefreshObject implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
-        if (!property_exists($data, "http_response")) { throw new SdkValidationError("http_response", 'required', "Missing required property 'http_response'"); }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "http_response")) {
+            throw new SdkValidationError("http_response", 'required', "Missing required property 'http_response'");
+        }
         return new self(
             status: SdkClient::hydrateEnum($data->status, BetaManagedAgentsCredentialRefreshStatus::class),
             httpResponse: ($data->http_response === null ? null : SdkClient::hydrateClass($data->http_response, BetaManagedAgentsRefreshHttpResponse::class)),

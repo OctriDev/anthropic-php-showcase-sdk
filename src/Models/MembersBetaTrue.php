@@ -45,7 +45,9 @@ class BetaAddRbacGroupMemberParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) {
+            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
+        }
         return new self(
             userId: SdkClient::stringValue($data->user_id),
         );
@@ -100,8 +102,12 @@ class BetaCreateWorkspaceMemberParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) {
+            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
+        }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
+            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
+        }
         return new self(
             userId: SdkClient::stringValue($data->user_id),
             workspaceRole: SdkClient::hydrateStringEnumOrString($data->workspace_role, BetaNoBillingWorkspaceRoleSchema::class),
@@ -177,10 +183,18 @@ class BetaListResponse_WorkspaceMemberSchema_ implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "first_id")) { throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
-        if (!property_exists($data, "last_id")) { throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "first_id")) {
+            throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
+        if (!property_exists($data, "last_id")) {
+            throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaWorkspaceMemberSchema::class), SdkClient::arrayValue($data->data))),
             firstId: ($data->first_id === null ? null : SdkClient::stringValue($data->first_id)),
@@ -269,11 +283,21 @@ class BetaRbacGroupMember implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "email") || $data->email === null) { throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null"); }
-        if (!property_exists($data, "group_id") || $data->group_id === null) { throw new SdkValidationError("group_id", 'required', "Required property 'group_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "email") || $data->email === null) {
+            throw new SdkValidationError("email", 'required', "Required property 'email' is missing or null");
+        }
+        if (!property_exists($data, "group_id") || $data->group_id === null) {
+            throw new SdkValidationError("group_id", 'required', "Required property 'group_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "user_id") || $data->user_id === null) {
+            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "rbac_group_member");
         return new self(
             createdAt: SdkClient::stringValue($data->created_at),
@@ -343,9 +367,15 @@ class BetaRbacGroupMemberList implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRbacGroupMember::class), SdkClient::arrayValue($data->data))),
             hasMore: SdkClient::boolValue($data->has_more),

@@ -15,11 +15,26 @@ final readonly class CreateMessageParamsServiceTierEnum implements SdkOpenEnum
     public const AUTO = "auto";
     public const STANDARD_ONLY = "standard_only";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -260,9 +275,15 @@ class CreateMessageParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "messages") || $data->messages === null) { throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null"); }
-        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) { throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "messages") || $data->messages === null) {
+            throw new SdkValidationError("messages", 'required', "Required property 'messages' is missing or null");
+        }
+        if (!property_exists($data, "max_tokens") || $data->max_tokens === null) {
+            throw new SdkValidationError("max_tokens", 'required', "Required property 'max_tokens' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
             messages: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, InputMessage::class), SdkClient::arrayValue($data->messages))),

@@ -137,9 +137,15 @@ class CompletionRequest implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "prompt") || $data->prompt === null) { throw new SdkValidationError("prompt", 'required', "Required property 'prompt' is missing or null"); }
-        if (!property_exists($data, "max_tokens_to_sample") || $data->max_tokens_to_sample === null) { throw new SdkValidationError("max_tokens_to_sample", 'required', "Required property 'max_tokens_to_sample' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "prompt") || $data->prompt === null) {
+            throw new SdkValidationError("prompt", 'required', "Required property 'prompt' is missing or null");
+        }
+        if (!property_exists($data, "max_tokens_to_sample") || $data->max_tokens_to_sample === null) {
+            throw new SdkValidationError("max_tokens_to_sample", 'required', "Required property 'max_tokens_to_sample' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
             prompt: SdkClient::stringValue($data->prompt),
@@ -233,11 +239,21 @@ class CompletionResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "completion") || $data->completion === null) { throw new SdkValidationError("completion", 'required', "Required property 'completion' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
-        if (!property_exists($data, "stop_reason")) { throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "completion") || $data->completion === null) {
+            throw new SdkValidationError("completion", 'required', "Required property 'completion' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
+        if (!property_exists($data, "stop_reason")) {
+            throw new SdkValidationError("stop_reason", 'required', "Missing required property 'stop_reason'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "completion");
         return new self(
             completion: SdkClient::stringValue($data->completion),

@@ -76,10 +76,18 @@ class BetaLimitedNetwork implements BetaCloudConfigNetworking, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "allow_mcp_servers") || $data->allow_mcp_servers === null) { throw new SdkValidationError("allow_mcp_servers", 'required', "Required property 'allow_mcp_servers' is missing or null"); }
-        if (!property_exists($data, "allow_package_managers") || $data->allow_package_managers === null) { throw new SdkValidationError("allow_package_managers", 'required', "Required property 'allow_package_managers' is missing or null"); }
-        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) { throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "allow_mcp_servers") || $data->allow_mcp_servers === null) {
+            throw new SdkValidationError("allow_mcp_servers", 'required', "Required property 'allow_mcp_servers' is missing or null");
+        }
+        if (!property_exists($data, "allow_package_managers") || $data->allow_package_managers === null) {
+            throw new SdkValidationError("allow_package_managers", 'required', "Required property 'allow_package_managers' is missing or null");
+        }
+        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) {
+            throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "limited");
         return new self(
             allowMcpServers: SdkClient::boolValue($data->allow_mcp_servers),
@@ -165,7 +173,9 @@ class BetaLimitedNetworkParams implements BetaCloudConfigParamsNetworking, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "limited");
         return new self(
             type: SdkClient::stringValue($data->type),

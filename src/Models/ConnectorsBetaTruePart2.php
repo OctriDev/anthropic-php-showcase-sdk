@@ -45,7 +45,9 @@ class BetaAnalyticsConnectorCoworkMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_session_connector_used_count")) { throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'"); }
+        if (!property_exists($data, "distinct_session_connector_used_count")) {
+            throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'");
+        }
         return new self(
             distinctSessionConnectorUsedCount: ($data->distinct_session_connector_used_count === null ? null : SdkClient::intValue($data->distinct_session_connector_used_count)),
         );
@@ -120,10 +122,18 @@ class BetaAnalyticsConnectorOfficeMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "excel") || $data->excel === null) { throw new SdkValidationError("excel", 'required', "Required property 'excel' is missing or null"); }
-        if (!property_exists($data, "outlook") || $data->outlook === null) { throw new SdkValidationError("outlook", 'required', "Required property 'outlook' is missing or null"); }
-        if (!property_exists($data, "powerpoint") || $data->powerpoint === null) { throw new SdkValidationError("powerpoint", 'required', "Required property 'powerpoint' is missing or null"); }
-        if (!property_exists($data, "word") || $data->word === null) { throw new SdkValidationError("word", 'required', "Required property 'word' is missing or null"); }
+        if (!property_exists($data, "excel") || $data->excel === null) {
+            throw new SdkValidationError("excel", 'required', "Required property 'excel' is missing or null");
+        }
+        if (!property_exists($data, "outlook") || $data->outlook === null) {
+            throw new SdkValidationError("outlook", 'required', "Required property 'outlook' is missing or null");
+        }
+        if (!property_exists($data, "powerpoint") || $data->powerpoint === null) {
+            throw new SdkValidationError("powerpoint", 'required', "Required property 'powerpoint' is missing or null");
+        }
+        if (!property_exists($data, "word") || $data->word === null) {
+            throw new SdkValidationError("word", 'required', "Required property 'word' is missing or null");
+        }
         return new self(
             excel: SdkClient::hydrateClass($data->excel, BetaAnalyticsConnectorOfficeProductMetrics::class),
             outlook: SdkClient::hydrateClass($data->outlook, BetaAnalyticsConnectorOfficeProductMetrics::class),
@@ -171,7 +181,9 @@ class BetaAnalyticsConnectorOfficeProductMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_session_connector_used_count")) { throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'"); }
+        if (!property_exists($data, "distinct_session_connector_used_count")) {
+            throw new SdkValidationError("distinct_session_connector_used_count", 'required', "Missing required property 'distinct_session_connector_used_count'");
+        }
         return new self(
             distinctSessionConnectorUsedCount: ($data->distinct_session_connector_used_count === null ? null : SdkClient::intValue($data->distinct_session_connector_used_count)),
         );
@@ -226,8 +238,12 @@ class BetaAnalyticsConnectorsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsConnectorActivity::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

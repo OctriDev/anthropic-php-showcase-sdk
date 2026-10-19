@@ -45,7 +45,9 @@ class BetaCreateMessageBatchParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "requests") || $data->requests === null) { throw new SdkValidationError("requests", 'required', "Required property 'requests' is missing or null"); }
+        if (!property_exists($data, "requests") || $data->requests === null) {
+            throw new SdkValidationError("requests", 'required', "Required property 'requests' is missing or null");
+        }
         return new self(
             requests: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaMessageBatchIndividualRequestParams::class), SdkClient::arrayValue($data->requests))),
         );
@@ -120,10 +122,18 @@ class BetaListResponse_MessageBatch_ implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "first_id")) { throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
-        if (!property_exists($data, "last_id")) { throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "first_id")) {
+            throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
+        if (!property_exists($data, "last_id")) {
+            throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaMessageBatch::class), SdkClient::arrayValue($data->data))),
             firstId: ($data->first_id === null ? null : SdkClient::stringValue($data->first_id)),
@@ -181,8 +191,12 @@ class BetaMessageBatchIndividualRequestParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "custom_id") || $data->custom_id === null) { throw new SdkValidationError("custom_id", 'required', "Required property 'custom_id' is missing or null"); }
-        if (!property_exists($data, "params") || $data->params === null) { throw new SdkValidationError("params", 'required', "Required property 'params' is missing or null"); }
+        if (!property_exists($data, "custom_id") || $data->custom_id === null) {
+            throw new SdkValidationError("custom_id", 'required', "Required property 'custom_id' is missing or null");
+        }
+        if (!property_exists($data, "params") || $data->params === null) {
+            throw new SdkValidationError("params", 'required', "Required property 'params' is missing or null");
+        }
         return new self(
             customId: SdkClient::stringValue($data->custom_id),
             params: SdkClient::hydrateClass($data->params, BetaCreateMessageParams::class),

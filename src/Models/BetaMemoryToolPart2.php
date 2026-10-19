@@ -76,10 +76,18 @@ class BetaMemoryTool_20250818_StrReplaceCommand implements BetaMemoryTool_202508
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
-        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
-        if (!property_exists($data, "old_str") || $data->old_str === null) { throw new SdkValidationError("old_str", 'required', "Required property 'old_str' is missing or null"); }
-        if (!property_exists($data, "new_str") || $data->new_str === null) { throw new SdkValidationError("new_str", 'required', "Required property 'new_str' is missing or null"); }
+        if (!property_exists($data, "command") || $data->command === null) {
+            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
+        }
+        if (!property_exists($data, "path") || $data->path === null) {
+            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
+        }
+        if (!property_exists($data, "old_str") || $data->old_str === null) {
+            throw new SdkValidationError("old_str", 'required', "Required property 'old_str' is missing or null");
+        }
+        if (!property_exists($data, "new_str") || $data->new_str === null) {
+            throw new SdkValidationError("new_str", 'required', "Required property 'new_str' is missing or null");
+        }
         Validation::validateConst("command", $data->command, "str_replace");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_StrReplaceCommandCommandEnum::class),
@@ -159,8 +167,12 @@ class BetaMemoryTool_20250818_ViewCommand implements BetaMemoryTool_20250818_Com
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
-        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "command") || $data->command === null) {
+            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
+        }
+        if (!property_exists($data, "path") || $data->path === null) {
+            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
+        }
         Validation::validateConst("command", $data->command, "view");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_ViewCommandCommandEnum::class),

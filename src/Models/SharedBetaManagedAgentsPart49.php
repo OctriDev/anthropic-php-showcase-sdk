@@ -95,12 +95,24 @@ class BetaManagedAgentsSpanModelRequestEndEvent implements BetaManagedAgentsSess
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
-        if (!property_exists($data, "is_error")) { throw new SdkValidationError("is_error", 'required', "Missing required property 'is_error'"); }
-        if (!property_exists($data, "model_usage") || $data->model_usage === null) { throw new SdkValidationError("model_usage", 'required', "Required property 'model_usage' is missing or null"); }
-        if (!property_exists($data, "model_request_start_id") || $data->model_request_start_id === null) { throw new SdkValidationError("model_request_start_id", 'required', "Required property 'model_request_start_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
+            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
+        }
+        if (!property_exists($data, "is_error")) {
+            throw new SdkValidationError("is_error", 'required', "Missing required property 'is_error'");
+        }
+        if (!property_exists($data, "model_usage") || $data->model_usage === null) {
+            throw new SdkValidationError("model_usage", 'required', "Required property 'model_usage' is missing or null");
+        }
+        if (!property_exists($data, "model_request_start_id") || $data->model_request_start_id === null) {
+            throw new SdkValidationError("model_request_start_id", 'required', "Required property 'model_request_start_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSpanModelRequestEndEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -178,9 +190,15 @@ class BetaManagedAgentsSpanModelRequestStartEvent implements BetaManagedAgentsSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
+            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSpanModelRequestStartEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -269,10 +287,18 @@ class BetaManagedAgentsSpanModelUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
-        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null"); }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
+            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
+            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
+        }
+        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) {
+            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null");
+        }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
+            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
+        }
         return new self(
             inputTokens: SdkClient::intValue($data->input_tokens),
             outputTokens: SdkClient::intValue($data->output_tokens),
