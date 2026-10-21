@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace octridev_anthropic;
 
-final readonly class ListBetaOrganizationsAnalyticsPluginsOrderEnum implements SdkOpenEnum
+final readonly class ListBetaOrganizationAnalyticsPluginsOrderEnum implements SdkOpenEnum
 {
     public const ASC = "asc";
     public const DESC = "desc";
@@ -49,10 +49,10 @@ class BetaOrganizationsAnalyticsPlugins
      * @param list<string>|null|SdkNotGiven $groupBy
      * @param list<string>|null|SdkNotGiven $filter
      * @param string|null|SdkNotGiven $orderBy
-     * @param ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
+     * @param ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
      * @return BetaAnalyticsPluginsResponse
      */
-    public static function listBetaOrganizationsAnalyticsPlugins(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaAnalyticsPluginsResponse
+    public static function listBetaOrganizationAnalyticsPlugins(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaAnalyticsPluginsResponse
     {
 
         if ($groupBy !== SdkNotGiven::Value && $groupBy !== null) {
@@ -63,7 +63,7 @@ class BetaOrganizationsAnalyticsPlugins
             Validation::validateItems('filter[]', $filter, max: 100);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/plugins?beta=true", $clientConfig, query: ['date' => new SdkQueryValue($date, "form", true), 'starting_date' => new SdkQueryValue($startingDate, "form", true), 'ending_date' => new SdkQueryValue($endingDate, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true), 'filter[]' => new SdkQueryValue($filter, "form", true), 'order_by' => new SdkQueryValue($orderBy, "form", true), 'order' => new SdkQueryValue($order, "form", true)], returnType: BetaAnalyticsPluginsResponse::class, decoder: 'json', operationId: 'listBetaOrganizationsAnalyticsPlugins', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/plugins?beta=true", $clientConfig, query: ['date' => new SdkQueryValue($date, "form", true), 'starting_date' => new SdkQueryValue($startingDate, "form", true), 'ending_date' => new SdkQueryValue($endingDate, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true), 'filter[]' => new SdkQueryValue($filter, "form", true), 'order_by' => new SdkQueryValue($orderBy, "form", true), 'order' => new SdkQueryValue($order, "form", true)], returnType: BetaAnalyticsPluginsResponse::class, decoder: 'json', operationId: 'listBetaOrganizationAnalyticsPlugins', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaAnalyticsPluginsResponse::class));
     }
 
@@ -81,15 +81,15 @@ class BetaOrganizationsAnalyticsPlugins
      * @param list<string>|null|SdkNotGiven $groupBy
      * @param list<string>|null|SdkNotGiven $filter
      * @param string|null|SdkNotGiven $orderBy
-     * @param ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
+     * @param ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
      * @return \Generator<int,
      *   BetaAnalyticsPluginActivity>
      */
-    public static function listBetaOrganizationsAnalyticsPluginsPaginated(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
+    public static function listBetaOrganizationAnalyticsPluginsPaginated(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
     {
         $_cursor = $page;
         while (true) {
-            $_page = self::listBetaOrganizationsAnalyticsPlugins($clientConfig, $date, $startingDate, $endingDate, $limit, $_cursor, $groupBy, $filter, $orderBy, $order, $requestOptions);
+            $_page = self::listBetaOrganizationAnalyticsPlugins($clientConfig, $date, $startingDate, $endingDate, $limit, $_cursor, $groupBy, $filter, $orderBy, $order, $requestOptions);
             $_items = $_page->data ?? [];
             if (count($_items) === 0) {
                 return;
@@ -121,15 +121,15 @@ class BetaOrganizationsAnalyticsPlugins
      * @param list<string>|null|SdkNotGiven $groupBy
      * @param list<string>|null|SdkNotGiven $filter
      * @param string|null|SdkNotGiven $orderBy
-     * @param ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
+     * @param ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
      * @return \Generator<int,array{data:BetaAnalyticsPluginsResponse,items:list<BetaAnalyticsPluginActivity>,hasMore:bool}>
      */
 
-    public static function listBetaOrganizationsAnalyticsPluginsPages(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
+    public static function listBetaOrganizationAnalyticsPluginsPages(ClientConfig $clientConfig, string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
     {
         $_cursor = $page;
         while (true) {
-            $_page = self::listBetaOrganizationsAnalyticsPlugins($clientConfig, $date, $startingDate, $endingDate, $limit, $_cursor, $groupBy, $filter, $orderBy, $order, $requestOptions);
+            $_page = self::listBetaOrganizationAnalyticsPlugins($clientConfig, $date, $startingDate, $endingDate, $limit, $_cursor, $groupBy, $filter, $orderBy, $order, $requestOptions);
             $_items = $_page->data ?? [];
             if (count($_items) === 0) {
                 return;

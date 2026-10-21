@@ -27,12 +27,12 @@ class BetaOrganizationsAnalyticsPluginsNamespace
      * @param list<string>|null|SdkNotGiven $groupBy
      * @param list<string>|null|SdkNotGiven $filter
      * @param string|null|SdkNotGiven $orderBy
-     * @param ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
+     * @param ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
      * @return BetaAnalyticsPluginsResponse
      */
-    public function list_(string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaAnalyticsPluginsResponse
+    public function list_(string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaAnalyticsPluginsResponse
     {
-        return BetaOrganizationsAnalyticsPlugins::listBetaOrganizationsAnalyticsPlugins($this->clientConfig, $date, $startingDate, $endingDate, $limit, $page, $groupBy, $filter, $orderBy, $order, $requestOptions);
+        return BetaOrganizationsAnalyticsPlugins::listBetaOrganizationAnalyticsPlugins($this->clientConfig, $date, $startingDate, $endingDate, $limit, $page, $groupBy, $filter, $orderBy, $order, $requestOptions);
     }
     /**
      * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
@@ -47,12 +47,12 @@ class BetaOrganizationsAnalyticsPluginsNamespace
      * @param list<string>|null|SdkNotGiven $groupBy
      * @param list<string>|null|SdkNotGiven $filter
      * @param string|null|SdkNotGiven $orderBy
-     * @param ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
+     * @param ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order
      * @return \Generator<int,
      *   BetaAnalyticsPluginActivity>
      */
-    public function listPaginated(string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationsAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
+    public function listPaginated(string|null|SdkNotGiven $date = SdkNotGiven::Value, string|null|SdkNotGiven $startingDate = SdkNotGiven::Value, string|null|SdkNotGiven $endingDate = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, array|null|SdkNotGiven $groupBy = SdkNotGiven::Value, array|null|SdkNotGiven $filter = SdkNotGiven::Value, string|null|SdkNotGiven $orderBy = SdkNotGiven::Value, ListBetaOrganizationAnalyticsPluginsOrderEnum|null|SdkNotGiven $order = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): \Generator
     {
-        yield from BetaOrganizationsAnalyticsPlugins::listBetaOrganizationsAnalyticsPluginsPaginated($this->clientConfig, $date, $startingDate, $endingDate, $limit, $page, $groupBy, $filter, $orderBy, $order, $requestOptions);
+        yield from BetaOrganizationsAnalyticsPlugins::listBetaOrganizationAnalyticsPluginsPaginated($this->clientConfig, $date, $startingDate, $endingDate, $limit, $page, $groupBy, $filter, $orderBy, $order, $requestOptions);
     }
 }
