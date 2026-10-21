@@ -46,7 +46,9 @@ class BetaSelfHostedConfig implements BetaEnvironmentConfig, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "self_hosted");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -93,7 +95,9 @@ class BetaSelfHostedConfigParams implements BetaPublicEnvironmentCreateRequestCo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "self_hosted");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -112,11 +116,26 @@ final readonly class BetaSelfHostedWorkStateEnum implements SdkOpenEnum
     public const STOPPING = "stopping";
     public const STOPPED = "stopped";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -278,19 +297,45 @@ class BetaSelfHostedWork implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "acknowledged_at")) { throw new SdkValidationError("acknowledged_at", 'required', "Missing required property 'acknowledged_at'"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "environment_id") || $data->environment_id === null) { throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "latest_heartbeat_at")) { throw new SdkValidationError("latest_heartbeat_at", 'required', "Missing required property 'latest_heartbeat_at'"); }
-        if (!property_exists($data, "metadata") || $data->metadata === null) { throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null"); }
-        if (!property_exists($data, "secret")) { throw new SdkValidationError("secret", 'required', "Missing required property 'secret'"); }
-        if (!property_exists($data, "started_at")) { throw new SdkValidationError("started_at", 'required', "Missing required property 'started_at'"); }
-        if (!property_exists($data, "state") || $data->state === null) { throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null"); }
-        if (!property_exists($data, "stop_requested_at")) { throw new SdkValidationError("stop_requested_at", 'required', "Missing required property 'stop_requested_at'"); }
-        if (!property_exists($data, "stopped_at")) { throw new SdkValidationError("stopped_at", 'required', "Missing required property 'stopped_at'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "acknowledged_at")) {
+            throw new SdkValidationError("acknowledged_at", 'required', "Missing required property 'acknowledged_at'");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "environment_id") || $data->environment_id === null) {
+            throw new SdkValidationError("environment_id", 'required', "Required property 'environment_id' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "latest_heartbeat_at")) {
+            throw new SdkValidationError("latest_heartbeat_at", 'required', "Missing required property 'latest_heartbeat_at'");
+        }
+        if (!property_exists($data, "metadata") || $data->metadata === null) {
+            throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null");
+        }
+        if (!property_exists($data, "secret")) {
+            throw new SdkValidationError("secret", 'required', "Missing required property 'secret'");
+        }
+        if (!property_exists($data, "started_at")) {
+            throw new SdkValidationError("started_at", 'required', "Missing required property 'started_at'");
+        }
+        if (!property_exists($data, "state") || $data->state === null) {
+            throw new SdkValidationError("state", 'required', "Required property 'state' is missing or null");
+        }
+        if (!property_exists($data, "stop_requested_at")) {
+            throw new SdkValidationError("stop_requested_at", 'required', "Missing required property 'stop_requested_at'");
+        }
+        if (!property_exists($data, "stopped_at")) {
+            throw new SdkValidationError("stopped_at", 'required', "Missing required property 'stopped_at'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "work");
         return new self(
             acknowledgedAt: ($data->acknowledged_at === null ? null : SdkClient::stringValue($data->acknowledged_at)),

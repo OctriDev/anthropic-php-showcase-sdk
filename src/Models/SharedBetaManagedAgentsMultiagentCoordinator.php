@@ -55,8 +55,12 @@ class BetaManagedAgentsMultiagentCoordinator implements BetaManagedAgentsMultiag
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "agents") || $data->agents === null) { throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "agents") || $data->agents === null) {
+            throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMultiagentCoordinatorTypeEnum::class),
             agents: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsMultiagentRosterEntry::class, [BetaManagedAgentsAgentReference::class, BetaManagedAgentsAdvisor::class], "type", ["agent" => BetaManagedAgentsAgentReference::class, "advisor" => BetaManagedAgentsAdvisor::class], UnknownBetaManagedAgentsMultiagentRosterEntry::class), SdkClient::arrayValue($data->agents))),
@@ -120,8 +124,12 @@ class BetaManagedAgentsMultiagentCoordinatorParams implements BetaManagedAgentsM
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "agents") || $data->agents === null) { throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "agents") || $data->agents === null) {
+            throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMultiagentCoordinatorParamsTypeEnum::class),
             agents: array_values(array_map(static fn($item) => (is_object($item) ? SdkClient::hydrateUnion($item, [BetaManagedAgentsAgentParams::class, BetaManagedAgentsMultiagentSelfParams::class, BetaManagedAgentsAdvisorParams::class], null, []) : (is_string($item) ? SdkClient::stringValue($item) : SdkClient::hydrateUnion($item, [BetaManagedAgentsAgentParams::class, BetaManagedAgentsMultiagentSelfParams::class, BetaManagedAgentsAdvisorParams::class], null, []))), SdkClient::arrayValue($data->agents))),
@@ -175,7 +183,9 @@ class BetaManagedAgentsMultiagentSelfParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMultiagentSelfParamsTypeEnum::class),
         );
@@ -228,7 +238,9 @@ class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError implement
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonErrorTypeEnum::class),
         );
@@ -291,8 +303,12 @@ class BetaManagedAgentsOrganizationDisabledRunError implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsOrganizationDisabledRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -307,9 +323,24 @@ final readonly class BetaManagedAgentsOutcomeEvaluationResourceTypeEnum implemen
 {
     public const OUTCOME_EVALUATION = "outcome_evaluation";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

@@ -19,11 +19,26 @@ final readonly class BetaWorkspaceRateLimitGroupTypeEnum implements SdkOpenEnum
     public const TOKEN_COUNT = "token_count";
     public const WEB_SEARCH = "web_search";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -115,12 +130,24 @@ class BetaWorkspaceRateLimit implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "group_type") || $data->group_type === null) { throw new SdkValidationError("group_type", 'required', "Required property 'group_type' is missing or null"); }
-        if (!property_exists($data, "limits") || $data->limits === null) { throw new SdkValidationError("limits", 'required', "Required property 'limits' is missing or null"); }
-        if (!property_exists($data, "models")) { throw new SdkValidationError("models", 'required', "Missing required property 'models'"); }
-        if (!property_exists($data, "rate_limit_id") || $data->rate_limit_id === null) { throw new SdkValidationError("rate_limit_id", 'required', "Required property 'rate_limit_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "group_type") || $data->group_type === null) {
+            throw new SdkValidationError("group_type", 'required', "Required property 'group_type' is missing or null");
+        }
+        if (!property_exists($data, "limits") || $data->limits === null) {
+            throw new SdkValidationError("limits", 'required', "Required property 'limits' is missing or null");
+        }
+        if (!property_exists($data, "models")) {
+            throw new SdkValidationError("models", 'required', "Missing required property 'models'");
+        }
+        if (!property_exists($data, "rate_limit_id") || $data->rate_limit_id === null) {
+            throw new SdkValidationError("rate_limit_id", 'required', "Required property 'rate_limit_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
+            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "workspace_rate_limit");
         return new self(
             groupType: SdkClient::hydrateStringEnumOrString($data->group_type, BetaWorkspaceRateLimitGroupTypeEnum::class),
@@ -181,8 +208,12 @@ class BetaWorkspaceRateLimitListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaWorkspaceRateLimit::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),
@@ -248,9 +279,15 @@ class BetaWorkspaceRateLimitValue implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "org_limit")) { throw new SdkValidationError("org_limit", 'required', "Missing required property 'org_limit'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "value") || $data->value === null) { throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null"); }
+        if (!property_exists($data, "org_limit")) {
+            throw new SdkValidationError("org_limit", 'required', "Missing required property 'org_limit'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "value") || $data->value === null) {
+            throw new SdkValidationError("value", 'required', "Required property 'value' is missing or null");
+        }
         return new self(
             orgLimit: ($data->org_limit === null ? null : SdkClient::intValue($data->org_limit)),
             type: SdkClient::stringValue($data->type),

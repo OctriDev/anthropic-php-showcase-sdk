@@ -86,11 +86,21 @@ class ResponseWebSearchResultLocationCitation implements CitationsDeltaCitation,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cited_text") || $data->cited_text === null) { throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null"); }
-        if (!property_exists($data, "encrypted_index") || $data->encrypted_index === null) { throw new SdkValidationError("encrypted_index", 'required', "Required property 'encrypted_index' is missing or null"); }
-        if (!property_exists($data, "title")) { throw new SdkValidationError("title", 'required', "Missing required property 'title'"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "cited_text") || $data->cited_text === null) {
+            throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null");
+        }
+        if (!property_exists($data, "encrypted_index") || $data->encrypted_index === null) {
+            throw new SdkValidationError("encrypted_index", 'required', "Required property 'encrypted_index' is missing or null");
+        }
+        if (!property_exists($data, "title")) {
+            throw new SdkValidationError("title", 'required', "Missing required property 'title'");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_search_result_location");
         return new self(
             citedText: SdkClient::stringValue($data->cited_text),
@@ -171,10 +181,18 @@ class ResponseWebSearchToolResultBlock implements ContentBlock, ContentBlockStar
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "caller") || $data->caller === null) { throw new SdkValidationError("caller", 'required', "Required property 'caller' is missing or null"); }
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "caller") || $data->caller === null) {
+            throw new SdkValidationError("caller", 'required', "Required property 'caller' is missing or null");
+        }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_search_tool_result");
         return new self(
             caller: SdkClient::hydrateUnionAs($data->caller, ResponseWebSearchToolResultBlockCaller::class, [DirectCaller::class, ServerToolCaller::class, ServerToolCaller_20260120::class], "type", ["code_execution_20250825" => ServerToolCaller::class, "code_execution_20260120" => ServerToolCaller_20260120::class, "direct" => DirectCaller::class], UnknownResponseWebSearchToolResultBlockCaller::class),
@@ -234,8 +252,12 @@ class ResponseWebSearchToolResultError implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error_code") || $data->error_code === null) {
+            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "web_search_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, WebSearchToolResultErrorCode::class),

@@ -55,8 +55,12 @@ class BetaServiceAccountWorkspaceMemberCreateFromSAParams implements \JsonSerial
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
+            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
+        }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
+            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
+        }
         return new self(
             workspaceId: SdkClient::stringValue($data->workspace_id),
             workspaceRole: SdkClient::hydrateStringEnumOrString($data->workspace_role, BetaNoBillingWorkspaceRoleSchema::class),

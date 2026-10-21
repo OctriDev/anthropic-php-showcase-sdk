@@ -88,10 +88,18 @@ class BetaAzureExternalKeyConfig implements BetaExternalKeyProviderConfig, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "key_name") || $data->key_name === null) { throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null"); }
-        if (!property_exists($data, "tenant_id") || $data->tenant_id === null) { throw new SdkValidationError("tenant_id", 'required', "Required property 'tenant_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "vault_uri") || $data->vault_uri === null) { throw new SdkValidationError("vault_uri", 'required', "Required property 'vault_uri' is missing or null"); }
+        if (!property_exists($data, "key_name") || $data->key_name === null) {
+            throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null");
+        }
+        if (!property_exists($data, "tenant_id") || $data->tenant_id === null) {
+            throw new SdkValidationError("tenant_id", 'required', "Required property 'tenant_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "vault_uri") || $data->vault_uri === null) {
+            throw new SdkValidationError("vault_uri", 'required', "Required property 'vault_uri' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "azure");
         return new self(
             keyName: SdkClient::stringValue($data->key_name),
@@ -184,10 +192,18 @@ class BetaAzureExternalKeyConfigParams implements BetaExternalKeyCreateParamsPro
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "key_name") || $data->key_name === null) { throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null"); }
-        if (!property_exists($data, "tenant_id") || $data->tenant_id === null) { throw new SdkValidationError("tenant_id", 'required', "Required property 'tenant_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "vault_uri") || $data->vault_uri === null) { throw new SdkValidationError("vault_uri", 'required', "Required property 'vault_uri' is missing or null"); }
+        if (!property_exists($data, "key_name") || $data->key_name === null) {
+            throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null");
+        }
+        if (!property_exists($data, "tenant_id") || $data->tenant_id === null) {
+            throw new SdkValidationError("tenant_id", 'required', "Required property 'tenant_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "vault_uri") || $data->vault_uri === null) {
+            throw new SdkValidationError("vault_uri", 'required', "Required property 'vault_uri' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "azure");
         return new self(
             keyName: SdkClient::stringValue($data->key_name),

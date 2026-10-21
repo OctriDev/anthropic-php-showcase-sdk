@@ -66,9 +66,15 @@ class BetaCloudConfig implements BetaEnvironmentConfig, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "networking") || $data->networking === null) { throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null"); }
-        if (!property_exists($data, "packages") || $data->packages === null) { throw new SdkValidationError("packages", 'required', "Required property 'packages' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "networking") || $data->networking === null) {
+            throw new SdkValidationError("networking", 'required', "Required property 'networking' is missing or null");
+        }
+        if (!property_exists($data, "packages") || $data->packages === null) {
+            throw new SdkValidationError("packages", 'required', "Required property 'packages' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "cloud");
         return new self(
             networking: SdkClient::hydrateUnionAs($data->networking, BetaCloudConfigNetworking::class, [BetaUnrestrictedNetwork::class, BetaLimitedNetwork::class], "type", ["limited" => BetaLimitedNetwork::class, "unrestricted" => BetaUnrestrictedNetwork::class], UnknownBetaCloudConfigNetworking::class),
@@ -141,7 +147,9 @@ class BetaCloudConfigParams implements BetaPublicEnvironmentCreateRequestConfig,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "cloud");
         return new self(
             type: SdkClient::stringValue($data->type),

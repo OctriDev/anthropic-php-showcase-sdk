@@ -22,11 +22,26 @@ final readonly class ErrorType implements SdkOpenEnum
     public const API_ERROR = "api_error";
     public const BILLING_ERROR = "billing_error";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -78,8 +93,12 @@ class InputJsonContentBlockDelta implements ContentBlockDeltaEventDelta, \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "partial_json") || $data->partial_json === null) { throw new SdkValidationError("partial_json", 'required', "Required property 'partial_json' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "partial_json") || $data->partial_json === null) {
+            throw new SdkValidationError("partial_json", 'required', "Required property 'partial_json' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "input_json_delta");
         return new self(
             partialJson: SdkClient::stringValue($data->partial_json),
@@ -137,8 +156,12 @@ class SignatureContentBlockDelta implements ContentBlockDeltaEventDelta, \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signature") || $data->signature === null) { throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "signature") || $data->signature === null) {
+            throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "signature_delta");
         return new self(
             signature: SdkClient::stringValue($data->signature),
@@ -196,8 +219,12 @@ class TextContentBlockDelta implements ContentBlockDeltaEventDelta, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "text") || $data->text === null) { throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "text") || $data->text === null) {
+            throw new SdkValidationError("text", 'required', "Required property 'text' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "text_delta");
         return new self(
             text: SdkClient::stringValue($data->text),
@@ -255,8 +282,12 @@ class ThinkingContentBlockDelta implements ContentBlockDeltaEventDelta, \JsonSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "thinking") || $data->thinking === null) { throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "thinking") || $data->thinking === null) {
+            throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "thinking_delta");
         return new self(
             thinking: SdkClient::stringValue($data->thinking),

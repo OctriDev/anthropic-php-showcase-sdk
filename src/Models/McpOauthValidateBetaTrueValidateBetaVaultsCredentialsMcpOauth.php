@@ -17,11 +17,26 @@ final readonly class BetaManagedAgentsCredentialRefreshStatus implements SdkOpen
     public const CONNECT_ERROR = "connect_error";
     public const NO_REFRESH_TOKEN = "no_refresh_token";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -31,11 +46,26 @@ final readonly class BetaManagedAgentsCredentialValidationTypeEnum implements Sd
 {
     public const VAULT_CREDENTIAL_VALIDATION = "vault_credential_validation";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -146,14 +176,30 @@ class BetaManagedAgentsCredentialValidation implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "credential_id") || $data->credential_id === null) { throw new SdkValidationError("credential_id", 'required', "Required property 'credential_id' is missing or null"); }
-        if (!property_exists($data, "vault_id") || $data->vault_id === null) { throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null"); }
-        if (!property_exists($data, "status") || $data->status === null) { throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null"); }
-        if (!property_exists($data, "validated_at") || $data->validated_at === null) { throw new SdkValidationError("validated_at", 'required', "Required property 'validated_at' is missing or null"); }
-        if (!property_exists($data, "has_refresh_token") || $data->has_refresh_token === null) { throw new SdkValidationError("has_refresh_token", 'required', "Required property 'has_refresh_token' is missing or null"); }
-        if (!property_exists($data, "mcp_probe")) { throw new SdkValidationError("mcp_probe", 'required', "Missing required property 'mcp_probe'"); }
-        if (!property_exists($data, "refresh")) { throw new SdkValidationError("refresh", 'required', "Missing required property 'refresh'"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "credential_id") || $data->credential_id === null) {
+            throw new SdkValidationError("credential_id", 'required', "Required property 'credential_id' is missing or null");
+        }
+        if (!property_exists($data, "vault_id") || $data->vault_id === null) {
+            throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null");
+        }
+        if (!property_exists($data, "status") || $data->status === null) {
+            throw new SdkValidationError("status", 'required', "Required property 'status' is missing or null");
+        }
+        if (!property_exists($data, "validated_at") || $data->validated_at === null) {
+            throw new SdkValidationError("validated_at", 'required', "Required property 'validated_at' is missing or null");
+        }
+        if (!property_exists($data, "has_refresh_token") || $data->has_refresh_token === null) {
+            throw new SdkValidationError("has_refresh_token", 'required', "Required property 'has_refresh_token' is missing or null");
+        }
+        if (!property_exists($data, "mcp_probe")) {
+            throw new SdkValidationError("mcp_probe", 'required', "Missing required property 'mcp_probe'");
+        }
+        if (!property_exists($data, "refresh")) {
+            throw new SdkValidationError("refresh", 'required', "Missing required property 'refresh'");
+        }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsCredentialValidationTypeEnum::class),
             credentialId: SdkClient::stringValue($data->credential_id),
@@ -176,11 +222,26 @@ final readonly class BetaManagedAgentsCredentialValidationStatus implements SdkO
     public const INVALID = "invalid";
     public const UNKNOWN = "unknown";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -231,8 +292,12 @@ class BetaManagedAgentsMcpProbe implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "method") || $data->method === null) { throw new SdkValidationError("method", 'required', "Required property 'method' is missing or null"); }
-        if (!property_exists($data, "http_response")) { throw new SdkValidationError("http_response", 'required', "Missing required property 'http_response'"); }
+        if (!property_exists($data, "method") || $data->method === null) {
+            throw new SdkValidationError("method", 'required', "Required property 'method' is missing or null");
+        }
+        if (!property_exists($data, "http_response")) {
+            throw new SdkValidationError("http_response", 'required', "Missing required property 'http_response'");
+        }
         return new self(
             method: SdkClient::stringValue($data->method),
             httpResponse: ($data->http_response === null ? null : SdkClient::hydrateClass($data->http_response, BetaManagedAgentsRefreshHttpResponse::class)),
@@ -308,10 +373,18 @@ class BetaManagedAgentsRefreshHttpResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "status_code") || $data->status_code === null) { throw new SdkValidationError("status_code", 'required', "Required property 'status_code' is missing or null"); }
-        if (!property_exists($data, "content_type") || $data->content_type === null) { throw new SdkValidationError("content_type", 'required', "Required property 'content_type' is missing or null"); }
-        if (!property_exists($data, "body") || $data->body === null) { throw new SdkValidationError("body", 'required', "Required property 'body' is missing or null"); }
-        if (!property_exists($data, "body_truncated") || $data->body_truncated === null) { throw new SdkValidationError("body_truncated", 'required', "Required property 'body_truncated' is missing or null"); }
+        if (!property_exists($data, "status_code") || $data->status_code === null) {
+            throw new SdkValidationError("status_code", 'required', "Required property 'status_code' is missing or null");
+        }
+        if (!property_exists($data, "content_type") || $data->content_type === null) {
+            throw new SdkValidationError("content_type", 'required', "Required property 'content_type' is missing or null");
+        }
+        if (!property_exists($data, "body") || $data->body === null) {
+            throw new SdkValidationError("body", 'required', "Required property 'body' is missing or null");
+        }
+        if (!property_exists($data, "body_truncated") || $data->body_truncated === null) {
+            throw new SdkValidationError("body_truncated", 'required', "Required property 'body_truncated' is missing or null");
+        }
         return new self(
             statusCode: SdkClient::intValue($data->status_code),
             contentType: SdkClient::stringValue($data->content_type),

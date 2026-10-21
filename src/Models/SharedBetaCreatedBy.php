@@ -55,8 +55,12 @@ class BetaCreatedBy implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             id: SdkClient::stringValue($data->id),
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaCreatedByTypeEnum::class),
@@ -71,11 +75,26 @@ final readonly class BetaCurrency implements SdkOpenEnum
 {
     public const USD = "USD";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -136,9 +155,15 @@ class BetaDataResidency implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "allowed_inference_geos") || $data->allowed_inference_geos === null) { throw new SdkValidationError("allowed_inference_geos", 'required', "Required property 'allowed_inference_geos' is missing or null"); }
-        if (!property_exists($data, "default_inference_geo") || $data->default_inference_geo === null) { throw new SdkValidationError("default_inference_geo", 'required', "Required property 'default_inference_geo' is missing or null"); }
-        if (!property_exists($data, "workspace_geo") || $data->workspace_geo === null) { throw new SdkValidationError("workspace_geo", 'required', "Required property 'workspace_geo' is missing or null"); }
+        if (!property_exists($data, "allowed_inference_geos") || $data->allowed_inference_geos === null) {
+            throw new SdkValidationError("allowed_inference_geos", 'required', "Required property 'allowed_inference_geos' is missing or null");
+        }
+        if (!property_exists($data, "default_inference_geo") || $data->default_inference_geo === null) {
+            throw new SdkValidationError("default_inference_geo", 'required', "Required property 'default_inference_geo' is missing or null");
+        }
+        if (!property_exists($data, "workspace_geo") || $data->workspace_geo === null) {
+            throw new SdkValidationError("workspace_geo", 'required', "Required property 'workspace_geo' is missing or null");
+        }
         return new self(
             allowedInferenceGeos: (is_array($data->allowed_inference_geos) ? array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_inference_geos))) : SdkClient::stringValue($data->allowed_inference_geos)),
             defaultInferenceGeo: SdkClient::stringValue($data->default_inference_geo),
@@ -186,7 +211,9 @@ class BetaDirectCaller implements BetaResponseToolUseBlockCaller, BetaResponseSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "direct");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -243,8 +270,12 @@ class BetaGatewayTimeoutError implements BetaManagedAgentsError, BetaDreamingErr
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "timeout_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -302,8 +333,12 @@ class BetaGcpExternalKeyConfig implements BetaExternalKeyProviderConfig, BetaExt
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "key_name") || $data->key_name === null) { throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "key_name") || $data->key_name === null) {
+            throw new SdkValidationError("key_name", 'required', "Required property 'key_name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "gcp");
         return new self(
             keyName: SdkClient::stringValue($data->key_name),

@@ -104,7 +104,9 @@ class OutputTokensDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "thinking_tokens") || $data->thinking_tokens === null) { throw new SdkValidationError("thinking_tokens", 'required', "Required property 'thinking_tokens' is missing or null"); }
+        if (!property_exists($data, "thinking_tokens") || $data->thinking_tokens === null) {
+            throw new SdkValidationError("thinking_tokens", 'required', "Required property 'thinking_tokens' is missing or null");
+        }
         return new self(
             thinkingTokens: SdkClient::intValue($data->thinking_tokens),
         );

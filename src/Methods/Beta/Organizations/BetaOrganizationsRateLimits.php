@@ -16,11 +16,26 @@ final readonly class ListBetaOrganizationsRateLimitsGroupTypeEnum implements Sdk
     public const TOKEN_COUNT = "token_count";
     public const WEB_SEARCH = "web_search";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 class BetaOrganizationsRateLimits
@@ -40,7 +55,7 @@ class BetaOrganizationsRateLimits
     public static function listBetaOrganizationsRateLimits(ClientConfig $clientConfig, string|null|SdkNotGiven $model = SdkNotGiven::Value, ListBetaOrganizationsRateLimitsGroupTypeEnum|null|SdkNotGiven $groupType = SdkNotGiven::Value, int|null|SdkNotGiven $limit = SdkNotGiven::Value, string|null|SdkNotGiven $page = SdkNotGiven::Value, string|SdkNotGiven $anthropicVersion = SdkNotGiven::Value, ?RequestOptions $requestOptions = null): BetaRateLimitListResponse
     {
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/rate_limits?beta=true", $clientConfig, query: ['model' => new SdkQueryValue($model, "form", true), 'group_type' => new SdkQueryValue($groupType, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: BetaRateLimitListResponse::class, decoder: 'json', operationId: 'listBetaOrganizationsRateLimits', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/rate_limits?beta=true", $clientConfig, query: ['model' => new SdkQueryValue($model, "form", true), 'group_type' => new SdkQueryValue($groupType, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true)], returnType: BetaRateLimitListResponse::class, decoder: 'json', operationId: 'listBetaOrganizationsRateLimits', extraHeaders: ["anthropic-version" => SdkClient::headerValue($anthropicVersion, false)], requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaRateLimitListResponse::class));
     }
 

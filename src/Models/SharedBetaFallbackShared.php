@@ -99,7 +99,9 @@ class BetaFallbackConfigV2 implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "model") || $data->model === null) {
+            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
+        }
         return new self(
             model: SdkClient::stringValue($data->model),
             maxTokens: (property_exists($data, "max_tokens") ? ($data->max_tokens === null ? null : SdkClient::intValue($data->max_tokens)) : SdkNotGiven::Value),
@@ -129,11 +131,26 @@ final readonly class BetaFallbackCreditNotAppliedReasonEnum implements SdkOpenEn
     public const WRONG_PLATFORM = "wrong_platform";
     public const WRONG_WORKSPACE = "wrong_workspace";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -197,8 +214,12 @@ class BetaFallbackCreditNotApplied implements BetaFallbackCreditUsageStatus, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "reason") || $data->reason === null) { throw new SdkValidationError("reason", 'required', "Required property 'reason' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "reason") || $data->reason === null) {
+            throw new SdkValidationError("reason", 'required', "Required property 'reason' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "not_applied");
         return new self(
             reason: SdkClient::hydrateStringEnumOrString($data->reason, BetaFallbackCreditNotAppliedReasonEnum::class),
@@ -247,7 +268,9 @@ class BetaFallbackCreditRedeemed implements BetaFallbackCreditUsageStatus, \Json
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "redeemed");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -263,11 +286,26 @@ final readonly class BetaFallbackCreditTokenParamModeEnum implements SdkOpenEnum
     public const STRICT = "strict";
     public const BEST_EFFORT = "best_effort";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -320,7 +358,9 @@ class BetaFallbackCreditTokenParam implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "token") || $data->token === null) { throw new SdkValidationError("token", 'required', "Required property 'token' is missing or null"); }
+        if (!property_exists($data, "token") || $data->token === null) {
+            throw new SdkValidationError("token", 'required', "Required property 'token' is missing or null");
+        }
         return new self(
             token: SdkClient::stringValue($data->token),
             mode: (property_exists($data, "mode") && $data->mode !== null ? SdkClient::hydrateStringEnumOrString($data->mode, BetaFallbackCreditTokenParamModeEnum::class) : SdkNotGiven::Value),

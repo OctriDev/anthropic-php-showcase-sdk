@@ -104,8 +104,12 @@ class RequestDocumentBlock implements InputContentBlock, RequestToolResultBlockC
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) {
+            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "document");
         return new self(
             source: SdkClient::hydrateUnionAs($data->source, RequestDocumentBlockSource::class, [Base64PDFSource::class, PlainTextSource::class, ContentBlockSource::class, URLPDFSource::class, FileDocumentSource::class], "type", ["base64" => Base64PDFSource::class, "content" => ContentBlockSource::class, "file" => FileDocumentSource::class, "text" => PlainTextSource::class, "url" => URLPDFSource::class], UnknownRequestDocumentBlockSource::class),
