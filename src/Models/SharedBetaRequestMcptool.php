@@ -92,12 +92,8 @@ class BetaRequestMCPToolResultBlock implements BetaInputContentBlock, \JsonSeria
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
-            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "mcp_tool_result");
         return new self(
             toolUseId: SdkClient::stringValue($data->tool_use_id),
@@ -200,21 +196,11 @@ class BetaRequestMCPToolUseBlock implements BetaInputContentBlock, \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "input") || $data->input === null) {
-            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "server_name") || $data->server_name === null) {
-            throw new SdkValidationError("server_name", 'required', "Required property 'server_name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "server_name") || $data->server_name === null) { throw new SdkValidationError("server_name", 'required', "Required property 'server_name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "mcp_tool_use");
         return new self(
             id: SdkClient::stringValue($data->id),

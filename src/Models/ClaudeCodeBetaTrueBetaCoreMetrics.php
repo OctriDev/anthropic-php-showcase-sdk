@@ -75,18 +75,10 @@ class BetaCoreMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "commits_by_claude_code") || $data->commits_by_claude_code === null) {
-            throw new SdkValidationError("commits_by_claude_code", 'required', "Required property 'commits_by_claude_code' is missing or null");
-        }
-        if (!property_exists($data, "lines_of_code") || $data->lines_of_code === null) {
-            throw new SdkValidationError("lines_of_code", 'required', "Required property 'lines_of_code' is missing or null");
-        }
-        if (!property_exists($data, "num_sessions") || $data->num_sessions === null) {
-            throw new SdkValidationError("num_sessions", 'required', "Required property 'num_sessions' is missing or null");
-        }
-        if (!property_exists($data, "pull_requests_by_claude_code") || $data->pull_requests_by_claude_code === null) {
-            throw new SdkValidationError("pull_requests_by_claude_code", 'required', "Required property 'pull_requests_by_claude_code' is missing or null");
-        }
+        if (!property_exists($data, "commits_by_claude_code") || $data->commits_by_claude_code === null) { throw new SdkValidationError("commits_by_claude_code", 'required', "Required property 'commits_by_claude_code' is missing or null"); }
+        if (!property_exists($data, "lines_of_code") || $data->lines_of_code === null) { throw new SdkValidationError("lines_of_code", 'required', "Required property 'lines_of_code' is missing or null"); }
+        if (!property_exists($data, "num_sessions") || $data->num_sessions === null) { throw new SdkValidationError("num_sessions", 'required', "Required property 'num_sessions' is missing or null"); }
+        if (!property_exists($data, "pull_requests_by_claude_code") || $data->pull_requests_by_claude_code === null) { throw new SdkValidationError("pull_requests_by_claude_code", 'required', "Required property 'pull_requests_by_claude_code' is missing or null"); }
         return new self(
             commitsByClaudeCode: SdkClient::intValue($data->commits_by_claude_code),
             linesOfCode: SdkClient::hydrateClass($data->lines_of_code, BetaLinesOfCode::class),
@@ -104,26 +96,11 @@ final readonly class BetaCustomerType implements SdkOpenEnum
     public const API = "api";
     public const SUBSCRIPTION = "subscription";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -174,12 +151,8 @@ class BetaEstimatedCost implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "amount") || $data->amount === null) {
-            throw new SdkValidationError("amount", 'required', "Required property 'amount' is missing or null");
-        }
-        if (!property_exists($data, "currency") || $data->currency === null) {
-            throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null");
-        }
+        if (!property_exists($data, "amount") || $data->amount === null) { throw new SdkValidationError("amount", 'required', "Required property 'amount' is missing or null"); }
+        if (!property_exists($data, "currency") || $data->currency === null) { throw new SdkValidationError("currency", 'required', "Required property 'currency' is missing or null"); }
         return new self(
             amount: SdkClient::intValue($data->amount),
             currency: SdkClient::stringValue($data->currency),
@@ -245,15 +218,9 @@ class BetaGetClaudeCodeUsageReportResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "has_more") || $data->has_more === null) {
-            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaClaudeCodeUsageReportItem::class), SdkClient::arrayValue($data->data))),
             hasMore: SdkClient::boolValue($data->has_more),
@@ -310,12 +277,8 @@ class BetaLinesOfCode implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "added") || $data->added === null) {
-            throw new SdkValidationError("added", 'required', "Required property 'added' is missing or null");
-        }
-        if (!property_exists($data, "removed") || $data->removed === null) {
-            throw new SdkValidationError("removed", 'required', "Required property 'removed' is missing or null");
-        }
+        if (!property_exists($data, "added") || $data->added === null) { throw new SdkValidationError("added", 'required', "Required property 'added' is missing or null"); }
+        if (!property_exists($data, "removed") || $data->removed === null) { throw new SdkValidationError("removed", 'required', "Required property 'removed' is missing or null"); }
         return new self(
             added: SdkClient::intValue($data->added),
             removed: SdkClient::intValue($data->removed),

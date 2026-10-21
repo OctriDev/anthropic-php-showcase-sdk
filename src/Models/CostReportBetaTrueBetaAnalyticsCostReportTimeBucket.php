@@ -65,15 +65,9 @@ class BetaAnalyticsCostReportTimeBucket implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "ending_at") || $data->ending_at === null) {
-            throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null");
-        }
-        if (!property_exists($data, "results") || $data->results === null) {
-            throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null");
-        }
-        if (!property_exists($data, "starting_at") || $data->starting_at === null) {
-            throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null");
-        }
+        if (!property_exists($data, "ending_at") || $data->ending_at === null) { throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null"); }
+        if (!property_exists($data, "results") || $data->results === null) { throw new SdkValidationError("results", 'required', "Required property 'results' is missing or null"); }
+        if (!property_exists($data, "starting_at") || $data->starting_at === null) { throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null"); }
         return new self(
             endingAt: SdkClient::stringValue($data->ending_at),
             results: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsCostBucketedResult::class), SdkClient::arrayValue($data->results))),

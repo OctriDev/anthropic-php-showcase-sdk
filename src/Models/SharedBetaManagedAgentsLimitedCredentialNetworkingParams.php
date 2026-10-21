@@ -55,12 +55,8 @@ class BetaManagedAgentsLimitedCredentialNetworkingParams implements BetaManagedA
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) {
-            throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) { throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsLimitedCredentialNetworkingParamsTypeEnum::class),
             allowedHosts: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_hosts))),
@@ -124,12 +120,8 @@ class BetaManagedAgentsLimitedCredentialNetworkingResponse implements BetaManage
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) {
-            throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "allowed_hosts") || $data->allowed_hosts === null) { throw new SdkValidationError("allowed_hosts", 'required', "Required property 'allowed_hosts' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsLimitedCredentialNetworkingResponseTypeEnum::class),
             allowedHosts: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->allowed_hosts))),
@@ -145,26 +137,11 @@ final readonly class BetaManagedAgentsListOrder implements SdkOpenEnum
     public const ASC = "asc";
     public const DESC = "desc";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -213,9 +190,7 @@ class BetaManagedAgentsManualDeploymentPausedReason implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsManualDeploymentPausedReasonTypeEnum::class),
         );
@@ -268,9 +243,7 @@ class BetaManagedAgentsManualTriggerContext implements BetaManagedAgentsTriggerC
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsManualTriggerContextTypeEnum::class),
         );
@@ -353,18 +326,10 @@ class BetaManagedAgentsMcpAuthenticationFailedError implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "retry_status") || $data->retry_status === null) {
-            throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "retry_status") || $data->retry_status === null) { throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null"); }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpAuthenticationFailedErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),

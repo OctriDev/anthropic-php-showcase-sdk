@@ -119,24 +119,12 @@ class BetaManagedAgentsAgentMcpToolUseEvent implements BetaManagedAgentsSessionE
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
-        if (!property_exists($data, "input") || $data->input === null) {
-            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
+        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAgentMcpToolUseEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -226,18 +214,10 @@ class BetaManagedAgentsAgentMessageEvent implements BetaManagedAgentsSessionEven
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAgentMessageEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -315,12 +295,8 @@ class BetaManagedAgentsAgentParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAgentParamsTypeEnum::class),
             id: SdkClient::stringValue($data->id),

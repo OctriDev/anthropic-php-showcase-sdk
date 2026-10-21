@@ -89,15 +89,9 @@ class BetaManagedAgentsGitHubRepositoryResourceParams implements BetaManagedAgen
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
-        if (!property_exists($data, "authorization_token") || $data->authorization_token === null) {
-            throw new SdkValidationError("authorization_token", 'required', "Required property 'authorization_token' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "authorization_token") || $data->authorization_token === null) { throw new SdkValidationError("authorization_token", 'required', "Required property 'authorization_token' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsGitHubRepositoryResourceParamsTypeEnum::class),
             url: SdkClient::stringValue($data->url),
@@ -178,18 +172,10 @@ class BetaManagedAgentsGlobToolConfig implements BetaManagedAgentsAgentToolConfi
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         Validation::validateConst("type", $data->type, "glob");
         Validation::validateConst("name", $data->name, "glob");
         return new self(
@@ -279,9 +265,7 @@ class BetaManagedAgentsGlobToolConfigParams implements BetaManagedAgentsAgentToo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         Validation::validateConst("name", $data->name, "glob");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "glob");

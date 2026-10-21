@@ -106,27 +106,13 @@ class ResponseSearchResultLocationCitation implements CitationsDeltaCitation, Re
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cited_text") || $data->cited_text === null) {
-            throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null");
-        }
-        if (!property_exists($data, "end_block_index") || $data->end_block_index === null) {
-            throw new SdkValidationError("end_block_index", 'required', "Required property 'end_block_index' is missing or null");
-        }
-        if (!property_exists($data, "search_result_index") || $data->search_result_index === null) {
-            throw new SdkValidationError("search_result_index", 'required', "Required property 'search_result_index' is missing or null");
-        }
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
-        if (!property_exists($data, "start_block_index") || $data->start_block_index === null) {
-            throw new SdkValidationError("start_block_index", 'required', "Required property 'start_block_index' is missing or null");
-        }
-        if (!property_exists($data, "title")) {
-            throw new SdkValidationError("title", 'required', "Missing required property 'title'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "cited_text") || $data->cited_text === null) { throw new SdkValidationError("cited_text", 'required', "Required property 'cited_text' is missing or null"); }
+        if (!property_exists($data, "end_block_index") || $data->end_block_index === null) { throw new SdkValidationError("end_block_index", 'required', "Required property 'end_block_index' is missing or null"); }
+        if (!property_exists($data, "search_result_index") || $data->search_result_index === null) { throw new SdkValidationError("search_result_index", 'required', "Required property 'search_result_index' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
+        if (!property_exists($data, "start_block_index") || $data->start_block_index === null) { throw new SdkValidationError("start_block_index", 'required', "Required property 'start_block_index' is missing or null"); }
+        if (!property_exists($data, "title")) { throw new SdkValidationError("title", 'required', "Missing required property 'title'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "search_result_location");
         return new self(
             citedText: SdkClient::stringValue($data->cited_text),
@@ -199,15 +185,9 @@ class ResponseThinkingBlock implements ContentBlock, ContentBlockStartEventConte
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signature") || $data->signature === null) {
-            throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null");
-        }
-        if (!property_exists($data, "thinking") || $data->thinking === null) {
-            throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "signature") || $data->signature === null) { throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null"); }
+        if (!property_exists($data, "thinking") || $data->thinking === null) { throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "thinking");
         return new self(
             signature: SdkClient::stringValue($data->signature),

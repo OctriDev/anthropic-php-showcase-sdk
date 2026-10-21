@@ -125,33 +125,15 @@ class ModelCapabilities implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "batch") || $data->batch === null) {
-            throw new SdkValidationError("batch", 'required', "Required property 'batch' is missing or null");
-        }
-        if (!property_exists($data, "citations") || $data->citations === null) {
-            throw new SdkValidationError("citations", 'required', "Required property 'citations' is missing or null");
-        }
-        if (!property_exists($data, "code_execution") || $data->code_execution === null) {
-            throw new SdkValidationError("code_execution", 'required', "Required property 'code_execution' is missing or null");
-        }
-        if (!property_exists($data, "context_management") || $data->context_management === null) {
-            throw new SdkValidationError("context_management", 'required', "Required property 'context_management' is missing or null");
-        }
-        if (!property_exists($data, "effort") || $data->effort === null) {
-            throw new SdkValidationError("effort", 'required', "Required property 'effort' is missing or null");
-        }
-        if (!property_exists($data, "image_input") || $data->image_input === null) {
-            throw new SdkValidationError("image_input", 'required', "Required property 'image_input' is missing or null");
-        }
-        if (!property_exists($data, "pdf_input") || $data->pdf_input === null) {
-            throw new SdkValidationError("pdf_input", 'required', "Required property 'pdf_input' is missing or null");
-        }
-        if (!property_exists($data, "structured_outputs") || $data->structured_outputs === null) {
-            throw new SdkValidationError("structured_outputs", 'required', "Required property 'structured_outputs' is missing or null");
-        }
-        if (!property_exists($data, "thinking") || $data->thinking === null) {
-            throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null");
-        }
+        if (!property_exists($data, "batch") || $data->batch === null) { throw new SdkValidationError("batch", 'required', "Required property 'batch' is missing or null"); }
+        if (!property_exists($data, "citations") || $data->citations === null) { throw new SdkValidationError("citations", 'required', "Required property 'citations' is missing or null"); }
+        if (!property_exists($data, "code_execution") || $data->code_execution === null) { throw new SdkValidationError("code_execution", 'required', "Required property 'code_execution' is missing or null"); }
+        if (!property_exists($data, "context_management") || $data->context_management === null) { throw new SdkValidationError("context_management", 'required', "Required property 'context_management' is missing or null"); }
+        if (!property_exists($data, "effort") || $data->effort === null) { throw new SdkValidationError("effort", 'required', "Required property 'effort' is missing or null"); }
+        if (!property_exists($data, "image_input") || $data->image_input === null) { throw new SdkValidationError("image_input", 'required', "Required property 'image_input' is missing or null"); }
+        if (!property_exists($data, "pdf_input") || $data->pdf_input === null) { throw new SdkValidationError("pdf_input", 'required', "Required property 'pdf_input' is missing or null"); }
+        if (!property_exists($data, "structured_outputs") || $data->structured_outputs === null) { throw new SdkValidationError("structured_outputs", 'required', "Required property 'structured_outputs' is missing or null"); }
+        if (!property_exists($data, "thinking") || $data->thinking === null) { throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null"); }
         return new self(
             batch: SdkClient::hydrateClass($data->batch, CapabilitySupport::class),
             citations: SdkClient::hydrateClass($data->citations, CapabilitySupport::class),
@@ -265,27 +247,13 @@ class ModelInfo implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "capabilities")) {
-            throw new SdkValidationError("capabilities", 'required', "Missing required property 'capabilities'");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "display_name") || $data->display_name === null) {
-            throw new SdkValidationError("display_name", 'required', "Required property 'display_name' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "max_input_tokens")) {
-            throw new SdkValidationError("max_input_tokens", 'required', "Missing required property 'max_input_tokens'");
-        }
-        if (!property_exists($data, "max_tokens")) {
-            throw new SdkValidationError("max_tokens", 'required', "Missing required property 'max_tokens'");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "capabilities")) { throw new SdkValidationError("capabilities", 'required', "Missing required property 'capabilities'"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "display_name") || $data->display_name === null) { throw new SdkValidationError("display_name", 'required', "Required property 'display_name' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "max_input_tokens")) { throw new SdkValidationError("max_input_tokens", 'required', "Missing required property 'max_input_tokens'"); }
+        if (!property_exists($data, "max_tokens")) { throw new SdkValidationError("max_tokens", 'required', "Missing required property 'max_tokens'"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "model");
         return new self(
             capabilities: ($data->capabilities === null ? null : SdkClient::hydrateClass($data->capabilities, ModelCapabilities::class)),
@@ -347,12 +315,8 @@ class ThinkingCapability implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "supported") || $data->supported === null) {
-            throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null");
-        }
-        if (!property_exists($data, "types") || $data->types === null) {
-            throw new SdkValidationError("types", 'required', "Required property 'types' is missing or null");
-        }
+        if (!property_exists($data, "supported") || $data->supported === null) { throw new SdkValidationError("supported", 'required', "Required property 'supported' is missing or null"); }
+        if (!property_exists($data, "types") || $data->types === null) { throw new SdkValidationError("types", 'required', "Required property 'types' is missing or null"); }
         return new self(
             supported: SdkClient::boolValue($data->supported),
             types: SdkClient::hydrateClass($data->types, ThinkingTypes::class),

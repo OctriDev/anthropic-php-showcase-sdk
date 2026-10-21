@@ -12,26 +12,11 @@ final readonly class ListBetaOrganizationAnalyticsPluginsOrderEnum implements Sd
     public const ASC = "asc";
     public const DESC = "desc";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 class BetaOrganizationsAnalyticsPlugins
@@ -63,7 +48,7 @@ class BetaOrganizationsAnalyticsPlugins
             Validation::validateItems('filter[]', $filter, max: 100);
         }
 
-        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/plugins?beta=true", $clientConfig, query: ['date' => new SdkQueryValue($date, "form", true), 'starting_date' => new SdkQueryValue($startingDate, "form", true), 'ending_date' => new SdkQueryValue($endingDate, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true), 'filter[]' => new SdkQueryValue($filter, "form", true), 'order_by' => new SdkQueryValue($orderBy, "form", true), 'order' => new SdkQueryValue($order, "form", true)], returnType: BetaAnalyticsPluginsResponse::class, decoder: 'json', operationId: 'listBetaOrganizationAnalyticsPlugins', requestOptions: $requestOptions, errors: [400 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn(mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
+        $sdkResponse = SdkClient::request('GET', "/v1/organizations/analytics/plugins?beta=true", $clientConfig, query: ['date' => new SdkQueryValue($date, "form", true), 'starting_date' => new SdkQueryValue($startingDate, "form", true), 'ending_date' => new SdkQueryValue($endingDate, "form", true), 'limit' => new SdkQueryValue($limit, "form", true), 'page' => new SdkQueryValue($page, "form", true), 'group_by[]' => new SdkQueryValue($groupBy, "form", true), 'filter[]' => new SdkQueryValue($filter, "form", true), 'order_by' => new SdkQueryValue($orderBy, "form", true), 'order' => new SdkQueryValue($order, "form", true)], returnType: BetaAnalyticsPluginsResponse::class, decoder: 'json', operationId: 'listBetaOrganizationAnalyticsPlugins', requestOptions: $requestOptions, errors: [400 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 401 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 403 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 404 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 408 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 409 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 412 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 413 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 429 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 431 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 499 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 500 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 501 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 503 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 504 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class), 529 => static fn (mixed $value): mixed => SdkClient::hydrateClass($value, BetaErrorResponse::class)]);
         return SdkClient::decoded($sdkResponse, static fn() => SdkClient::typedData($sdkResponse, BetaAnalyticsPluginsResponse::class));
     }
 

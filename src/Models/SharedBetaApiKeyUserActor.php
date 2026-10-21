@@ -56,12 +56,8 @@ class BetaApiKeyUserActor implements BetaApiKeyPrincipal, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "user_id") || $data->user_id === null) {
-            throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "user_id") || $data->user_id === null) { throw new SdkValidationError("user_id", 'required', "Required property 'user_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "user_actor");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -119,12 +115,8 @@ class BetaApiKeyWorkspaceScope implements BetaApiKeyScope, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
         Validation::validateConst("type", $data->type, "workspace");
         return new self(
             type: SdkClient::stringValue($data->type),

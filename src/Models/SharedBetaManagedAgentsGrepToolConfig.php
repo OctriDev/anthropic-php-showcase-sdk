@@ -77,18 +77,10 @@ class BetaManagedAgentsGrepToolConfig implements BetaManagedAgentsAgentToolConfi
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         Validation::validateConst("type", $data->type, "grep");
         Validation::validateConst("name", $data->name, "grep");
         return new self(
@@ -178,9 +170,7 @@ class BetaManagedAgentsGrepToolConfigParams implements BetaManagedAgentsAgentToo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         Validation::validateConst("name", $data->name, "grep");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "grep");
@@ -250,12 +240,8 @@ class BetaManagedAgentsImageBlock implements BetaManagedAgentsToolResultContentB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsImageBlockTypeEnum::class),
             source: SdkClient::hydrateUnionAs($data->source, BetaManagedAgentsImageSource::class, [BetaManagedAgentsBase64ImageSource::class, BetaManagedAgentsURLImageSource::class, BetaManagedAgentsFileImageSource::class], "type", ["base64" => BetaManagedAgentsBase64ImageSource::class, "url" => BetaManagedAgentsURLImageSource::class, "file" => BetaManagedAgentsFileImageSource::class], UnknownBetaManagedAgentsImageSource::class),
@@ -311,12 +297,8 @@ class BetaManagedAgentsInjectionLocationResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "header") || $data->header === null) {
-            throw new SdkValidationError("header", 'required', "Required property 'header' is missing or null");
-        }
-        if (!property_exists($data, "body") || $data->body === null) {
-            throw new SdkValidationError("body", 'required', "Required property 'body' is missing or null");
-        }
+        if (!property_exists($data, "header") || $data->header === null) { throw new SdkValidationError("header", 'required', "Required property 'header' is missing or null"); }
+        if (!property_exists($data, "body") || $data->body === null) { throw new SdkValidationError("body", 'required', "Required property 'body' is missing or null"); }
         return new self(
             header: SdkClient::boolValue($data->header),
             body: SdkClient::boolValue($data->body),

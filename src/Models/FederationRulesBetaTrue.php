@@ -145,21 +145,11 @@ class BetaFederationRuleCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "issuer_id") || $data->issuer_id === null) {
-            throw new SdkValidationError("issuer_id", 'required', "Required property 'issuer_id' is missing or null");
-        }
-        if (!property_exists($data, "match") || $data->match === null) {
-            throw new SdkValidationError("match", 'required', "Required property 'match' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "oauth_scope") || $data->oauth_scope === null) {
-            throw new SdkValidationError("oauth_scope", 'required', "Required property 'oauth_scope' is missing or null");
-        }
-        if (!property_exists($data, "target") || $data->target === null) {
-            throw new SdkValidationError("target", 'required', "Required property 'target' is missing or null");
-        }
+        if (!property_exists($data, "issuer_id") || $data->issuer_id === null) { throw new SdkValidationError("issuer_id", 'required', "Required property 'issuer_id' is missing or null"); }
+        if (!property_exists($data, "match") || $data->match === null) { throw new SdkValidationError("match", 'required', "Required property 'match' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "oauth_scope") || $data->oauth_scope === null) { throw new SdkValidationError("oauth_scope", 'required', "Required property 'oauth_scope' is missing or null"); }
+        if (!property_exists($data, "target") || $data->target === null) { throw new SdkValidationError("target", 'required', "Required property 'target' is missing or null"); }
         return new self(
             issuerId: SdkClient::stringValue($data->issuer_id),
             match_: SdkClient::hydrateClass($data->match, BetaRuleMatch::class),
@@ -223,12 +213,8 @@ class BetaFederationRuleListResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
-        if (!property_exists($data, "next_page")) {
-            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
+        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaFederationRule::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

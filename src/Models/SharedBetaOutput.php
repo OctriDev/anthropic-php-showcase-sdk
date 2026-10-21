@@ -53,9 +53,7 @@ class BetaOutputBehaviorCreateNew implements BetaOutputBehavior, \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaOutputBehaviorCreateNewTypeEnum::class),
         );
@@ -118,12 +116,8 @@ class BetaOutputBehaviorUpdateExisting implements BetaOutputBehavior, \JsonSeria
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
-            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaOutputBehaviorUpdateExistingTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
@@ -241,9 +235,7 @@ class BetaOutputTokensDetails implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "thinking_tokens") || $data->thinking_tokens === null) {
-            throw new SdkValidationError("thinking_tokens", 'required', "Required property 'thinking_tokens' is missing or null");
-        }
+        if (!property_exists($data, "thinking_tokens") || $data->thinking_tokens === null) { throw new SdkValidationError("thinking_tokens", 'required', "Required property 'thinking_tokens' is missing or null"); }
         return new self(
             thinkingTokens: SdkClient::intValue($data->thinking_tokens),
         );

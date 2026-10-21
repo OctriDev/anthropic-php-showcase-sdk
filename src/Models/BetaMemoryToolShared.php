@@ -74,15 +74,9 @@ class BetaMemoryTool_20250818_CreateCommand implements BetaMemoryTool_20250818_C
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) {
-            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "file_text") || $data->file_text === null) {
-            throw new SdkValidationError("file_text", 'required', "Required property 'file_text' is missing or null");
-        }
+        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "file_text") || $data->file_text === null) { throw new SdkValidationError("file_text", 'required', "Required property 'file_text' is missing or null"); }
         Validation::validateConst("command", $data->command, "create");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_CreateCommandCommandEnum::class),
@@ -149,12 +143,8 @@ class BetaMemoryTool_20250818_DeleteCommand implements BetaMemoryTool_20250818_C
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) {
-            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
+        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
         Validation::validateConst("command", $data->command, "delete");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_DeleteCommandCommandEnum::class),
@@ -240,18 +230,10 @@ class BetaMemoryTool_20250818_InsertCommand implements BetaMemoryTool_20250818_C
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) {
-            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "insert_line") || $data->insert_line === null) {
-            throw new SdkValidationError("insert_line", 'required', "Required property 'insert_line' is missing or null");
-        }
-        if (!property_exists($data, "insert_text") || $data->insert_text === null) {
-            throw new SdkValidationError("insert_text", 'required', "Required property 'insert_text' is missing or null");
-        }
+        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "insert_line") || $data->insert_line === null) { throw new SdkValidationError("insert_line", 'required', "Required property 'insert_line' is missing or null"); }
+        if (!property_exists($data, "insert_text") || $data->insert_text === null) { throw new SdkValidationError("insert_text", 'required', "Required property 'insert_text' is missing or null"); }
         Validation::validateConst("command", $data->command, "insert");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_InsertCommandCommandEnum::class),
@@ -329,15 +311,9 @@ class BetaMemoryTool_20250818_RenameCommand implements BetaMemoryTool_20250818_C
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "command") || $data->command === null) {
-            throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null");
-        }
-        if (!property_exists($data, "old_path") || $data->old_path === null) {
-            throw new SdkValidationError("old_path", 'required', "Required property 'old_path' is missing or null");
-        }
-        if (!property_exists($data, "new_path") || $data->new_path === null) {
-            throw new SdkValidationError("new_path", 'required', "Required property 'new_path' is missing or null");
-        }
+        if (!property_exists($data, "command") || $data->command === null) { throw new SdkValidationError("command", 'required', "Required property 'command' is missing or null"); }
+        if (!property_exists($data, "old_path") || $data->old_path === null) { throw new SdkValidationError("old_path", 'required', "Required property 'old_path' is missing or null"); }
+        if (!property_exists($data, "new_path") || $data->new_path === null) { throw new SdkValidationError("new_path", 'required', "Required property 'new_path' is missing or null"); }
         Validation::validateConst("command", $data->command, "rename");
         return new self(
             command: SdkClient::hydrateEnum($data->command, BetaMemoryTool_20250818_RenameCommandCommandEnum::class),

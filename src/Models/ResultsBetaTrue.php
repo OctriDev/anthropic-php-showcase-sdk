@@ -46,9 +46,7 @@ class BetaCanceledResult implements BetaMessageBatchIndividualResponseResult, \J
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "canceled");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -105,12 +103,8 @@ class BetaErroredResult implements BetaMessageBatchIndividualResponseResult, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error") || $data->error === null) {
-            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "errored");
         return new self(
             error: SdkClient::hydrateClass($data->error, BetaErrorResponse::class),
@@ -158,9 +152,7 @@ class BetaExpiredResult implements BetaMessageBatchIndividualResponseResult, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "expired");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -216,12 +208,8 @@ class BetaMessageBatchIndividualResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "custom_id") || $data->custom_id === null) {
-            throw new SdkValidationError("custom_id", 'required', "Required property 'custom_id' is missing or null");
-        }
-        if (!property_exists($data, "result") || $data->result === null) {
-            throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null");
-        }
+        if (!property_exists($data, "custom_id") || $data->custom_id === null) { throw new SdkValidationError("custom_id", 'required', "Required property 'custom_id' is missing or null"); }
+        if (!property_exists($data, "result") || $data->result === null) { throw new SdkValidationError("result", 'required', "Required property 'result' is missing or null"); }
         return new self(
             customId: SdkClient::stringValue($data->custom_id),
             result: SdkClient::hydrateUnionAs($data->result, BetaMessageBatchIndividualResponseResult::class, [BetaSucceededResult::class, BetaErroredResult::class, BetaCanceledResult::class, BetaExpiredResult::class], "type", ["canceled" => BetaCanceledResult::class, "errored" => BetaErroredResult::class, "expired" => BetaExpiredResult::class, "succeeded" => BetaSucceededResult::class], UnknownBetaMessageBatchIndividualResponseResult::class),
@@ -278,12 +266,8 @@ class BetaSucceededResult implements BetaMessageBatchIndividualResponseResult, \
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "succeeded");
         return new self(
             message: SdkClient::hydrateClass($data->message, BetaMessage::class),

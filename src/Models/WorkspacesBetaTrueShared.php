@@ -96,24 +96,12 @@ class BetaFederationRuleWorkspace implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "created_by_actor_id")) {
-            throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'");
-        }
-        if (!property_exists($data, "federation_rule_id") || $data->federation_rule_id === null) {
-            throw new SdkValidationError("federation_rule_id", 'required', "Required property 'federation_rule_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
-            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
-        }
-        if (!property_exists($data, "workspace_name")) {
-            throw new SdkValidationError("workspace_name", 'required', "Missing required property 'workspace_name'");
-        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "created_by_actor_id")) { throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'"); }
+        if (!property_exists($data, "federation_rule_id") || $data->federation_rule_id === null) { throw new SdkValidationError("federation_rule_id", 'required', "Required property 'federation_rule_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "workspace_name")) { throw new SdkValidationError("workspace_name", 'required', "Missing required property 'workspace_name'"); }
         Validation::validateConst("type", $data->type, "federation_rule_workspace");
         return new self(
             createdAt: SdkClient::stringValue($data->created_at),

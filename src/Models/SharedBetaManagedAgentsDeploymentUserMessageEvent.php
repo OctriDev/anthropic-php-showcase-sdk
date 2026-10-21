@@ -55,12 +55,8 @@ class BetaManagedAgentsDeploymentUserMessageEvent implements BetaManagedAgentsDe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "content") || $data->content === null) {
-            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsDeploymentUserMessageEventTypeEnum::class),
             content: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsUserContentBlock::class, [BetaManagedAgentsTextBlock::class, BetaManagedAgentsImageBlock::class, BetaManagedAgentsDocumentBlock::class, BetaManagedAgentsRedactedBlock::class], "type", ["text" => BetaManagedAgentsTextBlock::class, "image" => BetaManagedAgentsImageBlock::class, "document" => BetaManagedAgentsDocumentBlock::class, "redacted" => BetaManagedAgentsRedactedBlock::class], UnknownBetaManagedAgentsUserContentBlock::class), SdkClient::arrayValue($data->content))),
@@ -148,12 +144,8 @@ class BetaManagedAgentsDocumentBlock implements BetaManagedAgentsToolResultConte
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "source") || $data->source === null) {
-            throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "source") || $data->source === null) { throw new SdkValidationError("source", 'required', "Required property 'source' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsDocumentBlockTypeEnum::class),
             source: SdkClient::hydrateUnionAs($data->source, BetaManagedAgentsDocumentSource::class, [BetaManagedAgentsBase64DocumentSource::class, BetaManagedAgentsPlainTextDocumentSource::class, BetaManagedAgentsURLDocumentSource::class, BetaManagedAgentsFileDocumentSource::class], "type", ["base64" => BetaManagedAgentsBase64DocumentSource::class, "text" => BetaManagedAgentsPlainTextDocumentSource::class, "url" => BetaManagedAgentsURLDocumentSource::class, "file" => BetaManagedAgentsFileDocumentSource::class], UnknownBetaManagedAgentsDocumentSource::class),
@@ -233,18 +225,10 @@ class BetaManagedAgentsEditToolConfig implements BetaManagedAgentsAgentToolConfi
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         Validation::validateConst("type", $data->type, "edit");
         Validation::validateConst("name", $data->name, "edit");
         return new self(
@@ -334,9 +318,7 @@ class BetaManagedAgentsEditToolConfigParams implements BetaManagedAgentsAgentToo
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
         Validation::validateConst("name", $data->name, "edit");
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "edit");

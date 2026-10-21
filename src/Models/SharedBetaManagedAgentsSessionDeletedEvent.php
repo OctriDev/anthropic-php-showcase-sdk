@@ -65,15 +65,9 @@ class BetaManagedAgentsSessionDeletedEvent implements BetaManagedAgentsSessionEv
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionDeletedEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -128,9 +122,7 @@ class BetaManagedAgentsSessionEndTurn implements BetaManagedAgentsSessionStatusI
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionEndTurnTypeEnum::class),
         );
@@ -213,18 +205,10 @@ class BetaManagedAgentsSessionErrorEvent implements BetaManagedAgentsSessionEven
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "processed_at") || $data->processed_at === null) {
-            throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null");
-        }
-        if (!property_exists($data, "error") || $data->error === null) {
-            throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "processed_at") || $data->processed_at === null) { throw new SdkValidationError("processed_at", 'required', "Required property 'processed_at' is missing or null"); }
+        if (!property_exists($data, "error") || $data->error === null) { throw new SdkValidationError("error", 'required', "Required property 'error' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionErrorEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -290,12 +274,8 @@ class BetaManagedAgentsSessionMultiagentCoordinator implements BetaManagedAgents
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "agents") || $data->agents === null) {
-            throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "agents") || $data->agents === null) { throw new SdkValidationError("agents", 'required', "Required property 'agents' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionMultiagentCoordinatorTypeEnum::class),
             agents: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSessionRosterEntry::class, [BetaManagedAgentsSessionThreadAgent::class, BetaManagedAgentsAdvisor::class], "type", ["agent" => BetaManagedAgentsSessionThreadAgent::class, "advisor" => BetaManagedAgentsAdvisor::class], UnknownBetaManagedAgentsSessionRosterEntry::class), SdkClient::arrayValue($data->agents))),
@@ -359,12 +339,8 @@ class BetaManagedAgentsSessionRateLimitedRunError implements BetaManagedAgentsRu
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionRateLimitedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),

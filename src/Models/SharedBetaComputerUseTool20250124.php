@@ -149,18 +149,10 @@ class BetaComputerUseTool_20250124 implements BetaCountMessageTokensParamsToolsI
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "display_height_px") || $data->display_height_px === null) {
-            throw new SdkValidationError("display_height_px", 'required', "Required property 'display_height_px' is missing or null");
-        }
-        if (!property_exists($data, "display_width_px") || $data->display_width_px === null) {
-            throw new SdkValidationError("display_width_px", 'required', "Required property 'display_width_px' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "display_height_px") || $data->display_height_px === null) { throw new SdkValidationError("display_height_px", 'required', "Required property 'display_height_px' is missing or null"); }
+        if (!property_exists($data, "display_width_px") || $data->display_width_px === null) { throw new SdkValidationError("display_width_px", 'required', "Required property 'display_width_px' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("name", $data->name, "computer");
         Validation::validateConst("type", $data->type, "computer_20250124");
         return new self(
@@ -332,18 +324,10 @@ class BetaComputerUseTool_20251124 implements BetaCountMessageTokensParamsToolsI
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "display_height_px") || $data->display_height_px === null) {
-            throw new SdkValidationError("display_height_px", 'required', "Required property 'display_height_px' is missing or null");
-        }
-        if (!property_exists($data, "display_width_px") || $data->display_width_px === null) {
-            throw new SdkValidationError("display_width_px", 'required', "Required property 'display_width_px' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "display_height_px") || $data->display_height_px === null) { throw new SdkValidationError("display_height_px", 'required', "Required property 'display_height_px' is missing or null"); }
+        if (!property_exists($data, "display_width_px") || $data->display_width_px === null) { throw new SdkValidationError("display_width_px", 'required', "Required property 'display_width_px' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("name", $data->name, "computer");
         Validation::validateConst("type", $data->type, "computer_20251124");
         return new self(

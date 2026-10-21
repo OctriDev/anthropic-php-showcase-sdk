@@ -20,26 +20,11 @@ final readonly class StopReason implements SdkOpenEnum
     public const REFUSAL = "refusal";
     public const MODEL_CONTEXT_WINDOW_EXCEEDED = "model_context_window_exceeded";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -91,12 +76,8 @@ class URLImageSource implements RequestImageBlockSource, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
         Validation::validateConst("type", $data->type, "url");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -154,12 +135,8 @@ class URLPDFSource implements RequestDocumentBlockSource, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "url") || $data->url === null) {
-            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
         Validation::validateConst("type", $data->type, "url");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -174,26 +151,11 @@ final readonly class UsageServiceTierEnum implements SdkOpenEnum
     public const PRIORITY = "priority";
     public const BATCH = "batch";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -314,33 +276,15 @@ class Usage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "cache_creation")) {
-            throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'");
-        }
-        if (!property_exists($data, "cache_creation_input_tokens")) {
-            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Missing required property 'cache_creation_input_tokens'");
-        }
-        if (!property_exists($data, "cache_read_input_tokens")) {
-            throw new SdkValidationError("cache_read_input_tokens", 'required', "Missing required property 'cache_read_input_tokens'");
-        }
-        if (!property_exists($data, "inference_geo")) {
-            throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'");
-        }
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
-            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
-            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
-        }
-        if (!property_exists($data, "output_tokens_details")) {
-            throw new SdkValidationError("output_tokens_details", 'required', "Missing required property 'output_tokens_details'");
-        }
-        if (!property_exists($data, "server_tool_use")) {
-            throw new SdkValidationError("server_tool_use", 'required', "Missing required property 'server_tool_use'");
-        }
-        if (!property_exists($data, "service_tier")) {
-            throw new SdkValidationError("service_tier", 'required', "Missing required property 'service_tier'");
-        }
+        if (!property_exists($data, "cache_creation")) { throw new SdkValidationError("cache_creation", 'required', "Missing required property 'cache_creation'"); }
+        if (!property_exists($data, "cache_creation_input_tokens")) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Missing required property 'cache_creation_input_tokens'"); }
+        if (!property_exists($data, "cache_read_input_tokens")) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Missing required property 'cache_read_input_tokens'"); }
+        if (!property_exists($data, "inference_geo")) { throw new SdkValidationError("inference_geo", 'required', "Missing required property 'inference_geo'"); }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
+        if (!property_exists($data, "output_tokens_details")) { throw new SdkValidationError("output_tokens_details", 'required', "Missing required property 'output_tokens_details'"); }
+        if (!property_exists($data, "server_tool_use")) { throw new SdkValidationError("server_tool_use", 'required', "Missing required property 'server_tool_use'"); }
+        if (!property_exists($data, "service_tier")) { throw new SdkValidationError("service_tier", 'required', "Missing required property 'service_tier'"); }
         return new self(
             cacheCreation: ($data->cache_creation === null ? null : SdkClient::hydrateClass($data->cache_creation, CacheCreation::class)),
             cacheCreationInputTokens: ($data->cache_creation_input_tokens === null ? null : SdkClient::intValue($data->cache_creation_input_tokens)),

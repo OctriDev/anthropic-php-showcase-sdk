@@ -75,18 +75,10 @@ class BetaManagedAgentsMCPToolset implements BetaManagedAgentsAgentTool, \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
-        if (!property_exists($data, "default_config") || $data->default_config === null) {
-            throw new SdkValidationError("default_config", 'required', "Required property 'default_config' is missing or null");
-        }
-        if (!property_exists($data, "configs") || $data->configs === null) {
-            throw new SdkValidationError("configs", 'required', "Required property 'configs' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
+        if (!property_exists($data, "default_config") || $data->default_config === null) { throw new SdkValidationError("default_config", 'required', "Required property 'default_config' is missing or null"); }
+        if (!property_exists($data, "configs") || $data->configs === null) { throw new SdkValidationError("configs", 'required', "Required property 'configs' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMCPToolsetTypeEnum::class),
             mcpServerName: SdkClient::stringValue($data->mcp_server_name),
@@ -144,12 +136,8 @@ class BetaManagedAgentsMCPToolsetDefaultConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "enabled") || $data->enabled === null) {
-            throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null");
-        }
-        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) {
-            throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null");
-        }
+        if (!property_exists($data, "enabled") || $data->enabled === null) { throw new SdkValidationError("enabled", 'required', "Required property 'enabled' is missing or null"); }
+        if (!property_exists($data, "permission_policy") || $data->permission_policy === null) { throw new SdkValidationError("permission_policy", 'required', "Required property 'permission_policy' is missing or null"); }
         return new self(
             enabled: SdkClient::boolValue($data->enabled),
             permissionPolicy: SdkClient::hydrateUnionAs($data->permission_policy, BetaManagedAgentsPermissionPolicy::class, [BetaManagedAgentsAlwaysAllowPolicy::class, BetaManagedAgentsAlwaysAskPolicy::class], "type", ["always_allow" => BetaManagedAgentsAlwaysAllowPolicy::class, "always_ask" => BetaManagedAgentsAlwaysAskPolicy::class], UnknownBetaManagedAgentsPermissionPolicy::class),
@@ -296,12 +284,8 @@ class BetaManagedAgentsMCPToolsetParams implements BetaManagedAgentsAgentToolPar
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) {
-            throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "mcp_server_name") || $data->mcp_server_name === null) { throw new SdkValidationError("mcp_server_name", 'required', "Required property 'mcp_server_name' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMCPToolsetParamsTypeEnum::class),
             mcpServerName: SdkClient::stringValue($data->mcp_server_name),

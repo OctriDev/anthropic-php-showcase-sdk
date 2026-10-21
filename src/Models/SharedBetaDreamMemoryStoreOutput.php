@@ -55,12 +55,8 @@ class BetaDreamMemoryStoreOutput implements BetaDreamOutput, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
-            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaDreamMemoryStoreOutputTypeEnum::class),
             memoryStoreId: SdkClient::stringValue($data->memory_store_id),
@@ -118,9 +114,7 @@ class BetaDreamModelConfig implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
         return new self(
             id: SdkClient::stringValue($data->id),
             speed: (property_exists($data, "speed") && $data->speed !== null ? SdkClient::hydrateEnum($data->speed, BetaSpeed::class) : SdkNotGiven::Value),
@@ -184,12 +178,8 @@ class BetaDreamSessionsInput implements BetaDreamInput, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "session_ids") || $data->session_ids === null) {
-            throw new SdkValidationError("session_ids", 'required', "Required property 'session_ids' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "session_ids") || $data->session_ids === null) { throw new SdkValidationError("session_ids", 'required', "Required property 'session_ids' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaDreamSessionsInputTypeEnum::class),
             sessionIds: array_values(array_map(static fn($item) => SdkClient::stringValue($item), SdkClient::arrayValue($data->session_ids))),
@@ -208,26 +198,11 @@ final readonly class BetaDreamStatus implements SdkOpenEnum
     public const FAILED = "failed";
     public const CANCELED = "canceled";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static
-    {
-        return new self((string) $value);
-    }
-    public static function tryFrom(string|int|null $value): ?static
-    {
-        return $value === null ? null : self::from($value);
-    }
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-    public function jsonSerialize(): string
-    {
-        return $this->value;
-    }
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
+    public static function from(string|int $value): static { return new self((string) $value); }
+    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
+    public function getValue(): string { return $this->value; }
+    public function jsonSerialize(): string { return $this->value; }
+    public function __toString(): string { return (string) $this->value; }
 }
 
 /**
@@ -298,18 +273,10 @@ class BetaDreamUsage implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) {
-            throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) {
-            throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null");
-        }
-        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) {
-            throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null");
-        }
-        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) {
-            throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null");
-        }
+        if (!property_exists($data, "input_tokens") || $data->input_tokens === null) { throw new SdkValidationError("input_tokens", 'required', "Required property 'input_tokens' is missing or null"); }
+        if (!property_exists($data, "output_tokens") || $data->output_tokens === null) { throw new SdkValidationError("output_tokens", 'required', "Required property 'output_tokens' is missing or null"); }
+        if (!property_exists($data, "cache_read_input_tokens") || $data->cache_read_input_tokens === null) { throw new SdkValidationError("cache_read_input_tokens", 'required', "Required property 'cache_read_input_tokens' is missing or null"); }
+        if (!property_exists($data, "cache_creation_input_tokens") || $data->cache_creation_input_tokens === null) { throw new SdkValidationError("cache_creation_input_tokens", 'required', "Required property 'cache_creation_input_tokens' is missing or null"); }
         return new self(
             inputTokens: SdkClient::intValue($data->input_tokens),
             outputTokens: SdkClient::intValue($data->output_tokens),

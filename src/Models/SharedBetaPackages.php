@@ -110,24 +110,12 @@ class BetaPackages implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "apt") || $data->apt === null) {
-            throw new SdkValidationError("apt", 'required', "Required property 'apt' is missing or null");
-        }
-        if (!property_exists($data, "cargo") || $data->cargo === null) {
-            throw new SdkValidationError("cargo", 'required', "Required property 'cargo' is missing or null");
-        }
-        if (!property_exists($data, "gem") || $data->gem === null) {
-            throw new SdkValidationError("gem", 'required', "Required property 'gem' is missing or null");
-        }
-        if (!property_exists($data, "go") || $data->go === null) {
-            throw new SdkValidationError("go", 'required', "Required property 'go' is missing or null");
-        }
-        if (!property_exists($data, "npm") || $data->npm === null) {
-            throw new SdkValidationError("npm", 'required', "Required property 'npm' is missing or null");
-        }
-        if (!property_exists($data, "pip") || $data->pip === null) {
-            throw new SdkValidationError("pip", 'required', "Required property 'pip' is missing or null");
-        }
+        if (!property_exists($data, "apt") || $data->apt === null) { throw new SdkValidationError("apt", 'required', "Required property 'apt' is missing or null"); }
+        if (!property_exists($data, "cargo") || $data->cargo === null) { throw new SdkValidationError("cargo", 'required', "Required property 'cargo' is missing or null"); }
+        if (!property_exists($data, "gem") || $data->gem === null) { throw new SdkValidationError("gem", 'required', "Required property 'gem' is missing or null"); }
+        if (!property_exists($data, "go") || $data->go === null) { throw new SdkValidationError("go", 'required', "Required property 'go' is missing or null"); }
+        if (!property_exists($data, "npm") || $data->npm === null) { throw new SdkValidationError("npm", 'required', "Required property 'npm' is missing or null"); }
+        if (!property_exists($data, "pip") || $data->pip === null) { throw new SdkValidationError("pip", 'required', "Required property 'pip' is missing or null"); }
         if (property_exists($data, "type")) {
             Validation::validateConst("type", $data->type, "packages");
         }

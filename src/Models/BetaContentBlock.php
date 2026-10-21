@@ -66,15 +66,9 @@ class BetaContentBlockDeltaEvent implements BetaMessageStreamEvent, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "delta") || $data->delta === null) {
-            throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null");
-        }
-        if (!property_exists($data, "index") || $data->index === null) {
-            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "delta") || $data->delta === null) { throw new SdkValidationError("delta", 'required', "Required property 'delta' is missing or null"); }
+        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "content_block_delta");
         return new self(
             delta: SdkClient::hydrateUnionAs($data->delta, BetaContentBlockDeltaEventDelta::class, [BetaTextContentBlockDelta::class, BetaInputJsonContentBlockDelta::class, BetaCitationsDelta::class, BetaThinkingContentBlockDelta::class, BetaSignatureContentBlockDelta::class, BetaCompactionContentBlockDelta::class], "type", ["citations_delta" => BetaCitationsDelta::class, "compaction_delta" => BetaCompactionContentBlockDelta::class, "input_json_delta" => BetaInputJsonContentBlockDelta::class, "signature_delta" => BetaSignatureContentBlockDelta::class, "text_delta" => BetaTextContentBlockDelta::class, "thinking_delta" => BetaThinkingContentBlockDelta::class], UnknownBetaContentBlockDeltaEventDelta::class),
@@ -143,15 +137,9 @@ class BetaContentBlockStartEvent implements BetaMessageStreamEvent, \JsonSeriali
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content_block") || $data->content_block === null) {
-            throw new SdkValidationError("content_block", 'required', "Required property 'content_block' is missing or null");
-        }
-        if (!property_exists($data, "index") || $data->index === null) {
-            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "content_block") || $data->content_block === null) { throw new SdkValidationError("content_block", 'required', "Required property 'content_block' is missing or null"); }
+        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "content_block_start");
         return new self(
             contentBlock: SdkClient::hydrateUnionAs($data->content_block, BetaContentBlockStartEventContentBlock::class, [BetaResponseTextBlock::class, BetaResponseThinkingBlock::class, BetaResponseRedactedThinkingBlock::class, BetaResponseToolUseBlock::class, BetaResponseServerToolUseBlock::class, BetaResponseWebSearchToolResultBlock::class, BetaResponseWebFetchToolResultBlock::class, BetaResponseAdvisorToolResultBlock::class, BetaResponseCodeExecutionToolResultBlock::class, BetaResponseBashCodeExecutionToolResultBlock::class, BetaResponseTextEditorCodeExecutionToolResultBlock::class, BetaResponseToolSearchToolResultBlock::class, BetaResponseMCPToolUseBlock::class, BetaResponseMCPToolResultBlock::class, BetaResponseContainerUploadBlock::class, BetaResponseCompactionBlock::class, BetaResponseFallbackBlock::class], "type", ["advisor_tool_result" => BetaResponseAdvisorToolResultBlock::class, "bash_code_execution_tool_result" => BetaResponseBashCodeExecutionToolResultBlock::class, "code_execution_tool_result" => BetaResponseCodeExecutionToolResultBlock::class, "compaction" => BetaResponseCompactionBlock::class, "container_upload" => BetaResponseContainerUploadBlock::class, "fallback" => BetaResponseFallbackBlock::class, "mcp_tool_result" => BetaResponseMCPToolResultBlock::class, "mcp_tool_use" => BetaResponseMCPToolUseBlock::class, "redacted_thinking" => BetaResponseRedactedThinkingBlock::class, "server_tool_use" => BetaResponseServerToolUseBlock::class, "text" => BetaResponseTextBlock::class, "text_editor_code_execution_tool_result" => BetaResponseTextEditorCodeExecutionToolResultBlock::class, "thinking" => BetaResponseThinkingBlock::class, "tool_search_tool_result" => BetaResponseToolSearchToolResultBlock::class, "tool_use" => BetaResponseToolUseBlock::class, "web_fetch_tool_result" => BetaResponseWebFetchToolResultBlock::class, "web_search_tool_result" => BetaResponseWebSearchToolResultBlock::class], UnknownBetaContentBlockStartEventContentBlock::class),
@@ -210,12 +198,8 @@ class BetaContentBlockStopEvent implements BetaMessageStreamEvent, \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "index") || $data->index === null) {
-            throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "index") || $data->index === null) { throw new SdkValidationError("index", 'required', "Required property 'index' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "content_block_stop");
         return new self(
             index: SdkClient::intValue($data->index),

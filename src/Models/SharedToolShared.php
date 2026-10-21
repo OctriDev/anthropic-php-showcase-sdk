@@ -151,12 +151,8 @@ class Tool implements CountMessageTokensParamsToolsItem, CreateMessageParamsTool
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "input_schema") || $data->input_schema === null) {
-            throw new SdkValidationError("input_schema", 'required', "Required property 'input_schema' is missing or null");
-        }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "input_schema") || $data->input_schema === null) { throw new SdkValidationError("input_schema", 'required', "Required property 'input_schema' is missing or null"); }
         return new self(
             name: SdkClient::stringValue($data->name),
             inputSchema: SdkClient::hydrateClass($data->input_schema, InputSchema::class),
@@ -223,9 +219,7 @@ class ToolChoiceAny implements ToolChoice, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "any");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -285,9 +279,7 @@ class ToolChoiceAuto implements ToolChoice, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "auto");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -335,9 +327,7 @@ class ToolChoiceNone implements ToolChoice, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "none");
         return new self(
             type: SdkClient::stringValue($data->type),

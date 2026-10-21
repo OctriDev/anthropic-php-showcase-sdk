@@ -46,9 +46,7 @@ class BetaAllConnectorsPermissionResource implements BetaRbacRolePermissionResou
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "all_connectors");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -105,12 +103,8 @@ class BetaConnectorPermissionResource implements BetaRbacRolePermissionResource,
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "connector_id") || $data->connector_id === null) {
-            throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "connector_id") || $data->connector_id === null) { throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "connector");
         return new self(
             connectorId: SdkClient::stringValue($data->connector_id),
@@ -178,15 +172,9 @@ class BetaConnectorScopePermissionResource implements BetaRbacRolePermissionReso
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "connector_id") || $data->connector_id === null) {
-            throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null");
-        }
-        if (!property_exists($data, "scope") || $data->scope === null) {
-            throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "connector_id") || $data->connector_id === null) { throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null"); }
+        if (!property_exists($data, "scope") || $data->scope === null) { throw new SdkValidationError("scope", 'required', "Required property 'scope' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "connector_scope");
         return new self(
             connectorId: SdkClient::stringValue($data->connector_id),
@@ -255,15 +243,9 @@ class BetaConnectorToolPermissionResource implements BetaRbacRolePermissionResou
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "connector_id") || $data->connector_id === null) {
-            throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null");
-        }
-        if (!property_exists($data, "tool_name") || $data->tool_name === null) {
-            throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "connector_id") || $data->connector_id === null) { throw new SdkValidationError("connector_id", 'required', "Required property 'connector_id' is missing or null"); }
+        if (!property_exists($data, "tool_name") || $data->tool_name === null) { throw new SdkValidationError("tool_name", 'required', "Required property 'tool_name' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "connector_tool");
         return new self(
             connectorId: SdkClient::stringValue($data->connector_id),
@@ -322,12 +304,8 @@ class BetaOrganizationPermissionResource implements BetaRbacRolePermissionResour
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "organization_id") || $data->organization_id === null) {
-            throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "organization_id") || $data->organization_id === null) { throw new SdkValidationError("organization_id", 'required', "Required property 'organization_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         Validation::validateConst("type", $data->type, "organization");
         return new self(
             organizationId: SdkClient::stringValue($data->organization_id),

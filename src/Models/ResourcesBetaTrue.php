@@ -57,9 +57,7 @@ class BetaManagedAgentsListSessionResources implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) {
-            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
-        }
+        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsSessionResource::class, [BetaManagedAgentsGitHubRepositoryResource::class, BetaManagedAgentsFileResource::class, BetaManagedAgentsMemoryStoreResource::class], "type", ["github_repository" => BetaManagedAgentsGitHubRepositoryResource::class, "file" => BetaManagedAgentsFileResource::class, "memory_store" => BetaManagedAgentsMemoryStoreResource::class], UnknownBetaManagedAgentsSessionResource::class), SdkClient::arrayValue($data->data))),
             nextPage: (property_exists($data, "next_page") ? ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)) : SdkNotGiven::Value),

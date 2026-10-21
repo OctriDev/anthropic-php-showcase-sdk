@@ -57,9 +57,7 @@ class BetaManagedAgentsStaticBearerUpdateParams implements BetaManagedAgentsCred
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsStaticBearerUpdateParamsTypeEnum::class),
             token: (property_exists($data, "token") ? ($data->token === null ? null : SdkClient::stringValue($data->token)) : SdkNotGiven::Value),
@@ -125,9 +123,7 @@ class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam implements BetaManagedA
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsTokenEndpointAuthBasicUpdateParamTypeEnum::class),
             clientSecret: (property_exists($data, "client_secret") ? ($data->client_secret === null ? null : SdkClient::stringValue($data->client_secret)) : SdkNotGiven::Value),
@@ -193,9 +189,7 @@ class BetaManagedAgentsTokenEndpointAuthPostUpdateParam implements BetaManagedAg
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsTokenEndpointAuthPostUpdateParamTypeEnum::class),
             clientSecret: (property_exists($data, "client_secret") ? ($data->client_secret === null ? null : SdkClient::stringValue($data->client_secret)) : SdkNotGiven::Value),

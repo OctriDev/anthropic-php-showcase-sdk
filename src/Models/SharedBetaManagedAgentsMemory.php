@@ -137,33 +137,15 @@ class BetaManagedAgentsMemory implements BetaManagedAgentsMemoryListItem, \JsonS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) {
-            throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null");
-        }
-        if (!property_exists($data, "path") || $data->path === null) {
-            throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null");
-        }
-        if (!property_exists($data, "content_size_bytes") || $data->content_size_bytes === null) {
-            throw new SdkValidationError("content_size_bytes", 'required', "Required property 'content_size_bytes' is missing or null");
-        }
-        if (!property_exists($data, "content_sha256") || $data->content_sha256 === null) {
-            throw new SdkValidationError("content_sha256", 'required', "Required property 'content_sha256' is missing or null");
-        }
-        if (!property_exists($data, "memory_version_id") || $data->memory_version_id === null) {
-            throw new SdkValidationError("memory_version_id", 'required', "Required property 'memory_version_id' is missing or null");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "memory_store_id") || $data->memory_store_id === null) { throw new SdkValidationError("memory_store_id", 'required', "Required property 'memory_store_id' is missing or null"); }
+        if (!property_exists($data, "path") || $data->path === null) { throw new SdkValidationError("path", 'required', "Required property 'path' is missing or null"); }
+        if (!property_exists($data, "content_size_bytes") || $data->content_size_bytes === null) { throw new SdkValidationError("content_size_bytes", 'required', "Required property 'content_size_bytes' is missing or null"); }
+        if (!property_exists($data, "content_sha256") || $data->content_sha256 === null) { throw new SdkValidationError("content_sha256", 'required', "Required property 'content_sha256' is missing or null"); }
+        if (!property_exists($data, "memory_version_id") || $data->memory_version_id === null) { throw new SdkValidationError("memory_version_id", 'required', "Required property 'memory_version_id' is missing or null"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -261,9 +243,7 @@ class BetaManagedAgentsMemoryPathConflictError implements BetaManagedAgentsError
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryPathConflictErrorTypeEnum::class),
             message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
@@ -331,9 +311,7 @@ class BetaManagedAgentsMemoryPreconditionFailedError implements BetaManagedAgent
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMemoryPreconditionFailedErrorTypeEnum::class),
             message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),

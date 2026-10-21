@@ -145,39 +145,17 @@ class BetaManagedAgentsSessionAgent implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "version") || $data->version === null) {
-            throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "description")) {
-            throw new SdkValidationError("description", 'required', "Missing required property 'description'");
-        }
-        if (!property_exists($data, "model") || $data->model === null) {
-            throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null");
-        }
-        if (!property_exists($data, "system")) {
-            throw new SdkValidationError("system", 'required', "Missing required property 'system'");
-        }
-        if (!property_exists($data, "tools") || $data->tools === null) {
-            throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null");
-        }
-        if (!property_exists($data, "mcp_servers") || $data->mcp_servers === null) {
-            throw new SdkValidationError("mcp_servers", 'required', "Required property 'mcp_servers' is missing or null");
-        }
-        if (!property_exists($data, "skills") || $data->skills === null) {
-            throw new SdkValidationError("skills", 'required', "Required property 'skills' is missing or null");
-        }
-        if (!property_exists($data, "multiagent")) {
-            throw new SdkValidationError("multiagent", 'required', "Missing required property 'multiagent'");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "version") || $data->version === null) { throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "description")) { throw new SdkValidationError("description", 'required', "Missing required property 'description'"); }
+        if (!property_exists($data, "model") || $data->model === null) { throw new SdkValidationError("model", 'required', "Required property 'model' is missing or null"); }
+        if (!property_exists($data, "system")) { throw new SdkValidationError("system", 'required', "Missing required property 'system'"); }
+        if (!property_exists($data, "tools") || $data->tools === null) { throw new SdkValidationError("tools", 'required', "Required property 'tools' is missing or null"); }
+        if (!property_exists($data, "mcp_servers") || $data->mcp_servers === null) { throw new SdkValidationError("mcp_servers", 'required', "Required property 'mcp_servers' is missing or null"); }
+        if (!property_exists($data, "skills") || $data->skills === null) { throw new SdkValidationError("skills", 'required', "Required property 'skills' is missing or null"); }
+        if (!property_exists($data, "multiagent")) { throw new SdkValidationError("multiagent", 'required', "Missing required property 'multiagent'"); }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsSessionAgentTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -240,9 +218,7 @@ class BetaManagedAgentsSessionBudgetReached implements BetaManagedAgentsSessionS
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionBudgetReachedTypeEnum::class),
         );
@@ -305,12 +281,8 @@ class BetaManagedAgentsSessionCreationRejectedRunError implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "message") || $data->message === null) {
-            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
-        }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsSessionCreationRejectedRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),

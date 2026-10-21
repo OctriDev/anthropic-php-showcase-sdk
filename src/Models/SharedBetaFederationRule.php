@@ -236,66 +236,26 @@ class BetaFederationRule implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "applies_to_all_workspaces") || $data->applies_to_all_workspaces === null) {
-            throw new SdkValidationError("applies_to_all_workspaces", 'required', "Required property 'applies_to_all_workspaces' is missing or null");
-        }
-        if (!property_exists($data, "archived_at")) {
-            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
-        }
-        if (!property_exists($data, "archived_by_actor_id")) {
-            throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'");
-        }
-        if (!property_exists($data, "attributes")) {
-            throw new SdkValidationError("attributes", 'required', "Missing required property 'attributes'");
-        }
-        if (!property_exists($data, "created_at") || $data->created_at === null) {
-            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
-        }
-        if (!property_exists($data, "created_by_actor_id")) {
-            throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'");
-        }
-        if (!property_exists($data, "description")) {
-            throw new SdkValidationError("description", 'required', "Missing required property 'description'");
-        }
-        if (!property_exists($data, "id") || $data->id === null) {
-            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
-        }
-        if (!property_exists($data, "issuer_id") || $data->issuer_id === null) {
-            throw new SdkValidationError("issuer_id", 'required', "Required property 'issuer_id' is missing or null");
-        }
-        if (!property_exists($data, "issuer_name")) {
-            throw new SdkValidationError("issuer_name", 'required', "Missing required property 'issuer_name'");
-        }
-        if (!property_exists($data, "match") || $data->match === null) {
-            throw new SdkValidationError("match", 'required', "Required property 'match' is missing or null");
-        }
-        if (!property_exists($data, "name") || $data->name === null) {
-            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
-        }
-        if (!property_exists($data, "oauth_scope") || $data->oauth_scope === null) {
-            throw new SdkValidationError("oauth_scope", 'required', "Required property 'oauth_scope' is missing or null");
-        }
-        if (!property_exists($data, "target") || $data->target === null) {
-            throw new SdkValidationError("target", 'required', "Required property 'target' is missing or null");
-        }
-        if (!property_exists($data, "token_lifetime_seconds") || $data->token_lifetime_seconds === null) {
-            throw new SdkValidationError("token_lifetime_seconds", 'required', "Required property 'token_lifetime_seconds' is missing or null");
-        }
-        if (!property_exists($data, "type") || $data->type === null) {
-            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
-        }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
-            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
-        }
-        if (!property_exists($data, "updated_by_actor_id")) {
-            throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'");
-        }
-        if (!property_exists($data, "workspace_id")) {
-            throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'");
-        }
-        if (!property_exists($data, "workspace_ids") || $data->workspace_ids === null) {
-            throw new SdkValidationError("workspace_ids", 'required', "Required property 'workspace_ids' is missing or null");
-        }
+        if (!property_exists($data, "applies_to_all_workspaces") || $data->applies_to_all_workspaces === null) { throw new SdkValidationError("applies_to_all_workspaces", 'required', "Required property 'applies_to_all_workspaces' is missing or null"); }
+        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "archived_by_actor_id")) { throw new SdkValidationError("archived_by_actor_id", 'required', "Missing required property 'archived_by_actor_id'"); }
+        if (!property_exists($data, "attributes")) { throw new SdkValidationError("attributes", 'required', "Missing required property 'attributes'"); }
+        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
+        if (!property_exists($data, "created_by_actor_id")) { throw new SdkValidationError("created_by_actor_id", 'required', "Missing required property 'created_by_actor_id'"); }
+        if (!property_exists($data, "description")) { throw new SdkValidationError("description", 'required', "Missing required property 'description'"); }
+        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
+        if (!property_exists($data, "issuer_id") || $data->issuer_id === null) { throw new SdkValidationError("issuer_id", 'required', "Required property 'issuer_id' is missing or null"); }
+        if (!property_exists($data, "issuer_name")) { throw new SdkValidationError("issuer_name", 'required', "Missing required property 'issuer_name'"); }
+        if (!property_exists($data, "match") || $data->match === null) { throw new SdkValidationError("match", 'required', "Required property 'match' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "oauth_scope") || $data->oauth_scope === null) { throw new SdkValidationError("oauth_scope", 'required', "Required property 'oauth_scope' is missing or null"); }
+        if (!property_exists($data, "target") || $data->target === null) { throw new SdkValidationError("target", 'required', "Required property 'target' is missing or null"); }
+        if (!property_exists($data, "token_lifetime_seconds") || $data->token_lifetime_seconds === null) { throw new SdkValidationError("token_lifetime_seconds", 'required', "Required property 'token_lifetime_seconds' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
+        if (!property_exists($data, "updated_by_actor_id")) { throw new SdkValidationError("updated_by_actor_id", 'required', "Missing required property 'updated_by_actor_id'"); }
+        if (!property_exists($data, "workspace_id")) { throw new SdkValidationError("workspace_id", 'required', "Missing required property 'workspace_id'"); }
+        if (!property_exists($data, "workspace_ids") || $data->workspace_ids === null) { throw new SdkValidationError("workspace_ids", 'required', "Required property 'workspace_ids' is missing or null"); }
         Validation::validateConst("type", $data->type, "federation_rule");
         return new self(
             appliesToAllWorkspaces: SdkClient::boolValue($data->applies_to_all_workspaces),
