@@ -89,7 +89,9 @@ class BetaManagedAgentsEnvironmentVariableUpdateParams implements BetaManagedAge
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsEnvironmentVariableUpdateParamsTypeEnum::class),
             secretValue: (property_exists($data, "secret_value") ? ($data->secret_value === null ? null : SdkClient::stringValue($data->secret_value)) : SdkNotGiven::Value),
@@ -312,7 +314,9 @@ class BetaManagedAgentsMcpOauthUpdateParams implements BetaManagedAgentsCredenti
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsMcpOauthUpdateParamsTypeEnum::class),
             accessToken: (property_exists($data, "access_token") ? ($data->access_token === null ? null : SdkClient::stringValue($data->access_token)) : SdkNotGiven::Value),

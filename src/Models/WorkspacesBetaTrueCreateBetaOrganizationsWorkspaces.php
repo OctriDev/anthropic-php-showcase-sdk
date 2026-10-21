@@ -165,7 +165,9 @@ class BetaWorkspaceCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             dataResidency: (property_exists($data, "data_residency") ? ($data->data_residency === null ? null : SdkClient::hydrateClass($data->data_residency, BetaDataResidencyCreateParams::class)) : SdkNotGiven::Value),
@@ -183,9 +185,24 @@ final readonly class BetaWorkspaceGeo implements SdkOpenEnum
 {
     public const US = "us";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

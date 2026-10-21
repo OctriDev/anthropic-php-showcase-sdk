@@ -96,12 +96,24 @@ class BetaTunnel implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "domain") || $data->domain === null) { throw new SdkValidationError("domain", 'required', "Required property 'domain' is missing or null"); }
-        if (!property_exists($data, "display_name")) { throw new SdkValidationError("display_name", 'required', "Missing required property 'display_name'"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "domain") || $data->domain === null) {
+            throw new SdkValidationError("domain", 'required', "Required property 'domain' is missing or null");
+        }
+        if (!property_exists($data, "display_name")) {
+            throw new SdkValidationError("display_name", 'required', "Missing required property 'display_name'");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "archived_at")) {
+            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
+        }
         Validation::validateConst("type", $data->type, "tunnel");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -213,13 +225,27 @@ class BetaTunnelCertificate implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "tunnel_id") || $data->tunnel_id === null) { throw new SdkValidationError("tunnel_id", 'required', "Required property 'tunnel_id' is missing or null"); }
-        if (!property_exists($data, "fingerprint") || $data->fingerprint === null) { throw new SdkValidationError("fingerprint", 'required', "Required property 'fingerprint' is missing or null"); }
-        if (!property_exists($data, "expires_at")) { throw new SdkValidationError("expires_at", 'required', "Missing required property 'expires_at'"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "tunnel_id") || $data->tunnel_id === null) {
+            throw new SdkValidationError("tunnel_id", 'required', "Required property 'tunnel_id' is missing or null");
+        }
+        if (!property_exists($data, "fingerprint") || $data->fingerprint === null) {
+            throw new SdkValidationError("fingerprint", 'required', "Required property 'fingerprint' is missing or null");
+        }
+        if (!property_exists($data, "expires_at")) {
+            throw new SdkValidationError("expires_at", 'required', "Missing required property 'expires_at'");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "archived_at")) {
+            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
+        }
         Validation::validateConst("type", $data->type, "tunnel_certificate");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -292,9 +318,15 @@ class BetaTunnelToken implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "tunnel_token") || $data->tunnel_token === null) { throw new SdkValidationError("tunnel_token", 'required', "Required property 'tunnel_token' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "tunnel_token") || $data->tunnel_token === null) {
+            throw new SdkValidationError("tunnel_token", 'required', "Required property 'tunnel_token' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tunnel_token");
         return new self(
             type: SdkClient::stringValue($data->type),

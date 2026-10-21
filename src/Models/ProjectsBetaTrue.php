@@ -159,10 +159,18 @@ class BetaAnalyticsProjectActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) { throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null"); }
-        if (!property_exists($data, "message_count") || $data->message_count === null) { throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null"); }
-        if (!property_exists($data, "project_id") || $data->project_id === null) { throw new SdkValidationError("project_id", 'required', "Required property 'project_id' is missing or null"); }
-        if (!property_exists($data, "project_name") || $data->project_name === null) { throw new SdkValidationError("project_name", 'required', "Required property 'project_name' is missing or null"); }
+        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) {
+            throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null");
+        }
+        if (!property_exists($data, "message_count") || $data->message_count === null) {
+            throw new SdkValidationError("message_count", 'required', "Required property 'message_count' is missing or null");
+        }
+        if (!property_exists($data, "project_id") || $data->project_id === null) {
+            throw new SdkValidationError("project_id", 'required', "Required property 'project_id' is missing or null");
+        }
+        if (!property_exists($data, "project_name") || $data->project_name === null) {
+            throw new SdkValidationError("project_name", 'required', "Required property 'project_name' is missing or null");
+        }
         return new self(
             distinctUserCount: SdkClient::intValue($data->distinct_user_count),
             messageCount: SdkClient::intValue($data->message_count),
@@ -227,8 +235,12 @@ class BetaAnalyticsProjectsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsProjectActivity::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

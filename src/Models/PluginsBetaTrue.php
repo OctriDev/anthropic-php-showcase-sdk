@@ -155,12 +155,24 @@ class BetaAnalyticsPluginActivity implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) { throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null"); }
-        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) { throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null"); }
-        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) { throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null"); }
-        if (!property_exists($data, "install_count")) { throw new SdkValidationError("install_count", 'required', "Missing required property 'install_count'"); }
-        if (!property_exists($data, "invocation_count") || $data->invocation_count === null) { throw new SdkValidationError("invocation_count", 'required', "Required property 'invocation_count' is missing or null"); }
-        if (!property_exists($data, "plugin_name") || $data->plugin_name === null) { throw new SdkValidationError("plugin_name", 'required', "Required property 'plugin_name' is missing or null"); }
+        if (!property_exists($data, "claude_code_metrics") || $data->claude_code_metrics === null) {
+            throw new SdkValidationError("claude_code_metrics", 'required', "Required property 'claude_code_metrics' is missing or null");
+        }
+        if (!property_exists($data, "cowork_metrics") || $data->cowork_metrics === null) {
+            throw new SdkValidationError("cowork_metrics", 'required', "Required property 'cowork_metrics' is missing or null");
+        }
+        if (!property_exists($data, "distinct_user_count") || $data->distinct_user_count === null) {
+            throw new SdkValidationError("distinct_user_count", 'required', "Required property 'distinct_user_count' is missing or null");
+        }
+        if (!property_exists($data, "install_count")) {
+            throw new SdkValidationError("install_count", 'required', "Missing required property 'install_count'");
+        }
+        if (!property_exists($data, "invocation_count") || $data->invocation_count === null) {
+            throw new SdkValidationError("invocation_count", 'required', "Required property 'invocation_count' is missing or null");
+        }
+        if (!property_exists($data, "plugin_name") || $data->plugin_name === null) {
+            throw new SdkValidationError("plugin_name", 'required', "Required property 'plugin_name' is missing or null");
+        }
         return new self(
             claudeCodeMetrics: SdkClient::hydrateClass($data->claude_code_metrics, BetaAnalyticsPluginClaudeCodeMetrics::class),
             coworkMetrics: SdkClient::hydrateClass($data->cowork_metrics, BetaAnalyticsPluginCoworkMetrics::class),
@@ -215,7 +227,9 @@ class BetaAnalyticsPluginClaudeCodeMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_session_plugin_used_count")) { throw new SdkValidationError("distinct_session_plugin_used_count", 'required', "Missing required property 'distinct_session_plugin_used_count'"); }
+        if (!property_exists($data, "distinct_session_plugin_used_count")) {
+            throw new SdkValidationError("distinct_session_plugin_used_count", 'required', "Missing required property 'distinct_session_plugin_used_count'");
+        }
         return new self(
             distinctSessionPluginUsedCount: ($data->distinct_session_plugin_used_count === null ? null : SdkClient::intValue($data->distinct_session_plugin_used_count)),
         );
@@ -260,7 +274,9 @@ class BetaAnalyticsPluginCoworkMetrics implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "distinct_session_plugin_used_count")) { throw new SdkValidationError("distinct_session_plugin_used_count", 'required', "Missing required property 'distinct_session_plugin_used_count'"); }
+        if (!property_exists($data, "distinct_session_plugin_used_count")) {
+            throw new SdkValidationError("distinct_session_plugin_used_count", 'required', "Missing required property 'distinct_session_plugin_used_count'");
+        }
         return new self(
             distinctSessionPluginUsedCount: ($data->distinct_session_plugin_used_count === null ? null : SdkClient::intValue($data->distinct_session_plugin_used_count)),
         );
@@ -315,8 +331,12 @@ class BetaAnalyticsPluginsResponse implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "next_page")) { throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "next_page")) {
+            throw new SdkValidationError("next_page", 'required', "Missing required property 'next_page'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaAnalyticsPluginActivity::class), SdkClient::arrayValue($data->data))),
             nextPage: ($data->next_page === null ? null : SdkClient::stringValue($data->next_page)),

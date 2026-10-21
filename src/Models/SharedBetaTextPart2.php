@@ -117,8 +117,12 @@ class BetaTextEditor_20250429 implements BetaCountMessageTokensParamsToolsItem, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("name", $data->name, "str_replace_based_edit_tool");
         Validation::validateConst("type", $data->type, "text_editor_20250429");
         return new self(
@@ -255,8 +259,12 @@ class BetaTextEditor_20250728 implements BetaCountMessageTokensParamsToolsItem, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("name", $data->name, "str_replace_based_edit_tool");
         Validation::validateConst("type", $data->type, "text_editor_20250728");
         return new self(
@@ -283,9 +291,24 @@ final readonly class BetaTextEditorCodeExecutionToolResultErrorCode implements S
     public const EXECUTION_TIME_EXCEEDED = "execution_time_exceeded";
     public const FILE_NOT_FOUND = "file_not_found";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

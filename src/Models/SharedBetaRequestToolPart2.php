@@ -78,9 +78,15 @@ class BetaRequestToolSearchToolResultBlock implements BetaInputContentBlock, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_search_tool_result");
         return new self(
             content: SdkClient::hydrateUnionAs($data->content, BetaRequestToolSearchToolResultBlockContent::class, [BetaRequestToolSearchToolResultError::class, BetaRequestToolSearchToolSearchResultBlock::class], "type", ["tool_search_tool_result_error" => BetaRequestToolSearchToolResultError::class, "tool_search_tool_search_result" => BetaRequestToolSearchToolSearchResultBlock::class], UnknownBetaRequestToolSearchToolResultBlockContent::class),
@@ -152,8 +158,12 @@ class BetaRequestToolSearchToolResultError implements BetaRequestToolSearchToolR
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "error_code") || $data->error_code === null) { throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "error_code") || $data->error_code === null) {
+            throw new SdkValidationError("error_code", 'required', "Required property 'error_code' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_search_tool_result_error");
         return new self(
             errorCode: SdkClient::hydrateStringEnumOrString($data->error_code, BetaToolSearchToolResultErrorCode::class),
@@ -212,8 +222,12 @@ class BetaRequestToolSearchToolSearchResultBlock implements BetaRequestToolSearc
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tool_references") || $data->tool_references === null) { throw new SdkValidationError("tool_references", 'required', "Required property 'tool_references' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tool_references") || $data->tool_references === null) {
+            throw new SdkValidationError("tool_references", 'required', "Required property 'tool_references' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_search_tool_search_result");
         return new self(
             toolReferences: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaRequestToolReferenceBlock::class), SdkClient::arrayValue($data->tool_references))),
@@ -327,10 +341,18 @@ class BetaRequestToolUseBlock implements BetaInputContentBlock, \JsonSerializabl
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "input") || $data->input === null) { throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null"); }
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "input") || $data->input === null) {
+            throw new SdkValidationError("input", 'required', "Required property 'input' is missing or null");
+        }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tool_use");
         return new self(
             id: SdkClient::stringValue($data->id),

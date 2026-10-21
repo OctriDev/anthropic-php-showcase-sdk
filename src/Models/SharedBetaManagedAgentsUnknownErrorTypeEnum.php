@@ -73,9 +73,15 @@ class BetaManagedAgentsUnknownError implements BetaManagedAgentsSessionErrorEven
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "retry_status") || $data->retry_status === null) { throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "retry_status") || $data->retry_status === null) {
+            throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUnknownErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -140,8 +146,12 @@ class BetaManagedAgentsUnknownRunError implements BetaManagedAgentsRunError, \Js
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUnknownRunErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),
@@ -195,7 +205,9 @@ class BetaManagedAgentsUnrestrictedCredentialNetworkingParams implements BetaMan
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUnrestrictedCredentialNetworkingParamsTypeEnum::class),
         );
@@ -248,7 +260,9 @@ class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse implements BetaM
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUnrestrictedCredentialNetworkingResponseTypeEnum::class),
         );
@@ -311,8 +325,12 @@ class BetaManagedAgentsURLDocumentSource implements BetaManagedAgentsDocumentSou
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsURLDocumentSourceTypeEnum::class),
             url: SdkClient::stringValue($data->url),

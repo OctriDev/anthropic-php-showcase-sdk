@@ -357,19 +357,45 @@ class BetaAnalyticsSingleDayActivitySummary implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "assigned_seat_count")) { throw new SdkValidationError("assigned_seat_count", 'required', "Missing required property 'assigned_seat_count'"); }
-        if (!property_exists($data, "cowork_daily_active_user_count") || $data->cowork_daily_active_user_count === null) { throw new SdkValidationError("cowork_daily_active_user_count", 'required', "Required property 'cowork_daily_active_user_count' is missing or null"); }
-        if (!property_exists($data, "cowork_monthly_active_user_count") || $data->cowork_monthly_active_user_count === null) { throw new SdkValidationError("cowork_monthly_active_user_count", 'required', "Required property 'cowork_monthly_active_user_count' is missing or null"); }
-        if (!property_exists($data, "cowork_weekly_active_user_count") || $data->cowork_weekly_active_user_count === null) { throw new SdkValidationError("cowork_weekly_active_user_count", 'required', "Required property 'cowork_weekly_active_user_count' is missing or null"); }
-        if (!property_exists($data, "daily_active_user_count") || $data->daily_active_user_count === null) { throw new SdkValidationError("daily_active_user_count", 'required', "Required property 'daily_active_user_count' is missing or null"); }
-        if (!property_exists($data, "daily_adoption_rate")) { throw new SdkValidationError("daily_adoption_rate", 'required', "Missing required property 'daily_adoption_rate'"); }
-        if (!property_exists($data, "ending_at") || $data->ending_at === null) { throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null"); }
-        if (!property_exists($data, "monthly_active_user_count") || $data->monthly_active_user_count === null) { throw new SdkValidationError("monthly_active_user_count", 'required', "Required property 'monthly_active_user_count' is missing or null"); }
-        if (!property_exists($data, "monthly_adoption_rate")) { throw new SdkValidationError("monthly_adoption_rate", 'required', "Missing required property 'monthly_adoption_rate'"); }
-        if (!property_exists($data, "pending_invite_count")) { throw new SdkValidationError("pending_invite_count", 'required', "Missing required property 'pending_invite_count'"); }
-        if (!property_exists($data, "starting_at") || $data->starting_at === null) { throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null"); }
-        if (!property_exists($data, "weekly_active_user_count") || $data->weekly_active_user_count === null) { throw new SdkValidationError("weekly_active_user_count", 'required', "Required property 'weekly_active_user_count' is missing or null"); }
-        if (!property_exists($data, "weekly_adoption_rate")) { throw new SdkValidationError("weekly_adoption_rate", 'required', "Missing required property 'weekly_adoption_rate'"); }
+        if (!property_exists($data, "assigned_seat_count")) {
+            throw new SdkValidationError("assigned_seat_count", 'required', "Missing required property 'assigned_seat_count'");
+        }
+        if (!property_exists($data, "cowork_daily_active_user_count") || $data->cowork_daily_active_user_count === null) {
+            throw new SdkValidationError("cowork_daily_active_user_count", 'required', "Required property 'cowork_daily_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "cowork_monthly_active_user_count") || $data->cowork_monthly_active_user_count === null) {
+            throw new SdkValidationError("cowork_monthly_active_user_count", 'required', "Required property 'cowork_monthly_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "cowork_weekly_active_user_count") || $data->cowork_weekly_active_user_count === null) {
+            throw new SdkValidationError("cowork_weekly_active_user_count", 'required', "Required property 'cowork_weekly_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "daily_active_user_count") || $data->daily_active_user_count === null) {
+            throw new SdkValidationError("daily_active_user_count", 'required', "Required property 'daily_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "daily_adoption_rate")) {
+            throw new SdkValidationError("daily_adoption_rate", 'required', "Missing required property 'daily_adoption_rate'");
+        }
+        if (!property_exists($data, "ending_at") || $data->ending_at === null) {
+            throw new SdkValidationError("ending_at", 'required', "Required property 'ending_at' is missing or null");
+        }
+        if (!property_exists($data, "monthly_active_user_count") || $data->monthly_active_user_count === null) {
+            throw new SdkValidationError("monthly_active_user_count", 'required', "Required property 'monthly_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "monthly_adoption_rate")) {
+            throw new SdkValidationError("monthly_adoption_rate", 'required', "Missing required property 'monthly_adoption_rate'");
+        }
+        if (!property_exists($data, "pending_invite_count")) {
+            throw new SdkValidationError("pending_invite_count", 'required', "Missing required property 'pending_invite_count'");
+        }
+        if (!property_exists($data, "starting_at") || $data->starting_at === null) {
+            throw new SdkValidationError("starting_at", 'required', "Required property 'starting_at' is missing or null");
+        }
+        if (!property_exists($data, "weekly_active_user_count") || $data->weekly_active_user_count === null) {
+            throw new SdkValidationError("weekly_active_user_count", 'required', "Required property 'weekly_active_user_count' is missing or null");
+        }
+        if (!property_exists($data, "weekly_adoption_rate")) {
+            throw new SdkValidationError("weekly_adoption_rate", 'required', "Missing required property 'weekly_adoption_rate'");
+        }
         return new self(
             assignedSeatCount: ($data->assigned_seat_count === null ? null : SdkClient::intValue($data->assigned_seat_count)),
             coworkDailyActiveUserCount: SdkClient::intValue($data->cowork_daily_active_user_count),

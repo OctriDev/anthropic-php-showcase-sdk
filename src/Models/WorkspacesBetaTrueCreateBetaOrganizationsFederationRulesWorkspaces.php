@@ -45,7 +45,9 @@ class BetaAddFederationRuleWorkspaceParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
+            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
+        }
         return new self(
             workspaceId: SdkClient::stringValue($data->workspace_id),
         );

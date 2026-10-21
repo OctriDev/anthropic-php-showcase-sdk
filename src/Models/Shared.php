@@ -17,11 +17,26 @@ final readonly class AllowedCaller implements SdkOpenEnum
     public const CODE_EXECUTION_20260120 = "code_execution_20260120";
     public const CODE_EXECUTION_20260521 = "code_execution_20260521";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -73,8 +88,12 @@ class APIError implements ErrorResponseError, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "api_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -132,8 +151,12 @@ class AuthenticationError implements ErrorResponseError, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "authentication_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -191,8 +214,12 @@ class BillingError implements ErrorResponseError, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "billing_error");
         return new self(
             message: SdkClient::stringValue($data->message),
@@ -240,7 +267,9 @@ class DirectCaller implements ResponseToolUseBlockCaller, ResponseServerToolUseB
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "direct");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -259,11 +288,26 @@ final readonly class EffortLevel implements SdkOpenEnum
     public const XHIGH = "xhigh";
     public const MAX = "max";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -315,8 +359,12 @@ class GatewayTimeoutError implements ErrorResponseError, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "timeout_error");
         return new self(
             message: SdkClient::stringValue($data->message),

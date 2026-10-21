@@ -75,10 +75,18 @@ class BetaListResponse_Workspace_ implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "first_id")) { throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'"); }
-        if (!property_exists($data, "has_more") || $data->has_more === null) { throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null"); }
-        if (!property_exists($data, "last_id")) { throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "first_id")) {
+            throw new SdkValidationError("first_id", 'required', "Missing required property 'first_id'");
+        }
+        if (!property_exists($data, "has_more") || $data->has_more === null) {
+            throw new SdkValidationError("has_more", 'required', "Required property 'has_more' is missing or null");
+        }
+        if (!property_exists($data, "last_id")) {
+            throw new SdkValidationError("last_id", 'required', "Missing required property 'last_id'");
+        }
         return new self(
             data: array_values(array_map(static fn($item) => SdkClient::hydrateClass($item, BetaWorkspace::class), SdkClient::arrayValue($data->data))),
             firstId: ($data->first_id === null ? null : SdkClient::stringValue($data->first_id)),
@@ -136,8 +144,12 @@ class BetaServiceAccountWorkspaceMemberCreateFromSAParams implements \JsonSerial
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) { throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null"); }
-        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) { throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null"); }
+        if (!property_exists($data, "workspace_id") || $data->workspace_id === null) {
+            throw new SdkValidationError("workspace_id", 'required', "Required property 'workspace_id' is missing or null");
+        }
+        if (!property_exists($data, "workspace_role") || $data->workspace_role === null) {
+            throw new SdkValidationError("workspace_role", 'required', "Required property 'workspace_role' is missing or null");
+        }
         return new self(
             workspaceId: SdkClient::stringValue($data->workspace_id),
             workspaceRole: SdkClient::hydrateStringEnumOrString($data->workspace_role, BetaNoBillingWorkspaceRoleSchema::class),
@@ -231,7 +243,9 @@ class BetaWorkspaceCreateParams implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "name") || $data->name === null) { throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null"); }
+        if (!property_exists($data, "name") || $data->name === null) {
+            throw new SdkValidationError("name", 'required', "Required property 'name' is missing or null");
+        }
         return new self(
             name: SdkClient::stringValue($data->name),
             dataResidency: (property_exists($data, "data_residency") ? ($data->data_residency === null ? null : SdkClient::hydrateClass($data->data_residency, BetaDataResidencyCreateParams::class)) : SdkNotGiven::Value),
@@ -249,9 +263,24 @@ final readonly class BetaWorkspaceGeo implements SdkOpenEnum
 {
     public const US = "us";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }

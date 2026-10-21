@@ -141,8 +141,12 @@ class BetaScopedApiKeyActorSchema implements BetaApproveSpendLimitIncreaseReques
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "scoped_api_key_id") || $data->scoped_api_key_id === null) { throw new SdkValidationError("scoped_api_key_id", 'required', "Required property 'scoped_api_key_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "scoped_api_key_id") || $data->scoped_api_key_id === null) {
+            throw new SdkValidationError("scoped_api_key_id", 'required', "Required property 'scoped_api_key_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "scoped_api_key_actor");
         return new self(
             scopedApiKeyId: SdkClient::stringValue($data->scoped_api_key_id),
@@ -200,8 +204,12 @@ class BetaSeatTierScope implements BetaSpendLimitScope, BetaSpendSummarySource, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "seat_tier") || $data->seat_tier === null) { throw new SdkValidationError("seat_tier", 'required', "Required property 'seat_tier' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "seat_tier") || $data->seat_tier === null) {
+            throw new SdkValidationError("seat_tier", 'required', "Required property 'seat_tier' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "seat_tier");
         return new self(
             seatTier: SdkClient::stringValue($data->seat_tier),
@@ -259,8 +267,12 @@ class BetaSessionWorkData implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "session");
         return new self(
             id: SdkClient::stringValue($data->id),
@@ -277,11 +289,26 @@ final readonly class BetaSpeed implements SdkOpenEnum
     public const STANDARD = "standard";
     public const FAST = "fast";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -298,11 +325,26 @@ final readonly class BetaStopReason implements SdkOpenEnum
     public const REFUSAL = "refusal";
     public const MODEL_CONTEXT_WINDOW_EXCEEDED = "model_context_window_exceeded";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**

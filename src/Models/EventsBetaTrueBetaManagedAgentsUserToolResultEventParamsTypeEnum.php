@@ -87,8 +87,12 @@ class BetaManagedAgentsUserToolResultEventParams implements BetaManagedAgentsEve
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) { throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "tool_use_id") || $data->tool_use_id === null) {
+            throw new SdkValidationError("tool_use_id", 'required', "Required property 'tool_use_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserToolResultEventParamsTypeEnum::class),
             toolUseId: SdkClient::stringValue($data->tool_use_id),

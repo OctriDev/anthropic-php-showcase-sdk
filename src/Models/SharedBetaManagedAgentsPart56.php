@@ -94,7 +94,9 @@ class BetaManagedAgentsUserLocation implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "approximate");
         return new self(
             type: SdkClient::stringValue($data->type),
@@ -184,9 +186,15 @@ class BetaManagedAgentsUserMessageEvent implements BetaManagedAgentsInputEvent, 
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserMessageEventTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -252,8 +260,12 @@ class BetaManagedAgentsUserMessageEventParams implements BetaManagedAgentsDeploy
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "content") || $data->content === null) { throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "content") || $data->content === null) {
+            throw new SdkValidationError("content", 'required', "Required property 'content' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsUserMessageEventParamsTypeEnum::class),
             content: array_values(array_map(static fn($item) => SdkClient::hydrateUnionAs($item, BetaManagedAgentsUserContentBlock::class, [BetaManagedAgentsTextBlock::class, BetaManagedAgentsImageBlock::class, BetaManagedAgentsDocumentBlock::class, BetaManagedAgentsRedactedBlock::class], "type", ["text" => BetaManagedAgentsTextBlock::class, "image" => BetaManagedAgentsImageBlock::class, "document" => BetaManagedAgentsDocumentBlock::class, "redacted" => BetaManagedAgentsRedactedBlock::class], UnknownBetaManagedAgentsUserContentBlock::class), SdkClient::arrayValue($data->content))),

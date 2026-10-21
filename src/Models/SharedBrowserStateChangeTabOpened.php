@@ -56,8 +56,12 @@ class BrowserStateChangeTabOpened implements RequestBrowserStateBlockStateChange
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tab_id") || $data->tab_id === null) { throw new SdkValidationError("tab_id", 'required', "Required property 'tab_id' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "tab_id") || $data->tab_id === null) {
+            throw new SdkValidationError("tab_id", 'required', "Required property 'tab_id' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "tab_opened");
         return new self(
             tabId: SdkClient::stringValue($data->tab_id),
@@ -136,9 +140,15 @@ class BrowserStateTabEntry implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "tab_id") || $data->tab_id === null) { throw new SdkValidationError("tab_id", 'required', "Required property 'tab_id' is missing or null"); }
-        if (!property_exists($data, "title") || $data->title === null) { throw new SdkValidationError("title", 'required', "Required property 'title' is missing or null"); }
-        if (!property_exists($data, "url") || $data->url === null) { throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null"); }
+        if (!property_exists($data, "tab_id") || $data->tab_id === null) {
+            throw new SdkValidationError("tab_id", 'required', "Required property 'tab_id' is missing or null");
+        }
+        if (!property_exists($data, "title") || $data->title === null) {
+            throw new SdkValidationError("title", 'required', "Required property 'title' is missing or null");
+        }
+        if (!property_exists($data, "url") || $data->url === null) {
+            throw new SdkValidationError("url", 'required', "Required property 'url' is missing or null");
+        }
         return new self(
             tabId: SdkClient::stringValue($data->tab_id),
             title: SdkClient::stringValue($data->title),
@@ -270,7 +280,9 @@ class BrowserToolset_20260801 implements CountMessageTokensParamsToolsItem, Crea
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "browser_toolset_20260801");
         return new self(
             type: SdkClient::stringValue($data->type),

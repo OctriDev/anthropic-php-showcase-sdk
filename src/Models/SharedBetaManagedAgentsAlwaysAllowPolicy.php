@@ -45,7 +45,9 @@ class BetaManagedAgentsAlwaysAllowPolicy implements BetaManagedAgentsPermissionP
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAlwaysAllowPolicyTypeEnum::class),
         );
@@ -98,7 +100,9 @@ class BetaManagedAgentsAlwaysAskPolicy implements BetaManagedAgentsPermissionPol
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAlwaysAskPolicyTypeEnum::class),
         );
@@ -171,9 +175,15 @@ class BetaManagedAgentsAnthropicSkill implements BetaManagedAgentsSkill, \JsonSe
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "skill_id") || $data->skill_id === null) { throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null"); }
-        if (!property_exists($data, "version") || $data->version === null) { throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "skill_id") || $data->skill_id === null) {
+            throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null");
+        }
+        if (!property_exists($data, "version") || $data->version === null) {
+            throw new SdkValidationError("version", 'required', "Required property 'version' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAnthropicSkillTypeEnum::class),
             skillId: SdkClient::stringValue($data->skill_id),
@@ -250,8 +260,12 @@ class BetaManagedAgentsAnthropicSkillParams implements BetaManagedAgentsSkillPar
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "skill_id") || $data->skill_id === null) { throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "skill_id") || $data->skill_id === null) {
+            throw new SdkValidationError("skill_id", 'required', "Required property 'skill_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsAnthropicSkillParamsTypeEnum::class),
             skillId: SdkClient::stringValue($data->skill_id),
@@ -316,8 +330,12 @@ class BetaManagedAgentsApiActor implements BetaManagedAgentsActor, \JsonSerializ
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "api_key_id") || $data->api_key_id === null) { throw new SdkValidationError("api_key_id", 'required', "Required property 'api_key_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "api_key_id") || $data->api_key_id === null) {
+            throw new SdkValidationError("api_key_id", 'required', "Required property 'api_key_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsApiActorTypeEnum::class),
             apiKeyId: SdkClient::stringValue($data->api_key_id),

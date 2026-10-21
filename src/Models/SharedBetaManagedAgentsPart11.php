@@ -57,7 +57,9 @@ class BetaManagedAgentsConflictError implements BetaManagedAgentsError, \JsonSer
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsConflictErrorTypeEnum::class),
             message: (property_exists($data, "message") && $data->message !== null ? SdkClient::stringValue($data->message) : SdkNotGiven::Value),
@@ -72,11 +74,26 @@ final readonly class BetaManagedAgentsCredentialTypeEnum implements SdkOpenEnum
 {
     public const VAULT_CREDENTIAL = "vault_credential";
     private function __construct(public string $value) {}
-    public static function from(string|int $value): static { return new self((string) $value); }
-    public static function tryFrom(string|int|null $value): ?static { return $value === null ? null : self::from($value); }
-    public function getValue(): string { return $this->value; }
-    public function jsonSerialize(): string { return $this->value; }
-    public function __toString(): string { return (string) $this->value; }
+    public static function from(string|int $value): static
+    {
+        return new self((string) $value);
+    }
+    public static function tryFrom(string|int|null $value): ?static
+    {
+        return $value === null ? null : self::from($value);
+    }
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+    public function jsonSerialize(): string
+    {
+        return $this->value;
+    }
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
 }
 
 /**
@@ -199,14 +216,30 @@ class BetaManagedAgentsCredential implements \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "id") || $data->id === null) { throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null"); }
-        if (!property_exists($data, "vault_id") || $data->vault_id === null) { throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null"); }
-        if (!property_exists($data, "metadata") || $data->metadata === null) { throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null"); }
-        if (!property_exists($data, "created_at") || $data->created_at === null) { throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null"); }
-        if (!property_exists($data, "updated_at") || $data->updated_at === null) { throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null"); }
-        if (!property_exists($data, "archived_at")) { throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'"); }
-        if (!property_exists($data, "auth") || $data->auth === null) { throw new SdkValidationError("auth", 'required', "Required property 'auth' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "id") || $data->id === null) {
+            throw new SdkValidationError("id", 'required', "Required property 'id' is missing or null");
+        }
+        if (!property_exists($data, "vault_id") || $data->vault_id === null) {
+            throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null");
+        }
+        if (!property_exists($data, "metadata") || $data->metadata === null) {
+            throw new SdkValidationError("metadata", 'required', "Required property 'metadata' is missing or null");
+        }
+        if (!property_exists($data, "created_at") || $data->created_at === null) {
+            throw new SdkValidationError("created_at", 'required', "Required property 'created_at' is missing or null");
+        }
+        if (!property_exists($data, "updated_at") || $data->updated_at === null) {
+            throw new SdkValidationError("updated_at", 'required', "Required property 'updated_at' is missing or null");
+        }
+        if (!property_exists($data, "archived_at")) {
+            throw new SdkValidationError("archived_at", 'required', "Missing required property 'archived_at'");
+        }
+        if (!property_exists($data, "auth") || $data->auth === null) {
+            throw new SdkValidationError("auth", 'required', "Required property 'auth' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateStringEnumOrString($data->type, BetaManagedAgentsCredentialTypeEnum::class),
             id: SdkClient::stringValue($data->id),
@@ -307,11 +340,21 @@ class BetaManagedAgentsCredentialHostUnreachableError implements BetaManagedAgen
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
-        if (!property_exists($data, "message") || $data->message === null) { throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null"); }
-        if (!property_exists($data, "retry_status") || $data->retry_status === null) { throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null"); }
-        if (!property_exists($data, "vault_id") || $data->vault_id === null) { throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null"); }
-        if (!property_exists($data, "credential_id") || $data->credential_id === null) { throw new SdkValidationError("credential_id", 'required', "Required property 'credential_id' is missing or null"); }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
+        if (!property_exists($data, "message") || $data->message === null) {
+            throw new SdkValidationError("message", 'required', "Required property 'message' is missing or null");
+        }
+        if (!property_exists($data, "retry_status") || $data->retry_status === null) {
+            throw new SdkValidationError("retry_status", 'required', "Required property 'retry_status' is missing or null");
+        }
+        if (!property_exists($data, "vault_id") || $data->vault_id === null) {
+            throw new SdkValidationError("vault_id", 'required', "Required property 'vault_id' is missing or null");
+        }
+        if (!property_exists($data, "credential_id") || $data->credential_id === null) {
+            throw new SdkValidationError("credential_id", 'required', "Required property 'credential_id' is missing or null");
+        }
         return new self(
             type: SdkClient::hydrateEnum($data->type, BetaManagedAgentsCredentialHostUnreachableErrorTypeEnum::class),
             message: SdkClient::stringValue($data->message),

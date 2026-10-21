@@ -56,8 +56,12 @@ class RequestRedactedThinkingBlock implements InputContentBlock, \JsonSerializab
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "data") || $data->data === null) { throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "data") || $data->data === null) {
+            throw new SdkValidationError("data", 'required', "Required property 'data' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "redacted_thinking");
         return new self(
             data: SdkClient::stringValue($data->data),
@@ -125,9 +129,15 @@ class RequestThinkingBlock implements InputContentBlock, \JsonSerializable
 
     public static function fromObject(object $data): self
     {
-        if (!property_exists($data, "signature") || $data->signature === null) { throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null"); }
-        if (!property_exists($data, "thinking") || $data->thinking === null) { throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null"); }
-        if (!property_exists($data, "type") || $data->type === null) { throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null"); }
+        if (!property_exists($data, "signature") || $data->signature === null) {
+            throw new SdkValidationError("signature", 'required', "Required property 'signature' is missing or null");
+        }
+        if (!property_exists($data, "thinking") || $data->thinking === null) {
+            throw new SdkValidationError("thinking", 'required', "Required property 'thinking' is missing or null");
+        }
+        if (!property_exists($data, "type") || $data->type === null) {
+            throw new SdkValidationError("type", 'required', "Required property 'type' is missing or null");
+        }
         Validation::validateConst("type", $data->type, "thinking");
         return new self(
             signature: SdkClient::stringValue($data->signature),
